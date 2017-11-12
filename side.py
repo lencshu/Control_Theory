@@ -5,7 +5,7 @@ import os
 
 if os.path.exists("index.html") :
 	os.remove("index.html")
-html = open('in.html',"r+")
+html = open('MC59.html',"r+")
 
 soup = BeautifulSoup(html, "html.parser")
 #Rename
@@ -25,4 +25,4 @@ if post != -1:
     file = open('index.html', 'w')
     file.write(html)
 file.close( )
-os.remove("in.html")
+os.remove("MC59.html")
