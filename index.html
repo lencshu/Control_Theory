@@ -1,4 +1,9 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><style> /*左边目录框的样式*/
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <style>
+   /*左边目录框的样式*/
 .tod {
     height: 100%; /*目录框的高度*/
     float:left;/*目录框的位置*/
@@ -31,7 +36,7 @@ A:hover { text-decoration:underline;}
   word-wrap: break-word;
   margin: 16px auto;
   max-width: 980px;
-  outline: 1300px solid #fff;
+  outline: 1300px solid #fff;float:right;padding-left:10px;width:60%;
 
 }
 
@@ -1129,7 +1134,9 @@ For Level Colors
     page-break-after: avoid;
   }
 }
-</style><style>/*github*/
+  </style>
+  <style>
+   /*github*/
 .codehilite {background-color:#fff;color:#333333;}
 .codehilite .hll {background-color:#ffffcc;}
 .codehilite .c{color:#999988;font-style:italic}
@@ -1192,9 +1199,11 @@ For Level Colors
 .codehilite .vi{color:teal}
 .codehilite .il{color:#009999}
 .codehilite .gc{color:#999;background-color:#EAF2F5}
-</style><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-MathJax.Hub.Config({
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  </script>
+  <script>
+   MathJax.Hub.Config({
   config: ["MMLorHTML.js"],
   extensions: ["tex2jax.js"],
   jax: ["input/TeX"],
@@ -1217,18 +1226,22 @@ MathJax.Hub.Config({
   },
   showProcessingMessages: false
 });
-</script>
-<script type="text/javascript" charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
-<script type="text/javascript" charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
-<script type="text/javascript" charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.4/sequence-diagram-min.js"></script>
-<script type="text/javascript">// flowchart, v1.3.4
+  </script>
+  <script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js" type="text/javascript">
+  </script>
+  <script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js" type="text/javascript">
+  </script>
+  <script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.4/sequence-diagram-min.js" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   // flowchart, v1.3.4
 // Copyright (c)2014 Adriano Raiano (adrai).
 // Distributed under MIT license
 // http://adrai.github.io/flowchart.js
 !function(){function a(b,c){if(!b||"function"==typeof b)return c;var d={};for(var e in c)d[e]=c[e];for(e in b)b[e]&&(d[e]="object"==typeof d[e]?a(d[e],b[e]):b[e]);return d}function b(a,b){if("function"==typeof Object.create)a.super_=b,a.prototype=Object.create(b.prototype,{constructor:{value:a,enumerable:!1,writable:!0,configurable:!0}});else{a.super_=b;var c=function(){};c.prototype=b.prototype,a.prototype=new c,a.prototype.constructor=a}}function c(a,b,c){var d,e,f="M{0},{1}";for(d=2,e=2*c.length+2;e>d;d+=2)f+=" L{"+d+"},{"+(d+1)+"}";var g=[b.x,b.y];for(d=0,e=c.length;e>d;d++)g.push(c[d].x),g.push(c[d].y);var h=a.paper.path(f,g);h.attr("stroke",a.options["element-color"]),h.attr("stroke-width",a.options["line-width"]);var i=a.options.font,j=a.options["font-family"],k=a.options["font-weight"];return i&&h.attr({font:i}),j&&h.attr({"font-family":j}),k&&h.attr({"font-weight":k}),h}function d(a,b,c,d){var e,f;"[object Array]"!==Object.prototype.toString.call(c)&&(c=[c]);var g="M{0},{1}";for(e=2,f=2*c.length+2;f>e;e+=2)g+=" L{"+e+"},{"+(e+1)+"}";var h=[b.x,b.y];for(e=0,f=c.length;f>e;e++)h.push(c[e].x),h.push(c[e].y);var i=a.paper.path(g,h);i.attr({stroke:a.options["line-color"],"stroke-width":a.options["line-width"],"arrow-end":a.options["arrow-end"]});var j=a.options.font,k=a.options["font-family"],l=a.options["font-weight"];if(j&&i.attr({font:j}),k&&i.attr({"font-family":k}),l&&i.attr({"font-weight":l}),d){var m=!1,n=a.paper.text(0,0,d),o=!1,p=c[0];b.y===p.y&&(o=!0);var q=0,r=0;m?(q=b.x>p.x?b.x-(b.x-p.x)/2:p.x-(p.x-b.x)/2,r=b.y>p.y?b.y-(b.y-p.y)/2:p.y-(p.y-b.y)/2,o?(q-=n.getBBox().width/2,r-=a.options["text-margin"]):(q+=a.options["text-margin"],r-=n.getBBox().height/2)):(q=b.x,r=b.y,o?(q+=a.options["text-margin"]/2,r-=a.options["text-margin"]):(q+=a.options["text-margin"]/2,r+=a.options["text-margin"])),n.attr({"text-anchor":"start","font-size":a.options["font-size"],fill:a.options["font-color"],x:q,y:r}),j&&n.attr({font:j}),k&&n.attr({"font-family":k}),l&&n.attr({"font-weight":l})}return i}function e(a,b,c,d,e,f,g,h){var i,j,k,l,m,n={x:null,y:null,onLine1:!1,onLine2:!1};return i=(h-f)*(c-a)-(g-e)*(d-b),0===i?n:(j=b-f,k=a-e,l=(g-e)*j-(h-f)*k,m=(c-a)*j-(d-b)*k,j=l/i,k=m/i,n.x=a+j*(c-a),n.y=b+j*(d-b),j>0&&1>j&&(n.onLine1=!0),k>0&&1>k&&(n.onLine2=!0),n)}function f(a,b){b=b||{},this.paper=new Raphael(a),this.options=r.defaults(b,q),this.symbols=[],this.lines=[],this.start=null}function g(a,b,c){this.chart=a,this.group=this.chart.paper.set(),this.symbol=c,this.connectedTo=[],this.symbolType=b.symbolType,this.flowstate=b.flowstate||"future",this.next_direction=b.next&&b.direction_next?b.direction_next:void 0,this.text=this.chart.paper.text(0,0,b.text),b.key&&(this.text.node.id=b.key+"t"),this.text.node.setAttribute("class",this.getAttr("class")+"t"),this.text.attr({"text-anchor":"start",x:this.getAttr("text-margin"),fill:this.getAttr("font-color"),"font-size":this.getAttr("font-size")});var d=this.getAttr("font"),e=this.getAttr("font-family"),f=this.getAttr("font-weight");d&&this.text.attr({font:d}),e&&this.text.attr({"font-family":e}),f&&this.text.attr({"font-weight":f}),b.link&&this.text.attr("href",b.link),b.target&&this.text.attr("target",b.target);var g=this.getAttr("maxWidth");if(g){for(var h=b.text.split(" "),i="",j=0,k=h.length;k>j;j++){var l=h[j];this.text.attr("text",i+" "+l),i+=this.text.getBBox().width>g?"\n"+l:" "+l}this.text.attr("text",i.substring(1))}if(this.group.push(this.text),c){var m=this.getAttr("text-margin");c.attr({fill:this.getAttr("fill"),stroke:this.getAttr("element-color"),"stroke-width":this.getAttr("line-width"),width:this.text.getBBox().width+2*m,height:this.text.getBBox().height+2*m}),c.node.setAttribute("class",this.getAttr("class")),b.link&&c.attr("href",b.link),b.target&&c.attr("target",b.target),b.key&&(c.node.id=b.key),this.group.push(c),c.insertBefore(this.text),this.text.attr({y:c.getBBox().height/2}),this.initialize()}}function h(a,b){var c=a.paper.rect(0,0,0,0,20);b=b||{},b.text=b.text||"Start",g.call(this,a,b,c)}function i(a,b){var c=a.paper.rect(0,0,0,0,20);b=b||{},b.text=b.text||"End",g.call(this,a,b,c)}function j(a,b){var c=a.paper.rect(0,0,0,0);b=b||{},g.call(this,a,b,c)}function k(a,b){var c=a.paper.rect(0,0,0,0);b=b||{},g.call(this,a,b,c),c.attr({width:this.text.getBBox().width+4*this.getAttr("text-margin")}),this.text.attr({x:2*this.getAttr("text-margin")});var d=a.paper.rect(0,0,0,0);d.attr({x:this.getAttr("text-margin"),stroke:this.getAttr("element-color"),"stroke-width":this.getAttr("line-width"),width:this.text.getBBox().width+2*this.getAttr("text-margin"),height:this.text.getBBox().height+2*this.getAttr("text-margin"),fill:this.getAttr("fill")}),b.key&&(d.node.id=b.key+"i");var e=this.getAttr("font"),f=this.getAttr("font-family"),h=this.getAttr("font-weight");e&&d.attr({font:e}),f&&d.attr({"font-family":f}),h&&d.attr({"font-weight":h}),b.link&&d.attr("href",b.link),b.target&&d.attr("target",b.target),this.group.push(d),d.insertBefore(this.text),this.initialize()}function l(a,b){b=b||{},g.call(this,a,b),this.textMargin=this.getAttr("text-margin"),this.text.attr({x:3*this.textMargin});var d=this.text.getBBox().width+4*this.textMargin,e=this.text.getBBox().height+2*this.textMargin,f=this.textMargin,h=e/2,i={x:f,y:h},j=[{x:f-this.textMargin,y:e},{x:f-this.textMargin+d,y:e},{x:f-this.textMargin+d+2*this.textMargin,y:0},{x:f-this.textMargin+2*this.textMargin,y:0},{x:f,y:h}],k=c(a,i,j);k.attr({stroke:this.getAttr("element-color"),"stroke-width":this.getAttr("line-width"),fill:this.getAttr("fill")}),b.link&&k.attr("href",b.link),b.target&&k.attr("target",b.target),b.key&&(k.node.id=b.key),k.node.setAttribute("class",this.getAttr("class")),this.text.attr({y:k.getBBox().height/2}),this.group.push(k),k.insertBefore(this.text),this.initialize()}function m(a,b){b=b||{},g.call(this,a,b),this.textMargin=this.getAttr("text-margin"),this.yes_direction="bottom",this.no_direction="right",b.yes&&b.direction_yes&&b.no&&!b.direction_no?"right"===b.direction_yes?(this.no_direction="bottom",this.yes_direction="right"):(this.no_direction="right",this.yes_direction="bottom"):b.yes&&!b.direction_yes&&b.no&&b.direction_no?"right"===b.direction_no?(this.yes_direction="bottom",this.no_direction="right"):(this.yes_direction="right",this.no_direction="bottom"):(this.yes_direction="bottom",this.no_direction="right"),this.yes_direction=this.yes_direction||"bottom",this.no_direction=this.no_direction||"right",this.text.attr({x:2*this.textMargin});var d=this.text.getBBox().width+3*this.textMargin;d+=d/2;var e=this.text.getBBox().height+2*this.textMargin;e+=e/2,e=Math.max(.5*d,e);var f=d/4,h=e/4;this.text.attr({x:f+this.textMargin/2});var i={x:f,y:h},j=[{x:f-d/4,y:h+e/4},{x:f-d/4+d/2,y:h+e/4+e/2},{x:f-d/4+d,y:h+e/4},{x:f-d/4+d/2,y:h+e/4-e/2},{x:f-d/4,y:h+e/4}],k=c(a,i,j);k.attr({stroke:this.getAttr("element-color"),"stroke-width":this.getAttr("line-width"),fill:this.getAttr("fill")}),b.link&&k.attr("href",b.link),b.target&&k.attr("target",b.target),b.key&&(k.node.id=b.key),k.node.setAttribute("class",this.getAttr("class")),this.text.attr({y:k.getBBox().height/2}),this.group.push(k),k.insertBefore(this.text),this.initialize()}function n(a){function b(a){var b=a.indexOf("(")+1,c=a.indexOf(")");return b>=0&&c>=0?d.symbols[a.substring(0,b-1)]:d.symbols[a]}function c(a){var b="next",c=a.indexOf("(")+1,d=a.indexOf(")");return c>=0&&d>=0&&(b=D.substring(c,d),b.indexOf(",")<0&&"yes"!==b&&"no"!==b&&(b="next, "+b)),b}a=a||"",a=a.trim();for(var d={symbols:{},start:null,drawSVG:function(a,b){function c(a){if(g[a.key])return g[a.key];switch(a.symbolType){case"start":g[a.key]=new h(e,a);break;case"end":g[a.key]=new i(e,a);break;case"operation":g[a.key]=new j(e,a);break;case"inputoutput":g[a.key]=new l(e,a);break;case"subroutine":g[a.key]=new k(e,a);break;case"condition":g[a.key]=new m(e,a);break;default:return new Error("Wrong symbol type!")}return g[a.key]}var d=this;this.diagram&&this.diagram.clean();var e=new f(a,b);this.diagram=e;var g={};!function n(a,b,f){var g=c(a);return d.start===a?e.startWith(g):b&&f&&!b.pathOk&&(b instanceof m?(f.yes===a&&b.yes(g),f.no===a&&b.no(g)):b.then(g)),g.pathOk?g:(g instanceof m?(a.yes&&n(a.yes,g,a),a.no&&n(a.no,g,a)):a.next&&n(a.next,g,a),g)}(this.start),e.render()},clean:function(){this.diagram.clean()}},e=[],g=0,n=1,o=a.length;o>n;n++)if("\n"===a[n]&&"\\"!==a[n-1]){var p=a.substring(g,n);g=n+1,e.push(p.replace(/\\\n/g,"\n"))}g<a.length&&e.push(a.substr(g));for(var q=1,r=e.length;r>q;){var s=e[q];s.indexOf(": ")<0&&s.indexOf("(")<0&&s.indexOf(")")<0&&s.indexOf("->")<0&&s.indexOf("=>")<0?(e[q-1]+="\n"+s,e.splice(q,1),r--):q++}for(;e.length>0;){var t=e.splice(0,1)[0];if(t.indexOf("=>")>=0){var u,v=t.split("=>"),w={key:v[0],symbolType:v[1],text:null,link:null,target:null,flowstate:null};if(w.symbolType.indexOf(": ")>=0&&(u=w.symbolType.split(": "),w.symbolType=u[0],w.text=u[1]),w.text&&w.text.indexOf(":>")>=0?(u=w.text.split(":>"),w.text=u[0],w.link=u[1]):w.symbolType.indexOf(":>")>=0&&(u=w.symbolType.split(":>"),w.symbolType=u[0],w.link=u[1]),w.symbolType.indexOf("\n")>=0&&(w.symbolType=w.symbolType.split("\n")[0]),w.link){var x=w.link.indexOf("[")+1,y=w.link.indexOf("]");x>=0&&y>=0&&(w.target=w.link.substring(x,y),w.link=w.link.substring(0,x-1))}if(w.text&&w.text.indexOf("|")>=0){var z=w.text.split("|");w.text=z[0],w.flowstate=z[1].trim()}d.symbols[w.key]=w}else if(t.indexOf("->")>=0)for(var A=t.split("->"),B=0,C=A.length;C>B;B++){var D=A[B],E=b(D),F=c(D),G=null;if(F.indexOf(",")>=0){var H=F.split(",");F=H[0],G=H[1].trim()}if(d.start||(d.start=E),C>B+1){var I=A[B+1];E[F]=b(I),E["direction_"+F]=G,G=null}}}return d}Array.prototype.indexOf||(Array.prototype.indexOf=function(a){"use strict";if(null===this)throw new TypeError;var b=Object(this),c=b.length>>>0;if(0===c)return-1;var d=0;if(arguments.length>0&&(d=Number(arguments[1]),d!=d?d=0:0!==d&&1/0!=d&&d!=-1/0&&(d=(d>0||-1)*Math.floor(Math.abs(d)))),d>=c)return-1;for(var e=d>=0?d:Math.max(c-Math.abs(d),0);c>e;e++)if(e in b&&b[e]===a)return e;return-1}),Array.prototype.lastIndexOf||(Array.prototype.lastIndexOf=function(a){"use strict";if(null===this)throw new TypeError;var b=Object(this),c=b.length>>>0;if(0===c)return-1;var d=c;arguments.length>1&&(d=Number(arguments[1]),d!=d?d=0:0!==d&&d!=1/0&&d!=-(1/0)&&(d=(d>0||-1)*Math.floor(Math.abs(d))));for(var e=d>=0?Math.min(d,c-1):c-Math.abs(d);e>=0;e--)if(e in b&&b[e]===a)return e;return-1}),String.prototype.trim||(String.prototype.trim=function(){return this.replace(/^\s+|\s+$/g,"")});var o=this,p={};"undefined"!=typeof module&&module.exports?module.exports=p:o.flowchart=o.flowchart||p;var q={x:0,y:0,"line-width":3,"line-length":50,"text-margin":10,"font-size":14,"font-color":"black","line-color":"black","element-color":"black",fill:"white","yes-text":"yes","no-text":"no","arrow-end":"block","class":"flowchart",symbols:{start:{},end:{},condition:{},inputoutput:{},operation:{},subroutine:{}}},r={defaults:a,inherits:b};f.prototype.handle=function(a){this.symbols.indexOf(a)<=-1&&this.symbols.push(a);var b=this;return a instanceof m?(a.yes=function(c){return a.yes_symbol=c,a.no_symbol&&(a.pathOk=!0),b.handle(c)},a.no=function(c){return a.no_symbol=c,a.yes_symbol&&(a.pathOk=!0),b.handle(c)}):a.then=function(c){return a.next=c,a.pathOk=!0,b.handle(c)},a},f.prototype.startWith=function(a){return this.start=a,this.handle(a)},f.prototype.render=function(){var a,b=0,c=0,d=0,e=0,f=0,g=0;for(d=0,e=this.symbols.length;e>d;d++)a=this.symbols[d],a.width>b&&(b=a.width),a.height>c&&(c=a.height);for(d=0,e=this.symbols.length;e>d;d++)a=this.symbols[d],a.shiftX(this.options.x+(b-a.width)/2+this.options["line-width"]),a.shiftY(this.options.y+(c-a.height)/2+this.options["line-width"]);for(this.start.render(),d=0,e=this.symbols.length;e>d;d++)a=this.symbols[d],a.renderLines();for(f=this.maxXFromLine,d=0,e=this.symbols.length;e>d;d++){a=this.symbols[d];var h=a.getX()+a.width,i=a.getY()+a.height;h>f&&(f=h),i>g&&(g=i)}this.paper.setSize(f+this.options["line-width"],g+this.options["line-width"])},f.prototype.clean=function(){if(this.paper){var a=this.paper.canvas;a.parentNode.removeChild(a)}},g.prototype.getAttr=function(a){if(!this.chart)return void 0;var b,c=this.chart.options?this.chart.options[a]:void 0,d=this.chart.options.symbols?this.chart.options.symbols[this.symbolType][a]:void 0;return this.chart.options.flowstate&&this.chart.options.flowstate[this.flowstate]&&(b=this.chart.options.flowstate[this.flowstate][a]),b||d||c},g.prototype.initialize=function(){this.group.transform("t"+this.getAttr("line-width")+","+this.getAttr("line-width")),this.width=this.group.getBBox().width,this.height=this.group.getBBox().height},g.prototype.getCenter=function(){return{x:this.getX()+this.width/2,y:this.getY()+this.height/2}},g.prototype.getX=function(){return this.group.getBBox().x},g.prototype.getY=function(){return this.group.getBBox().y},g.prototype.shiftX=function(a){this.group.transform("t"+(this.getX()+a)+","+this.getY())},g.prototype.setX=function(a){this.group.transform("t"+a+","+this.getY())},g.prototype.shiftY=function(a){this.group.transform("t"+this.getX()+","+(this.getY()+a))},g.prototype.setY=function(a){this.group.transform("t"+this.getX()+","+a)},g.prototype.getTop=function(){var a=this.getY(),b=this.getX()+this.width/2;return{x:b,y:a}},g.prototype.getBottom=function(){var a=this.getY()+this.height,b=this.getX()+this.width/2;return{x:b,y:a}},g.prototype.getLeft=function(){var a=this.getY()+this.group.getBBox().height/2,b=this.getX();return{x:b,y:a}},g.prototype.getRight=function(){var a=this.getY()+this.group.getBBox().height/2,b=this.getX()+this.group.getBBox().width;return{x:b,y:a}},g.prototype.render=function(){if(this.next){var a=this.getAttr("line-length");if("right"===this.next_direction){var b=this.getRight();if(this.next.getLeft(),!this.next.isPositioned){this.next.setY(b.y-this.next.height/2),this.next.shiftX(this.group.getBBox().x+this.width+a);var c=this;!function e(){for(var b,d=!1,f=0,g=c.chart.symbols.length;g>f;f++){b=c.chart.symbols[f];var h=Math.abs(b.getCenter().x-c.next.getCenter().x);if(b.getCenter().y>c.next.getCenter().y&&h<=c.next.width/2){d=!0;break}}d&&(c.next.setX(b.getX()+b.width+a),e())}(),this.next.isPositioned=!0,this.next.render()}}else{var d=this.getBottom();this.next.getTop(),this.next.isPositioned||(this.next.shiftY(this.getY()+this.height+a),this.next.setX(d.x-this.next.width/2),this.next.isPositioned=!0,this.next.render())}}},g.prototype.renderLines=function(){this.next&&(this.next_direction?this.drawLineTo(this.next,"",this.next_direction):this.drawLineTo(this.next))},g.prototype.drawLineTo=function(a,b,c){this.connectedTo.indexOf(a)<0&&this.connectedTo.push(a);var f,g=this.getCenter().x,h=this.getCenter().y,i=(this.getTop(),this.getRight()),j=this.getBottom(),k=this.getLeft(),l=a.getCenter().x,m=a.getCenter().y,n=a.getTop(),o=a.getRight(),p=(a.getBottom(),a.getLeft()),q=g===l,r=h===m,s=m>h,t=h>m,u=g>l,v=l>g,w=0,x=this.getAttr("line-length"),y=this.getAttr("line-width");if(c&&"bottom"!==c||!q||!s)if(c&&"right"!==c||!r||!v)if(c&&"left"!==c||!r||!u)if(c&&"right"!==c||!q||!t)if(c&&"right"!==c||!q||!s)if(c&&"bottom"!==c||!u)if(c&&"bottom"!==c||!v)if(c&&"right"===c&&u)f=d(this.chart,i,[{x:i.x+x/2,y:i.y},{x:i.x+x/2,y:n.y-x/2},{x:n.x,y:n.y-x/2},{x:n.x,y:n.y}],b),this.rightStart=!0,a.topEnd=!0,w=i.x+x/2;else if(c&&"right"===c&&v)f=d(this.chart,i,[{x:n.x,y:i.y},{x:n.x,y:n.y}],b),this.rightStart=!0,a.topEnd=!0,w=i.x+x/2;else if(c&&"bottom"===c&&q&&t)f=d(this.chart,j,[{x:j.x,y:j.y+x/2},{x:i.x+x/2,y:j.y+x/2},{x:i.x+x/2,y:n.y-x/2},{x:n.x,y:n.y-x/2},{x:n.x,y:n.y}],b),this.bottomStart=!0,a.topEnd=!0,w=j.x+x/2;else if("left"===c&&q&&t){var z=k.x-x/2;p.x<k.x&&(z=p.x-x/2),f=d(this.chart,k,[{x:z,y:k.y},{x:z,y:n.y-x/2},{x:n.x,y:n.y-x/2},{x:n.x,y:n.y}],b),this.leftStart=!0,a.topEnd=!0,w=k.x}else"left"===c&&(f=d(this.chart,k,[{x:n.x+(k.x-n.x)/2,y:k.y},{x:n.x+(k.x-n.x)/2,y:n.y-x/2},{x:n.x,y:n.y-x/2},{x:n.x,y:n.y}],b),this.leftStart=!0,a.topEnd=!0,w=k.x);else f=d(this.chart,j,[{x:j.x,y:j.y+x/2},{x:j.x+(j.x-n.x)/2,y:j.y+x/2},{x:j.x+(j.x-n.x)/2,y:n.y-x/2},{x:n.x,y:n.y-x/2},{x:n.x,y:n.y}],b),this.bottomStart=!0,a.topEnd=!0,w=j.x+(j.x-n.x)/2;else f=this.leftEnd&&t?d(this.chart,j,[{x:j.x,y:j.y+x/2},{x:j.x+(j.x-n.x)/2,y:j.y+x/2},{x:j.x+(j.x-n.x)/2,y:n.y-x/2},{x:n.x,y:n.y-x/2},{x:n.x,y:n.y}],b):d(this.chart,j,[{x:j.x,y:n.y-x/2},{x:n.x,y:n.y-x/2},{x:n.x,y:n.y}],b),this.bottomStart=!0,a.topEnd=!0,w=j.x+(j.x-n.x)/2;else f=d(this.chart,i,[{x:i.x+x/2,y:i.y},{x:i.x+x/2,y:n.y-x/2},{x:n.x,y:n.y-x/2},{x:n.x,y:n.y}],b),this.rightStart=!0,a.topEnd=!0,w=i.x+x/2;else f=d(this.chart,i,[{x:i.x+x/2,y:i.y},{x:i.x+x/2,y:n.y-x/2},{x:n.x,y:n.y-x/2},{x:n.x,y:n.y}],b),this.rightStart=!0,a.topEnd=!0,w=i.x+x/2;else f=d(this.chart,k,o,b),this.leftStart=!0,a.rightEnd=!0,w=o.x;else f=d(this.chart,i,p,b),this.rightStart=!0,a.leftEnd=!0,w=p.x;else f=d(this.chart,j,n,b),this.bottomStart=!0,a.topEnd=!0,w=j.x;if(f){for(var A=0,B=this.chart.lines.length;B>A;A++)for(var C,D=this.chart.lines[A],E=D.attr("path"),F=f.attr("path"),G=0,H=E.length-1;H>G;G++){var I=[];I.push(["M",E[G][1],E[G][2]]),I.push(["L",E[G+1][1],E[G+1][2]]);for(var J=I[0][1],K=I[0][2],L=I[1][1],M=I[1][2],N=0,O=F.length-1;O>N;N++){var P=[];P.push(["M",F[N][1],F[N][2]]),P.push(["L",F[N+1][1],F[N+1][2]]);var Q=P[0][1],R=P[0][2],S=P[1][1],T=P[1][2],U=e(J,K,L,M,Q,R,S,T);if(U.onLine1&&U.onLine2){var V;R===T?Q>S?(V=["L",U.x+2*y,R],F.splice(N+1,0,V),V=["C",U.x+2*y,R,U.x,R-4*y,U.x-2*y,R],F.splice(N+2,0,V),f.attr("path",F)):(V=["L",U.x-2*y,R],F.splice(N+1,0,V),V=["C",U.x-2*y,R,U.x,R-4*y,U.x+2*y,R],F.splice(N+2,0,V),f.attr("path",F)):R>T?(V=["L",Q,U.y+2*y],F.splice(N+1,0,V),V=["C",Q,U.y+2*y,Q+4*y,U.y,Q,U.y-2*y],F.splice(N+2,0,V),f.attr("path",F)):(V=["L",Q,U.y-2*y],F.splice(N+1,0,V),V=["C",Q,U.y-2*y,Q+4*y,U.y,Q,U.y+2*y],F.splice(N+2,0,V),f.attr("path",F)),N+=2,C+=2}}}this.chart.lines.push(f)}(!this.chart.maxXFromLine||this.chart.maxXFromLine&&w>this.chart.maxXFromLine)&&(this.chart.maxXFromLine=w)},r.inherits(h,g),r.inherits(i,g),r.inherits(j,g),r.inherits(k,g),r.inherits(l,g),l.prototype.getLeft=function(){var a=this.getY()+this.group.getBBox().height/2,b=this.getX()+this.textMargin;return{x:b,y:a}},l.prototype.getRight=function(){var a=this.getY()+this.group.getBBox().height/2,b=this.getX()+this.group.getBBox().width-this.textMargin;return{x:b,y:a}},r.inherits(m,g),m.prototype.render=function(){this.yes_direction&&(this[this.yes_direction+"_symbol"]=this.yes_symbol),this.no_direction&&(this[this.no_direction+"_symbol"]=this.no_symbol);var a=this.getAttr("line-length");if(this.bottom_symbol){var b=this.getBottom();this.bottom_symbol.getTop(),this.bottom_symbol.isPositioned||(this.bottom_symbol.shiftY(this.getY()+this.height+a),this.bottom_symbol.setX(b.x-this.bottom_symbol.width/2),this.bottom_symbol.isPositioned=!0,this.bottom_symbol.render())}if(this.right_symbol){var c=this.getRight();if(this.right_symbol.getLeft(),!this.right_symbol.isPositioned){this.right_symbol.setY(c.y-this.right_symbol.height/2),this.right_symbol.shiftX(this.group.getBBox().x+this.width+a);var d=this;!function e(){for(var b,c=!1,f=0,g=d.chart.symbols.length;g>f;f++){b=d.chart.symbols[f];var h=Math.abs(b.getCenter().x-d.right_symbol.getCenter().x);if(b.getCenter().y>d.right_symbol.getCenter().y&&h<=d.right_symbol.width/2){c=!0;break}}c&&(d.right_symbol.setX(b.getX()+b.width+a),e())}(),this.right_symbol.isPositioned=!0,this.right_symbol.render()}}},m.prototype.renderLines=function(){this.yes_symbol&&this.drawLineTo(this.yes_symbol,this.getAttr("yes-text"),this.yes_direction),this.no_symbol&&this.drawLineTo(this.no_symbol,this.getAttr("no-text"),this.no_direction)},p.parse=n}();
-</script>
-<script type="text/javascript">
-(function (win, doc) {
+  </script>
+  <script type="text/javascript">
+   (function (win, doc) {
   function onReady(fn) {
     if (doc.addEventListener) {
       doc.addEventListener('DOMContentLoaded', fn);
@@ -1280,239 +1293,824 @@ MathJax.Hub.Config({
   onReady(function(){convertUML('uml-flowchart', flowchart);});
   onReady(function(){convertUML('uml-sequence-diagram', Diagram, {theme: 'simple'});});
 })(window, document)
-</script>
-<title>index</title></head><body><div class="to"></div><article class="markdown-body"><div class="toc">
-<ul>
-<li><a href="#i-conception-des-systemes-asservis-lineaires-par-placement-des-poles-1948">I) Conception des systèmes asservis linéaires par placement des pôles 通过放置极点来设计线性控制系统 1948</a><ul>
-<li><a href="#11-objectifs-de-la-methode">1.1 Objectifs de la méthode</a></li>
-<li><a href="#12-rappel-de-la-relation-entre-les-poles-et-les-zeros-de-la-ftbf-ftboftbf">1.2 Rappel de la relation entre les pôles et les zéros de la FTBF 分别回忆针对FTBO和FTBF零点与极点的关系</a></li>
-<li><a href="#13-lieu-devans">1.3 Lieu d’Evans</a></li>
-<li><a href="#131-conditions-definissant-le-lieu-devans">1.3.1  Conditions définissant le lieu d’Evans</a></li>
-<li><a href="#132-exemples-a">1.3.2  exemples a)</a></li>
-<li><a href="#132-exemples-b">1.3.2  exemples b)</a></li>
-</ul>
-</li>
-<li><a href="#ii-conception-des-systemes-asservis-lineaires-par-commande-par-retour-detat">II) Conception des systèmes asservis linéaires par commande par retour d’état 通过状态反馈的线性伺服控制系统</a><ul>
-<li><a href="#21-mise-sous-forme-detat-voir-annexe-ou-cours-mc53">2.1  Mise sous forme d’état (voir annexe ou cours MC53) 转换成状态空间形式</a><ul>
-<li><a href="#211-selection-des-variables-detat">2.1.1  Sélection des variables d’état 选择状态变量</a><ul>
-<li><a href="#3">例题 3阶系统</a></li>
-</ul>
-</li>
-<li><a href="#212-solution-mathematique">2.1.2  Solution mathématique 数学分析</a></li>
-<li><a href="#213-obtention-dune-representation-detat-a-partir-dune-ft">2.1.3  Obtention d’une représentation d’état à partir d’une FT 由转换方程到状态表示</a></li>
-<li><a href="#214-de-la-representation-detat-a-la-ft">2.1.4  De la représentation d’état à la FT 状态表示到转换方程</a></li>
-</ul>
-</li>
-<li><a href="#22-notion-de-controlabilite-et-dobservabilite">2.2  Notion de Contrôlabilité et d’observabilité 系统的可控性和可观性</a><ul>
-<li><a href="#221-controlabiliteou-commandabilite">2.2.1 Contrôlabilité(ou Commandabilité)系统的可控性(可调性)</a><ul>
-<li><a href="#_1">举例说明</a></li>
-</ul>
-</li>
-<li><a href="#222-observabilite">2.2.2 Observabilité 系统的可观性</a><ul>
-<li><a href="#_2">举例说明</a></li>
-</ul>
-</li>
-<li><a href="#matlab">可控性可观性总结及matlab程序</a></li>
-</ul>
-</li>
-<li><a href="#23-commande-par-retour-detat">2.3  Commande par retour d’état</a><ul>
-<li><a href="#231-presentation">2.3.1  Présentation</a></li>
-<li><a href="#232-etude-dun-systeme-siso">2.3.2  Etude d’un système SISO</a></li>
-<li><a href="#233-etude-dun-systeme-mimo">2.3.3  Etude d’un système MIMO</a></li>
-<li><a href="#234-reconstructeur-detat">2.3.4  Reconstructeur d’état</a></li>
-<li><a href="#235-commande-par-retour-detat-avec-observateur">2.3.5  Commande par retour d’état avec observateur</a></li>
-<li><a href="#236-commande-par-retour-detat-avec-action-integrale">2.3.6  Commande par retour d’état avec action intégrale</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#iii-conception-des-systemes-asservis-lineaires-par-regulation-lineaire-quadratique-lqr">III) Conception des systèmes asservis linéaires par régulation linéaire quadratique : LQR</a></li>
-<li><a href="#31-critere-doptimisation-quadratique">3.1 Critère d’optimisation quadratique</a><ul>
-<li><a href="#311-presentation">3.1.1 Présentation</a></li>
-<li><a href="#312-critere-des-performances-jx">3.1.2 Critère des performances Jx</a></li>
-<li><a href="#313-critere-deconomie-energetique-ju">3.1.3 Critère d’économie énergétique Ju</a></li>
-<li><a href="#314-critere-doptimisation-quadratique-jlq">3.14 Critère d’optimisation quadratique JLQ .</a></li>
-<li><a href="#32-solution-du-probleme-lq-equation-de-riccati">3.2 Solution du problème LQ : équation de Riccati</a></li>
-<li><a href="#33-procedure-de-mise-au-point">3.3 Procédure de mise au point.</a></li>
-<li><a href="#34-bibliographie-utile-pour-cette-partie-de-cours">3.4 Bibliographie utile pour cette partie de cours :</a></li>
-</ul>
-</li>
-<li><a href="#ivintroduction-a-la-commande-lineaire-quadratique-gaussienne-lqg">IV)Introduction à la commande Linéaire Quadratique Gaussienne :LQG</a></li>
-<li><a href="#41-principe-du-filtre-de-kalman">4.1 Principe du filtre de Kalman</a></li>
-<li><a href="#42-analogie-avec-le-probleme-de-la-commande-optimale-lq">4.2 Analogie avec le problème de la commande optimale LQ</a></li>
-<li><a href="#43-mise-en-uvre-du-filtre-de-kalman">4.3 Mise en œuvre du filtre de Kalman</a></li>
-<li><a href="#44-la-commande-lqg">4.4 La commande LQG</a></li>
-<li><a href="#441-le-principe-de-separation">4.4.1 Le principe de séparation…</a></li>
-<li><a href="#442-sechage-du-kaolin">4.4.2 Séchage du Kaolin</a></li>
-<li><a href="#v-conception-des-systemes-asservis-intelligents">V) Conception des systèmes asservis intelligents</a></li>
-<li><a href="#51-logique-floue">5.1 Logique floue</a></li>
-<li><a href="#52-reseaux-de-neurones">5.2 Réseaux de neurones</a></li>
-<li><a href="#53-algorithmes-genetiques">5.3 Algorithmes génétiques</a></li>
-<li><a href="#vi-simulations-numeriques">VI) Simulations numériques</a></li>
-<li><a href="#61-software-in-the-loop-sil">6.1 Software In the Loop :SIL</a></li>
-<li><a href="#62-hardware-in-the-loop-hil">6.2 Hardware In the Loop :HIL</a></li>
-<li><a href="#td">TD习题</a><ul>
-<li><a href="#td01">TD01</a><ul>
-<li><a href="#ex01">Ex01</a></li>
-<li><a href="#ex02">Ex02</a></li>
-<li><a href="#ex03">Ex03</a></li>
-</ul>
-</li>
-<li><a href="#td02">TD02</a><ul>
-<li><a href="#ex01_1">Ex01</a></li>
-<li><a href="#ex02_1">Ex02</a></li>
-<li><a href="#ex03_1">Ex03</a></li>
-<li><a href="#ex04">Ex04</a></li>
-<li><a href="#ex05">Ex05</a></li>
-</ul>
-</li>
-<li><a href="#td03">TD03</a><ul>
-<li><a href="#ex01-chariot-et-prehenseur">Ex01 Chariot et Prehenseur</a><ul>
-<li><a href="#1-equation-de-movement">1) Equation de movement</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#td06">TD06</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="admonition hint">
-<p class="admonition-title">总述<p>En automatique, un asservissement est un système dont l&rsquo;objet principal est d&rsquo;atteindre le plus rapidement possible sa valeur de consigne et de la maintenir, quelles que soient les perturbations externes.<br />
-<strong><code>自动控制系统中，伺服系统的目的是，无论有何种外部干扰，都要尽可能快的达到并保持需求信号</code></strong><br />
-Le principe général est de comparer la consigne et l&rsquo;état du système de manière à le corriger       efficacement. On parle également de système commandé par rétroaction négative ou en boucle fermée.<br />
-<strong><code>通常的原则是比较输入信号和系统状态来进行高效的纠正。通常又被称为负反馈或者闭环系统。</code></strong></p>
-</p>
-</div>
-<div class="admonition hint">
-<p class="admonition-title">Matlab 公式<p>conv (A, B)<br />
-roots( )<br />
-p=poly(r)<br />
-charpoly()</p>
-<p>传递函数 num,den<br />
-对线性定常系统，s的系数均为常数，且den的常数项不等于0<br />
-sys= tf (num, den)</p>
-<p>提取分子分母多项式系数的函数tfdata( )。格式：[num,den]=tfdata(sys, ‘v’)<br />
-sys传递函数。v功能：返回分子分母多项式系数向量。</p>
-<p>siso零极点模型<br />
-sys= zpk (z, p, k)<br />
-Zero,pole,gain</p>
-<p>提取模型零极点增益向量的函数<br />
-[z, p, k]=zpkdata(sys, ‘v’)</p>
-<p>建立状态空间模型的函数<br />
-sys=ss(A,B,C,D)</p>
-<p>特征根 传递函数分母的根</p>
-<p>微分方程</p>
-<p>线性时不变系统（LTI）的模型：<br />
-传递函数（Transfer Function）模型TF<br />
-零极点增益（ZPK）模型ZPK<br />
-状态空间（State Space）模型SS<br />
-P33</p>
-<p>z，p向量 k标量</p>
-<p>模型连接：串联series，并联parallel</p>
-<p>求闭环传递函数的MATLAB函数cloop( )和feedback( )<br />
-其中cloop( )函数只能用于H(s)=1（即单位反馈）<br />
-[numc, denc]=cloop(num, den, sign)</p>
-<p>[num, den]=feedback(num1, den1, num2, den2, sign)<br />
-num1, den1：G(s) 的分子、分母多项式<br />
-num2, den2: H(s)的分子、分母多项式<br />
-sign= -1 为负反馈（默认值），sign=1 为正反馈<br />
-P44</p>
-<p>电感 微分器<br />
-电容 积分器</p>
-<p>拉普拉斯变换</p>
-<p>阶跃响应<br />
-step(tf)<br />
-grid on</p>
-<p>利用simulink的提取线性模型函数 linmod( ), 得到状态空间模型，然后对状态空间模型进行各种仿真。</p>
-<p>[A,B,C,D]=linmod(‘samples_4_14’);<br />
-[num,den]=ss2tf(A,B,C,D);<br />
-printsys(num,den,’s’) %以传递函数形式显示出来</p>
-</p>
-</div>
-<h1 id="i-conception-des-systemes-asservis-lineaires-par-placement-des-poles-1948"><a name="user-content-i-conception-des-systemes-asservis-lineaires-par-placement-des-poles-1948" href="#i-conception-des-systemes-asservis-lineaires-par-placement-des-poles-1948" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>I) Conception des systèmes asservis linéaires par placement des pôles 通过放置极点来设计线性控制系统 1948</h1>
-<h2 id="11-objectifs-de-la-methode"><a name="user-content-11-objectifs-de-la-methode" href="#11-objectifs-de-la-methode" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.1 Objectifs de la méthode</h2>
-<p>当FTBO的Gain从0到正无穷时，求解特征方程的根(pôles de la FTBF)</p>
-<h2 id="12-rappel-de-la-relation-entre-les-poles-et-les-zeros-de-la-ftbf-ftboftbf"><a name="user-content-12-rappel-de-la-relation-entre-les-poles-et-les-zeros-de-la-ftbf-ftboftbf" href="#12-rappel-de-la-relation-entre-les-poles-et-les-zeros-de-la-ftbf-ftboftbf" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.2 Rappel de la relation entre les pôles et les zéros de la FTBF 分别回忆针对FTBO和FTBF零点与极点的关系</h2>
-<p><img alt="" src="images/cap_20171023_201655.png" /></p>
-<p><code>F</code>onction <code>T</code>ransfert de <code>B</code>oucle <code>F</code>ermé :<br />
-<img alt="" src="images/cap_20171023_201953.png" /></p>
-<p>zero: 分子为零，即 <code>P1=0 or Q2=0</code><br />
-pôle: 分母为零，即 求解特征方程的根 <code>Q1Q2+k1k2P1P2=0</code><br />
-<img alt="" src="images/cap_20171023_213222.png" /></p>
-<p>alors，<br />
-<p align="center"><img alt="" src="images/cap_20171023_212408.png" /></p><br />
-suivant,<br />
-<p align="center"><img alt="" src="images/cap_20171023_213222.png" /></p></p>
-<p>特征方程就可以写成<br />
-<p align="center"><img alt="" src="images/cap_20171023_213403.png" /></p></p>
-<div class="admonition question">
-<p class="admonition-title">Q1<p><p align="center"><img alt="" src="images/cap_20171023_212640.png" /></p><br />
-Pourquoi <code>Zi</code> et <code>Pj</code>???</p>
-</p>
-</div>
-<div class="admonition caution">
-<p class="admonition-title">结论<p>特征方程的根(FTBF的pôle)取决于取决于K的值，该值通过以下方程与FTBO的K相关联。而FTBF的零点不受K的影响<br />
-<p align="center"><img alt="" src="images/cap_20171023_215832.png" /></p><br />
-图示<br />
-<p align="center"><img alt="" src="images/cap_20171023_220909.png" /></p></p>
-</p>
-</div>
-<h2 id="13-lieu-devans"><a name="user-content-13-lieu-devans" href="#13-lieu-devans" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.3 Lieu d’Evans</h2>
-<p>由于伺服系统的性能直接取决于<code>开环系统</code>的K, 通常通过调试该数值以获取系统的其他指标参数。<br />
-当K从0变化到正无穷时，了解FTBF的pôle在复数平面的演变就非常重要。<br />
-FTBF的pôle是在空间一系列点，对应K值从小到大的变化。</p>
-<p>这些位置就被称为<code>lieu d’Evans</code>，或<code>特征方程根的分布位置</code>，或<strong><code>FTBF的极值分布</code></strong></p>
-<h2 id="131-conditions-definissant-le-lieu-devans"><a name="user-content-131-conditions-definissant-le-lieu-devans" href="#131-conditions-definissant-le-lieu-devans" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.3.1  Conditions définissant le lieu d’Evans</h2>
-<p>已知FTBO系统的极值Pj和零点Zi，当M点的坐标<code>p=a+jb</code>是特征方程<code>1+T[p]=0</code>的根。<br />
-可以写成：<br />
-<p align="center"><img alt="" src="images/cap_20171023_225534.png" /></p><br />
-空间向量满足如下关系：<br />
-<p align="center"><img alt="" src="images/cap_20171023_225641.png" /></p><br />
-该条件可翻译如下：<br />
-<p align="center"><img alt="" src="images/cap_20171023_225822.png" /></p></p>
-<div class="admonition hint">
-<p class="admonition-title">注意<p>如果不存在零点，则分子为1</p>
-</p>
-</div>
-<p>该条件可翻译成图像为：<br />
-<p align="center"><img alt="" src="images/cap_20171023_231344.png" /></p></p>
-<div class="admonition question">
-<p class="admonition-title">Q2<p>Z1 ？？？</p>
-</p>
-</div>
-<p>RLtool de Matlab</p>
-<h2 id="132-exemples-a"><a name="user-content-132-exemples-a" href="#132-exemples-a" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.3.2  exemples a)</h2>
-<p><p align="center"><img alt="" src="images/cap_20171023_232003.png" /></p></p>
-<div class="admonition note">
-<p class="admonition-title">解答<p>该FTBO：<br />
-1. 无零点<br />
-2. 有两个极值 <code>p1=0 p2=-4</code><br />
-3. 由特征方程<code>1+T[p]=0</code>可得多项式<br />
-<p align="center"><img alt="" height="27px" src="images/cap_20171023_232517.png" width="200px" /></p><br />
-该多项式的零点是FTBF的pôle.<br />
-把k的值从0到16每隔4取一个列表如下<br />
-<p align="center"><img alt="" height="120px" src="images/cap_20171023_235404.png" width="600px" /></p><br />
-    3.1 当k=0时，FTBO和BTBF的pôle相同<br />
-    3.2 当k=4时，实数值和虚数值的交界处，在该点处<code>ξ的值等于1</code><br />
-    <p align="center"><img alt="" height="300px" src="images/cap_20171024_000518.png" width="500px" /></p><br />
-    验证M的条件：<br />
-    <p align="center"><img alt="" height="50px" src="images/cap_20171024_001455.png" width="600px" /></p></p>
-</p>
-<div class="admonition hint">
-<p class="admonition-title">复平面的性质<p><strong>不同的质量标准决定了阻尼amortissement：<code>ξ≥0.5</code></strong><br />
-<strong>速度标准定义了这种关系：<code>ξω≥3/tr5%</code></strong><br />
-图示如下，<br />
-<p align="center"><img alt="" height="300px" src="images/cap_20171024_001312.png" width="500px" /></p></p>
-</p>
-</div>
-</div>
-<h2 id="132-exemples-b"><a name="user-content-132-exemples-b" href="#132-exemples-b" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.3.2  exemples b)</h2>
-<p>Un système à contrôler a comme fonction transfert en boucle ouverte (avec retour <br />
-unitaire): <br />
-<p align="center"><img alt="" src="images/cap_20171030_192008.png" /></p></p>
-<p><div class="codehilite"><pre><span class="n">clc</span>
+  </script>
+  <title>
+   in
+  </title>
+ </head>
+ <body>
+  <div class="to">
+   <div class="tod">
+    <ul>
+     <li>
+      <a href="#i-conception-des-systemes-asservis-lineaires-par-placement-des-poles-1948">
+       I) Conception des systèmes asservis linéaires par placement des pôles 通过放置极点来设计线性控制系统 1948
+      </a>
+      <ul>
+       <li>
+        <a href="#11-objectifs-de-la-methode">
+         1.1 Objectifs de la méthode
+        </a>
+       </li>
+       <li>
+        <a href="#12-rappel-de-la-relation-entre-les-poles-et-les-zeros-de-la-ftbf-ftboftbf">
+         1.2 Rappel de la relation entre les pôles et les zéros de la FTBF 分别回忆针对FTBO和FTBF零点与极点的关系
+        </a>
+       </li>
+       <li>
+        <a href="#13-lieu-devans">
+         1.3 Lieu d’Evans
+        </a>
+       </li>
+       <li>
+        <a href="#131-conditions-definissant-le-lieu-devans">
+         1.3.1  Conditions définissant le lieu d’Evans
+        </a>
+       </li>
+       <li>
+        <a href="#132-exemples-a">
+         1.3.2  exemples a)
+        </a>
+       </li>
+       <li>
+        <a href="#132-exemples-b">
+         1.3.2  exemples b)
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <a href="#ii-conception-des-systemes-asservis-lineaires-par-commande-par-retour-detat">
+       II) Conception des systèmes asservis linéaires par commande par retour d’état 通过状态反馈的线性伺服控制系统
+      </a>
+      <ul>
+       <li>
+        <a href="#21-mise-sous-forme-detat-voir-annexe-ou-cours-mc53">
+         2.1  Mise sous forme d’état (voir annexe ou cours MC53) 转换成状态空间形式
+        </a>
+        <ul>
+         <li>
+          <a href="#211-selection-des-variables-detat">
+           2.1.1  Sélection des variables d’état 选择状态变量
+          </a>
+          <ul>
+           <li>
+            <a href="#3">
+             例题 3阶系统
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li>
+          <a href="#212-solution-mathematique">
+           2.1.2  Solution mathématique 数学分析
+          </a>
+         </li>
+         <li>
+          <a href="#213-obtention-dune-representation-detat-a-partir-dune-ft">
+           2.1.3  Obtention d’une représentation d’état à partir d’une FT 由转换方程到状态表示
+          </a>
+         </li>
+         <li>
+          <a href="#214-de-la-representation-detat-a-la-ft">
+           2.1.4  De la représentation d’état à la FT 状态表示到转换方程
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <a href="#22-notion-de-controlabilite-et-dobservabilite">
+         2.2  Notion de Contrôlabilité et d’observabilité 系统的可控性和可观性
+        </a>
+        <ul>
+         <li>
+          <a href="#221-controlabiliteou-commandabilite">
+           2.2.1 Contrôlabilité(ou Commandabilité)系统的可控性(可调性)
+          </a>
+          <ul>
+           <li>
+            <a href="#_1">
+             举例说明
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li>
+          <a href="#222-observabilite">
+           2.2.2 Observabilité 系统的可观性
+          </a>
+          <ul>
+           <li>
+            <a href="#_2">
+             举例说明
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li>
+          <a href="#matlab">
+           可控性可观性总结及matlab程序
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <a href="#23-commande-par-retour-detat">
+         2.3  Commande par retour d’état
+        </a>
+        <ul>
+         <li>
+          <a href="#231-presentation">
+           2.3.1  Présentation
+          </a>
+         </li>
+         <li>
+          <a href="#232-etude-dun-systeme-siso">
+           2.3.2  Etude d’un système SISO
+          </a>
+         </li>
+         <li>
+          <a href="#233-etude-dun-systeme-mimo">
+           2.3.3  Etude d’un système MIMO
+          </a>
+         </li>
+         <li>
+          <a href="#234-reconstructeur-detat">
+           2.3.4  Reconstructeur d’état
+          </a>
+         </li>
+         <li>
+          <a href="#235-commande-par-retour-detat-avec-observateur">
+           2.3.5  Commande par retour d’état avec observateur
+          </a>
+         </li>
+         <li>
+          <a href="#236-commande-par-retour-detat-avec-action-integrale">
+           2.3.6  Commande par retour d’état avec action intégrale
+          </a>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <a href="#iii-conception-des-systemes-asservis-lineaires-par-regulation-lineaire-quadratique-lqr">
+       III) Conception des systèmes asservis linéaires par régulation linéaire quadratique : LQR
+      </a>
+     </li>
+     <li>
+      <a href="#31-critere-doptimisation-quadratique">
+       3.1 Critère d’optimisation quadratique
+      </a>
+      <ul>
+       <li>
+        <a href="#311-presentation">
+         3.1.1 Présentation
+        </a>
+       </li>
+       <li>
+        <a href="#312-critere-des-performances-jx">
+         3.1.2 Critère des performances Jx
+        </a>
+       </li>
+       <li>
+        <a href="#313-critere-deconomie-energetique-ju">
+         3.1.3 Critère d’économie énergétique Ju
+        </a>
+       </li>
+       <li>
+        <a href="#314-critere-doptimisation-quadratique-jlq">
+         3.14 Critère d’optimisation quadratique JLQ .
+        </a>
+       </li>
+       <li>
+        <a href="#32-solution-du-probleme-lq-equation-de-riccati">
+         3.2 Solution du problème LQ : équation de Riccati
+        </a>
+       </li>
+       <li>
+        <a href="#33-procedure-de-mise-au-point">
+         3.3 Procédure de mise au point.
+        </a>
+       </li>
+       <li>
+        <a href="#34-bibliographie-utile-pour-cette-partie-de-cours">
+         3.4 Bibliographie utile pour cette partie de cours :
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <a href="#ivintroduction-a-la-commande-lineaire-quadratique-gaussienne-lqg">
+       IV)Introduction à la commande Linéaire Quadratique Gaussienne :LQG
+      </a>
+     </li>
+     <li>
+      <a href="#41-principe-du-filtre-de-kalman">
+       4.1 Principe du filtre de Kalman
+      </a>
+     </li>
+     <li>
+      <a href="#42-analogie-avec-le-probleme-de-la-commande-optimale-lq">
+       4.2 Analogie avec le problème de la commande optimale LQ
+      </a>
+     </li>
+     <li>
+      <a href="#43-mise-en-uvre-du-filtre-de-kalman">
+       4.3 Mise en œuvre du filtre de Kalman
+      </a>
+     </li>
+     <li>
+      <a href="#44-la-commande-lqg">
+       4.4 La commande LQG
+      </a>
+     </li>
+     <li>
+      <a href="#441-le-principe-de-separation">
+       4.4.1 Le principe de séparation…
+      </a>
+     </li>
+     <li>
+      <a href="#442-sechage-du-kaolin">
+       4.4.2 Séchage du Kaolin
+      </a>
+     </li>
+     <li>
+      <a href="#v-conception-des-systemes-asservis-intelligents">
+       V) Conception des systèmes asservis intelligents
+      </a>
+     </li>
+     <li>
+      <a href="#51-logique-floue">
+       5.1 Logique floue
+      </a>
+     </li>
+     <li>
+      <a href="#52-reseaux-de-neurones">
+       5.2 Réseaux de neurones
+      </a>
+     </li>
+     <li>
+      <a href="#53-algorithmes-genetiques">
+       5.3 Algorithmes génétiques
+      </a>
+     </li>
+     <li>
+      <a href="#vi-simulations-numeriques">
+       VI) Simulations numériques
+      </a>
+     </li>
+     <li>
+      <a href="#61-software-in-the-loop-sil">
+       6.1 Software In the Loop :SIL
+      </a>
+     </li>
+     <li>
+      <a href="#62-hardware-in-the-loop-hil">
+       6.2 Hardware In the Loop :HIL
+      </a>
+     </li>
+     <li>
+      <a href="#td">
+       TD习题
+      </a>
+      <ul>
+       <li>
+        <a href="#td01">
+         TD01
+        </a>
+        <ul>
+         <li>
+          <a href="#ex01">
+           Ex01
+          </a>
+         </li>
+         <li>
+          <a href="#ex02">
+           Ex02
+          </a>
+         </li>
+         <li>
+          <a href="#ex03">
+           Ex03
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <a href="#td02">
+         TD02
+        </a>
+        <ul>
+         <li>
+          <a href="#ex01_1">
+           Ex01
+          </a>
+         </li>
+         <li>
+          <a href="#ex02_1">
+           Ex02
+          </a>
+         </li>
+         <li>
+          <a href="#ex03_1">
+           Ex03
+          </a>
+         </li>
+         <li>
+          <a href="#ex04">
+           Ex04
+          </a>
+         </li>
+         <li>
+          <a href="#ex05">
+           Ex05
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <a href="#td03">
+         TD03
+        </a>
+        <ul>
+         <li>
+          <a href="#ex01-chariot-et-prehenseur">
+           Ex01 Chariot et Prehenseur
+          </a>
+          <ul>
+           <li>
+            <a href="#1-equation-de-movement">
+             1) Equation de movement
+            </a>
+           </li>
+          </ul>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <a href="#td06">
+         TD06
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <article class="markdown-body">
+   <div class="admonition hint">
+    <p class="admonition-title">
+     总述
+     <p>
+      En automatique, un asservissement est un système dont l’objet principal est d’atteindre le plus rapidement possible sa valeur de consigne et de la maintenir, quelles que soient les perturbations externes.
+      <br/>
+      <strong>
+       <code>
+        自动控制系统中，伺服系统的目的是，无论有何种外部干扰，都要尽可能快的达到并保持需求信号
+       </code>
+      </strong>
+      <br/>
+      Le principe général est de comparer la consigne et l’état du système de manière à le corriger       efficacement. On parle également de système commandé par rétroaction négative ou en boucle fermée.
+      <br/>
+      <strong>
+       <code>
+        通常的原则是比较输入信号和系统状态来进行高效的纠正。通常又被称为负反馈或者闭环系统。
+       </code>
+      </strong>
+     </p>
+    </p>
+   </div>
+   <div class="admonition hint">
+    <p class="admonition-title">
+     Matlab 公式
+     <p>
+      conv (A, B)
+      <br/>
+      roots( )
+      <br/>
+      p=poly(r)
+      <br/>
+      charpoly()
+     </p>
+     <p>
+      传递函数 num,den
+      <br/>
+      对线性定常系统，s的系数均为常数，且den的常数项不等于0
+      <br/>
+      sys= tf (num, den)
+     </p>
+     <p>
+      提取分子分母多项式系数的函数tfdata( )。格式：[num,den]=tfdata(sys, ‘v’)
+      <br/>
+      sys传递函数。v功能：返回分子分母多项式系数向量。
+     </p>
+     <p>
+      siso零极点模型
+      <br/>
+      sys= zpk (z, p, k)
+      <br/>
+      Zero,pole,gain
+     </p>
+     <p>
+      提取模型零极点增益向量的函数
+      <br/>
+      [z, p, k]=zpkdata(sys, ‘v’)
+     </p>
+     <p>
+      建立状态空间模型的函数
+      <br/>
+      sys=ss(A,B,C,D)
+     </p>
+     <p>
+      特征根 传递函数分母的根
+     </p>
+     <p>
+      微分方程
+     </p>
+     <p>
+      线性时不变系统（LTI）的模型：
+      <br/>
+      传递函数（Transfer Function）模型TF
+      <br/>
+      零极点增益（ZPK）模型ZPK
+      <br/>
+      状态空间（State Space）模型SS
+      <br/>
+      P33
+     </p>
+     <p>
+      z，p向量 k标量
+     </p>
+     <p>
+      模型连接：串联series，并联parallel
+     </p>
+     <p>
+      求闭环传递函数的MATLAB函数cloop( )和feedback( )
+      <br/>
+      其中cloop( )函数只能用于H(s)=1（即单位反馈）
+      <br/>
+      [numc, denc]=cloop(num, den, sign)
+     </p>
+     <p>
+      [num, den]=feedback(num1, den1, num2, den2, sign)
+      <br/>
+      num1, den1：G(s) 的分子、分母多项式
+      <br/>
+      num2, den2: H(s)的分子、分母多项式
+      <br/>
+      sign= -1 为负反馈（默认值），sign=1 为正反馈
+      <br/>
+      P44
+     </p>
+     <p>
+      电感 微分器
+      <br/>
+      电容 积分器
+     </p>
+     <p>
+      拉普拉斯变换
+     </p>
+     <p>
+      阶跃响应
+      <br/>
+      step(tf)
+      <br/>
+      grid on
+     </p>
+     <p>
+      利用simulink的提取线性模型函数 linmod( ), 得到状态空间模型，然后对状态空间模型进行各种仿真。
+     </p>
+     <p>
+      [A,B,C,D]=linmod(‘samples_4_14’);
+      <br/>
+      [num,den]=ss2tf(A,B,C,D);
+      <br/>
+      printsys(num,den,’s’) %以传递函数形式显示出来
+     </p>
+    </p>
+   </div>
+   <h1 id="i-conception-des-systemes-asservis-lineaires-par-placement-des-poles-1948">
+    <a aria-hidden="true" class="headeranchor-link" href="#i-conception-des-systemes-asservis-lineaires-par-placement-des-poles-1948" name="user-content-i-conception-des-systemes-asservis-lineaires-par-placement-des-poles-1948">
+     <span class="headeranchor">
+     </span>
+    </a>
+    I) Conception des systèmes asservis linéaires par placement des pôles 通过放置极点来设计线性控制系统 1948
+   </h1>
+   <h2 id="11-objectifs-de-la-methode">
+    <a aria-hidden="true" class="headeranchor-link" href="#11-objectifs-de-la-methode" name="user-content-11-objectifs-de-la-methode">
+     <span class="headeranchor">
+     </span>
+    </a>
+    1.1 Objectifs de la méthode
+   </h2>
+   <p>
+    当FTBO的Gain从0到正无穷时，求解特征方程的根(pôles de la FTBF)
+   </p>
+   <h2 id="12-rappel-de-la-relation-entre-les-poles-et-les-zeros-de-la-ftbf-ftboftbf">
+    <a aria-hidden="true" class="headeranchor-link" href="#12-rappel-de-la-relation-entre-les-poles-et-les-zeros-de-la-ftbf-ftboftbf" name="user-content-12-rappel-de-la-relation-entre-les-poles-et-les-zeros-de-la-ftbf-ftboftbf">
+     <span class="headeranchor">
+     </span>
+    </a>
+    1.2 Rappel de la relation entre les pôles et les zéros de la FTBF 分别回忆针对FTBO和FTBF零点与极点的关系
+   </h2>
+   <p>
+    <img alt="" src="images/cap_20171023_201655.png"/>
+   </p>
+   <p>
+    <code>
+     F
+    </code>
+    onction
+    <code>
+     T
+    </code>
+    ransfert de
+    <code>
+     B
+    </code>
+    oucle
+    <code>
+     F
+    </code>
+    ermé :
+    <br/>
+    <img alt="" src="images/cap_20171023_201953.png"/>
+   </p>
+   <p>
+    zero: 分子为零，即
+    <code>
+     P1=0 or Q2=0
+    </code>
+    <br/>
+    pôle: 分母为零，即 求解特征方程的根
+    <code>
+     Q1Q2+k1k2P1P2=0
+    </code>
+    <br/>
+    <img alt="" src="images/cap_20171023_213222.png"/>
+   </p>
+   <p>
+    alors，
+    <br/>
+    <p align="center">
+     <img alt="" src="images/cap_20171023_212408.png"/>
+    </p>
+    <br/>
+    suivant,
+    <br/>
+    <p align="center">
+     <img alt="" src="images/cap_20171023_213222.png"/>
+    </p>
+   </p>
+   <p>
+    特征方程就可以写成
+    <br/>
+    <p align="center">
+     <img alt="" src="images/cap_20171023_213403.png"/>
+    </p>
+   </p>
+   <div class="admonition question">
+    <p class="admonition-title">
+     Q1
+     <p>
+      <p align="center">
+       <img alt="" src="images/cap_20171023_212640.png"/>
+      </p>
+      <br/>
+      Pourquoi
+      <code>
+       Zi
+      </code>
+      et
+      <code>
+       Pj
+      </code>
+      ???
+     </p>
+    </p>
+   </div>
+   <div class="admonition caution">
+    <p class="admonition-title">
+     结论
+     <p>
+      特征方程的根(FTBF的pôle)取决于取决于K的值，该值通过以下方程与FTBO的K相关联。而FTBF的零点不受K的影响
+      <br/>
+      <p align="center">
+       <img alt="" src="images/cap_20171023_215832.png"/>
+      </p>
+      <br/>
+      图示
+      <br/>
+      <p align="center">
+       <img alt="" src="images/cap_20171023_220909.png"/>
+      </p>
+     </p>
+    </p>
+   </div>
+   <h2 id="13-lieu-devans">
+    <a aria-hidden="true" class="headeranchor-link" href="#13-lieu-devans" name="user-content-13-lieu-devans">
+     <span class="headeranchor">
+     </span>
+    </a>
+    1.3 Lieu d’Evans
+   </h2>
+   <p>
+    由于伺服系统的性能直接取决于
+    <code>
+     开环系统
+    </code>
+    的K, 通常通过调试该数值以获取系统的其他指标参数。
+    <br/>
+    当K从0变化到正无穷时，了解FTBF的pôle在复数平面的演变就非常重要。
+    <br/>
+    FTBF的pôle是在空间一系列点，对应K值从小到大的变化。
+   </p>
+   <p>
+    这些位置就被称为
+    <code>
+     lieu d’Evans
+    </code>
+    ，或
+    <code>
+     特征方程根的分布位置
+    </code>
+    ，或
+    <strong>
+     <code>
+      FTBF的极值分布
+     </code>
+    </strong>
+   </p>
+   <h2 id="131-conditions-definissant-le-lieu-devans">
+    <a aria-hidden="true" class="headeranchor-link" href="#131-conditions-definissant-le-lieu-devans" name="user-content-131-conditions-definissant-le-lieu-devans">
+     <span class="headeranchor">
+     </span>
+    </a>
+    1.3.1  Conditions définissant le lieu d’Evans
+   </h2>
+   <p>
+    已知FTBO系统的极值Pj和零点Zi，当M点的坐标
+    <code>
+     p=a+jb
+    </code>
+    是特征方程
+    <code>
+     1+T[p]=0
+    </code>
+    的根。
+    <br/>
+    可以写成：
+    <br/>
+    <p align="center">
+     <img alt="" src="images/cap_20171023_225534.png"/>
+    </p>
+    <br/>
+    空间向量满足如下关系：
+    <br/>
+    <p align="center">
+     <img alt="" src="images/cap_20171023_225641.png"/>
+    </p>
+    <br/>
+    该条件可翻译如下：
+    <br/>
+    <p align="center">
+     <img alt="" src="images/cap_20171023_225822.png"/>
+    </p>
+   </p>
+   <div class="admonition hint">
+    <p class="admonition-title">
+     注意
+     <p>
+      如果不存在零点，则分子为1
+     </p>
+    </p>
+   </div>
+   <p>
+    该条件可翻译成图像为：
+    <br/>
+    <p align="center">
+     <img alt="" src="images/cap_20171023_231344.png"/>
+    </p>
+   </p>
+   <div class="admonition question">
+    <p class="admonition-title">
+     Q2
+     <p>
+      Z1 ？？？
+     </p>
+    </p>
+   </div>
+   <p>
+    RLtool de Matlab
+   </p>
+   <h2 id="132-exemples-a">
+    <a aria-hidden="true" class="headeranchor-link" href="#132-exemples-a" name="user-content-132-exemples-a">
+     <span class="headeranchor">
+     </span>
+    </a>
+    1.3.2  exemples a)
+   </h2>
+   <p>
+    <p align="center">
+     <img alt="" src="images/cap_20171023_232003.png"/>
+    </p>
+   </p>
+   <div class="admonition note">
+    <p class="admonition-title">
+     解答
+     <p>
+      该FTBO：
+      <br/>
+      1. 无零点
+      <br/>
+      2. 有两个极值
+      <code>
+       p1=0 p2=-4
+      </code>
+      <br/>
+      3. 由特征方程
+      <code>
+       1+T[p]=0
+      </code>
+      可得多项式
+      <br/>
+      <p align="center">
+       <img alt="" height="27px" src="images/cap_20171023_232517.png" width="200px"/>
+      </p>
+      <br/>
+      该多项式的零点是FTBF的pôle.
+      <br/>
+      把k的值从0到16每隔4取一个列表如下
+      <br/>
+      <p align="center">
+       <img alt="" height="120px" src="images/cap_20171023_235404.png" width="600px"/>
+      </p>
+      <br/>
+      3.1 当k=0时，FTBO和BTBF的pôle相同
+      <br/>
+      3.2 当k=4时，实数值和虚数值的交界处，在该点处
+      <code>
+       ξ的值等于1
+      </code>
+      <br/>
+      <p align="center">
+       <img alt="" height="300px" src="images/cap_20171024_000518.png" width="500px"/>
+      </p>
+      <br/>
+      验证M的条件：
+      <br/>
+      <p align="center">
+       <img alt="" height="50px" src="images/cap_20171024_001455.png" width="600px"/>
+      </p>
+     </p>
+    </p>
+    <div class="admonition hint">
+     <p class="admonition-title">
+      复平面的性质
+      <p>
+       <strong>
+        不同的质量标准决定了阻尼amortissement：
+        <code>
+         ξ≥0.5
+        </code>
+       </strong>
+       <br/>
+       <strong>
+        速度标准定义了这种关系：
+        <code>
+         ξω≥3/tr5%
+        </code>
+       </strong>
+       <br/>
+       图示如下，
+       <br/>
+       <p align="center">
+        <img alt="" height="300px" src="images/cap_20171024_001312.png" width="500px"/>
+       </p>
+      </p>
+     </p>
+    </div>
+   </div>
+   <h2 id="132-exemples-b">
+    <a aria-hidden="true" class="headeranchor-link" href="#132-exemples-b" name="user-content-132-exemples-b">
+     <span class="headeranchor">
+     </span>
+    </a>
+    1.3.2  exemples b)
+   </h2>
+   <p>
+    Un système à contrôler a comme fonction transfert en boucle ouverte (avec retour
+    <br/>
+    unitaire):
+    <br/>
+    <p align="center">
+     <img alt="" src="images/cap_20171030_192008.png"/>
+    </p>
+   </p>
+   <p>
+    <div class="codehilite">
+     <pre><span class="n">clc</span>
 <span class="n">clear</span>
 
 <span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="o">%</span><span class="n">numérateur分子</span>
@@ -1523,175 +2121,515 @@ unitaire): <br />
 <span class="n">p1</span><span class="o">=-</span><span class="n">kesi</span><span class="o">*</span><span class="n">omega0mini</span><span class="o">+</span><span class="mi">1</span><span class="n">i</span><span class="o">*</span><span class="n">omega0mini</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">kesi</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
 <span class="n">p2</span><span class="o">=-</span><span class="n">kesi</span><span class="o">*</span><span class="n">omega0mini</span><span class="o">-</span><span class="mi">1</span><span class="n">i</span><span class="o">*</span><span class="n">omega0mini</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">kesi</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
 <span class="o">%</span><span class="n">rltool</span>
-</pre></div>
-<br />
-<p align="center"><img alt="" src="images/cap_20171111_135924.png" /></p></p>
-<div class="admonition danger">
-<p>点P3应在M点的左侧</p>
-</div>
-<p><p align="center"><img alt="" src="images/cap_20171111_135255.png" /></p></p>
-<div class="admonition hint">
-<p class="admonition-title">求pôles dominants公式:<p><p align="center"><img alt="" height="150px" src="images/cap_20171111_134515.png" width="300px" /></p></p>
-</p>
-</div>
-<p>验证特征<br />
-<p align="center"><img alt="" src="images/cap_20171111_140754.png" /></p></p>
-<p>总结<br />
-<p align="center"><img alt="" height="150px" src="images/cap_20171111_141153.png" width="450px" /></p></p>
-<div class="admonition attention">
-<p class="admonition-title">结论</p>
-<p>En règle générale, il est admis que lorsque le module du pôle réel p3 reste supérieur ou égal à 10 fois le module de la partie réelle des racines complexes conjuguées, le troisième ordre est assimilable à un système du deuxième ordre. <br />
-当实数极值≥10倍复数极值的实数部分,那么三阶系统与二阶系统相似。</p>
-</div>
-<div class="admonition hint">
-<p class="admonition-title">英法对照</p>
-<table>
-<thead>
-<tr>
-<th>法</th>
-<th align="center">英</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Temps de réponse à 5%(Tr5%)</td>
-<td align="center">setting time</td>
-</tr>
-<tr>
-<td>Temps de montée</td>
-<td align="center">rise time</td>
-</tr>
-<tr>
-<td>Peak réponse de dépassement</td>
-<td align="center">peak ampititude, overshot,at time</td>
-</tr>
-<tr>
-<td>Erreur de position</td>
-<td align="center">final value</td>
-</tr>
-<tr>
-<td>Coef amortissement</td>
-<td align="center">damping raito</td>
-</tr>
-<tr>
-<td>pulsation propre</td>
-<td align="center">natural frequence</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h1 id="ii-conception-des-systemes-asservis-lineaires-par-commande-par-retour-detat"><a name="user-content-ii-conception-des-systemes-asservis-lineaires-par-commande-par-retour-detat" href="#ii-conception-des-systemes-asservis-lineaires-par-commande-par-retour-detat" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>II) Conception des systèmes asservis linéaires par commande par retour d’état 通过状态反馈的线性伺服控制系统</h1>
-<ul>
-<li><code>fonction de transfert</code> définie lors du cours d’<code>asservissements linéaires continus</code>.</li>
-<li>Le problème est traité dans le <code>domaine fréquentiel</code> et les <code>conditions initiales</code> sont <code>nulles</code>.</li>
-<li>La représentation d&rsquo;état offre une <code>description plus complète</code> puisqu&rsquo;elle permet de connaitre <code>l'évolution des variables internes du processus</code></li>
-<li><code>Il ne lui est pas demandé</code> de contrôler l&rsquo;intensité du courant électrique(l’autre variable d&rsquo;état i(t)) pourtant(cependant) responsable d&rsquo;échauffements susceptibles de réduire notablement la durée de vie de son moteur. (不要求控制电流强度,但是对显著降低电机寿命的可接受发热负有责任)</li>
-</ul>
-<h2 id="21-mise-sous-forme-detat-voir-annexe-ou-cours-mc53"><a name="user-content-21-mise-sous-forme-detat-voir-annexe-ou-cours-mc53" href="#21-mise-sous-forme-detat-voir-annexe-ou-cours-mc53" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1  Mise sous forme d’état (voir annexe ou cours MC53) 转换成状态空间形式</h2>
-<p><p align="center"><img alt="" height="300px" src="images/cap_20171111_153234.png" width="700px" /></p></p>
-<div class="admonition hint">
-<p class="admonition-title">D</p>
-<p>D est la matrice de transmission directe ou matrice de couplage entrées-sorties.Dans de nombreux cas elle est identiquement nulle puisqu&rsquo;elle représente le cas particuliers des liaisons qui sont la limite du principe de causalité. 通常D为0，因为该矩阵表明特例情况下因果关系的限制关系</p>
-</div>
-<h3 id="211-selection-des-variables-detat"><a name="user-content-211-selection-des-variables-detat" href="#211-selection-des-variables-detat" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1.1  Sélection des variables d’état 选择状态变量</h3>
-<ul>
-<li>Il faut d’abord inventorier l’ensemble des grandeurs qui apparaissent <code>sous forme dérivée</code> dans les équations. Ces grandeurs sont notées γi dont l’ordre maximum est noté ρi. Cette quantité définit le nombre de variables d’état qu’il faut introduire pour représenter une grandeur γi.</li>
-<li>L’ordre du système (linéaire ou non) est égal à la somme des ρi. ρi的数量就是系统阶数<br />
-首先要清查所有以微分形式出现的变量γi。同时每个变量其各阶量命名为ρi，该量定义了需要引入来表示某一γi量的状态变量的数量。</li>
-<li>Les entrées sont les variables indépendantes, alors que les sorties sont les grandeurs mesurées.Les grandeurs qui ne sont ni des variables d’état, ni des entrées, ni des sorties, doivent être éliminées par substitution. 输入量是互相独立的变量，输出量是测量量。其余无关量需要用替代法消除。 </li>
-</ul>
-<h4 id="3"><a name="user-content-3" href="#3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>例题 3阶系统</h4>
-<p><p align="center"><img alt="" src="images/cap_20171111_161009.png" /></p></p>
-<p>3阶系统整理可得<br />
-<p align="center"><img alt="" height="250px" src="images/cap_20171111_161316.png" width="700px" /></p></p>
-<h3 id="212-solution-mathematique"><a name="user-content-212-solution-mathematique" href="#212-solution-mathematique" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1.2  Solution mathématique 数学分析</h3>
-<p>简化为一阶微分<br />
-<p align="center"><img alt="" height="50px" src="images/cap_20171111_162704.png" width="200px" /></p><br />
-<p align="center"><img alt="" height="250px" src="images/cap_20171111_163619.png" width="800px" /></p></p>
-<h3 id="213-obtention-dune-representation-detat-a-partir-dune-ft"><a name="user-content-213-obtention-dune-representation-detat-a-partir-dune-ft" href="#213-obtention-dune-representation-detat-a-partir-dune-ft" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1.3  Obtention d’une représentation d’état à partir d’une FT 由转换方程到状态表示</h3>
-<p>Soit un système considéré représenté par la FT(représentation dite externe) suivante : <br />
-<p align="center"><img alt="" height="80px" src="images/cap_20171111_163909.png" width="600px" /></p><br />
-<p align="center"><img alt="" height="150px" src="images/cap_20171111_164257.png" width="800px" /></p><br />
-<p align="center"><img alt="" height="150px" src="images/cap_20171111_164534.png" width="800px" /></p><br />
-于是<br />
-<p align="center"><img alt="" height="100px" src="images/cap_20171111_164951.png" width="400px" /></p><br />
-<p align="center"><img alt="" height="200px" src="images/cap_20171111_165528.png" width="600px" /></p></p>
-<div class="admonition hint">
-<p class="admonition-title">remarque</p>
-<p>lorsque m = n, alors on procède à une division polynomiale pour obtenir une nouvelle FT, Go[p]  ,dont le d°N sera strictement inférieur à d°D. Ensuite on procède comme précédemment en utilisant la nouvelle FT Go[p] :<br />
-<p align="center"><img alt="" height="50px" src="images/cap_20171111_170022.png" width="400px" /></p></p>
-</div>
-<h3 id="214-de-la-representation-detat-a-la-ft"><a name="user-content-214-de-la-representation-detat-a-la-ft" href="#214-de-la-representation-detat-a-la-ft" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1.4  De la représentation d’état à la FT 状态表示到转换方程</h3>
-<p><p align="center"><img alt="" height="50px" src="images/cap_20171111_170151.png" width="400px" /></p></p>
-<h2 id="22-notion-de-controlabilite-et-dobservabilite"><a name="user-content-22-notion-de-controlabilite-et-dobservabilite" href="#22-notion-de-controlabilite-et-dobservabilite" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.2  Notion de Contrôlabilité et d’observabilité 系统的可控性和可观性</h2>
-<ul>
-<li>La commande des systèmes asservis linéaires par commande par retour d’état va consister à <br />
-placer les pôles du système en BF à l’endroit désiré sur le plan complexe afin d’atteindre les <br />
-objectifs visés de stabilité, de rapidité, de précision&hellip;<br />
-通过状态方程的线性系统需求控制由在闭环系统的复数平面中放置满足要求的极点来达到稳定快速精确的目的。</li>
-<li>为此，要求改系统可观可控。引入两个问题：<ul>
-<li>Peut-on, en agissant sur les grandeurs d’entrée du système, faire passer l’état du système X(t) d’un état arbitraire X(to) à un autre état arbitraire X(t1)？vous vous posez donc à travers cette question basique le problème de la contrôlabilité. <br />
-<code>可控性：通过改变系统的输入变量，将系统状态从任意一个状态X(t0)变化到另一个任意状态X(t1)</code></li>
-<li>Peut-on, en observant les grandeurs de sortie Y(t) du système sur un intervalle de temps suffisamment long [t0, t1], déduire l’état initial X(to) du système? avec cette  autre question tout aussi basique vous vous posez la problématique de l’observabilité.<br />
-<code>客观性：通过观察在足够久的时间间隔内的系统输出，推断系统的输入状态</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="221-controlabiliteou-commandabilite"><a name="user-content-221-controlabiliteou-commandabilite" href="#221-controlabiliteou-commandabilite" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.2.1 Contrôlabilité(ou Commandabilité)系统的可控性(可调性)</h3>
-<ul>
-<li>Kalman 于1960年引入的概念，以确定是否可通过<code>改变闭环系统的极值pôle</code>来达到设计目标</li>
-<li>判定条件:Si à l’instant to le système se trouve à l’état initial X(to) = Xo, nous disons que cet état est commandable(ou contrôlable) si nous pouvons trouver un temps t1 fini supérieur à to et une commande U(t) dans l’intervalle de temps [to, t1] qui transfère l’état du système de Xo à X(t1)=X1. Nous disons aussi que le système est complètement commandable s’il est commandable quel que soit l’état initial Xo et l’instant initial to. <ul>
-<li>t0时刻系统初始状态 X(t0)=X0, 如果存在t1(t1&gt;t0)时刻使得某个控制量U(t)在[t0,t1]区间内可以把系统从状态Xo转变为X1,那么该系统为可控的。</li>
-<li>或者说如果该系统无论初始状态Xo或初始时刻是何值都是可控的，那么为完全可控。</li>
-</ul>
-</li>
-<li>Pour les systèmes linéaires et invariants dans le temps, une condition nécessaire et suffisante de contrôlabilité a été donnée par Kalman et dépend uniquement de la paire (A, B). 对于线性时不变系统来说，kalman定义:可控性的充分必要条件只取决于(A,B). Cette condition se résume à ce que la matrice de commandabilité suivante :  </li>
-</ul>
-<div class="admonition attention">
-<p class="admonition-title">判定可控性的充分必要条件</p>
-<p>$C_{o} = [𝑩, 𝑨𝑩 , …, 𝑨^{𝒏−𝟏}𝑩]$ soit de <strong>rang(秩) n</strong><br />
-Le paramètre n étant le nombre de variables d&rsquo;état dans le vecteur d’état X<br />
-<strong><code>秩就是矩阵中线性独立横行的数目</code></strong></p>
-</div>
-<h4 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>举例说明</h4>
-<p><p align="center"><img alt="" height="80px" src="images/cap_20171111_213929.png" width="500px" /></p><br />
-<p align="center"><img alt="" height="60px" src="images/cap_20171111_214241.png" width="600px" /></p></p>
-<div class="admonition caution">
-<p class="admonition-title">可控性的判定条件</p>
-<ul>
-<li><strong>rank($C_{o}$)==rank(X)</strong></li>
-<li><strong>det($C_{o}$) ≠ 0</strong>  </li>
-</ul>
-</div>
-<h3 id="222-observabilite"><a name="user-content-222-observabilite" href="#222-observabilite" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.2.2 Observabilité 系统的可观性</h3>
-<ul>
-<li>Le concept d’observabilité est en quelque sorte le dual de celui de la commandabilité. En effet, l’observabilité consiste à déduire l’état initial X(t0) du système à partir des observations des grandeurs de sortie du système sur un intervalle de temps suffisamment long [t0, t1]. <br />
-可观性的对偶概念是可控性。事实上，可观性需要从系统的输出量推断其在足够长的时间间隔上的初始状态。</li>
-</ul>
-<div class="admonition attention">
-<p class="admonition-title">判定可观性的充分必要条件</p>
-<p>$O_{b} = [C; CA; CA^{2}; …; C^{𝒏−𝟏}A]$ soit de <strong>rang(秩) n</strong><br />
-Le paramètre n étant le nombre de variables d&rsquo;état dans le vecteur d’état X (la dimension du vecteur état)<br />
-<strong><code>秩就是矩阵中线性独立横行的数目</code></strong></p>
-</div>
-<h4 id="_2"><a name="user-content-_2" href="#_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>举例说明</h4>
-<p><p align="center"><img alt="" height="80px" src="images/cap_20171111_213929.png" width="500px" /></p><br />
-<p align="center"><img alt="" height="60px" src="images/cap_20171111_221139.png" width="600px" /></p></p>
-<div class="admonition caution">
-<p class="admonition-title">可观性的判定条件</p>
-<ul>
-<li><strong>rank($C_{o}$)==rank(X)</strong></li>
-<li><strong>det($C_{o}$) ≠ 0</strong>  </li>
-</ul>
-</div>
-<h3 id="matlab"><a name="user-content-matlab" href="#matlab" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>可控性可观性总结及matlab程序</h3>
-<div class="admonition attention">
-<ul>
-<li>可控制性是指可以利用输入将系统由初始状态转换成任意的最终状态</li>
-<li>可观察性是指系统的输出轨迹预测其初始状态</li>
-</ul>
-</div>
-<div class="codehilite"><pre><span class="o">%</span><span class="n">On</span> <span class="n">explicite</span> <span class="n">les</span> <span class="n">différentes</span> <span class="n">matrices</span> 
+</pre>
+    </div>
+    <br/>
+    <p align="center">
+     <img alt="" src="images/cap_20171111_135924.png"/>
+    </p>
+   </p>
+   <div class="admonition danger">
+    <p>
+     点P3应在M点的左侧
+    </p>
+   </div>
+   <p>
+    <p align="center">
+     <img alt="" src="images/cap_20171111_135255.png"/>
+    </p>
+   </p>
+   <div class="admonition hint">
+    <p class="admonition-title">
+     求pôles dominants公式:
+     <p>
+      <p align="center">
+       <img alt="" height="150px" src="images/cap_20171111_134515.png" width="300px"/>
+      </p>
+     </p>
+    </p>
+   </div>
+   <p>
+    验证特征
+    <br/>
+    <p align="center">
+     <img alt="" src="images/cap_20171111_140754.png"/>
+    </p>
+   </p>
+   <p>
+    总结
+    <br/>
+    <p align="center">
+     <img alt="" height="150px" src="images/cap_20171111_141153.png" width="450px"/>
+    </p>
+   </p>
+   <div class="admonition attention">
+    <p class="admonition-title">
+     结论
+    </p>
+    <p>
+     En règle générale, il est admis que lorsque le module du pôle réel p3 reste supérieur ou égal à 10 fois le module de la partie réelle des racines complexes conjuguées, le troisième ordre est assimilable à un système du deuxième ordre.
+     <br/>
+     当实数极值≥10倍复数极值的实数部分,那么三阶系统与二阶系统相似。
+    </p>
+   </div>
+   <div class="admonition hint">
+    <p class="admonition-title">
+     英法对照
+    </p>
+    <table>
+     <thead>
+      <tr>
+       <th>
+        法
+       </th>
+       <th align="center">
+        英
+       </th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr>
+       <td>
+        Temps de réponse à 5%(Tr5%)
+       </td>
+       <td align="center">
+        setting time
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Temps de montée
+       </td>
+       <td align="center">
+        rise time
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Peak réponse de dépassement
+       </td>
+       <td align="center">
+        peak ampititude, overshot,at time
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Erreur de position
+       </td>
+       <td align="center">
+        final value
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Coef amortissement
+       </td>
+       <td align="center">
+        damping raito
+       </td>
+      </tr>
+      <tr>
+       <td>
+        pulsation propre
+       </td>
+       <td align="center">
+        natural frequence
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+   <h1 id="ii-conception-des-systemes-asservis-lineaires-par-commande-par-retour-detat">
+    <a aria-hidden="true" class="headeranchor-link" href="#ii-conception-des-systemes-asservis-lineaires-par-commande-par-retour-detat" name="user-content-ii-conception-des-systemes-asservis-lineaires-par-commande-par-retour-detat">
+     <span class="headeranchor">
+     </span>
+    </a>
+    II) Conception des systèmes asservis linéaires par commande par retour d’état 通过状态反馈的线性伺服控制系统
+   </h1>
+   <ul>
+    <li>
+     <code>
+      fonction de transfert
+     </code>
+     définie lors du cours d’
+     <code>
+      asservissements linéaires continus
+     </code>
+     .
+    </li>
+    <li>
+     Le problème est traité dans le
+     <code>
+      domaine fréquentiel
+     </code>
+     et les
+     <code>
+      conditions initiales
+     </code>
+     sont
+     <code>
+      nulles
+     </code>
+     .
+    </li>
+    <li>
+     La représentation d’état offre une
+     <code>
+      description plus complète
+     </code>
+     puisqu’elle permet de connaitre
+     <code>
+      l'évolution des variables internes du processus
+     </code>
+    </li>
+    <li>
+     <code>
+      Il ne lui est pas demandé
+     </code>
+     de contrôler l’intensité du courant électrique(l’autre variable d’état i(t)) pourtant(cependant) responsable d’échauffements susceptibles de réduire notablement la durée de vie de son moteur. (不要求控制电流强度,但是对显著降低电机寿命的可接受发热负有责任)
+    </li>
+   </ul>
+   <h2 id="21-mise-sous-forme-detat-voir-annexe-ou-cours-mc53">
+    <a aria-hidden="true" class="headeranchor-link" href="#21-mise-sous-forme-detat-voir-annexe-ou-cours-mc53" name="user-content-21-mise-sous-forme-detat-voir-annexe-ou-cours-mc53">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.1  Mise sous forme d’état (voir annexe ou cours MC53) 转换成状态空间形式
+   </h2>
+   <p>
+    <p align="center">
+     <img alt="" height="300px" src="images/cap_20171111_153234.png" width="700px"/>
+    </p>
+   </p>
+   <div class="admonition hint">
+    <p class="admonition-title">
+     D
+    </p>
+    <p>
+     D est la matrice de transmission directe ou matrice de couplage entrées-sorties.Dans de nombreux cas elle est identiquement nulle puisqu’elle représente le cas particuliers des liaisons qui sont la limite du principe de causalité. 通常D为0，因为该矩阵表明特例情况下因果关系的限制关系
+    </p>
+   </div>
+   <h3 id="211-selection-des-variables-detat">
+    <a aria-hidden="true" class="headeranchor-link" href="#211-selection-des-variables-detat" name="user-content-211-selection-des-variables-detat">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.1.1  Sélection des variables d’état 选择状态变量
+   </h3>
+   <ul>
+    <li>
+     Il faut d’abord inventorier l’ensemble des grandeurs qui apparaissent
+     <code>
+      sous forme dérivée
+     </code>
+     dans les équations. Ces grandeurs sont notées γi dont l’ordre maximum est noté ρi. Cette quantité définit le nombre de variables d’état qu’il faut introduire pour représenter une grandeur γi.
+    </li>
+    <li>
+     L’ordre du système (linéaire ou non) est égal à la somme des ρi. ρi的数量就是系统阶数
+     <br/>
+     首先要清查所有以微分形式出现的变量γi。同时每个变量其各阶量命名为ρi，该量定义了需要引入来表示某一γi量的状态变量的数量。
+    </li>
+    <li>
+     Les entrées sont les variables indépendantes, alors que les sorties sont les grandeurs mesurées.Les grandeurs qui ne sont ni des variables d’état, ni des entrées, ni des sorties, doivent être éliminées par substitution. 输入量是互相独立的变量，输出量是测量量。其余无关量需要用替代法消除。
+    </li>
+   </ul>
+   <h4 id="3">
+    <a aria-hidden="true" class="headeranchor-link" href="#3" name="user-content-3">
+     <span class="headeranchor">
+     </span>
+    </a>
+    例题 3阶系统
+   </h4>
+   <p>
+    <p align="center">
+     <img alt="" src="images/cap_20171111_161009.png"/>
+    </p>
+   </p>
+   <p>
+    3阶系统整理可得
+    <br/>
+    <p align="center">
+     <img alt="" height="250px" src="images/cap_20171111_161316.png" width="700px"/>
+    </p>
+   </p>
+   <h3 id="212-solution-mathematique">
+    <a aria-hidden="true" class="headeranchor-link" href="#212-solution-mathematique" name="user-content-212-solution-mathematique">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.1.2  Solution mathématique 数学分析
+   </h3>
+   <p>
+    简化为一阶微分
+    <br/>
+    <p align="center">
+     <img alt="" height="50px" src="images/cap_20171111_162704.png" width="200px"/>
+    </p>
+    <br/>
+    <p align="center">
+     <img alt="" height="250px" src="images/cap_20171111_163619.png" width="800px"/>
+    </p>
+   </p>
+   <h3 id="213-obtention-dune-representation-detat-a-partir-dune-ft">
+    <a aria-hidden="true" class="headeranchor-link" href="#213-obtention-dune-representation-detat-a-partir-dune-ft" name="user-content-213-obtention-dune-representation-detat-a-partir-dune-ft">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.1.3  Obtention d’une représentation d’état à partir d’une FT 由转换方程到状态表示
+   </h3>
+   <p>
+    Soit un système considéré représenté par la FT(représentation dite externe) suivante :
+    <br/>
+    <p align="center">
+     <img alt="" height="80px" src="images/cap_20171111_163909.png" width="600px"/>
+    </p>
+    <br/>
+    <p align="center">
+     <img alt="" height="150px" src="images/cap_20171111_164257.png" width="800px"/>
+    </p>
+    <br/>
+    <p align="center">
+     <img alt="" height="150px" src="images/cap_20171111_164534.png" width="800px"/>
+    </p>
+    <br/>
+    于是
+    <br/>
+    <p align="center">
+     <img alt="" height="100px" src="images/cap_20171111_164951.png" width="400px"/>
+    </p>
+    <br/>
+    <p align="center">
+     <img alt="" height="200px" src="images/cap_20171111_165528.png" width="600px"/>
+    </p>
+   </p>
+   <div class="admonition hint">
+    <p class="admonition-title">
+     remarque
+    </p>
+    <p>
+     lorsque m = n, alors on procède à une division polynomiale pour obtenir une nouvelle FT, Go[p]  ,dont le d°N sera strictement inférieur à d°D. Ensuite on procède comme précédemment en utilisant la nouvelle FT Go[p] :
+     <br/>
+     <p align="center">
+      <img alt="" height="50px" src="images/cap_20171111_170022.png" width="400px"/>
+     </p>
+    </p>
+   </div>
+   <h3 id="214-de-la-representation-detat-a-la-ft">
+    <a aria-hidden="true" class="headeranchor-link" href="#214-de-la-representation-detat-a-la-ft" name="user-content-214-de-la-representation-detat-a-la-ft">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.1.4  De la représentation d’état à la FT 状态表示到转换方程
+   </h3>
+   <p>
+    <p align="center">
+     <img alt="" height="50px" src="images/cap_20171111_170151.png" width="400px"/>
+    </p>
+   </p>
+   <h2 id="22-notion-de-controlabilite-et-dobservabilite">
+    <a aria-hidden="true" class="headeranchor-link" href="#22-notion-de-controlabilite-et-dobservabilite" name="user-content-22-notion-de-controlabilite-et-dobservabilite">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.2  Notion de Contrôlabilité et d’observabilité 系统的可控性和可观性
+   </h2>
+   <ul>
+    <li>
+     La commande des systèmes asservis linéaires par commande par retour d’état va consister à
+     <br/>
+     placer les pôles du système en BF à l’endroit désiré sur le plan complexe afin d’atteindre les
+     <br/>
+     objectifs visés de stabilité, de rapidité, de précision…
+     <br/>
+     通过状态方程的线性系统需求控制由在闭环系统的复数平面中放置满足要求的极点来达到稳定快速精确的目的。
+    </li>
+    <li>
+     为此，要求改系统可观可控。引入两个问题：
+     <ul>
+      <li>
+       Peut-on, en agissant sur les grandeurs d’entrée du système, faire passer l’état du système X(t) d’un état arbitraire X(to) à un autre état arbitraire X(t1)？vous vous posez donc à travers cette question basique le problème de la contrôlabilité.
+       <br/>
+       <code>
+        可控性：通过改变系统的输入变量，将系统状态从任意一个状态X(t0)变化到另一个任意状态X(t1)
+       </code>
+      </li>
+      <li>
+       Peut-on, en observant les grandeurs de sortie Y(t) du système sur un intervalle de temps suffisamment long [t0, t1], déduire l’état initial X(to) du système? avec cette  autre question tout aussi basique vous vous posez la problématique de l’observabilité.
+       <br/>
+       <code>
+        客观性：通过观察在足够久的时间间隔内的系统输出，推断系统的输入状态
+       </code>
+      </li>
+     </ul>
+    </li>
+   </ul>
+   <h3 id="221-controlabiliteou-commandabilite">
+    <a aria-hidden="true" class="headeranchor-link" href="#221-controlabiliteou-commandabilite" name="user-content-221-controlabiliteou-commandabilite">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.2.1 Contrôlabilité(ou Commandabilité)系统的可控性(可调性)
+   </h3>
+   <ul>
+    <li>
+     Kalman 于1960年引入的概念，以确定是否可通过
+     <code>
+      改变闭环系统的极值pôle
+     </code>
+     来达到设计目标
+    </li>
+    <li>
+     判定条件:Si à l’instant to le système se trouve à l’état initial X(to) = Xo, nous disons que cet état est commandable(ou contrôlable) si nous pouvons trouver un temps t1 fini supérieur à to et une commande U(t) dans l’intervalle de temps [to, t1] qui transfère l’état du système de Xo à X(t1)=X1. Nous disons aussi que le système est complètement commandable s’il est commandable quel que soit l’état initial Xo et l’instant initial to.
+     <ul>
+      <li>
+       t0时刻系统初始状态 X(t0)=X0, 如果存在t1(t1&gt;t0)时刻使得某个控制量U(t)在[t0,t1]区间内可以把系统从状态Xo转变为X1,那么该系统为可控的。
+      </li>
+      <li>
+       或者说如果该系统无论初始状态Xo或初始时刻是何值都是可控的，那么为完全可控。
+      </li>
+     </ul>
+    </li>
+    <li>
+     Pour les systèmes linéaires et invariants dans le temps, une condition nécessaire et suffisante de contrôlabilité a été donnée par Kalman et dépend uniquement de la paire (A, B). 对于线性时不变系统来说，kalman定义:可控性的充分必要条件只取决于(A,B). Cette condition se résume à ce que la matrice de commandabilité suivante :
+    </li>
+   </ul>
+   <div class="admonition attention">
+    <p class="admonition-title">
+     判定可控性的充分必要条件
+    </p>
+    <p>
+     $C_{o} = [𝑩, 𝑨𝑩 , …, 𝑨^{𝒏−𝟏}𝑩]$ soit de
+     <strong>
+      rang(秩) n
+     </strong>
+     <br/>
+     Le paramètre n étant le nombre de variables d’état dans le vecteur d’état X
+     <br/>
+     <strong>
+      <code>
+       秩就是矩阵中线性独立横行的数目
+      </code>
+     </strong>
+    </p>
+   </div>
+   <h4 id="_1">
+    <a aria-hidden="true" class="headeranchor-link" href="#_1" name="user-content-_1">
+     <span class="headeranchor">
+     </span>
+    </a>
+    举例说明
+   </h4>
+   <p>
+    <p align="center">
+     <img alt="" height="80px" src="images/cap_20171111_213929.png" width="500px"/>
+    </p>
+    <br/>
+    <p align="center">
+     <img alt="" height="60px" src="images/cap_20171111_214241.png" width="600px"/>
+    </p>
+   </p>
+   <div class="admonition caution">
+    <p class="admonition-title">
+     可控性的判定条件
+    </p>
+    <ul>
+     <li>
+      <strong>
+       rank($C_{o}$)==rank(X)
+      </strong>
+     </li>
+     <li>
+      <strong>
+       det($C_{o}$) ≠ 0
+      </strong>
+     </li>
+    </ul>
+   </div>
+   <h3 id="222-observabilite">
+    <a aria-hidden="true" class="headeranchor-link" href="#222-observabilite" name="user-content-222-observabilite">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.2.2 Observabilité 系统的可观性
+   </h3>
+   <ul>
+    <li>
+     Le concept d’observabilité est en quelque sorte le dual de celui de la commandabilité. En effet, l’observabilité consiste à déduire l’état initial X(t0) du système à partir des observations des grandeurs de sortie du système sur un intervalle de temps suffisamment long [t0, t1].
+     <br/>
+     可观性的对偶概念是可控性。事实上，可观性需要从系统的输出量推断其在足够长的时间间隔上的初始状态。
+    </li>
+   </ul>
+   <div class="admonition attention">
+    <p class="admonition-title">
+     判定可观性的充分必要条件
+    </p>
+    <p>
+     $O_{b} = [C; CA; CA^{2}; …; C^{𝒏−𝟏}A]$ soit de
+     <strong>
+      rang(秩) n
+     </strong>
+     <br/>
+     Le paramètre n étant le nombre de variables d’état dans le vecteur d’état X (la dimension du vecteur état)
+     <br/>
+     <strong>
+      <code>
+       秩就是矩阵中线性独立横行的数目
+      </code>
+     </strong>
+    </p>
+   </div>
+   <h4 id="_2">
+    <a aria-hidden="true" class="headeranchor-link" href="#_2" name="user-content-_2">
+     <span class="headeranchor">
+     </span>
+    </a>
+    举例说明
+   </h4>
+   <p>
+    <p align="center">
+     <img alt="" height="80px" src="images/cap_20171111_213929.png" width="500px"/>
+    </p>
+    <br/>
+    <p align="center">
+     <img alt="" height="60px" src="images/cap_20171111_221139.png" width="600px"/>
+    </p>
+   </p>
+   <div class="admonition caution">
+    <p class="admonition-title">
+     可观性的判定条件
+    </p>
+    <ul>
+     <li>
+      <strong>
+       rank($C_{o}$)==rank(X)
+      </strong>
+     </li>
+     <li>
+      <strong>
+       det($C_{o}$) ≠ 0
+      </strong>
+     </li>
+    </ul>
+   </div>
+   <h3 id="matlab">
+    <a aria-hidden="true" class="headeranchor-link" href="#matlab" name="user-content-matlab">
+     <span class="headeranchor">
+     </span>
+    </a>
+    可控性可观性总结及matlab程序
+   </h3>
+   <div class="admonition attention">
+    <ul>
+     <li>
+      可控制性是指可以利用输入将系统由初始状态转换成任意的最终状态
+     </li>
+     <li>
+      可观察性是指系统的输出轨迹预测其初始状态
+     </li>
+    </ul>
+   </div>
+   <div class="codehilite">
+    <pre><span class="o">%</span><span class="n">On</span> <span class="n">explicite</span> <span class="n">les</span> <span class="n">différentes</span> <span class="n">matrices</span> 
 <span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="mi">1</span><span class="p">;</span><span class="o">-</span><span class="mi">2</span> <span class="o">-</span><span class="mi">3</span><span class="p">];</span>
 <span class="n">B</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">1</span><span class="p">];</span>
 <span class="n">C</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="mi">0</span><span class="p">];</span>
@@ -1707,9 +2645,9 @@ Le paramètre n étant le nombre de variables d&rsquo;état dans le vecteur d’
 <span class="n">nCO</span><span class="o">=</span><span class="n">rank</span><span class="p">(</span><span class="n">CO</span><span class="p">);</span>
 <span class="o">%</span><span class="n">On</span> <span class="n">peut</span> <span class="n">creer</span> <span class="n">l</span> <span class="n">interface</span> <span class="n">suivante</span> 
 <span class="k">if</span> <span class="n">rank</span><span class="p">(</span><span class="n">CO</span><span class="p">)</span><span class="o">==</span><span class="n">n</span> 
-    <span class="n">display</span><span class="p">(</span><span class="err">&#39;</span><span class="n">systeme</span> <span class="n">controlable</span><span class="err">&#39;</span><span class="p">)</span> 
+    <span class="n">display</span><span class="p">(</span><span class="err">'</span><span class="n">systeme</span> <span class="n">controlable</span><span class="err">'</span><span class="p">)</span> 
     <span class="k">else</span><span class="p">;</span> 
-    <span class="n">display</span><span class="p">(</span><span class="err">&#39;</span><span class="n">systeme</span> <span class="n">non</span> <span class="n">controlable</span><span class="err">&#39;</span><span class="p">)</span> 
+    <span class="n">display</span><span class="p">(</span><span class="err">'</span><span class="n">systeme</span> <span class="n">non</span> <span class="n">controlable</span><span class="err">'</span><span class="p">)</span> 
 <span class="n">end</span>
 <span class="o">%</span><span class="n">On</span> <span class="n">lance</span> <span class="n">la</span> <span class="n">verification</span> <span class="n">de</span> <span class="n">l</span> <span class="n">observabilite</span> 
 <span class="n">Ob</span><span class="o">=</span><span class="n">obsv</span><span class="p">(</span><span class="n">sys</span><span class="p">);</span>
@@ -1717,36 +2655,77 @@ Le paramètre n étant le nombre de variables d&rsquo;état dans le vecteur d’
 
 <span class="o">%</span><span class="n">On</span> <span class="n">peut</span> <span class="n">encore</span> <span class="n">creer</span> <span class="n">l</span> <span class="n">interface</span> <span class="n">suivante</span> 
 <span class="k">if</span> <span class="n">rank</span><span class="p">(</span><span class="n">Ob</span><span class="p">)</span><span class="o">==</span><span class="n">n</span> 
-    <span class="n">display</span><span class="p">(</span><span class="err">&#39;</span><span class="n">systeme</span> <span class="n">observable</span><span class="err">&#39;</span><span class="p">)</span> 
+    <span class="n">display</span><span class="p">(</span><span class="err">'</span><span class="n">systeme</span> <span class="n">observable</span><span class="err">'</span><span class="p">)</span> 
     <span class="k">else</span><span class="p">;</span> 
-    <span class="n">display</span><span class="p">(</span><span class="err">&#39;</span><span class="n">systeme</span> <span class="n">non</span> <span class="n">observable</span><span class="err">&#39;</span><span class="p">)</span> 
+    <span class="n">display</span><span class="p">(</span><span class="err">'</span><span class="n">systeme</span> <span class="n">non</span> <span class="n">observable</span><span class="err">'</span><span class="p">)</span> 
 <span class="n">end</span> 
-</pre></div>
-
-
-<h2 id="23-commande-par-retour-detat"><a name="user-content-23-commande-par-retour-detat" href="#23-commande-par-retour-detat" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3  Commande par retour d’état</h2>
-<p>反馈状态控制</p>
-<ul>
-<li>通过系统的状态来建立控制信号U(t)</li>
-<li>contrôler des systèmes de type MIMO</li>
-<li>反馈状态控制的前提是假设所有的状态变量都是可以获取的。这种方法的代价是，状态变量越多，需要的传感器数量以及测量次数就变多了，结果就导致测量精度下降。 一个可替代的方案就是只测量较少的状态变量，然后通过状态观测器去推测其余的变量。Cette hypothèse deviendrait évidemment très onéreuse du fait que plus le nombre de variables d’état est élevé, plus le nombre de capteurs nécessaires à leurs mesures augmente. La fiabilité du système diminuant en conséquence. Une alternative à cette contrainte de coût consiste à ne mesurer qu’un nombre réduit de variables d’état et à estimer les autres au moyen d’un observateur d’état.</li>
-</ul>
-<h3 id="231-presentation"><a name="user-content-231-presentation" href="#231-presentation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3.1  Présentation</h3>
-<h3 id="232-etude-dun-systeme-siso"><a name="user-content-232-etude-dun-systeme-siso" href="#232-etude-dun-systeme-siso" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3.2  Etude d’un système SISO</h3>
-<div class="codehilite"><pre><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">1</span><span class="p">;</span><span class="o">-</span><span class="mi">2</span> <span class="o">-</span><span class="mi">3</span><span class="p">]</span> 
+</pre>
+   </div>
+   <h2 id="23-commande-par-retour-detat">
+    <a aria-hidden="true" class="headeranchor-link" href="#23-commande-par-retour-detat" name="user-content-23-commande-par-retour-detat">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.3  Commande par retour d’état
+   </h2>
+   <p>
+    反馈状态控制
+   </p>
+   <ul>
+    <li>
+     通过系统的状态来建立控制信号U(t)
+    </li>
+    <li>
+     contrôler des systèmes de type MIMO
+    </li>
+    <li>
+     反馈状态控制的前提是假设所有的状态变量都是可以获取的。这种方法的代价是，状态变量越多，需要的传感器数量以及测量次数就变多了，结果就导致测量精度下降。 一个可替代的方案就是只测量较少的状态变量，然后通过状态观测器去推测其余的变量。Cette hypothèse deviendrait évidemment très onéreuse du fait que plus le nombre de variables d’état est élevé, plus le nombre de capteurs nécessaires à leurs mesures augmente. La fiabilité du système diminuant en conséquence. Une alternative à cette contrainte de coût consiste à ne mesurer qu’un nombre réduit de variables d’état et à estimer les autres au moyen d’un observateur d’état.
+    </li>
+   </ul>
+   <h3 id="231-presentation">
+    <a aria-hidden="true" class="headeranchor-link" href="#231-presentation" name="user-content-231-presentation">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.3.1  Présentation
+   </h3>
+   <h3 id="232-etude-dun-systeme-siso">
+    <a aria-hidden="true" class="headeranchor-link" href="#232-etude-dun-systeme-siso" name="user-content-232-etude-dun-systeme-siso">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.3.2  Etude d’un système SISO
+   </h3>
+   <div class="codehilite">
+    <pre><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">1</span><span class="p">;</span><span class="o">-</span><span class="mi">2</span> <span class="o">-</span><span class="mi">3</span><span class="p">]</span> 
 <span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">1</span><span class="p">]</span> 
 <span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="o">+</span><span class="mf">1.5</span><span class="n">i</span><span class="p">;</span><span class="o">-</span><span class="mf">1.5</span><span class="o">-</span><span class="mf">1.5</span><span class="n">i</span><span class="p">]</span><span class="o">%</span> <span class="n">pôles</span> <span class="n">désirés</span> 
 <span class="n">K</span> <span class="o">=</span> <span class="n">place</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">p</span><span class="p">)</span> 
-</pre></div>
-
-
-<div class="admonition danger">
-<p class="admonition-title">Remarque:</p>
-<p>Simulink<br />
-Pour le block de K, faut au&rsquo;on utilise <code>Matrix(K*u)</code></p>
-</div>
-<h3 id="233-etude-dun-systeme-mimo"><a name="user-content-233-etude-dun-systeme-mimo" href="#233-etude-dun-systeme-mimo" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3.3  Etude d’un système MIMO</h3>
-<p><div class="codehilite"><pre><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span><span class="p">;</span><span class="mi">0</span> <span class="mi">2</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">5</span><span class="p">];</span> 
+</pre>
+   </div>
+   <div class="admonition danger">
+    <p class="admonition-title">
+     Remarque:
+    </p>
+    <p>
+     Simulink
+     <br/>
+     Pour le block de K, faut au’on utilise
+     <code>
+      Matrix(K*u)
+     </code>
+    </p>
+   </div>
+   <h3 id="233-etude-dun-systeme-mimo">
+    <a aria-hidden="true" class="headeranchor-link" href="#233-etude-dun-systeme-mimo" name="user-content-233-etude-dun-systeme-mimo">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.3.3  Etude d’un système MIMO
+   </h3>
+   <p>
+    <div class="codehilite">
+     <pre><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span><span class="p">;</span><span class="mi">0</span> <span class="mi">2</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">5</span><span class="p">];</span> 
 <span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">0</span><span class="p">;</span><span class="o">-</span><span class="mi">1</span> <span class="mi">0</span><span class="p">;</span><span class="mi">1</span> <span class="mi">1</span><span class="p">]</span> <span class="p">;</span>
 <span class="n">C</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">]</span> <span class="p">;</span> <span class="o">%</span><span class="n">lecture</span> <span class="n">de</span> <span class="n">X1</span> <span class="n">et</span> <span class="n">X2</span>
 <span class="n">D</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span><span class="p">]</span> <span class="p">;</span>
@@ -1758,49 +2737,116 @@ Pour le block de K, faut au&rsquo;on utilise <code>Matrix(K*u)</code></p>
 <span class="n">AR</span><span class="o">=</span><span class="n">A</span><span class="o">-</span><span class="n">B</span><span class="o">*</span><span class="n">K</span>
 <span class="n">Poles</span> <span class="o">=</span> <span class="n">eig</span><span class="p">(</span><span class="n">AR</span><span class="p">)</span>
 <span class="n">N</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">c</span><span class="o">*</span><span class="n">inv</span><span class="p">(</span><span class="o">-</span><span class="n">A</span><span class="o">+</span><span class="n">B</span><span class="o">*</span><span class="n">K</span><span class="p">)</span><span class="o">*</span><span class="n">B</span><span class="p">)</span>
-</pre></div>
-<br />
-markdown</p>
-<div class="admonition hint">
-<p class="admonition-title">Netoyer</p>
-<p><code>clear</code>: workspace<br />
-<code>clc</code>:console</p>
-</div>
-<h3 id="234-reconstructeur-detat"><a name="user-content-234-reconstructeur-detat" href="#234-reconstructeur-detat" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3.4  Reconstructeur d’état</h3>
-<h3 id="235-commande-par-retour-detat-avec-observateur"><a name="user-content-235-commande-par-retour-detat-avec-observateur" href="#235-commande-par-retour-detat-avec-observateur" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3.5  Commande par retour d’état avec observateur</h3>
-<div class="admonition unknow">
-<p class="admonition-title">Procédure de conception d’un retour d’état avec observateur : </p>
-<div class="admonition note">
-<p class="admonition-title">Première étape :</p>
-<p>Vérifier la commandabilité et l’observabilité du système</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Deuxième étape : </p>
-<p>Déterminer  la  matrice  de  contre  réaction  K  en  prenant  des  positions  de  pôles  qui  vous semblent les plus intéressantes par rapport au cahier des charges.(amortissement et temps de réponse). </p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Troisième étape : </p>
-<p>Déterminer la matrice L en choisissant des pôles dominants dans un rapport de 10 par rapport aux pôles dominant du système. </p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Quatrième étape :</p>
-<p>Construire votre système global comme sur la figure ci-après. </p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Cinquième étape : </p>
-<p>Analyser les résultats et réajuster les placements des pôles si besoin.</p>
-</div>
-</div>
-<h3 id="236-commande-par-retour-detat-avec-action-integrale"><a name="user-content-236-commande-par-retour-detat-avec-action-integrale" href="#236-commande-par-retour-detat-avec-action-integrale" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3.6  Commande par retour d’état avec action intégrale</h3>
-<h1 id="iii-conception-des-systemes-asservis-lineaires-par-regulation-lineaire-quadratique-lqr"><a name="user-content-iii-conception-des-systemes-asservis-lineaires-par-regulation-lineaire-quadratique-lqr" href="#iii-conception-des-systemes-asservis-lineaires-par-regulation-lineaire-quadratique-lqr" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>III) Conception des systèmes asservis linéaires par régulation linéaire quadratique : LQR</h1>
-<div class="admonition hint">
-<p class="admonition-title">5 équations<p>1 moteur:<br />
-2 électromagnétique:<br />
-1 mécanique:<br />
-1 hydraulique:</p>
-</p>
-</div>
-<div class="codehilite"><pre><span class="n">clc</span>
+</pre>
+    </div>
+    <br/>
+    markdown
+   </p>
+   <div class="admonition hint">
+    <p class="admonition-title">
+     Netoyer
+    </p>
+    <p>
+     <code>
+      clear
+     </code>
+     : workspace
+     <br/>
+     <code>
+      clc
+     </code>
+     :console
+    </p>
+   </div>
+   <h3 id="234-reconstructeur-detat">
+    <a aria-hidden="true" class="headeranchor-link" href="#234-reconstructeur-detat" name="user-content-234-reconstructeur-detat">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.3.4  Reconstructeur d’état
+   </h3>
+   <h3 id="235-commande-par-retour-detat-avec-observateur">
+    <a aria-hidden="true" class="headeranchor-link" href="#235-commande-par-retour-detat-avec-observateur" name="user-content-235-commande-par-retour-detat-avec-observateur">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.3.5  Commande par retour d’état avec observateur
+   </h3>
+   <div class="admonition unknow">
+    <p class="admonition-title">
+     Procédure de conception d’un retour d’état avec observateur :
+    </p>
+    <div class="admonition note">
+     <p class="admonition-title">
+      Première étape :
+     </p>
+     <p>
+      Vérifier la commandabilité et l’observabilité du système
+     </p>
+    </div>
+    <div class="admonition note">
+     <p class="admonition-title">
+      Deuxième étape :
+     </p>
+     <p>
+      Déterminer  la  matrice  de  contre  réaction  K  en  prenant  des  positions  de  pôles  qui  vous semblent les plus intéressantes par rapport au cahier des charges.(amortissement et temps de réponse).
+     </p>
+    </div>
+    <div class="admonition note">
+     <p class="admonition-title">
+      Troisième étape :
+     </p>
+     <p>
+      Déterminer la matrice L en choisissant des pôles dominants dans un rapport de 10 par rapport aux pôles dominant du système.
+     </p>
+    </div>
+    <div class="admonition note">
+     <p class="admonition-title">
+      Quatrième étape :
+     </p>
+     <p>
+      Construire votre système global comme sur la figure ci-après.
+     </p>
+    </div>
+    <div class="admonition note">
+     <p class="admonition-title">
+      Cinquième étape :
+     </p>
+     <p>
+      Analyser les résultats et réajuster les placements des pôles si besoin.
+     </p>
+    </div>
+   </div>
+   <h3 id="236-commande-par-retour-detat-avec-action-integrale">
+    <a aria-hidden="true" class="headeranchor-link" href="#236-commande-par-retour-detat-avec-action-integrale" name="user-content-236-commande-par-retour-detat-avec-action-integrale">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.3.6  Commande par retour d’état avec action intégrale
+   </h3>
+   <h1 id="iii-conception-des-systemes-asservis-lineaires-par-regulation-lineaire-quadratique-lqr">
+    <a aria-hidden="true" class="headeranchor-link" href="#iii-conception-des-systemes-asservis-lineaires-par-regulation-lineaire-quadratique-lqr" name="user-content-iii-conception-des-systemes-asservis-lineaires-par-regulation-lineaire-quadratique-lqr">
+     <span class="headeranchor">
+     </span>
+    </a>
+    III) Conception des systèmes asservis linéaires par régulation linéaire quadratique : LQR
+   </h1>
+   <div class="admonition hint">
+    <p class="admonition-title">
+     5 équations
+     <p>
+      1 moteur:
+      <br/>
+      2 électromagnétique:
+      <br/>
+      1 mécanique:
+      <br/>
+      1 hydraulique:
+     </p>
+    </p>
+   </div>
+   <div class="codehilite">
+    <pre><span class="n">clc</span>
 <span class="n">clear</span>
 
 <span class="o">%</span> <span class="n">parametres</span> <span class="p">:</span>
@@ -1825,55 +2871,255 @@ markdown</p>
 
 <span class="n">P1</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.15</span><span class="o">+</span><span class="mf">0.15</span><span class="n">i</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.15</span><span class="o">-</span><span class="mf">0.15</span><span class="n">i</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.6</span><span class="p">];</span>
 <span class="n">K</span><span class="o">=</span><span class="n">place</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">P1</span><span class="p">)</span>
-<span class="n">L</span><span class="o">=</span><span class="n">place</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="s">&#39;,C.&#39;</span><span class="p">,</span><span class="n">P1</span><span class="p">)</span><span class="o">.</span><span class="s">&#39;</span>
+<span class="n">L</span><span class="o">=</span><span class="n">place</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="s">',C.'</span><span class="p">,</span><span class="n">P1</span><span class="p">)</span><span class="o">.</span><span class="s">'</span>
 <span class="o">%</span><span class="n">Q</span><span class="o">=</span><span class="p">[</span><span class="mi">25</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">100</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mf">0.01</span><span class="p">]</span>
 <span class="o">%</span><span class="n">rho</span><span class="o">=</span><span class="mi">5</span>
 <span class="o">%</span><span class="n">R</span><span class="o">=</span><span class="p">[</span><span class="n">rho</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">50</span><span class="o">*</span><span class="mi">50</span><span class="p">))]</span>
 <span class="o">%</span><span class="p">[</span><span class="n">K</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">E</span><span class="p">]</span><span class="o">=</span><span class="n">lqr</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">R</span><span class="p">)</span>
-</pre></div>
-
-
-<h1 id="31-critere-doptimisation-quadratique"><a name="user-content-31-critere-doptimisation-quadratique" href="#31-critere-doptimisation-quadratique" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.1 Critère d’optimisation quadratique</h1>
-<h3 id="311-presentation"><a name="user-content-311-presentation" href="#311-presentation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.1.1 Présentation</h3>
-<h3 id="312-critere-des-performances-jx"><a name="user-content-312-critere-des-performances-jx" href="#312-critere-des-performances-jx" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.1.2 Critère des performances Jx</h3>
-<h3 id="313-critere-deconomie-energetique-ju"><a name="user-content-313-critere-deconomie-energetique-ju" href="#313-critere-deconomie-energetique-ju" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.1.3 Critère d’économie énergétique Ju</h3>
-<h2 id="314-critere-doptimisation-quadratique-jlq"><a name="user-content-314-critere-doptimisation-quadratique-jlq" href="#314-critere-doptimisation-quadratique-jlq" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.14 Critère d’optimisation quadratique JLQ .</h2>
-<h2 id="32-solution-du-probleme-lq-equation-de-riccati"><a name="user-content-32-solution-du-probleme-lq-equation-de-riccati" href="#32-solution-du-probleme-lq-equation-de-riccati" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.2 Solution du problème LQ : équation de Riccati</h2>
-<h2 id="33-procedure-de-mise-au-point"><a name="user-content-33-procedure-de-mise-au-point" href="#33-procedure-de-mise-au-point" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.3 Procédure de mise au point.</h2>
-<h2 id="34-bibliographie-utile-pour-cette-partie-de-cours"><a name="user-content-34-bibliographie-utile-pour-cette-partie-de-cours" href="#34-bibliographie-utile-pour-cette-partie-de-cours" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.4 Bibliographie utile pour cette partie de cours :</h2>
-<h1 id="ivintroduction-a-la-commande-lineaire-quadratique-gaussienne-lqg"><a name="user-content-ivintroduction-a-la-commande-lineaire-quadratique-gaussienne-lqg" href="#ivintroduction-a-la-commande-lineaire-quadratique-gaussienne-lqg" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>IV)Introduction à la commande Linéaire Quadratique Gaussienne :LQG</h1>
-<p><p align="center"><img alt="" src="images/cap_20171027_105517.png" /></p></p>
-<h1 id="41-principe-du-filtre-de-kalman"><a name="user-content-41-principe-du-filtre-de-kalman" href="#41-principe-du-filtre-de-kalman" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.1 Principe du filtre de Kalman</h1>
-<h1 id="42-analogie-avec-le-probleme-de-la-commande-optimale-lq"><a name="user-content-42-analogie-avec-le-probleme-de-la-commande-optimale-lq" href="#42-analogie-avec-le-probleme-de-la-commande-optimale-lq" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.2 Analogie avec le problème de la commande optimale LQ</h1>
-<h1 id="43-mise-en-uvre-du-filtre-de-kalman"><a name="user-content-43-mise-en-uvre-du-filtre-de-kalman" href="#43-mise-en-uvre-du-filtre-de-kalman" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.3 Mise en œuvre du filtre de Kalman</h1>
-<h1 id="44-la-commande-lqg"><a name="user-content-44-la-commande-lqg" href="#44-la-commande-lqg" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.4 La commande LQG</h1>
-<h1 id="441-le-principe-de-separation"><a name="user-content-441-le-principe-de-separation" href="#441-le-principe-de-separation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.4.1 Le principe de séparation…</h1>
-<h1 id="442-sechage-du-kaolin"><a name="user-content-442-sechage-du-kaolin" href="#442-sechage-du-kaolin" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.4.2 Séchage du Kaolin</h1>
-<h1 id="v-conception-des-systemes-asservis-intelligents"><a name="user-content-v-conception-des-systemes-asservis-intelligents" href="#v-conception-des-systemes-asservis-intelligents" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>V) Conception des systèmes asservis intelligents</h1>
-<h1 id="51-logique-floue"><a name="user-content-51-logique-floue" href="#51-logique-floue" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.1 Logique floue</h1>
-<h1 id="52-reseaux-de-neurones"><a name="user-content-52-reseaux-de-neurones" href="#52-reseaux-de-neurones" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.2 Réseaux de neurones</h1>
-<h1 id="53-algorithmes-genetiques"><a name="user-content-53-algorithmes-genetiques" href="#53-algorithmes-genetiques" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.3 Algorithmes génétiques</h1>
-<h1 id="vi-simulations-numeriques"><a name="user-content-vi-simulations-numeriques" href="#vi-simulations-numeriques" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>VI) Simulations numériques</h1>
-<h1 id="61-software-in-the-loop-sil"><a name="user-content-61-software-in-the-loop-sil" href="#61-software-in-the-loop-sil" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>6.1 Software In the Loop :SIL</h1>
-<h1 id="62-hardware-in-the-loop-hil"><a name="user-content-62-hardware-in-the-loop-hil" href="#62-hardware-in-the-loop-hil" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>6.2 Hardware In the Loop :HIL</h1>
-<h1 id="td"><a name="user-content-td" href="#td" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD习题</h1>
-<h2 id="td01"><a name="user-content-td01" href="#td01" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD01</h2>
-<h3 id="ex01"><a name="user-content-ex01" href="#ex01" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex01</h3>
-<p><p align="center"><img alt="" src="images/cap_20171106_205602.png" /></p></p>
-<h3 id="ex02"><a name="user-content-ex02" href="#ex02" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex02</h3>
-<h3 id="ex03"><a name="user-content-ex03" href="#ex03" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex03</h3>
-<h2 id="td02"><a name="user-content-td02" href="#td02" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD02</h2>
-<h3 id="ex01_1"><a name="user-content-ex01_1" href="#ex01_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex01</h3>
-<h3 id="ex02_1"><a name="user-content-ex02_1" href="#ex02_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex02</h3>
-<h3 id="ex03_1"><a name="user-content-ex03_1" href="#ex03_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex03</h3>
-<div class="codehilite"><pre><span class="n">num</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>
+</pre>
+   </div>
+   <h1 id="31-critere-doptimisation-quadratique">
+    <a aria-hidden="true" class="headeranchor-link" href="#31-critere-doptimisation-quadratique" name="user-content-31-critere-doptimisation-quadratique">
+     <span class="headeranchor">
+     </span>
+    </a>
+    3.1 Critère d’optimisation quadratique
+   </h1>
+   <h3 id="311-presentation">
+    <a aria-hidden="true" class="headeranchor-link" href="#311-presentation" name="user-content-311-presentation">
+     <span class="headeranchor">
+     </span>
+    </a>
+    3.1.1 Présentation
+   </h3>
+   <h3 id="312-critere-des-performances-jx">
+    <a aria-hidden="true" class="headeranchor-link" href="#312-critere-des-performances-jx" name="user-content-312-critere-des-performances-jx">
+     <span class="headeranchor">
+     </span>
+    </a>
+    3.1.2 Critère des performances Jx
+   </h3>
+   <h3 id="313-critere-deconomie-energetique-ju">
+    <a aria-hidden="true" class="headeranchor-link" href="#313-critere-deconomie-energetique-ju" name="user-content-313-critere-deconomie-energetique-ju">
+     <span class="headeranchor">
+     </span>
+    </a>
+    3.1.3 Critère d’économie énergétique Ju
+   </h3>
+   <h2 id="314-critere-doptimisation-quadratique-jlq">
+    <a aria-hidden="true" class="headeranchor-link" href="#314-critere-doptimisation-quadratique-jlq" name="user-content-314-critere-doptimisation-quadratique-jlq">
+     <span class="headeranchor">
+     </span>
+    </a>
+    3.14 Critère d’optimisation quadratique JLQ .
+   </h2>
+   <h2 id="32-solution-du-probleme-lq-equation-de-riccati">
+    <a aria-hidden="true" class="headeranchor-link" href="#32-solution-du-probleme-lq-equation-de-riccati" name="user-content-32-solution-du-probleme-lq-equation-de-riccati">
+     <span class="headeranchor">
+     </span>
+    </a>
+    3.2 Solution du problème LQ : équation de Riccati
+   </h2>
+   <h2 id="33-procedure-de-mise-au-point">
+    <a aria-hidden="true" class="headeranchor-link" href="#33-procedure-de-mise-au-point" name="user-content-33-procedure-de-mise-au-point">
+     <span class="headeranchor">
+     </span>
+    </a>
+    3.3 Procédure de mise au point.
+   </h2>
+   <h2 id="34-bibliographie-utile-pour-cette-partie-de-cours">
+    <a aria-hidden="true" class="headeranchor-link" href="#34-bibliographie-utile-pour-cette-partie-de-cours" name="user-content-34-bibliographie-utile-pour-cette-partie-de-cours">
+     <span class="headeranchor">
+     </span>
+    </a>
+    3.4 Bibliographie utile pour cette partie de cours :
+   </h2>
+   <h1 id="ivintroduction-a-la-commande-lineaire-quadratique-gaussienne-lqg">
+    <a aria-hidden="true" class="headeranchor-link" href="#ivintroduction-a-la-commande-lineaire-quadratique-gaussienne-lqg" name="user-content-ivintroduction-a-la-commande-lineaire-quadratique-gaussienne-lqg">
+     <span class="headeranchor">
+     </span>
+    </a>
+    IV)Introduction à la commande Linéaire Quadratique Gaussienne :LQG
+   </h1>
+   <p>
+    <p align="center">
+     <img alt="" src="images/cap_20171027_105517.png"/>
+    </p>
+   </p>
+   <h1 id="41-principe-du-filtre-de-kalman">
+    <a aria-hidden="true" class="headeranchor-link" href="#41-principe-du-filtre-de-kalman" name="user-content-41-principe-du-filtre-de-kalman">
+     <span class="headeranchor">
+     </span>
+    </a>
+    4.1 Principe du filtre de Kalman
+   </h1>
+   <h1 id="42-analogie-avec-le-probleme-de-la-commande-optimale-lq">
+    <a aria-hidden="true" class="headeranchor-link" href="#42-analogie-avec-le-probleme-de-la-commande-optimale-lq" name="user-content-42-analogie-avec-le-probleme-de-la-commande-optimale-lq">
+     <span class="headeranchor">
+     </span>
+    </a>
+    4.2 Analogie avec le problème de la commande optimale LQ
+   </h1>
+   <h1 id="43-mise-en-uvre-du-filtre-de-kalman">
+    <a aria-hidden="true" class="headeranchor-link" href="#43-mise-en-uvre-du-filtre-de-kalman" name="user-content-43-mise-en-uvre-du-filtre-de-kalman">
+     <span class="headeranchor">
+     </span>
+    </a>
+    4.3 Mise en œuvre du filtre de Kalman
+   </h1>
+   <h1 id="44-la-commande-lqg">
+    <a aria-hidden="true" class="headeranchor-link" href="#44-la-commande-lqg" name="user-content-44-la-commande-lqg">
+     <span class="headeranchor">
+     </span>
+    </a>
+    4.4 La commande LQG
+   </h1>
+   <h1 id="441-le-principe-de-separation">
+    <a aria-hidden="true" class="headeranchor-link" href="#441-le-principe-de-separation" name="user-content-441-le-principe-de-separation">
+     <span class="headeranchor">
+     </span>
+    </a>
+    4.4.1 Le principe de séparation…
+   </h1>
+   <h1 id="442-sechage-du-kaolin">
+    <a aria-hidden="true" class="headeranchor-link" href="#442-sechage-du-kaolin" name="user-content-442-sechage-du-kaolin">
+     <span class="headeranchor">
+     </span>
+    </a>
+    4.4.2 Séchage du Kaolin
+   </h1>
+   <h1 id="v-conception-des-systemes-asservis-intelligents">
+    <a aria-hidden="true" class="headeranchor-link" href="#v-conception-des-systemes-asservis-intelligents" name="user-content-v-conception-des-systemes-asservis-intelligents">
+     <span class="headeranchor">
+     </span>
+    </a>
+    V) Conception des systèmes asservis intelligents
+   </h1>
+   <h1 id="51-logique-floue">
+    <a aria-hidden="true" class="headeranchor-link" href="#51-logique-floue" name="user-content-51-logique-floue">
+     <span class="headeranchor">
+     </span>
+    </a>
+    5.1 Logique floue
+   </h1>
+   <h1 id="52-reseaux-de-neurones">
+    <a aria-hidden="true" class="headeranchor-link" href="#52-reseaux-de-neurones" name="user-content-52-reseaux-de-neurones">
+     <span class="headeranchor">
+     </span>
+    </a>
+    5.2 Réseaux de neurones
+   </h1>
+   <h1 id="53-algorithmes-genetiques">
+    <a aria-hidden="true" class="headeranchor-link" href="#53-algorithmes-genetiques" name="user-content-53-algorithmes-genetiques">
+     <span class="headeranchor">
+     </span>
+    </a>
+    5.3 Algorithmes génétiques
+   </h1>
+   <h1 id="vi-simulations-numeriques">
+    <a aria-hidden="true" class="headeranchor-link" href="#vi-simulations-numeriques" name="user-content-vi-simulations-numeriques">
+     <span class="headeranchor">
+     </span>
+    </a>
+    VI) Simulations numériques
+   </h1>
+   <h1 id="61-software-in-the-loop-sil">
+    <a aria-hidden="true" class="headeranchor-link" href="#61-software-in-the-loop-sil" name="user-content-61-software-in-the-loop-sil">
+     <span class="headeranchor">
+     </span>
+    </a>
+    6.1 Software In the Loop :SIL
+   </h1>
+   <h1 id="62-hardware-in-the-loop-hil">
+    <a aria-hidden="true" class="headeranchor-link" href="#62-hardware-in-the-loop-hil" name="user-content-62-hardware-in-the-loop-hil">
+     <span class="headeranchor">
+     </span>
+    </a>
+    6.2 Hardware In the Loop :HIL
+   </h1>
+   <h1 id="td">
+    <a aria-hidden="true" class="headeranchor-link" href="#td" name="user-content-td">
+     <span class="headeranchor">
+     </span>
+    </a>
+    TD习题
+   </h1>
+   <h2 id="td01">
+    <a aria-hidden="true" class="headeranchor-link" href="#td01" name="user-content-td01">
+     <span class="headeranchor">
+     </span>
+    </a>
+    TD01
+   </h2>
+   <h3 id="ex01">
+    <a aria-hidden="true" class="headeranchor-link" href="#ex01" name="user-content-ex01">
+     <span class="headeranchor">
+     </span>
+    </a>
+    Ex01
+   </h3>
+   <p>
+    <p align="center">
+     <img alt="" src="images/cap_20171106_205602.png"/>
+    </p>
+   </p>
+   <h3 id="ex02">
+    <a aria-hidden="true" class="headeranchor-link" href="#ex02" name="user-content-ex02">
+     <span class="headeranchor">
+     </span>
+    </a>
+    Ex02
+   </h3>
+   <h3 id="ex03">
+    <a aria-hidden="true" class="headeranchor-link" href="#ex03" name="user-content-ex03">
+     <span class="headeranchor">
+     </span>
+    </a>
+    Ex03
+   </h3>
+   <h2 id="td02">
+    <a aria-hidden="true" class="headeranchor-link" href="#td02" name="user-content-td02">
+     <span class="headeranchor">
+     </span>
+    </a>
+    TD02
+   </h2>
+   <h3 id="ex01_1">
+    <a aria-hidden="true" class="headeranchor-link" href="#ex01_1" name="user-content-ex01_1">
+     <span class="headeranchor">
+     </span>
+    </a>
+    Ex01
+   </h3>
+   <h3 id="ex02_1">
+    <a aria-hidden="true" class="headeranchor-link" href="#ex02_1" name="user-content-ex02_1">
+     <span class="headeranchor">
+     </span>
+    </a>
+    Ex02
+   </h3>
+   <h3 id="ex03_1">
+    <a aria-hidden="true" class="headeranchor-link" href="#ex03_1" name="user-content-ex03_1">
+     <span class="headeranchor">
+     </span>
+    </a>
+    Ex03
+   </h3>
+   <div class="codehilite">
+    <pre><span class="n">num</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>
 <span class="n">den</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="mi">3</span> <span class="mi">6</span> <span class="mi">2</span><span class="p">];</span>
 <span class="p">[</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">D</span><span class="p">]</span><span class="o">=</span><span class="n">tf2ss</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="n">den</span><span class="p">)</span>
-</pre></div>
-
-
-<h3 id="ex04"><a name="user-content-ex04" href="#ex04" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex04</h3>
-<div class="codehilite"><pre><span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="mi">1</span><span class="p">;</span><span class="o">-</span><span class="mi">2</span> <span class="o">-</span><span class="mi">3</span><span class="p">];</span>
+</pre>
+   </div>
+   <h3 id="ex04">
+    <a aria-hidden="true" class="headeranchor-link" href="#ex04" name="user-content-ex04">
+     <span class="headeranchor">
+     </span>
+    </a>
+    Ex04
+   </h3>
+   <div class="codehilite">
+    <pre><span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="mi">1</span><span class="p">;</span><span class="o">-</span><span class="mi">2</span> <span class="o">-</span><span class="mi">3</span><span class="p">];</span>
 <span class="n">B</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">1</span><span class="p">];</span>
 <span class="n">C</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span> <span class="mi">1</span><span class="p">];</span>
 <span class="n">D</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
@@ -1882,11 +3128,17 @@ markdown</p>
 <span class="n">I</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">1</span><span class="p">];</span>
 <span class="n">A0</span><span class="o">=</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="n">I</span><span class="o">-</span><span class="n">A</span><span class="p">);</span>
 <span class="n">A1</span><span class="o">=</span><span class="n">inv</span><span class="p">(</span><span class="n">A0</span><span class="p">)</span>
-</pre></div>
-
-
-<h3 id="ex05"><a name="user-content-ex05" href="#ex05" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex05</h3>
-<div class="codehilite"><pre><span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span> <span class="mi">0</span><span class="p">;</span><span class="o">-</span><span class="mi">1</span> <span class="mi">1</span><span class="p">];</span>
+</pre>
+   </div>
+   <h3 id="ex05">
+    <a aria-hidden="true" class="headeranchor-link" href="#ex05" name="user-content-ex05">
+     <span class="headeranchor">
+     </span>
+    </a>
+    Ex05
+   </h3>
+   <div class="codehilite">
+    <pre><span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span> <span class="mi">0</span><span class="p">;</span><span class="o">-</span><span class="mi">1</span> <span class="mi">1</span><span class="p">];</span>
 <span class="n">B</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">;</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
 <span class="n">C</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="mi">1</span><span class="p">];</span> <span class="o">%</span><span class="n">faut</span> <span class="n">C</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">1</span><span class="p">];</span>
 <span class="n">D</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
@@ -1897,16 +3149,40 @@ markdown</p>
 <span class="n">nCo</span><span class="o">=</span><span class="n">rank</span><span class="p">(</span><span class="n">Co</span><span class="p">)</span> <span class="o">%</span><span class="n">determinant</span>
 <span class="n">Ob</span><span class="o">=</span><span class="n">obsv</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>
 <span class="n">nOb</span><span class="o">=</span><span class="n">rank</span><span class="p">(</span><span class="n">Ob</span><span class="p">)</span>
-</pre></div>
-
-
-<h2 id="td03"><a name="user-content-td03" href="#td03" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD03</h2>
-<h3 id="ex01-chariot-et-prehenseur"><a name="user-content-ex01-chariot-et-prehenseur" href="#ex01-chariot-et-prehenseur" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex01 Chariot et Prehenseur</h3>
-<h4 id="1-equation-de-movement"><a name="user-content-1-equation-de-movement" href="#1-equation-de-movement" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1) Equation de movement</h4>
-<p>PFD: Principalement fondamental dynamique</p>
-<p>$$\sum_{1}^nF_{\vec{p}-&gt;p}=m_{p}\vec{a_{p/Ro}}$$</p>
-<p>On isole P(géométrie dimension nulle), ensuite (P+C)</p>
-<div class="codehilite"><pre><span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">40</span> <span class="mi">0</span> <span class="mi">10</span><span class="o">^-</span><span class="mi">3</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="o">-</span><span class="mi">5</span> <span class="mi">0</span> <span class="o">-</span><span class="mi">10</span><span class="o">^-</span><span class="mi">4</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+</pre>
+   </div>
+   <h2 id="td03">
+    <a aria-hidden="true" class="headeranchor-link" href="#td03" name="user-content-td03">
+     <span class="headeranchor">
+     </span>
+    </a>
+    TD03
+   </h2>
+   <h3 id="ex01-chariot-et-prehenseur">
+    <a aria-hidden="true" class="headeranchor-link" href="#ex01-chariot-et-prehenseur" name="user-content-ex01-chariot-et-prehenseur">
+     <span class="headeranchor">
+     </span>
+    </a>
+    Ex01 Chariot et Prehenseur
+   </h3>
+   <h4 id="1-equation-de-movement">
+    <a aria-hidden="true" class="headeranchor-link" href="#1-equation-de-movement" name="user-content-1-equation-de-movement">
+     <span class="headeranchor">
+     </span>
+    </a>
+    1) Equation de movement
+   </h4>
+   <p>
+    PFD: Principalement fondamental dynamique
+   </p>
+   <p>
+    $$\sum_{1}^nF_{\vec{p}-&gt;p}=m_{p}\vec{a_{p/Ro}}$$
+   </p>
+   <p>
+    On isole P(géométrie dimension nulle), ensuite (P+C)
+   </p>
+   <div class="codehilite">
+    <pre><span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">40</span> <span class="mi">0</span> <span class="mi">10</span><span class="o">^-</span><span class="mi">3</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="o">-</span><span class="mi">5</span> <span class="mi">0</span> <span class="o">-</span><span class="mi">10</span><span class="o">^-</span><span class="mi">4</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="o">-</span><span class="mi">1</span><span class="p">];</span>
 <span class="n">B</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">100</span><span class="p">];</span>
 <span class="n">C</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">10</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">];</span>
 <span class="n">D</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
@@ -1924,7 +3200,15 @@ markdown</p>
 <span class="n">K</span><span class="o">=</span><span class="n">place</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">P</span><span class="p">);</span>
 <span class="n">Ar</span><span class="o">=</span><span class="n">A</span><span class="o">-</span><span class="n">B</span><span class="o">*</span><span class="n">K</span><span class="p">;</span>
 <span class="n">eig</span><span class="p">(</span><span class="n">Ar</span><span class="p">)</span>
-</pre></div>
-
-
-<h2 id="td06"><a name="user-content-td06" href="#td06" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD06</h2></article></body></html>
+</pre>
+   </div>
+   <h2 id="td06">
+    <a aria-hidden="true" class="headeranchor-link" href="#td06" name="user-content-td06">
+     <span class="headeranchor">
+     </span>
+    </a>
+    TD06
+   </h2>
+  </article>
+ </body>
+</html>
