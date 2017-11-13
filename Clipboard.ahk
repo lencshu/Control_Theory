@@ -1,5 +1,5 @@
 ﻿;将本地图片插入Markdown
-^+d:: ;ctrl+shift+d
+^+c:: ;ctrl+shift+c
 clipboard= ;清空剪贴板
 send, ^c
 clipwait
