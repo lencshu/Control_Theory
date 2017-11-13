@@ -22,6 +22,7 @@ post = html.find(keyword)
 if post != -1:
     html = html[:post+len(keyword)]+"float:right;padding-left:10px;width:60%;"+html[post+len(keyword):]
     html = html.replace('///C://Users/lencs/Desktop/MC59/git.control_theory/', '')
+    html = html.replace('C://Users/lencs/Desktop/MC59/git.control_theory/', '')
     file = open('index.html', 'w')
     file.write(html)
 file.close( )
