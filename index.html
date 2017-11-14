@@ -1634,6 +1634,23 @@ For Level Colors
       </a>
      </li>
      <li>
+      <a href="#_3">
+       附录
+      </a>
+      <ul>
+       <li>
+        <a href="#i">
+         I 英法对照
+        </a>
+       </li>
+       <li>
+        <a href="#ii-matlab">
+         II Matlab 公式
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li>
       <a href="#td">
        TD习题
       </a>
@@ -1652,11 +1669,33 @@ For Level Colors
           <a href="#ex02">
            Ex02
           </a>
-         </li>
-         <li>
-          <a href="#ex03">
-           Ex03
-          </a>
+          <ul>
+           <li>
+            <a href="#a">
+             a)
+            </a>
+           </li>
+           <li>
+            <a href="#b">
+             b)
+            </a>
+           </li>
+           <li>
+            <a href="#c">
+             c)
+            </a>
+           </li>
+           <li>
+            <a href="#d">
+             d)
+            </a>
+           </li>
+           <li>
+            <a href="#e">
+             e)
+            </a>
+           </li>
+          </ul>
          </li>
         </ul>
        </li>
@@ -1676,7 +1715,7 @@ For Level Colors
           </a>
          </li>
          <li>
-          <a href="#ex03_1">
+          <a href="#ex03">
            Ex03
           </a>
          </li>
@@ -1693,23 +1732,21 @@ For Level Colors
         </ul>
        </li>
        <li>
-        <a href="#td03">
-         TD03
+        <a href="#td03-chariot-et-prehenseur">
+         TD03 Chariot et Prehenseur
         </a>
         <ul>
          <li>
-          <a href="#ex01-chariot-et-prehenseur">
-           Ex01 Chariot et Prehenseur
+          <a href="#1-equation-de-movement">
+           1) Equation de movement
           </a>
-          <ul>
-           <li>
-            <a href="#1-equation-de-movement">
-             1) Equation de movement
-            </a>
-           </li>
-          </ul>
          </li>
         </ul>
+       </li>
+       <li>
+        <a href="#td04">
+         TD04
+        </a>
        </li>
        <li>
         <a href="#td06">
@@ -1722,6 +1759,58 @@ For Level Colors
       <a href="#median">
        Median
       </a>
+      <ul>
+       <li>
+        <a href="#1">
+         1) 微分方程
+        </a>
+       </li>
+       <li>
+        <a href="#2">
+         2) 代入数据
+        </a>
+       </li>
+       <li>
+        <a href="#3_1">
+         3) 可控性和可观性
+        </a>
+       </li>
+       <li>
+        <a href="#4-pole-dominant">
+         4) Pôle dominant和性能指标
+        </a>
+       </li>
+       <li>
+        <a href="#5-pkk">
+         5) 矩阵P,K和性能参数(重新计算K)
+        </a>
+       </li>
+       <li>
+        <a href="#6-l">
+         6) 矩阵L和观测器
+        </a>
+       </li>
+       <li>
+        <a href="#7-x1cm">
+         7) 观测器和系统的积分部件的初始条件各自对X1和Cm的影响
+        </a>
+       </li>
+       <li>
+        <a href="#9rhokopt">
+         9)权重$\rho$及其确定的Kopt和系统性能指标
+        </a>
+       </li>
+       <li>
+        <a href="#10lq">
+         10)结合LQ和观测器
+        </a>
+       </li>
+       <li>
+        <a href="#matlab_1">
+         完整matlab程序
+        </a>
+       </li>
+      </ul>
      </li>
     </ul>
    </div>
@@ -2151,73 +2240,6 @@ For Level Colors
      <br/>
      当实数极值≥10倍复数极值的实数部分,那么三阶系统与二阶系统相似。
     </p>
-   </div>
-   <div class="admonition hint">
-    <p class="admonition-title">
-     英法对照
-    </p>
-    <table>
-     <thead>
-      <tr>
-       <th>
-        法
-       </th>
-       <th align="center">
-        英
-       </th>
-      </tr>
-     </thead>
-     <tbody>
-      <tr>
-       <td>
-        Temps de réponse à 5%(Tr5%)
-       </td>
-       <td align="center">
-        setting time
-       </td>
-      </tr>
-      <tr>
-       <td>
-        Temps de montée
-       </td>
-       <td align="center">
-        rise time
-       </td>
-      </tr>
-      <tr>
-       <td>
-        Peak réponse de dépassement
-       </td>
-       <td align="center">
-        peak ampititude, overshot,at time
-       </td>
-      </tr>
-      <tr>
-       <td>
-        Erreur de position
-       </td>
-       <td align="center">
-        final value
-       </td>
-      </tr>
-      <tr>
-       <td>
-        Coef amortissement
-       </td>
-       <td align="center">
-        damping raito
-       </td>
-      </tr>
-      <tr>
-       <td>
-        pulsation propre
-       </td>
-       <td align="center">
-        natural frequence
-       </td>
-      </tr>
-     </tbody>
-    </table>
    </div>
    <h1 id="ii-commande-par-retour-detat">
     <a aria-hidden="true" class="headeranchor-link" href="#ii-commande-par-retour-detat" name="user-content-ii-commande-par-retour-detat">
@@ -3728,8 +3750,13 @@ For Level Colors
     </a>
     ---- Matlab[K,P,E]
    </h5>
-   <div class="codehilite">
-    <pre><span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="mi">1</span><span class="p">;</span><span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+   <p>
+    <p align="center">
+     <img alt="" height="200px" src="images\cap_20171114_185502.png" width="400px"/>
+    </p>
+    <br/>
+    <div class="codehilite">
+     <pre><span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="mi">1</span><span class="p">;</span><span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">B</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">Q</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">R</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> 
@@ -3740,7 +3767,8 @@ For Level Colors
     <span class="n">E</span><span class="p">:</span><span class="n">les</span> <span class="n">valeurs</span> <span class="n">de</span> <span class="n">pôles</span> <span class="n">de</span> <span class="n">la</span> <span class="n">FTBF</span>
 <span class="p">}</span>
 </pre>
-   </div>
+    </div>
+   </p>
    <p>
     La fonction lqi：intégration avec le lqr
    </p>
@@ -4073,6 +4101,94 @@ For Level Colors
     </a>
     6.2 Hardware In the Loop :HIL
    </h1>
+   <h1 id="_3">
+    <a aria-hidden="true" class="headeranchor-link" href="#_3" name="user-content-_3">
+     <span class="headeranchor">
+     </span>
+    </a>
+    附录
+   </h1>
+   <h2 id="i">
+    <a aria-hidden="true" class="headeranchor-link" href="#i" name="user-content-i">
+     <span class="headeranchor">
+     </span>
+    </a>
+    I 英法对照
+   </h2>
+   <div class="admonition hint">
+    <p class="admonition-title">
+     英法对照
+    </p>
+    <table>
+     <thead>
+      <tr>
+       <th>
+        法
+       </th>
+       <th align="center">
+        英
+       </th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr>
+       <td>
+        Temps de réponse à 5%(Tr5%)
+       </td>
+       <td align="center">
+        setting time
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Temps de montée (Tm10-90)
+       </td>
+       <td align="center">
+        rise time
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Peak réponse de dépassement
+       </td>
+       <td align="center">
+        peak ampititude, overshot,at time
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Erreur de position
+       </td>
+       <td align="center">
+        final value
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Coef amortissement
+       </td>
+       <td align="center">
+        damping raito
+       </td>
+      </tr>
+      <tr>
+       <td>
+        pulsation propre
+       </td>
+       <td align="center">
+        natural frequence
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+   <h2 id="ii-matlab">
+    <a aria-hidden="true" class="headeranchor-link" href="#ii-matlab" name="user-content-ii-matlab">
+     <span class="headeranchor">
+     </span>
+    </a>
+    II Matlab 公式
+   </h2>
    <div class="admonition hint">
     <p class="admonition-title">
      Matlab 公式
@@ -4205,7 +4321,11 @@ For Level Colors
    </h3>
    <p>
     <p align="center">
-     <img alt="" src="images/cap_20171106_205602.png"/>
+     <img alt="" height="200px" src="images/cap_20171106_205602.png" width="500px"/>
+    </p>
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_204910.png"/>
     </p>
    </p>
    <h3 id="ex02">
@@ -4215,13 +4335,90 @@ For Level Colors
     </a>
     Ex02
    </h3>
-   <h3 id="ex03">
-    <a aria-hidden="true" class="headeranchor-link" href="#ex03" name="user-content-ex03">
+   <h4 id="a">
+    <a aria-hidden="true" class="headeranchor-link" href="#a" name="user-content-a">
      <span class="headeranchor">
      </span>
     </a>
-    Ex03
-   </h3>
+    a)
+   </h4>
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_205311.png"/>
+    </p>
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_205323.png"/>
+    </p>
+   </p>
+   <h4 id="b">
+    <a aria-hidden="true" class="headeranchor-link" href="#b" name="user-content-b">
+     <span class="headeranchor">
+     </span>
+    </a>
+    b)
+   </h4>
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_205754.png"/>
+    </p>
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_205716.png"/>
+    </p>
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_205915.png"/>
+    </p>
+   </p>
+   <h4 id="c">
+    <a aria-hidden="true" class="headeranchor-link" href="#c" name="user-content-c">
+     <span class="headeranchor">
+     </span>
+    </a>
+    c)
+   </h4>
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_205947.png"/>
+    </p>
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_210016.png"/>
+    </p>
+   </p>
+   <h4 id="d">
+    <a aria-hidden="true" class="headeranchor-link" href="#d" name="user-content-d">
+     <span class="headeranchor">
+     </span>
+    </a>
+    d)
+   </h4>
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_210125.png"/>
+    </p>
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_210155.png"/>
+    </p>
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_210232.png"/>
+    </p>
+   </p>
+   <h4 id="e">
+    <a aria-hidden="true" class="headeranchor-link" href="#e" name="user-content-e">
+     <span class="headeranchor">
+     </span>
+    </a>
+    e)
+   </h4>
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_210852.png"/>
+    </p>
+   </p>
    <h2 id="td02">
     <a aria-hidden="true" class="headeranchor-link" href="#td02" name="user-content-td02">
      <span class="headeranchor">
@@ -4236,6 +4433,11 @@ For Level Colors
     </a>
     Ex01
    </h3>
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_211804.png"/>
+    </p>
+   </p>
    <h3 id="ex02_1">
     <a aria-hidden="true" class="headeranchor-link" href="#ex02_1" name="user-content-ex02_1">
      <span class="headeranchor">
@@ -4243,19 +4445,30 @@ For Level Colors
     </a>
     Ex02
    </h3>
-   <h3 id="ex03_1">
-    <a aria-hidden="true" class="headeranchor-link" href="#ex03_1" name="user-content-ex03_1">
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_211918.png"/>
+    </p>
+   </p>
+   <h3 id="ex03">
+    <a aria-hidden="true" class="headeranchor-link" href="#ex03" name="user-content-ex03">
      <span class="headeranchor">
      </span>
     </a>
     Ex03
    </h3>
-   <div class="codehilite">
-    <pre><span class="n">num</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_212009.png"/>
+    </p>
+    <br/>
+    <div class="codehilite">
+     <pre><span class="n">num</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>
 <span class="n">den</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="mi">3</span> <span class="mi">6</span> <span class="mi">2</span><span class="p">];</span>
 <span class="p">[</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">D</span><span class="p">]</span><span class="o">=</span><span class="n">tf2ss</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="n">den</span><span class="p">)</span>
 </pre>
-   </div>
+    </div>
+   </p>
    <h3 id="ex04">
     <a aria-hidden="true" class="headeranchor-link" href="#ex04" name="user-content-ex04">
      <span class="headeranchor">
@@ -4263,8 +4476,13 @@ For Level Colors
     </a>
     Ex04
    </h3>
-   <div class="codehilite">
-    <pre><span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="mi">1</span><span class="p">;</span><span class="o">-</span><span class="mi">2</span> <span class="o">-</span><span class="mi">3</span><span class="p">];</span>
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_212033.png"/>
+    </p>
+    <br/>
+    <div class="codehilite">
+     <pre><span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="mi">1</span><span class="p">;</span><span class="o">-</span><span class="mi">2</span> <span class="o">-</span><span class="mi">3</span><span class="p">];</span>
 <span class="n">B</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">1</span><span class="p">];</span>
 <span class="n">C</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span> <span class="mi">1</span><span class="p">];</span>
 <span class="n">D</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
@@ -4274,7 +4492,8 @@ For Level Colors
 <span class="n">A0</span><span class="o">=</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="n">I</span><span class="o">-</span><span class="n">A</span><span class="p">);</span>
 <span class="n">A1</span><span class="o">=</span><span class="n">inv</span><span class="p">(</span><span class="n">A0</span><span class="p">)</span>
 </pre>
-   </div>
+    </div>
+   </p>
    <h3 id="ex05">
     <a aria-hidden="true" class="headeranchor-link" href="#ex05" name="user-content-ex05">
      <span class="headeranchor">
@@ -4282,8 +4501,13 @@ For Level Colors
     </a>
     Ex05
    </h3>
-   <div class="codehilite">
-    <pre><span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span> <span class="mi">0</span><span class="p">;</span><span class="o">-</span><span class="mi">1</span> <span class="mi">1</span><span class="p">];</span>
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_212055.png"/>
+    </p>
+    <br/>
+    <div class="codehilite">
+     <pre><span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span> <span class="mi">0</span><span class="p">;</span><span class="o">-</span><span class="mi">1</span> <span class="mi">1</span><span class="p">];</span>
 <span class="n">B</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">;</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
 <span class="n">C</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="mi">1</span><span class="p">];</span> <span class="o">%</span><span class="n">faut</span> <span class="n">C</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">1</span><span class="p">];</span>
 <span class="n">D</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
@@ -4295,28 +4519,31 @@ For Level Colors
 <span class="n">Ob</span><span class="o">=</span><span class="n">obsv</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>
 <span class="n">nOb</span><span class="o">=</span><span class="n">rank</span><span class="p">(</span><span class="n">Ob</span><span class="p">)</span>
 </pre>
-   </div>
-   <h2 id="td03">
-    <a aria-hidden="true" class="headeranchor-link" href="#td03" name="user-content-td03">
+    </div>
+   </p>
+   <h2 id="td03-chariot-et-prehenseur">
+    <a aria-hidden="true" class="headeranchor-link" href="#td03-chariot-et-prehenseur" name="user-content-td03-chariot-et-prehenseur">
      <span class="headeranchor">
      </span>
     </a>
-    TD03
+    TD03 Chariot et Prehenseur
    </h2>
-   <h3 id="ex01-chariot-et-prehenseur">
-    <a aria-hidden="true" class="headeranchor-link" href="#ex01-chariot-et-prehenseur" name="user-content-ex01-chariot-et-prehenseur">
-     <span class="headeranchor">
-     </span>
-    </a>
-    Ex01 Chariot et Prehenseur
-   </h3>
-   <h4 id="1-equation-de-movement">
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_211653.png"/>
+    </p>
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_211715.png"/>
+    </p>
+   </p>
+   <h3 id="1-equation-de-movement">
     <a aria-hidden="true" class="headeranchor-link" href="#1-equation-de-movement" name="user-content-1-equation-de-movement">
      <span class="headeranchor">
      </span>
     </a>
     1) Equation de movement
-   </h4>
+   </h3>
    <p>
     PFD: Principalement fondamental dynamique
    </p>
@@ -4347,6 +4574,22 @@ For Level Colors
 <span class="n">eig</span><span class="p">(</span><span class="n">Ar</span><span class="p">)</span>
 </pre>
    </div>
+   <h2 id="td04">
+    <a aria-hidden="true" class="headeranchor-link" href="#td04" name="user-content-td04">
+     <span class="headeranchor">
+     </span>
+    </a>
+    TD04
+   </h2>
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_211520.png"/>
+    </p>
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_211617.png"/>
+    </p>
+   </p>
    <h2 id="td06">
     <a aria-hidden="true" class="headeranchor-link" href="#td06" name="user-content-td06">
      <span class="headeranchor">
@@ -4354,6 +4597,11 @@ For Level Colors
     </a>
     TD06
    </h2>
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_211417.png"/>
+    </p>
+   </p>
    <div class="admonition hint">
     <p class="admonition-title">
      5 équations
@@ -4408,6 +4656,339 @@ For Level Colors
     </a>
     Median
    </h1>
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_214218.png"/>
+    </p>
+   </p>
+   <h2 id="1">
+    <a aria-hidden="true" class="headeranchor-link" href="#1" name="user-content-1">
+     <span class="headeranchor">
+     </span>
+    </a>
+    1) 微分方程
+   </h2>
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_214434.png"/>
+    </p>
+   </p>
+   <div class="codehilite">
+    <pre><span class="o">%</span><span class="err">初始化矩阵</span>
+
+<span class="n">A11</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A12</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>  <span class="n">A13</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A14</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A21</span><span class="o">=-</span><span class="n">k</span><span class="o">/</span><span class="n">jc</span><span class="p">;</span>  <span class="n">A22</span><span class="o">=-</span><span class="n">lamc</span><span class="o">/</span><span class="n">jc</span><span class="p">;</span>  <span class="n">A23</span><span class="o">=</span><span class="n">k</span><span class="o">/</span><span class="n">jc</span><span class="p">;</span>  <span class="n">A24</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A31</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A32</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A33</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A34</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>  <span class="n">A41</span><span class="o">=</span><span class="n">k</span><span class="o">/</span><span class="n">jm</span><span class="p">;</span>  <span class="n">A42</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A43</span><span class="o">=-</span><span class="n">k</span><span class="o">/</span><span class="n">jm</span><span class="p">;</span>  <span class="n">A44</span><span class="o">=-</span><span class="n">lamm</span><span class="o">/</span><span class="n">jm</span><span class="p">;</span>
+
+<span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="n">A11</span> <span class="n">A12</span> <span class="n">A13</span> <span class="n">A14</span><span class="p">;</span><span class="n">A21</span> <span class="n">A22</span> <span class="n">A23</span> <span class="n">A24</span><span class="p">;</span><span class="n">A31</span> <span class="n">A32</span> <span class="n">A33</span> <span class="n">A34</span><span class="p">;</span><span class="n">A41</span> <span class="n">A42</span> <span class="n">A43</span> <span class="n">A44</span><span class="p">];</span>
+<span class="n">B</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">1</span><span class="o">/</span><span class="n">jm</span><span class="p">];</span>
+<span class="n">C</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">];</span>
+<span class="n">D</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="n">sys</span><span class="o">=</span><span class="n">ss</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">D</span><span class="p">);</span>
+<span class="p">[</span><span class="n">zero</span><span class="p">,</span><span class="n">pole</span><span class="p">,</span><span class="n">k_gain</span><span class="p">]</span><span class="o">=</span><span class="n">zpkdata</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span><span class="s">'v'</span><span class="p">);</span> <span class="o">%</span><span class="s">'v'</span><span class="err">返回多项式系数向量</span>
+</pre>
+   </div>
+   <h2 id="2">
+    <a aria-hidden="true" class="headeranchor-link" href="#2" name="user-content-2">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2) 代入数据
+   </h2>
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_214539.png"/>
+    </p>
+   </p>
+   <div class="codehilite">
+    <pre><span class="o">%</span><span class="err">赋值操作初始化</span>
+<span class="n">k</span><span class="o">=</span><span class="mf">0.8</span><span class="p">;</span> <span class="n">jm</span><span class="o">=</span><span class="mi">4</span><span class="o">/</span><span class="mi">10000</span><span class="p">;</span> <span class="n">jc</span><span class="o">=</span><span class="mi">4</span><span class="o">/</span><span class="mi">10000</span><span class="p">;</span> <span class="n">lamm</span><span class="o">=</span><span class="mf">0.015</span><span class="p">;</span> <span class="n">lamc</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</pre>
+   </div>
+   <h2 id="3_1">
+    <a aria-hidden="true" class="headeranchor-link" href="#3_1" name="user-content-3_1">
+     <span class="headeranchor">
+     </span>
+    </a>
+    3) 可控性和可观性
+   </h2>
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_214615.png"/>
+    </p>
+   </p>
+   <div class="codehilite">
+    <pre><span class="o">%</span><span class="p">{</span><span class="err">可控与可观</span><span class="o">%</span><span class="p">}</span>
+<span class="n">Co</span><span class="o">=</span><span class="n">ctrb</span><span class="p">(</span><span class="n">sys</span><span class="p">);</span> 
+<span class="n">Rco</span><span class="o">=</span> <span class="n">rank</span><span class="p">(</span><span class="n">Co</span><span class="p">);</span>
+<span class="n">Ob</span><span class="o">=</span><span class="n">obsv</span><span class="p">(</span><span class="n">sys</span><span class="p">);</span>
+<span class="n">Rob</span><span class="o">=</span><span class="n">rank</span><span class="p">(</span><span class="n">Ob</span><span class="p">);</span>
+</pre>
+   </div>
+   <h2 id="4-pole-dominant">
+    <a aria-hidden="true" class="headeranchor-link" href="#4-pole-dominant" name="user-content-4-pole-dominant">
+     <span class="headeranchor">
+     </span>
+    </a>
+    4) Pôle dominant和性能指标
+   </h2>
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_214652.png"/>
+    </p>
+   </p>
+   <div class="codehilite">
+    <pre><span class="o">%</span><span class="p">{</span><span class="n">pole</span> <span class="n">dominant</span><span class="o">%</span><span class="p">}</span>
+<span class="n">kesi</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span> <span class="o">%</span><span class="n">Coef</span> <span class="n">d</span><span class="s">'amortissement</span>
+<span class="n">tr</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span> <span class="o">%</span><span class="n">temps</span> <span class="n">de</span> <span class="n">reponse</span>
+<span class="n">omega0mini</span><span class="o">=</span><span class="mi">3</span><span class="o">/</span><span class="p">(</span><span class="n">kesi</span><span class="o">*</span><span class="n">tr</span><span class="p">);</span>  
+<span class="n">p1</span><span class="o">=-</span><span class="n">kesi</span><span class="o">*</span><span class="n">omega0mini</span><span class="o">+</span><span class="mi">1</span><span class="n">i</span><span class="o">*</span><span class="n">omega0mini</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">kesi</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">p2</span><span class="o">=-</span><span class="n">kesi</span><span class="o">*</span><span class="n">omega0mini</span><span class="o">-</span><span class="mi">1</span><span class="n">i</span><span class="o">*</span><span class="n">omega0mini</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">kesi</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
+</pre>
+   </div>
+   <ul>
+    <li>
+     poles dominants: dans un rapport 10 avec les valeurs reel pole dominant
+     <br/>
+     p=-$\xi$
+     <em>
+      $\omega$0$\underline{+}$j
+     </em>
+     $\omega$0*sqrt(1-$\xi$^2);
+    </li>
+    <li>
+     les carateristiques:
+     <ul>
+      <li>
+       <p align="center">
+        <img alt="" src="images\cap_20171114_174555.png"/>
+       </p>
+      </li>
+      <li>
+       <p align="center">
+        <img alt="" src="images\cap_20171114_180018.png"/>
+       </p>
+      </li>
+      <li>
+       <p align="center">
+        <img alt="" src="images\cap_20171114_175732.png"/>
+       </p>
+      </li>
+     </ul>
+    </li>
+   </ul>
+   <div class="admonition question">
+    <p class="admonition-title">
+     如果结果很奇怪，那就更改solver
+    </p>
+    <p>
+     <p align="center">
+      <img alt="" src="images\cap_20171114_181247.png"/>
+     </p>
+    </p>
+   </div>
+   <p>
+    性能指标参数：
+   </p>
+   <div class="codehilite">
+    <pre>Tr5%=0.475  tm10-90=0.144   D%=15.6 e0=0
+</pre>
+   </div>
+   <h2 id="5-pkk">
+    <a aria-hidden="true" class="headeranchor-link" href="#5-pkk" name="user-content-5-pkk">
+     <span class="headeranchor">
+     </span>
+    </a>
+    5) 矩阵P,K和性能参数(重新计算K)
+   </h2>
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_214752.png"/>
+    </p>
+   </p>
+   <div class="codehilite">
+    <pre><span class="o">%</span><span class="p">{</span><span class="n">dans</span> <span class="n">un</span> <span class="n">rapport</span> <span class="mi">10</span> <span class="n">avec</span> <span class="n">les</span> <span class="n">valeurs</span> <span class="n">reel</span> <span class="n">pole</span> <span class="n">dominant</span> <span class="o">%</span><span class="p">}</span>
+<span class="n">P</span><span class="o">=</span><span class="p">[</span><span class="n">p1</span><span class="p">;</span> <span class="n">p2</span><span class="p">;</span> <span class="mi">10</span><span class="o">*</span><span class="n">real</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span> <span class="mi">10</span><span class="o">*</span><span class="n">real</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span><span class="o">+</span><span class="mf">0.01</span><span class="p">];</span>
+<span class="o">%</span><span class="n">La</span> <span class="n">matrice</span> <span class="n">de</span> <span class="n">contre</span> <span class="n">reaction</span> <span class="n">K</span> 
+<span class="n">K</span><span class="o">=</span><span class="n">place</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">P</span><span class="p">);</span>
+</pre>
+   </div>
+   <p>
+    Couple maxi
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_182417.png"/>
+    </p>
+    <br/>
+    X1和Cm都符合要求
+   </p>
+   <h2 id="6-l">
+    <a aria-hidden="true" class="headeranchor-link" href="#6-l" name="user-content-6-l">
+     <span class="headeranchor">
+     </span>
+    </a>
+    6) 矩阵L和观测器
+   </h2>
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_214838.png"/>
+    </p>
+   </p>
+   <div class="codehilite">
+    <pre><span class="o">%</span><span class="n">dans</span> <span class="n">un</span> <span class="n">rapport</span> <span class="mi">5</span> <span class="n">pour</span> <span class="n">pole</span> <span class="n">d</span><span class="s">'observateur</span>
+<span class="n">Pob</span><span class="o">=</span><span class="p">[</span><span class="n">p1</span><span class="p">;</span> <span class="n">p2</span><span class="p">;</span> <span class="mi">5</span><span class="o">*</span><span class="n">real</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span> <span class="mi">5</span><span class="o">*</span><span class="n">real</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span><span class="o">+</span><span class="mf">0.01</span><span class="p">];</span>
+<span class="n">Kob</span><span class="o">=</span><span class="n">place</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Pob</span><span class="p">);</span>
+<span class="n">L</span><span class="o">=</span><span class="n">place</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="s">',C.'</span><span class="p">,</span><span class="n">Pob</span><span class="p">)</span><span class="o">.</span><span class="s">';</span>
+</pre>
+   </div>
+   <p>
+    Pole d’observateur: dans un rapport 5 pour pole d’observateur
+    <br/>
+    Pob=[p1; p2; 5
+    <em>
+     real(p1); 5
+    </em>
+    real(p2)+0.01];
+    <br/>
+    重新计算K
+    <br/>
+    Kob=place(A,B,Pob);
+    <br/>
+    L=place(A.’,C.’,Pob).’;
+   </p>
+   <h2 id="7-x1cm">
+    <a aria-hidden="true" class="headeranchor-link" href="#7-x1cm" name="user-content-7-x1cm">
+     <span class="headeranchor">
+     </span>
+    </a>
+    7) 观测器和系统的积分部件的初始条件各自对X1和Cm的影响
+   </h2>
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_215102.png"/>
+    </p>
+   </p>
+   <p>
+    Des CIs pour
+    <br/>
+    - X1
+    <p align="center">
+     <img alt="" src="images\cap_20171114_185005.png"/>
+    </p>
+    <br/>
+    - Cm
+    <p align="center">
+     <img alt="" src="images\cap_20171114_185256.png"/>
+    </p>
+   </p>
+   <ol>
+    <li>
+     计算Q,R矩阵
+     <br/>
+     <p align="center">
+      <img alt="" src="images\cap_20171114_215253.png"/>
+     </p>
+    </li>
+   </ol>
+   <p>
+    计算 矩阵Q和R:
+   </p>
+   <div class="codehilite">
+    <pre><span class="o">%</span><span class="p">{</span><span class="n">LQR</span> <span class="n">pour</span> <span class="n">optimiser</span> <span class="n">la</span> <span class="n">matrice</span> <span class="n">de</span> <span class="n">gain</span><span class="o">%</span><span class="p">}</span>
+<span class="n">trsi</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span>  <span class="o">%</span><span class="n">desired</span> <span class="n">settle</span> <span class="n">time</span> <span class="p">(</span><span class="n">tr5</span><span class="o">%</span><span class="p">)</span>
+<span class="n">x1m</span><span class="o">=</span><span class="n">pi</span><span class="p">;</span>
+<span class="n">x2m</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
+<span class="n">x3m</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
+<span class="n">x4m</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
+
+<span class="n">Q11</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">trsi</span><span class="o">*</span><span class="n">x1m</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">Q22</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">trsi</span><span class="o">*</span><span class="n">x2m</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">Q33</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">trsi</span><span class="o">*</span><span class="n">x3m</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">Q44</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">trsi</span><span class="o">*</span><span class="n">x4m</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">Q</span><span class="o">=</span><span class="p">[</span><span class="n">Q11</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="n">Q22</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="n">Q33</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="n">Q44</span><span class="p">];</span>
+<span class="n">u</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span>
+<span class="n">r1</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">u</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">rho</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="n">R</span><span class="o">=</span><span class="n">rho</span><span class="o">*</span><span class="n">r1</span><span class="p">;</span>
+</pre>
+   </div>
+   <h2 id="9rhokopt">
+    <a aria-hidden="true" class="headeranchor-link" href="#9rhokopt" name="user-content-9rhokopt">
+     <span class="headeranchor">
+     </span>
+    </a>
+    9)权重$\rho$及其确定的Kopt和系统性能指标
+   </h2>
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_215331.png"/>
+    </p>
+    <br/>
+    pour valoriser le parametre prépondérant X1, on prends $\rho$=0.6:
+   </p>
+   <div class="codehilite">
+    <pre><span class="n">rho</span><span class="o">=</span><span class="mf">0.6</span><span class="p">;</span>
+<span class="p">[</span><span class="n">Kopt</span><span class="p">,</span><span class="n">Popt</span><span class="p">,</span><span class="n">E</span><span class="p">]</span><span class="o">=</span><span class="n">lqr</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">R</span><span class="p">);</span>
+</pre>
+   </div>
+   <p>
+    把K换成Kopt,
+    <br/>
+    <p align="center">
+     <img alt="" height="150px" src="images\cap_20171114_193243.png" width="400px"/>
+    </p>
+    <br/>
+    重新模拟得到新的X1$_{maxi}$=1
+    <br/>
+    <p align="center">
+     <img alt="" height="400px" src="images\cap_20171114_192751.png" width="600px"/>
+    </p>
+   </p>
+   <p>
+    可得到如下性能指标参数：
+   </p>
+   <div class="codehilite">
+    <pre>Tr5%=0.273  tm10-90=0.167   D%=0    e0=0
+</pre>
+   </div>
+   <p>
+    与之前相比
+   </p>
+   <div class="codehilite">
+    <pre>Tr5%=0.475  tm10-90=0.144   D%=15.6 e0=0
+</pre>
+   </div>
+   <p>
+    可得到结论：
+   </p>
+   <ul>
+    <li>
+     Eliminer le deplacement
+    </li>
+    <li>
+     pas d’oscillation dans la zone transitoire
+    </li>
+    <li>
+     Temps de montée reduit.
+    </li>
+   </ul>
+   <h2 id="10lq">
+    <a aria-hidden="true" class="headeranchor-link" href="#10lq" name="user-content-10lq">
+     <span class="headeranchor">
+     </span>
+    </a>
+    10)结合LQ和观测器
+   </h2>
+   <p>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_215426.png"/>
+    </p>
+   </p>
+   <h2 id="matlab_1">
+    <a aria-hidden="true" class="headeranchor-link" href="#matlab_1" name="user-content-matlab_1">
+     <span class="headeranchor">
+     </span>
+    </a>
+    完整matlab程序
+   </h2>
    <div class="codehilite">
     <pre><span class="n">clc</span>
 <span class="n">clear</span>
@@ -4501,7 +5082,8 @@ For Level Colors
 <span class="n">K</span><span class="o">=</span><span class="n">place</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">P</span><span class="p">);</span>
 
 <span class="o">%</span><span class="n">dans</span> <span class="n">un</span> <span class="n">rapport</span> <span class="mi">5</span> <span class="n">pour</span> <span class="n">pole</span> <span class="n">d</span><span class="s">'observateur</span>
-<span class="n">Pob</span><span class="o">=</span><span class="p">[</span><span class="n">p1</span><span class="p">;</span> <span class="n">p2</span><span class="p">;</span> <span class="mi">50</span><span class="o">*</span><span class="n">real</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span> <span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">real</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span><span class="o">+</span><span class="mf">0.01</span><span class="p">)];</span>
+<span class="n">Pob</span><span class="o">=</span><span class="p">[</span><span class="n">p1</span><span class="p">;</span> <span class="n">p2</span><span class="p">;</span> <span class="mi">5</span><span class="o">*</span><span class="n">real</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span> <span class="mi">5</span><span class="o">*</span><span class="n">real</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span><span class="o">+</span><span class="mf">0.01</span><span class="p">];</span>
+<span class="n">Kob</span><span class="o">=</span><span class="n">place</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Pob</span><span class="p">);</span>
 <span class="n">L</span><span class="o">=</span><span class="n">place</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="s">',C.'</span><span class="p">,</span><span class="n">Pob</span><span class="p">)</span><span class="o">.</span><span class="s">';</span>
 
 <span class="o">%</span><span class="p">{</span><span class="n">LQR</span> <span class="n">pour</span> <span class="n">optimiser</span> <span class="n">la</span> <span class="n">matrice</span> <span class="n">de</span> <span class="n">gain</span><span class="o">%</span><span class="p">}</span>
@@ -4520,6 +5102,7 @@ For Level Colors
 <span class="n">u</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span>
 <span class="n">r1</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">u</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span>
 <span class="n">rho</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="o">%</span><span class="n">rho</span><span class="o">=</span><span class="mf">0.6</span><span class="p">;</span>
 <span class="n">R</span><span class="o">=</span><span class="n">rho</span><span class="o">*</span><span class="n">r1</span><span class="p">;</span>
 <span class="p">[</span><span class="n">Kopt</span><span class="p">,</span><span class="n">Popt</span><span class="p">,</span><span class="n">E</span><span class="p">]</span><span class="o">=</span><span class="n">lqr</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">R</span><span class="p">);</span>
 </pre>
