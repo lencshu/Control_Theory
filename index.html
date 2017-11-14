@@ -1583,8 +1583,15 @@ For Level Colors
      </li>
      <li>
       <a href="#441-le-principe-de-separation">
-       4.4.1 Le principe de séparation…
+       4.4.1 Le principe de séparation
       </a>
+      <ul>
+       <li>
+        <a href="#matlab-lqg">
+         matlab LQG
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
       <a href="#442-sechage-du-kaolin">
@@ -1711,6 +1718,11 @@ For Level Colors
        </li>
       </ul>
      </li>
+     <li>
+      <a href="#median">
+       Median
+      </a>
+     </li>
     </ul>
    </div>
   </div>
@@ -1734,115 +1746,6 @@ For Level Colors
         通常的原则是比较输入信号和系统状态来进行高效的纠正。通常又被称为负反馈或者闭环系统。
        </code>
       </strong>
-     </p>
-    </p>
-   </div>
-   <div class="admonition hint">
-    <p class="admonition-title">
-     Matlab 公式
-     <p>
-      conv (A, B)
-      <br/>
-      roots( )
-      <br/>
-      p=poly(r)
-      <br/>
-      charpoly()
-     </p>
-     <p>
-      传递函数 num,den
-      <br/>
-      对线性定常系统，s的系数均为常数，且den的常数项不等于0
-      <br/>
-      sys= tf (num, den)
-     </p>
-     <p>
-      提取分子分母多项式系数的函数tfdata( )。格式：[num,den]=tfdata(sys, ‘v’)
-      <br/>
-      sys传递函数。v功能：返回分子分母多项式系数向量。
-     </p>
-     <p>
-      siso零极点模型
-      <br/>
-      sys= zpk (z, p, k)
-      <br/>
-      Zero,pole,gain
-     </p>
-     <p>
-      提取模型零极点增益向量的函数
-      <br/>
-      [z, p, k]=zpkdata(sys, ‘v’)
-     </p>
-     <p>
-      建立状态空间模型的函数
-      <br/>
-      sys=ss(A,B,C,D)
-     </p>
-     <p>
-      特征根 传递函数分母的根
-     </p>
-     <p>
-      微分方程
-     </p>
-     <p>
-      线性时不变系统（LTI）的模型：
-      <br/>
-      传递函数（Transfer Function）模型TF
-      <br/>
-      零极点增益（ZPK）模型ZPK
-      <br/>
-      状态空间（State Space）模型SS
-      <br/>
-      P33
-     </p>
-     <p>
-      z，p向量 k标量
-     </p>
-     <p>
-      模型连接：串联series，并联parallel
-     </p>
-     <p>
-      求闭环传递函数的MATLAB函数cloop( )和feedback( )
-      <br/>
-      其中cloop( )函数只能用于H(s)=1（即单位反馈）
-      <br/>
-      [numc, denc]=cloop(num, den, sign)
-     </p>
-     <p>
-      [num, den]=feedback(num1, den1, num2, den2, sign)
-      <br/>
-      num1, den1：G(s) 的分子、分母多项式
-      <br/>
-      num2, den2: H(s)的分子、分母多项式
-      <br/>
-      sign= -1 为负反馈（默认值），sign=1 为正反馈
-      <br/>
-      P44
-     </p>
-     <p>
-      电感 微分器
-      <br/>
-      电容 积分器
-     </p>
-     <p>
-      拉普拉斯变换
-     </p>
-     <p>
-      阶跃响应
-      <br/>
-      step(tf)
-      <br/>
-      grid on
-     </p>
-     <p>
-      利用simulink的提取线性模型函数 linmod( ), 得到状态空间模型，然后对状态空间模型进行各种仿真。
-     </p>
-     <p>
-      [A,B,C,D]=linmod(‘samples_4_14’);
-      <br/>
-      [num,den]=ss2tf(A,B,C,D);
-      <br/>
-      printsys(num,den,’s’) %以传递函数形式显示出来
      </p>
     </p>
    </div>
@@ -2880,7 +2783,7 @@ For Level Colors
    </p>
    <ul>
     <li>
-     Trouver la matrice $𝑑^{T} = (𝑑_{1}, … , 𝑑_{n})$ en utilisant l’équation suivante :
+     Trouver la matrice $d^{T} = (d_{1}, … , d_{n})$ en utilisant l’équation suivante :
      <br/>
      $$d^{T}C_{0}  = [0, … ,0,0,1]$$
     </li>
@@ -2935,20 +2838,24 @@ For Level Colors
     </p>
    </p>
    <p>
-    où $𝜔_{0}$ est déterminé à partir du temps de réponse puisque :
+    où $\omega_{0}$ est déterminé à partir du temps de réponse puisque :
    </p>
    <p>
     <strong>
-     tr5% = 3/(𝜉$𝜔_{0}$)
+     tr5% = 3/($\xi$$\omega_{0}$)
     </strong>
    </p>
    <p>
-    alors $𝜔_{0}$= 3/(𝜉tr5%) = 3/(0.7*2) = 2,12 rd/s
+    alors $\omega_{0}$= 3/($\xi$
+    <em>
+     tr5%) = 3/(0.7
+    </em>
+    2) = 2,12 rd/s
    </p>
    <p>
     ce qui nous conduit à la valeurs de pôles :
     <br/>
-    𝑝1,2 = −1.5 ± 𝑗1.5
+    P1,2 = −1.5 ± 𝑗1.5
    </p>
    <p>
     l’équation caractéristique est alors donnée par :
@@ -2962,7 +2869,7 @@ For Level Colors
     <br/>
     $$+$$
     <br/>
-    $$𝑑^{T} = (𝑑_{1}, 𝑑_{2})$$
+    $$d^{T} = (d_{1}, d_{2})$$
    </p>
    <p>
     donc,
@@ -2991,9 +2898,9 @@ For Level Colors
     2.3.2.2 方法二 la méthode directe
    </h4>
    <p>
-    Avec les pôles désirés : 𝑝1,2 = −1.5 ± 𝑗1.5 on obtient comme précédemment le polynôme :
+    Avec les pôles désirés : P1,2 = −1.5 ± 𝑗1.5 on obtient comme précédemment le polynôme :
     <br/>
-    $𝑝^{2}$ + 3𝑝 + 4.5 = 0
+    $P^{2}$ + 3P + 4.5 = 0
     <br/>
     <p align="center">
      <img alt="" src="images\cap_20171113_145328.png"/>
@@ -3773,21 +3680,21 @@ For Level Colors
     ，于是得到4个方程
    </p>
    <p>
-    (eq1) −2𝑝12 + 2 − 𝑝122 = 0
+    (eq1) −2P12 + 2 − P122 = 0
     <br/>
-    (eq2) 𝑝11 − 2𝑝12−𝑝22 − 𝑝12𝑝22 = 0
+    (eq2) P11 − 2P12−P22 − P12P22 = 0
     <br/>
-    (eq3) −𝑝22+𝑝11 − 2𝑝12 − 𝑝22𝑝12 = 0
+    (eq3) −P22+P11 − 2P12 − P22P12 = 0
     <br/>
-    (eq4) 𝑝12 − 2𝑝22+𝑝12 − 2𝑝22 + 1 − $𝑝22^{2}$ = 0
+    (eq4) P12 − 2P22+P12 − 2P22 + 1 − $P22^{2}$ = 0
    </p>
    <p>
-    事实上2和3是相同的−2𝑝12 + 2 − $𝑝12^{2}$ = 0。分别求解，只取正值on ne retient que la valeur positive：
+    事实上2和3是相同的−2P12 + 2 − $P12^{2}$ = 0。分别求解，只取正值on ne retient que la valeur positive：
    </p>
    <div class="codehilite">
-    <pre>(eq1) 𝑝12 = 0.732 𝑒𝑡 − 2.732
-(eq4) 𝑝22 = 0.542 𝑒𝑡 − 4.452
-(eq2) 𝑝11 = 2 ∗ 0.732 + 0.542 + 0732 ∗ 0.542= 2.403
+    <pre>(eq1) P12 = 0.732 𝑒𝑡 − 2.732
+(eq4) P22 = 0.542 𝑒𝑡 − 4.452
+(eq2) P11 = 2 ∗ 0.732 + 0.542 + 0732 ∗ 0.542= 2.403
 </pre>
    </div>
    <p>
@@ -3873,9 +3780,6 @@ For Level Colors
      卡尔曼滤波器
     </code>
    </p>
-   <p align="center">
-    ![](images\cap_20171027_105517.png)
-   </p>
    <h1 id="41-principe-du-filtre-de-kalman">
     <a aria-hidden="true" class="headeranchor-link" href="#41-principe-du-filtre-de-kalman" name="user-content-41-principe-du-filtre-de-kalman">
      <span class="headeranchor">
@@ -3883,6 +3787,74 @@ For Level Colors
     </a>
     4.1 Principe du filtre de Kalman
    </h1>
+   <ul>
+    <li>
+     二阶线性控制用到了状态反馈。实际上，如果输出与状态不相符，那么就需要从给定的U和Y开始状态重建。 这个步骤在决定论déterministe的问题里对应的是observateur de Luenberger，而在随机stochastique的问题里就是filtre de Kalman卡尔曼滤波器。
+    </li>
+    <li>
+     卡尔曼滤波器是个对状态向量进行预测和评估的观测器，记为$\hat{X}$. 在随机幻境里，当变量的噪声已知，那就是最好的线性观测器。另外，如果白噪声是高斯噪声，那么对所有的观测器来说，观测误差变量是最小的。
+    </li>
+   </ul>
+   <p>
+    例题
+    <br/>
+    - 设随机变量V,W,X(t0)是高斯变量
+    <br/>
+    - 求使二阶偏差的标准E[(x(t) − $\hat{X}$(t))^{t}(x(t)-$\hat{X}$(t))最小的$\hat{X}$(t), E是数学期望。
+   </p>
+   <p>
+    解：
+    <br/>
+    先让评估误差均值最小(状态和评估的差值)
+    <br/>
+    不展开介绍卡尔曼滤波器的理论，只介绍如何使在用连续系统建立好的结论。
+   </p>
+   <p>
+    方程和结果 Mise en équation et résultats
+    <br/>
+    <p align="center">
+     <img alt="" height="80px" src="images/cap_20171027_105517.png" width="300px"/>
+    </p>
+    <br/>
+    - w
+    <br/>
+    - 是n维的未知干扰。
+    <br/>
+    - 变换自均值为0的高斯白噪音模型，协方差W(非负的n*n维的矩阵)
+    <br/>
+    - 通常来说，W表示对于系统建模疑虑。
+   </p>
+   <p>
+    -V
+    <br/>
+    - 测量误差。
+    <br/>
+    - 变换自均值为0的高斯白噪音模型，协方差V(非负的p*n维的矩阵)
+   </p>
+   <p>
+    结构如下：
+    <br/>
+    <p align="center">
+     <img alt="" height="250px" src="images\cap_20171114_143404.png" width="450px"/>
+    </p>
+   </p>
+   <p>
+    方程为：
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_144048.png"/>
+    </p>
+   </p>
+   <p>
+    开环系统的动态性能被闭环测量的评估所纠正。
+    <br/>
+    - W代表状态噪声的协方差矩阵，换句话说，就是模型的可信度。
+    <br/>
+    - V代表测量噪声的协方差矩阵，就是测量的精确度。
+   </p>
+   <p>
+    当测量有非常大的噪音时，V的值变大，可观测到在矩阵Kf里，增益gain变小。
+   </p>
    <h1 id="42-analogie-avec-le-probleme-de-la-commande-optimale-lq">
     <a aria-hidden="true" class="headeranchor-link" href="#42-analogie-avec-le-probleme-de-la-commande-optimale-lq" name="user-content-42-analogie-avec-le-probleme-de-la-commande-optimale-lq">
      <span class="headeranchor">
@@ -3890,6 +3862,18 @@ For Level Colors
     </a>
     4.2 Analogie avec le problème de la commande optimale LQ
    </h1>
+   <p>
+    <strong>
+     $$类比LQ优化$$
+    </strong>
+   </p>
+   <p>
+    Les équations définissant le filtre rappellent la solution d’un problème de commande optimale à critère quadratique. Ainsi la matrice Kf s’exprime en fonction de P, laquelle est la solution d’une équation différentielle de Riccati.
+    <br/>
+    On obtient la solution du problème de l’estimation à partir de la solution du problème de commande en remplaçant les matrices A, B et L par respectivement At, Ct et Kf et les matrices de pondération Q et R du critère par les covariances des bruits V et W.
+    <br/>
+    Par ailleurs, il convient de noter que l’intégration de l’équation de Riccati est effectuée ici en temps réel, à partir d’une condition initiale Po dans laquelle on introduit d’éventuelles connaissances à priori sur l’erreur d’estimation. Ceci permet d’en calculer la solution pas à pas en temps réel, ce qui facilite grandement  son incorporation(du filtre) dans une boucle de commande.
+   </p>
    <h1 id="43-mise-en-uvre-du-filtre-de-kalman">
     <a aria-hidden="true" class="headeranchor-link" href="#43-mise-en-uvre-du-filtre-de-kalman" name="user-content-43-mise-en-uvre-du-filtre-de-kalman">
      <span class="headeranchor">
@@ -3897,6 +3881,19 @@ For Level Colors
     </a>
     4.3 Mise en œuvre du filtre de Kalman
    </h1>
+   <p>
+    On suppose connues l’espérance et la covariance de l’état initial ainsi que les covariances des bruits. En pratique, celles-ci ne sont pas connues de manière exacte.
+    <br/>
+    On peut toutefois faire les remarques suivantes :
+    <br/>
+    - lorsque le système est invariant, par analogie avec le problème de commande optimale, on peut chercher une valeur asymptotique constante de la matice P(t) en faisant tendre t vers l’infini ($\dot{P}(t)$ = 0). La différence avec le filtre optimal dépendant du temps se fera sentir en début de fonctionnement seulement, ce qui constitue un inconvénient mineur vis-à-vis de la simplification considérable apportée par l’utilisation d’une matrice P constante.
+    <br/>
+    - L’observateur est sans biais
+    <br/>
+    - Si V et W sont mal connues, le gain Kf peut être déterminé en considérant simplement
+    <br/>
+    ces matrices comme des matrices de pondération analogues aux matrices Q et R du problème de la commande optimale.
+   </p>
    <h1 id="44-la-commande-lqg">
     <a aria-hidden="true" class="headeranchor-link" href="#44-la-commande-lqg" name="user-content-44-la-commande-lqg">
      <span class="headeranchor">
@@ -3904,13 +3901,114 @@ For Level Colors
     </a>
     4.4 La commande LQG
    </h1>
+   <p>
+    传统的LQG控制有两个步骤：对偶duales和独立indépendantes：
+   </p>
+   <ul>
+    <li>
+     通过二阶优化的状态反馈，比如求Ko (un indice « o » pour bien le différencier / Kf)
+    </li>
+    <li>
+     从唯一可用的测量信号开始应用的卡尔文滤波器。比如求Kf。La synthèse d’un filtre de Kalman permettant d’implanter la commande à partir des seules mesures disponibles (modèle bruité ainsi que les mesures)
+    </li>
+   </ul>
    <h1 id="441-le-principe-de-separation">
     <a aria-hidden="true" class="headeranchor-link" href="#441-le-principe-de-separation" name="user-content-441-le-principe-de-separation">
      <span class="headeranchor">
      </span>
     </a>
-    4.4.1 Le principe de séparation…
+    4.4.1 Le principe de séparation
    </h1>
+   <p>
+    <strong>
+     $$分离原则$$
+    </strong>
+   </p>
+   <p>
+    当我们把LQ优化中的X(t)换成$\hat{X}(t)$会发生啥？其中$\hat{X}(t)$由卡尔曼滤波器求得。
+   </p>
+   <p>
+    滤波器的方程是：
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_144048.png"/>
+    </p>
+   </p>
+   <p>
+    控制信号为：
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_150609.png"/>
+    </p>
+   </p>
+   <p>
+    评估误差是：
+    <br/>
+    $\varepsilon$= x − $\hat{X}(t)$
+   </p>
+   <p>
+    展开可得：
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_151120.png"/>
+    </p>
+   </p>
+   <p>
+    如果A – K$_{f}$C全都位于复平面的左半边，那么这个系统就是异步asynchronement稳定，状态X(t)和$\hat{X}(t)$之间的向量误差呈指数函数地趋近于零。
+   </p>
+   <p>
+    为了实现输出反馈调节，可以用一个状态观测器和一个利用观测状态的状态反馈调节器
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_152105.png"/>
+    </p>
+    <br/>
+    于是，
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171114_153412.png"/>
+    </p>
+   </p>
+   <p>
+    La matrice d’évolution est bloc-triangulaire. Ses valeurs propres sont les valeurs propres des blocs de la diagonale : [A−BKo],[A−KfC] . Les dynamiques du retour d’état d’une part, et de l’observateur d’autre part, sont séparées : on peut régler les valeurs propres de la commande par la matrice de retour d’état K, de façon indépendante des valeurs propres de l’observateur que l’on règle par le choix de la matrice Kf. C’est le principe de séparation.
+   </p>
+   <div class="admonition hint">
+    <p class="admonition-title">
+     重要结论
+    </p>
+    <p>
+     LQ和卡尔曼滤波器可以分开计算。
+     <br/>
+     Conclusion très importante :
+     <br/>
+     La commande par retour d’état LQ et le filtre de Kalman peuvent être déterminés séparément.
+    </p>
+    <div class="admonition note">
+     <p>
+      LQG的结构是由如下关系给定的
+      <br/>
+      <p align="center">
+       <img alt="" src="images\cap_20171114_154228.png"/>
+      </p>
+      <br/>
+      或可图示如下
+      <br/>
+      <p align="center">
+       <img alt="" src="images\cap_20171114_154334.png"/>
+      </p>
+     </p>
+    </div>
+   </div>
+   <h5 id="matlab-lqg">
+    <a aria-hidden="true" class="headeranchor-link" href="#matlab-lqg" name="user-content-matlab-lqg">
+     <span class="headeranchor">
+     </span>
+    </a>
+    matlab LQG
+   </h5>
+   <p>
+    [Kf,P,E]=lqe(A,M,C,Qk,Rk)
+   </p>
    <h1 id="442-sechage-du-kaolin">
     <a aria-hidden="true" class="headeranchor-link" href="#442-sechage-du-kaolin" name="user-content-442-sechage-du-kaolin">
      <span class="headeranchor">
@@ -3918,6 +4016,9 @@ For Level Colors
     </a>
     4.4.2 Séchage du Kaolin
    </h1>
+   <p>
+    Exemple afin d’illustrer notre propos
+   </p>
    <h1 id="v-conception-des-systemes-asservis-intelligents">
     <a aria-hidden="true" class="headeranchor-link" href="#v-conception-des-systemes-asservis-intelligents" name="user-content-v-conception-des-systemes-asservis-intelligents">
      <span class="headeranchor">
@@ -3967,6 +4068,115 @@ For Level Colors
     </a>
     6.2 Hardware In the Loop :HIL
    </h1>
+   <div class="admonition hint">
+    <p class="admonition-title">
+     Matlab 公式
+     <p>
+      conv (A, B)
+      <br/>
+      roots( )
+      <br/>
+      p=poly(r)
+      <br/>
+      charpoly()
+     </p>
+     <p>
+      传递函数 num,den
+      <br/>
+      对线性定常系统，s的系数均为常数，且den的常数项不等于0
+      <br/>
+      sys= tf (num, den)
+     </p>
+     <p>
+      提取分子分母多项式系数的函数tfdata( )。格式：[num,den]=tfdata(sys, ‘v’)
+      <br/>
+      sys传递函数。v功能：返回分子分母多项式系数向量。
+     </p>
+     <p>
+      siso零极点模型
+      <br/>
+      sys= zpk (z, p, k)
+      <br/>
+      Zero,pole,gain
+     </p>
+     <p>
+      提取模型零极点增益向量的函数
+      <br/>
+      [z, p, k]=zpkdata(sys, ‘v’)
+     </p>
+     <p>
+      建立状态空间模型的函数
+      <br/>
+      sys=ss(A,B,C,D)
+     </p>
+     <p>
+      特征根 传递函数分母的根
+     </p>
+     <p>
+      微分方程
+     </p>
+     <p>
+      线性时不变系统（LTI）的模型：
+      <br/>
+      传递函数（Transfer Function）模型TF
+      <br/>
+      零极点增益（ZPK）模型ZPK
+      <br/>
+      状态空间（State Space）模型SS
+      <br/>
+      P33
+     </p>
+     <p>
+      z，p向量 k标量
+     </p>
+     <p>
+      模型连接：串联series，并联parallel
+     </p>
+     <p>
+      求闭环传递函数的MATLAB函数cloop( )和feedback( )
+      <br/>
+      其中cloop( )函数只能用于H(s)=1（即单位反馈）
+      <br/>
+      [numc, denc]=cloop(num, den, sign)
+     </p>
+     <p>
+      [num, den]=feedback(num1, den1, num2, den2, sign)
+      <br/>
+      num1, den1：G(s) 的分子、分母多项式
+      <br/>
+      num2, den2: H(s)的分子、分母多项式
+      <br/>
+      sign= -1 为负反馈（默认值），sign=1 为正反馈
+      <br/>
+      P44
+     </p>
+     <p>
+      电感 微分器
+      <br/>
+      电容 积分器
+     </p>
+     <p>
+      拉普拉斯变换
+     </p>
+     <p>
+      阶跃响应
+      <br/>
+      step(tf)
+      <br/>
+      grid on
+     </p>
+     <p>
+      利用simulink的提取线性模型函数 linmod( ), 得到状态空间模型，然后对状态空间模型进行各种仿真。
+     </p>
+     <p>
+      [A,B,C,D]=linmod(‘samples_4_14’);
+      <br/>
+      [num,den]=ss2tf(A,B,C,D);
+      <br/>
+      printsys(num,den,’s’) %以传递函数形式显示出来
+     </p>
+    </p>
+   </div>
    <h1 id="td">
     <a aria-hidden="true" class="headeranchor-link" href="#td" name="user-content-td">
      <span class="headeranchor">
@@ -4184,6 +4394,129 @@ For Level Colors
 <span class="o">%</span><span class="n">rho</span><span class="o">=</span><span class="mi">5</span>
 <span class="o">%</span><span class="n">R</span><span class="o">=</span><span class="p">[</span><span class="n">rho</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">50</span><span class="o">*</span><span class="mi">50</span><span class="p">))]</span>
 <span class="o">%</span><span class="p">[</span><span class="n">K</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">E</span><span class="p">]</span><span class="o">=</span><span class="n">lqr</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">R</span><span class="p">)</span>
+</pre>
+   </div>
+   <h1 id="median">
+    <a aria-hidden="true" class="headeranchor-link" href="#median" name="user-content-median">
+     <span class="headeranchor">
+     </span>
+    </a>
+    Median
+   </h1>
+   <div class="codehilite">
+    <pre><span class="n">clc</span>
+<span class="n">clear</span>
+
+<span class="o">%</span><span class="p">{</span>
+<span class="err">传递函数初始化</span>
+<span class="mf">1.</span><span class="err">已知多项式</span>
+<span class="n">den</span><span class="o">=</span><span class="n">conv</span><span class="p">([</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">],</span><span class="n">conv</span><span class="p">([</span><span class="mi">1</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]));</span>
+<span class="mf">2.</span><span class="err">已知</span><span class="n">zpk</span>
+<span class="n">z</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">];</span><span class="n">k</span><span class="o">=</span><span class="mi">6</span><span class="p">;</span>
+<span class="n">sys</span><span class="o">=</span><span class="n">zpk</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">k</span><span class="p">);</span>
+<span class="n">zp2tf</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">k</span><span class="p">);</span>
+<span class="n">zp2ss</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">k</span><span class="p">);</span>
+<span class="o">%</span><span class="p">}</span>
+
+<span class="o">%</span><span class="err">赋值操作初始化</span>
+<span class="n">k</span><span class="o">=</span><span class="mf">0.8</span><span class="p">;</span>
+<span class="n">jm</span><span class="o">=</span><span class="mi">4</span><span class="o">/</span><span class="mi">10000</span><span class="p">;</span>
+<span class="n">jc</span><span class="o">=</span><span class="mi">4</span><span class="o">/</span><span class="mi">10000</span><span class="p">;</span>
+<span class="n">lamm</span><span class="o">=</span><span class="mf">0.015</span><span class="p">;</span>
+<span class="n">lamc</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+
+
+<span class="o">%</span><span class="err">初始化矩阵</span>
+<span class="o">%</span><span class="p">{</span>
+<span class="n">A11</span><span class="o">=</span>
+<span class="n">A12</span><span class="o">=</span>
+<span class="n">A13</span><span class="o">=</span>
+<span class="n">A14</span><span class="o">=</span>
+<span class="n">A21</span><span class="o">=</span>
+<span class="n">A22</span><span class="o">=</span>
+<span class="n">A23</span><span class="o">=</span>
+<span class="n">A24</span><span class="o">=</span>
+<span class="n">A31</span><span class="o">=</span>
+<span class="n">A32</span><span class="o">=</span>
+<span class="n">A33</span><span class="o">=</span>
+<span class="n">A34</span><span class="o">=</span>
+<span class="n">A41</span><span class="o">=</span>
+<span class="n">A42</span><span class="o">=</span>
+<span class="n">A43</span><span class="o">=</span>
+<span class="n">A44</span><span class="o">=</span>
+<span class="n">B</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">]</span>
+<span class="o">%</span><span class="p">}</span>
+
+<span class="n">A11</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="n">A12</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="n">A13</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="n">A14</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="n">A21</span><span class="o">=-</span><span class="n">k</span><span class="o">/</span><span class="n">jc</span><span class="p">;</span>
+<span class="n">A22</span><span class="o">=-</span><span class="n">lamc</span><span class="o">/</span><span class="n">jc</span><span class="p">;</span>
+<span class="n">A23</span><span class="o">=</span><span class="n">k</span><span class="o">/</span><span class="n">jc</span><span class="p">;</span>
+<span class="n">A24</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="n">A31</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="n">A32</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="n">A33</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="n">A34</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="n">A41</span><span class="o">=</span><span class="n">k</span><span class="o">/</span><span class="n">jm</span><span class="p">;</span>
+<span class="n">A42</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="n">A43</span><span class="o">=-</span><span class="n">k</span><span class="o">/</span><span class="n">jm</span><span class="p">;</span>
+<span class="n">A44</span><span class="o">=-</span><span class="n">lamm</span><span class="o">/</span><span class="n">jm</span><span class="p">;</span>
+
+<span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="n">A11</span> <span class="n">A12</span> <span class="n">A13</span> <span class="n">A14</span><span class="p">;</span><span class="n">A21</span> <span class="n">A22</span> <span class="n">A23</span> <span class="n">A24</span><span class="p">;</span><span class="n">A31</span> <span class="n">A32</span> <span class="n">A33</span> <span class="n">A34</span><span class="p">;</span><span class="n">A41</span> <span class="n">A42</span> <span class="n">A43</span> <span class="n">A44</span><span class="p">];</span>
+<span class="n">B</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">1</span><span class="o">/</span><span class="n">jm</span><span class="p">];</span>
+<span class="n">C</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">];</span>
+<span class="n">D</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="n">sys</span><span class="o">=</span><span class="n">ss</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">D</span><span class="p">);</span>
+<span class="p">[</span><span class="n">zero</span><span class="p">,</span><span class="n">pole</span><span class="p">,</span><span class="n">k_gain</span><span class="p">]</span><span class="o">=</span><span class="n">zpkdata</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span><span class="s">'v'</span><span class="p">);</span> <span class="o">%</span><span class="s">'v'</span><span class="err">返回多项式系数向量</span>
+
+
+<span class="o">%</span><span class="p">{</span><span class="err">可控与可观</span><span class="o">%</span><span class="p">}</span>
+<span class="n">Co</span><span class="o">=</span><span class="n">ctrb</span><span class="p">(</span><span class="n">sys</span><span class="p">);</span> 
+<span class="n">Rco</span><span class="o">=</span> <span class="n">rank</span><span class="p">(</span><span class="n">Co</span><span class="p">);</span>
+<span class="n">Ob</span><span class="o">=</span><span class="n">obsv</span><span class="p">(</span><span class="n">sys</span><span class="p">);</span>
+<span class="n">Rob</span><span class="o">=</span><span class="n">rank</span><span class="p">(</span><span class="n">Ob</span><span class="p">);</span>
+
+<span class="o">%</span><span class="p">{</span><span class="err">零点与极点</span><span class="o">%</span><span class="p">}</span>
+<span class="p">[</span><span class="n">num</span><span class="p">,</span><span class="n">den</span><span class="p">]</span><span class="o">=</span><span class="n">ss2tf</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">D</span><span class="p">);</span>
+<span class="n">printsys</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="n">den</span><span class="p">,</span><span class="s">'s'</span><span class="p">);</span>
+<span class="n">roots</span><span class="p">(</span><span class="n">den</span><span class="p">);</span>
+
+<span class="o">%</span><span class="p">{</span><span class="n">pole</span> <span class="n">dominant</span><span class="o">%</span><span class="p">}</span>
+<span class="n">kesi</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span> <span class="o">%</span><span class="n">Coef</span> <span class="n">d</span><span class="s">'amortissement</span>
+<span class="n">tr</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span> <span class="o">%</span><span class="n">temps</span> <span class="n">de</span> <span class="n">reponse</span>
+<span class="n">omega0mini</span><span class="o">=</span><span class="mi">3</span><span class="o">/</span><span class="p">(</span><span class="n">kesi</span><span class="o">*</span><span class="n">tr</span><span class="p">);</span>  
+<span class="n">p1</span><span class="o">=-</span><span class="n">kesi</span><span class="o">*</span><span class="n">omega0mini</span><span class="o">+</span><span class="mi">1</span><span class="n">i</span><span class="o">*</span><span class="n">omega0mini</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">kesi</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">p2</span><span class="o">=-</span><span class="n">kesi</span><span class="o">*</span><span class="n">omega0mini</span><span class="o">-</span><span class="mi">1</span><span class="n">i</span><span class="o">*</span><span class="n">omega0mini</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">kesi</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
+
+<span class="o">%</span><span class="p">{</span><span class="n">dans</span> <span class="n">un</span> <span class="n">rapport</span> <span class="mi">10</span> <span class="n">avec</span> <span class="n">les</span> <span class="n">valeurs</span> <span class="n">reel</span> <span class="n">pole</span> <span class="n">dominant</span> <span class="o">%</span><span class="p">}</span>
+<span class="n">P</span><span class="o">=</span><span class="p">[</span><span class="n">p1</span><span class="p">;</span> <span class="n">p2</span><span class="p">;</span> <span class="mi">10</span><span class="o">*</span><span class="n">real</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span> <span class="mi">10</span><span class="o">*</span><span class="n">real</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span><span class="o">+</span><span class="mf">0.01</span><span class="p">];</span>
+<span class="o">%</span><span class="n">La</span> <span class="n">matrice</span> <span class="n">de</span> <span class="n">contre</span> <span class="n">reaction</span> <span class="n">K</span> 
+<span class="n">K</span><span class="o">=</span><span class="n">place</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">P</span><span class="p">);</span>
+
+<span class="o">%</span><span class="n">dans</span> <span class="n">un</span> <span class="n">rapport</span> <span class="mi">5</span> <span class="n">pour</span> <span class="n">pole</span> <span class="n">d</span><span class="s">'observateur</span>
+<span class="n">Pob</span><span class="o">=</span><span class="p">[</span><span class="n">p1</span><span class="p">;</span> <span class="n">p2</span><span class="p">;</span> <span class="mi">50</span><span class="o">*</span><span class="n">real</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span> <span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">real</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span><span class="o">+</span><span class="mf">0.01</span><span class="p">)];</span>
+<span class="n">L</span><span class="o">=</span><span class="n">place</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="s">',C.'</span><span class="p">,</span><span class="n">Pob</span><span class="p">)</span><span class="o">.</span><span class="s">';</span>
+
+<span class="o">%</span><span class="p">{</span><span class="n">LQR</span> <span class="n">pour</span> <span class="n">optimiser</span> <span class="n">la</span> <span class="n">matrice</span> <span class="n">de</span> <span class="n">gain</span><span class="o">%</span><span class="p">}</span>
+<span class="n">trsi</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span>  <span class="o">%</span><span class="n">desired</span> <span class="n">settle</span> <span class="n">time</span> <span class="p">(</span><span class="n">tr5</span><span class="o">%</span><span class="p">)</span>
+<span class="n">x1m</span><span class="o">=</span><span class="n">pi</span><span class="p">;</span>
+<span class="n">x2m</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
+<span class="n">x3m</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
+<span class="n">x4m</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
+
+<span class="n">Q11</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">trsi</span><span class="o">*</span><span class="n">x1m</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">Q22</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">trsi</span><span class="o">*</span><span class="n">x2m</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">Q33</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">trsi</span><span class="o">*</span><span class="n">x3m</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">Q44</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">trsi</span><span class="o">*</span><span class="n">x4m</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">Q</span><span class="o">=</span><span class="p">[</span><span class="n">Q11</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="n">Q22</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="n">Q33</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="n">Q44</span><span class="p">];</span>
+
+<span class="n">u</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span>
+<span class="n">r1</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">u</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">rho</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="n">R</span><span class="o">=</span><span class="n">rho</span><span class="o">*</span><span class="n">r1</span><span class="p">;</span>
+<span class="p">[</span><span class="n">Kopt</span><span class="p">,</span><span class="n">Popt</span><span class="p">,</span><span class="n">E</span><span class="p">]</span><span class="o">=</span><span class="n">lqr</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">R</span><span class="p">);</span>
 </pre>
    </div>
   </article>
