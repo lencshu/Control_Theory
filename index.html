@@ -1575,6 +1575,13 @@ For Level Colors
       <a href="#43-mise-en-uvre-du-filtre-de-kalman">
        4.3 Mise en œuvre du filtre de Kalman
       </a>
+      <ul>
+       <li>
+        <a href="#-">
+         - 假设我们已知状态协方差和噪声协方差的期望
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
       <a href="#44-la-commande-lqg">
@@ -1595,8 +1602,15 @@ For Level Colors
      </li>
      <li>
       <a href="#442-sechage-du-kaolin">
-       4.4.2 Séchage du Kaolin
+       4.4.2 干燥高岭土 Séchage du Kaolin
       </a>
+      <ul>
+       <li>
+        <a href="#matlab-kalman">
+         matlab kalman
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
       <a href="#v-conception-des-systemes-asservis-intelligents">
@@ -3905,13 +3919,23 @@ For Level Colors
      $$类比LQ优化$$
     </strong>
    </p>
-   <p>
-    Les équations définissant le filtre rappellent la solution d’un problème de commande optimale à critère quadratique. Ainsi la matrice Kf s’exprime en fonction de P, laquelle est la solution d’une équation différentielle de Riccati.
-    <br/>
-    On obtient la solution du problème de l’estimation à partir de la solution du problème de commande en remplaçant les matrices A, B et L par respectivement At, Ct et Kf et les matrices de pondération Q et R du critère par les covariances des bruits V et W.
-    <br/>
-    Par ailleurs, il convient de noter que l’intégration de l’équation de Riccati est effectuée ici en temps réel, à partir d’une condition initiale Po dans laquelle on introduit d’éventuelles connaissances à priori sur l’erreur d’estimation. Ceci permet d’en calculer la solution pas à pas en temps réel, ce qui facilite grandement  son incorporation(du filtre) dans une boucle de commande.
-   </p>
+   <ul>
+    <li>
+     定义滤波器的方程被称为二阶优化问题的解。用p来表示的矩阵Kf是Riccati微分方程的解。
+    </li>
+    <li>
+     我们通过把A,B,L分别替换为At,Ct和Kf。同时，矩阵Q，R分别替换为协方差矩阵V,W。
+    </li>
+    <li>
+     另外，Riccati方程的积分针对的是实时情况。
+     <br/>
+     Les équations définissant le filtre rappellent la solution d’un problème de commande optimale à critère quadratique. Ainsi la matrice Kf s’exprime en fonction de P, laquelle est la solution d’une équation différentielle de Riccati.
+     <br/>
+     On obtient la solution du problème de l’estimation à partir de la solution du problème de commande en remplaçant les matrices A, B et L par respectivement At, Ct et Kf et les matrices de pondération Q et R du critère par les covariances des bruits V et W.
+     <br/>
+     Par ailleurs, il convient de noter que l’intégration de l’équation de Riccati est effectuée ici en temps réel, à partir d’une condition initiale Po dans laquelle on introduit d’éventuelles connaissances à priori sur l’erreur d’estimation. Ceci permet d’en calculer la solution pas à pas en temps réel, ce qui facilite grandement  son incorporation(du filtre) dans une boucle de commande.
+    </li>
+   </ul>
    <h1 id="43-mise-en-uvre-du-filtre-de-kalman">
     <a aria-hidden="true" class="headeranchor-link" href="#43-mise-en-uvre-du-filtre-de-kalman" name="user-content-43-mise-en-uvre-du-filtre-de-kalman">
      <span class="headeranchor">
@@ -3919,6 +3943,13 @@ For Level Colors
     </a>
     4.3 Mise en œuvre du filtre de Kalman
    </h1>
+   <h2 id="-">
+    <a aria-hidden="true" class="headeranchor-link" href="#-" name="user-content--">
+     <span class="headeranchor">
+     </span>
+    </a>
+    - 假设我们已知状态协方差和噪声协方差的期望
+   </h2>
    <p>
     On suppose connues l’espérance et la covariance de l’état initial ainsi que les covariances des bruits. En pratique, celles-ci ne sont pas connues de manière exacte.
     <br/>
@@ -3926,11 +3957,11 @@ For Level Colors
     <br/>
     - lorsque le système est invariant, par analogie avec le problème de commande optimale, on peut chercher une valeur asymptotique constante de la matice P(t) en faisant tendre t vers l’infini ($\dot{P}(t)$ = 0). La différence avec le filtre optimal dépendant du temps se fera sentir en début de fonctionnement seulement, ce qui constitue un inconvénient mineur vis-à-vis de la simplification considérable apportée par l’utilisation d’une matrice P constante.
     <br/>
-    - L’observateur est sans biais
+    - L’observateur est sans biais 偏差
     <br/>
-    - Si V et W sont mal connues, le gain Kf peut être déterminé en considérant simplement
+    - Si V et W sont mal connues, le gain Kf peut être déterminé en considérant simplement ces matrices comme des matrices de pondération analogues aux matrices Q et R du problème de la commande optimale.
     <br/>
-    ces matrices comme des matrices de pondération analogues aux matrices Q et R du problème de la commande optimale.
+    如果V和W未知，那么Kf可以通过矩阵Q，R来确定。
    </p>
    <h1 id="44-la-commande-lqg">
     <a aria-hidden="true" class="headeranchor-link" href="#44-la-commande-lqg" name="user-content-44-la-commande-lqg">
@@ -4044,19 +4075,245 @@ For Level Colors
     </a>
     ---- matlab LQG
    </h5>
-   <p>
-    [Kf,P,E]=lqe(A,M,C,Qk,Rk)
-   </p>
+   <div class="codehilite">
+    <pre>[Kf,P,E]=lqe(A,M,C,Qk,Rk)
+</pre>
+   </div>
    <h1 id="442-sechage-du-kaolin">
     <a aria-hidden="true" class="headeranchor-link" href="#442-sechage-du-kaolin" name="user-content-442-sechage-du-kaolin">
      <span class="headeranchor">
      </span>
     </a>
-    4.4.2 Séchage du Kaolin
+    4.4.2 干燥高岭土 Séchage du Kaolin
    </h1>
    <p>
     Exemple afin d’illustrer notre propos
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171117_005459.png"/>
+    </p>
    </p>
+   <ul>
+    <li>
+     进料8吨/h; 要求出料湿度控制在4%到12%，最大方差为1%;
+    </li>
+    <li>
+     加热温度 tb(t) ℃
+    </li>
+    <li>
+     干燥温度 td(t) ℃
+    </li>
+    <li>
+     出料湿度 mf(t) %
+    </li>
+   </ul>
+   <p>
+    控制参数
+    <br/>
+    - 燃烧炉阀门开关 Va(t) rad
+    <br/>
+    - 高岭土进料 fi(t) t/h
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171117_010218.png"/>
+    </p>
+   </p>
+   <p>
+    求：LQG建模，控制并评估三个参数
+   </p>
+   <p>
+    解：
+    <br/>
+    建模
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171117_010643.png"/>
+    </p>
+   </p>
+   <div class="admonition hint">
+    <p>
+     负号意味着湿度与温度变化相反
+    </p>
+   </div>
+   <p>
+    合并最后两项得：
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171117_010726.png"/>
+    </p>
+   </p>
+   <p>
+    状态空间表示
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171117_010831.png"/>
+    </p>
+   </p>
+   <p>
+    C1和C2未知，是燃烧炉和干燥室的干扰，有随机数0.1完全决定。
+    <br/>
+    Où c1 et c2 sont des coefficients inconnus liés aux perturbations sur le
+    <br/>
+    bruleur et le séchoir et sont donnés de façon complètement aléatoire à une valeur de 0,1.
+   </p>
+   <p>
+    于是可以写成
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171117_011327.png"/>
+    </p>
+    <br/>
+    观测方程
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171117_011407.png"/>
+    </p>
+   </p>
+   <p>
+    接下来要做的是
+   </p>
+   <ul>
+    <li>
+     1.déterminer le gain optimal  Kopt du LQR
+    </li>
+    <li>
+     2.déterminer ensuite le gain du filtre de Kalman
+    </li>
+    <li>
+     3.Puis construire le contrôle LQG
+    </li>
+   </ul>
+   <ol>
+    <li>
+     R=1,Q=[q11 0 0; 0 q22 0; 0 0 q33]
+    </li>
+   </ol>
+   <p>
+    目标是：
+    <br/>
+    - Obtenir un taux d’humidité par exemple de 6%$\underline{+}$1% pour un débit de Kaolin de 8 tonnes/heure .La température du séchoir ne doit pas varier plus de ±3°C autour de 50°C.
+    <br/>
+    - Les valeurs recherchées sont : Tb = 450 °C ; Td = 50°C et mf = -6%
+    <br/>
+    - Remarque : le taux d’humidité est négatif du à la modélisation de départ.
+    <br/>
+    - Les conditions initiales sont :
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171117_011953.png"/>
+    </p>
+   </p>
+   <div class="codehilite">
+    <pre><span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="o">-.</span><span class="mo">0213</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span> <span class="mf">0.0006</span> <span class="o">-</span><span class="mf">0.005</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="o">-</span><span class="mf">0.00038</span> <span class="o">-</span><span class="mf">0.0023</span><span class="p">];</span>
+<span class="n">B</span><span class="o">=</span><span class="p">[</span><span class="mf">8.9362</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">];</span>
+<span class="n">M</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mf">0.1</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="mf">0.00132</span><span class="p">];</span>
+<span class="n">C</span><span class="o">=</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">Q</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mf">0.5</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">20</span><span class="p">];</span>
+<span class="n">R</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">[</span><span class="n">K</span><span class="p">,</span><span class="n">S</span><span class="p">,</span><span class="n">E</span><span class="p">]</span><span class="o">=</span><span class="n">lqr</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">R</span><span class="p">);</span>
+<span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="o">-</span><span class="n">B</span><span class="o">*</span><span class="n">K</span><span class="p">);</span>
+</pre>
+   </div>
+   <p>
+    用simulink模拟
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171117_012433.png"/>
+    </p>
+   </p>
+   <p>
+    可以明显的看出，需要集成一个积分纠正器
+    <br/>
+    Le niveau haut de la saturation définissant l’ouverture maxi de la vanne est : π/2
+    <br/>
+    Le niveau bas : 0
+   </p>
+   <div class="admonition hint">
+    <p>
+     修改solver
+    </p>
+   </div>
+   <p>
+    接下来在LQ中加入建模和测量噪声来观察集成滤波器的必要性
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171117_012759.png"/>
+    </p>
+   </p>
+   <p>
+    高斯噪音生成模块 Band-Limited White Noise
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171117_013138.png"/>
+    </p>
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171117_014152.png"/>
+    </p>
+   </p>
+   <div class="admonition hint">
+    <p>
+     Noise Power = Variance * Période d’échantillonnage
+    </p>
+   </div>
+   <p>
+    确定协方差矩阵V：
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171117_014319.png"/>
+    </p>
+   </p>
+   <p>
+    确定协方差矩阵W
+    <br/>
+    C’est une matrice diagonale dont les termes q11 et q22 représente des variations potentielles des températures du bruleur et du séchoir résultant du transfert de chaleur au niveau des parois du séchoir, du  vent et des variations externes de température. Il est, sans information suffisante, possible de penser que ces variations sont de l’ordre de 0.3°C.
+    <br/>
+    Quant au débit de Kaolin, on peut penser que notre modèle peut être précis à 0.3 tonnes près.
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171117_014444.png"/>
+    </p>
+   </p>
+   <p>
+    然后
+   </p>
+   <div class="codehilite">
+    <pre><span class="p">[</span><span class="n">Kf</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">E</span><span class="p">]</span><span class="o">=</span><span class="n">lqe</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">C</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span><span class="n">V</span><span class="p">)</span>
+</pre>
+   </div>
+   <p>
+    可得：
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171117_014702.png"/>
+    </p>
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171117_021941.png"/>
+    </p>
+   </p>
+   <h5 id="matlab-kalman">
+    <a aria-hidden="true" class="headeranchor-link" href="#matlab-kalman" name="user-content-matlab-kalman">
+     <span class="headeranchor">
+     </span>
+    </a>
+    matlab kalman
+   </h5>
+   <div class="codehilite">
+    <pre><span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="o">-.</span><span class="mo">0213</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span> <span class="mf">0.0006</span> <span class="o">-</span><span class="mf">0.005</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="o">-</span><span class="mf">0.00038</span> <span class="o">-</span><span class="mf">0.0023</span><span class="p">]</span> <span class="p">;</span>
+<span class="n">B</span><span class="o">=</span><span class="p">[</span><span class="mf">8.9362</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">]</span> <span class="p">;</span>
+<span class="n">M</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mf">0.1</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="mf">0.00132</span><span class="p">]</span> <span class="p">;</span>
+<span class="n">C</span><span class="o">=</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">;</span>
+<span class="n">Q</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mf">0.5</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">20</span><span class="p">]</span> <span class="p">;</span>
+<span class="n">R</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">[</span><span class="n">K</span><span class="p">,</span><span class="n">S</span><span class="p">,</span><span class="n">E</span><span class="p">]</span><span class="o">=</span><span class="n">lqr</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">R</span><span class="p">)</span> <span class="p">;</span>
+<span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="o">-</span><span class="n">B</span><span class="o">*</span><span class="n">K</span><span class="p">);</span>
+
+<span class="n">W</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mf">0.1</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="mf">0.1</span><span class="p">];</span>
+<span class="n">V</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mf">0.01</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mf">7.46</span><span class="p">];</span>
+<span class="p">[</span><span class="n">Kf</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">E</span><span class="p">]</span><span class="o">=</span><span class="n">lqe</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">C</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span><span class="n">V</span><span class="p">);</span>
+</pre>
+   </div>
    <h1 id="v-conception-des-systemes-asservis-intelligents">
     <a aria-hidden="true" class="headeranchor-link" href="#v-conception-des-systemes-asservis-intelligents" name="user-content-v-conception-des-systemes-asservis-intelligents">
      <span class="headeranchor">
@@ -5147,6 +5404,7 @@ For Level Colors
 
 <span class="o">%====</span><span class="err">初始化矩阵</span><span class="o">====</span>
 
+<span class="o">%</span><span class="p">{</span>
 <span class="n">A11</span><span class="o">=</span><span class="p">;</span>
 <span class="n">A12</span><span class="o">=</span><span class="p">;</span>
 <span class="n">A13</span><span class="o">=</span><span class="p">;</span>
@@ -5168,8 +5426,8 @@ For Level Colors
 <span class="n">A44</span><span class="o">=</span><span class="p">;</span>
 
 <span class="n">B</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">];</span>
-
-<span class="o">%</span><span class="n">A11</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A12</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>  <span class="n">A13</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A14</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A21</span><span class="o">=-</span><span class="n">k</span><span class="o">/</span><span class="n">jc</span><span class="p">;</span>  <span class="n">A22</span><span class="o">=-</span><span class="n">lamc</span><span class="o">/</span><span class="n">jc</span><span class="p">;</span>  <span class="n">A23</span><span class="o">=</span><span class="n">k</span><span class="o">/</span><span class="n">jc</span><span class="p">;</span>  <span class="n">A24</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A31</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A32</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A33</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A34</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>  <span class="n">A41</span><span class="o">=</span><span class="n">k</span><span class="o">/</span><span class="n">jm</span><span class="p">;</span>  <span class="n">A42</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A43</span><span class="o">=-</span><span class="n">k</span><span class="o">/</span><span class="n">jm</span><span class="p">;</span>  <span class="n">A44</span><span class="o">=-</span><span class="n">lamm</span><span class="o">/</span><span class="n">jm</span><span class="p">;</span>
+<span class="o">%</span><span class="p">}</span>
+<span class="n">A11</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A12</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>  <span class="n">A13</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A14</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A21</span><span class="o">=-</span><span class="n">k</span><span class="o">/</span><span class="n">jc</span><span class="p">;</span>  <span class="n">A22</span><span class="o">=-</span><span class="n">lamc</span><span class="o">/</span><span class="n">jc</span><span class="p">;</span>  <span class="n">A23</span><span class="o">=</span><span class="n">k</span><span class="o">/</span><span class="n">jc</span><span class="p">;</span>  <span class="n">A24</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A31</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A32</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A33</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A34</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>  <span class="n">A41</span><span class="o">=</span><span class="n">k</span><span class="o">/</span><span class="n">jm</span><span class="p">;</span>  <span class="n">A42</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A43</span><span class="o">=-</span><span class="n">k</span><span class="o">/</span><span class="n">jm</span><span class="p">;</span>  <span class="n">A44</span><span class="o">=-</span><span class="n">lamm</span><span class="o">/</span><span class="n">jm</span><span class="p">;</span>
 
 <span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="n">A11</span> <span class="n">A12</span> <span class="n">A13</span> <span class="n">A14</span><span class="p">;</span> <span class="n">A21</span> <span class="n">A22</span> <span class="n">A23</span> <span class="n">A24</span><span class="p">;</span> <span class="n">A31</span> <span class="n">A32</span> <span class="n">A33</span> <span class="n">A34</span><span class="p">;</span> <span class="n">A41</span> <span class="n">A42</span> <span class="n">A43</span> <span class="n">A44</span><span class="p">];</span>
 <span class="n">B</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">1</span><span class="o">/</span><span class="n">jm</span><span class="p">];</span>
@@ -5251,6 +5509,19 @@ For Level Colors
 <span class="o">%</span><span class="n">rho</span><span class="o">=</span><span class="mf">0.6</span><span class="p">;</span> <span class="o">%</span><span class="err">要求高性能</span>
 <span class="n">R</span><span class="o">=</span><span class="n">rho</span><span class="o">*</span><span class="n">r1</span><span class="p">;</span>
 <span class="p">[</span><span class="n">Kopt</span><span class="p">,</span><span class="n">Popt</span><span class="p">,</span><span class="n">E</span><span class="p">]</span><span class="o">=</span><span class="n">lqr</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">R</span><span class="p">);</span>
+
+
+<span class="o">%</span><span class="p">{</span>
+<span class="o">======</span><span class="err">卡尔曼滤波器</span><span class="o">======</span>
+<span class="n">M</span><span class="err">，</span><span class="n">W</span><span class="err">，</span><span class="n">V的值</span>
+<span class="err">把</span><span class="n">L的值替换为Kf</span>
+<span class="o">%</span><span class="p">}</span>
+
+<span class="n">M</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">0</span> <span class="mf">0.1</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mf">0.00132</span><span class="p">];</span>
+<span class="n">W</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mf">0.1</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="mf">0.1</span><span class="p">];</span>
+<span class="n">V</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mf">0.01</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mf">7.46</span><span class="p">];</span>
+
+<span class="p">[</span><span class="n">Kf</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">E</span><span class="p">]</span><span class="o">=</span><span class="n">lqe</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">W</span><span class="p">,</span><span class="n">V</span><span class="p">);</span>
 </pre>
    </div>
   </article>
