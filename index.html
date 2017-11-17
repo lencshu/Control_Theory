@@ -1824,11 +1824,6 @@ For Level Colors
          完整matlab程序
         </a>
        </li>
-       <li>
-        <a href="#_4">
-         计算模板
-        </a>
-       </li>
       </ul>
      </li>
     </ul>
@@ -5259,131 +5254,6 @@ For Level Colors
 <span class="err">传递函数初始化</span>
 <span class="mf">1.</span><span class="err">已知多项式</span>
 <span class="n">den</span><span class="o">=</span><span class="n">conv</span><span class="p">([</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">],</span><span class="n">conv</span><span class="p">([</span><span class="mi">1</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]));</span>
-<span class="mf">2.</span><span class="err">已知</span><span class="n">zpk</span>
-<span class="n">z</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">];</span><span class="n">k</span><span class="o">=</span><span class="mi">6</span><span class="p">;</span>
-<span class="n">sys</span><span class="o">=</span><span class="n">zpk</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">k</span><span class="p">);</span>
-<span class="n">zp2tf</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">k</span><span class="p">);</span>
-<span class="n">zp2ss</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">k</span><span class="p">);</span>
-<span class="o">%</span><span class="p">}</span>
-
-<span class="o">%</span><span class="err">赋值操作初始化</span>
-<span class="n">k</span><span class="o">=</span><span class="mf">0.8</span><span class="p">;</span>
-<span class="n">jm</span><span class="o">=</span><span class="mi">4</span><span class="o">/</span><span class="mi">10000</span><span class="p">;</span>
-<span class="n">jc</span><span class="o">=</span><span class="mi">4</span><span class="o">/</span><span class="mi">10000</span><span class="p">;</span>
-<span class="n">lamm</span><span class="o">=</span><span class="mf">0.015</span><span class="p">;</span>
-<span class="n">lamc</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-
-
-<span class="o">%</span><span class="err">初始化矩阵</span>
-<span class="o">%</span><span class="p">{</span>
-<span class="n">A11</span><span class="o">=</span>
-<span class="n">A12</span><span class="o">=</span>
-<span class="n">A13</span><span class="o">=</span>
-<span class="n">A14</span><span class="o">=</span>
-<span class="n">A21</span><span class="o">=</span>
-<span class="n">A22</span><span class="o">=</span>
-<span class="n">A23</span><span class="o">=</span>
-<span class="n">A24</span><span class="o">=</span>
-<span class="n">A31</span><span class="o">=</span>
-<span class="n">A32</span><span class="o">=</span>
-<span class="n">A33</span><span class="o">=</span>
-<span class="n">A34</span><span class="o">=</span>
-<span class="n">A41</span><span class="o">=</span>
-<span class="n">A42</span><span class="o">=</span>
-<span class="n">A43</span><span class="o">=</span>
-<span class="n">A44</span><span class="o">=</span>
-<span class="n">B</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">]</span>
-<span class="o">%</span><span class="p">}</span>
-
-<span class="n">A11</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-<span class="n">A12</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
-<span class="n">A13</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-<span class="n">A14</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-<span class="n">A21</span><span class="o">=-</span><span class="n">k</span><span class="o">/</span><span class="n">jc</span><span class="p">;</span>
-<span class="n">A22</span><span class="o">=-</span><span class="n">lamc</span><span class="o">/</span><span class="n">jc</span><span class="p">;</span>
-<span class="n">A23</span><span class="o">=</span><span class="n">k</span><span class="o">/</span><span class="n">jc</span><span class="p">;</span>
-<span class="n">A24</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-<span class="n">A31</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-<span class="n">A32</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-<span class="n">A33</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-<span class="n">A34</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
-<span class="n">A41</span><span class="o">=</span><span class="n">k</span><span class="o">/</span><span class="n">jm</span><span class="p">;</span>
-<span class="n">A42</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-<span class="n">A43</span><span class="o">=-</span><span class="n">k</span><span class="o">/</span><span class="n">jm</span><span class="p">;</span>
-<span class="n">A44</span><span class="o">=-</span><span class="n">lamm</span><span class="o">/</span><span class="n">jm</span><span class="p">;</span>
-
-<span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="n">A11</span> <span class="n">A12</span> <span class="n">A13</span> <span class="n">A14</span><span class="p">;</span><span class="n">A21</span> <span class="n">A22</span> <span class="n">A23</span> <span class="n">A24</span><span class="p">;</span><span class="n">A31</span> <span class="n">A32</span> <span class="n">A33</span> <span class="n">A34</span><span class="p">;</span><span class="n">A41</span> <span class="n">A42</span> <span class="n">A43</span> <span class="n">A44</span><span class="p">];</span>
-<span class="n">B</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">1</span><span class="o">/</span><span class="n">jm</span><span class="p">];</span>
-<span class="n">C</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">];</span>
-<span class="n">D</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-<span class="n">sys</span><span class="o">=</span><span class="n">ss</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">D</span><span class="p">);</span>
-<span class="p">[</span><span class="n">zero</span><span class="p">,</span><span class="n">pole</span><span class="p">,</span><span class="n">k_gain</span><span class="p">]</span><span class="o">=</span><span class="n">zpkdata</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span><span class="s">'v'</span><span class="p">);</span> <span class="o">%</span><span class="s">'v'</span><span class="err">返回多项式系数向量</span>
-
-
-<span class="o">%</span><span class="p">{</span><span class="err">可控与可观</span><span class="o">%</span><span class="p">}</span>
-<span class="n">Co</span><span class="o">=</span><span class="n">ctrb</span><span class="p">(</span><span class="n">sys</span><span class="p">);</span> 
-<span class="n">Rco</span><span class="o">=</span> <span class="n">rank</span><span class="p">(</span><span class="n">Co</span><span class="p">);</span>
-<span class="n">Ob</span><span class="o">=</span><span class="n">obsv</span><span class="p">(</span><span class="n">sys</span><span class="p">);</span>
-<span class="n">Rob</span><span class="o">=</span><span class="n">rank</span><span class="p">(</span><span class="n">Ob</span><span class="p">);</span>
-
-<span class="o">%</span><span class="p">{</span><span class="err">零点与极点</span><span class="o">%</span><span class="p">}</span>
-<span class="p">[</span><span class="n">num</span><span class="p">,</span><span class="n">den</span><span class="p">]</span><span class="o">=</span><span class="n">ss2tf</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">D</span><span class="p">);</span>
-<span class="n">printsys</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="n">den</span><span class="p">,</span><span class="s">'s'</span><span class="p">);</span>
-<span class="n">roots</span><span class="p">(</span><span class="n">den</span><span class="p">);</span>
-
-<span class="o">%</span><span class="p">{</span><span class="n">pole</span> <span class="n">dominant</span><span class="o">%</span><span class="p">}</span>
-<span class="n">kesi</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span> <span class="o">%</span><span class="n">Coef</span> <span class="n">d</span><span class="s">'amortissement</span>
-<span class="n">tr</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span> <span class="o">%</span><span class="n">temps</span> <span class="n">de</span> <span class="n">reponse</span>
-<span class="n">omega0mini</span><span class="o">=</span><span class="mi">3</span><span class="o">/</span><span class="p">(</span><span class="n">kesi</span><span class="o">*</span><span class="n">tr</span><span class="p">);</span>  
-<span class="n">p1</span><span class="o">=-</span><span class="n">kesi</span><span class="o">*</span><span class="n">omega0mini</span><span class="o">+</span><span class="mi">1</span><span class="n">i</span><span class="o">*</span><span class="n">omega0mini</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">kesi</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
-<span class="n">p2</span><span class="o">=-</span><span class="n">kesi</span><span class="o">*</span><span class="n">omega0mini</span><span class="o">-</span><span class="mi">1</span><span class="n">i</span><span class="o">*</span><span class="n">omega0mini</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">kesi</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
-
-<span class="o">%</span><span class="p">{</span><span class="n">dans</span> <span class="n">un</span> <span class="n">rapport</span> <span class="mi">10</span> <span class="n">avec</span> <span class="n">les</span> <span class="n">valeurs</span> <span class="n">reel</span> <span class="n">pole</span> <span class="n">dominant</span> <span class="o">%</span><span class="p">}</span>
-<span class="n">P</span><span class="o">=</span><span class="p">[</span><span class="n">p1</span><span class="p">;</span> <span class="n">p2</span><span class="p">;</span> <span class="mi">10</span><span class="o">*</span><span class="n">real</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span> <span class="mi">10</span><span class="o">*</span><span class="n">real</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span><span class="o">+</span><span class="mf">0.01</span><span class="p">];</span>
-<span class="o">%</span><span class="n">La</span> <span class="n">matrice</span> <span class="n">de</span> <span class="n">contre</span> <span class="n">reaction</span> <span class="n">K</span> 
-<span class="n">K</span><span class="o">=</span><span class="n">place</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">P</span><span class="p">);</span>
-
-<span class="o">%</span><span class="n">dans</span> <span class="n">un</span> <span class="n">rapport</span> <span class="mi">5</span> <span class="n">pour</span> <span class="n">pole</span> <span class="n">d</span><span class="s">'observateur</span>
-<span class="n">Pob</span><span class="o">=</span><span class="p">[</span><span class="n">p1</span><span class="p">;</span> <span class="n">p2</span><span class="p">;</span> <span class="mi">5</span><span class="o">*</span><span class="n">real</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span> <span class="mi">5</span><span class="o">*</span><span class="n">real</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span><span class="o">+</span><span class="mf">0.01</span><span class="p">];</span>
-<span class="n">Kob</span><span class="o">=</span><span class="n">place</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Pob</span><span class="p">);</span>
-<span class="n">L</span><span class="o">=</span><span class="n">place</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="s">',C.'</span><span class="p">,</span><span class="n">Pob</span><span class="p">)</span><span class="o">.</span><span class="s">';</span>
-
-<span class="o">%</span><span class="p">{</span><span class="n">LQR</span> <span class="n">pour</span> <span class="n">optimiser</span> <span class="n">la</span> <span class="n">matrice</span> <span class="n">de</span> <span class="n">gain</span><span class="o">%</span><span class="p">}</span>
-<span class="n">trsi</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span>  <span class="o">%</span><span class="n">desired</span> <span class="n">settle</span> <span class="n">time</span> <span class="p">(</span><span class="n">tr5</span><span class="o">%</span><span class="p">)</span>
-<span class="n">x1m</span><span class="o">=</span><span class="n">pi</span><span class="p">;</span>
-<span class="n">x2m</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
-<span class="n">x3m</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
-<span class="n">x4m</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
-
-<span class="n">Q11</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">trsi</span><span class="o">*</span><span class="n">x1m</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
-<span class="n">Q22</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">trsi</span><span class="o">*</span><span class="n">x2m</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
-<span class="n">Q33</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">trsi</span><span class="o">*</span><span class="n">x3m</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
-<span class="n">Q44</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">trsi</span><span class="o">*</span><span class="n">x4m</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
-<span class="n">Q</span><span class="o">=</span><span class="p">[</span><span class="n">Q11</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="n">Q22</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="n">Q33</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="n">Q44</span><span class="p">];</span>
-
-<span class="n">u</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span>
-<span class="n">r1</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">u</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span>
-<span class="n">rho</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
-<span class="o">%</span><span class="n">rho</span><span class="o">=</span><span class="mf">0.6</span><span class="p">;</span>
-<span class="n">R</span><span class="o">=</span><span class="n">rho</span><span class="o">*</span><span class="n">r1</span><span class="p">;</span>
-<span class="p">[</span><span class="n">Kopt</span><span class="p">,</span><span class="n">Popt</span><span class="p">,</span><span class="n">E</span><span class="p">]</span><span class="o">=</span><span class="n">lqr</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">R</span><span class="p">);</span>
-</pre>
-   </div>
-   <h2 id="_4">
-    <a aria-hidden="true" class="headeranchor-link" href="#_4" name="user-content-_4">
-     <span class="headeranchor">
-     </span>
-    </a>
-    计算模板
-   </h2>
-   <div class="codehilite">
-    <pre><span class="n">clc</span>
-<span class="n">clear</span>
-
-<span class="o">%</span><span class="p">{</span>
-<span class="err">传递函数初始化</span>
-<span class="mf">1.</span><span class="err">已知多项式</span>
-<span class="n">den</span><span class="o">=</span><span class="n">conv</span><span class="p">([</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">],</span><span class="n">conv</span><span class="p">([</span><span class="mi">1</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]));</span>
 
 <span class="mf">2.</span><span class="err">已知</span><span class="n">zpk</span>
 <span class="n">z</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">];</span><span class="n">k</span><span class="o">=</span><span class="mi">6</span><span class="p">;</span>
@@ -5427,11 +5297,12 @@ For Level Colors
 
 <span class="n">B</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">];</span>
 <span class="o">%</span><span class="p">}</span>
+
 <span class="n">A11</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A12</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>  <span class="n">A13</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A14</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A21</span><span class="o">=-</span><span class="n">k</span><span class="o">/</span><span class="n">jc</span><span class="p">;</span>  <span class="n">A22</span><span class="o">=-</span><span class="n">lamc</span><span class="o">/</span><span class="n">jc</span><span class="p">;</span>  <span class="n">A23</span><span class="o">=</span><span class="n">k</span><span class="o">/</span><span class="n">jc</span><span class="p">;</span>  <span class="n">A24</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A31</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A32</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A33</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A34</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>  <span class="n">A41</span><span class="o">=</span><span class="n">k</span><span class="o">/</span><span class="n">jm</span><span class="p">;</span>  <span class="n">A42</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="n">A43</span><span class="o">=-</span><span class="n">k</span><span class="o">/</span><span class="n">jm</span><span class="p">;</span>  <span class="n">A44</span><span class="o">=-</span><span class="n">lamm</span><span class="o">/</span><span class="n">jm</span><span class="p">;</span>
 
 <span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="n">A11</span> <span class="n">A12</span> <span class="n">A13</span> <span class="n">A14</span><span class="p">;</span> <span class="n">A21</span> <span class="n">A22</span> <span class="n">A23</span> <span class="n">A24</span><span class="p">;</span> <span class="n">A31</span> <span class="n">A32</span> <span class="n">A33</span> <span class="n">A34</span><span class="p">;</span> <span class="n">A41</span> <span class="n">A42</span> <span class="n">A43</span> <span class="n">A44</span><span class="p">];</span>
 <span class="n">B</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">1</span><span class="o">/</span><span class="n">jm</span><span class="p">];</span>
-<span class="n">C</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">];</span>
+<span class="n">C</span><span class="o">=</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> <span class="o">%</span><span class="p">[</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">];</span>
 <span class="n">D</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
 <span class="n">sys</span><span class="o">=</span><span class="n">ss</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">D</span><span class="p">);</span>
 <span class="p">[</span><span class="n">zero</span><span class="p">,</span><span class="n">pole</span><span class="p">,</span><span class="n">k_gain</span><span class="p">]</span><span class="o">=</span><span class="n">zpkdata</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span><span class="s">'v'</span><span class="p">);</span> <span class="o">%</span><span class="s">'v'</span><span class="err">返回多项式系数向量</span>
@@ -5517,9 +5388,9 @@ For Level Colors
 <span class="err">把</span><span class="n">L的值替换为Kf</span>
 <span class="o">%</span><span class="p">}</span>
 
-<span class="n">M</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">0</span> <span class="mf">0.1</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mf">0.00132</span><span class="p">];</span>
-<span class="n">W</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mf">0.1</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="mf">0.1</span><span class="p">];</span>
-<span class="n">V</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mf">0.01</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mf">7.46</span><span class="p">];</span>
+<span class="n">M</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">0</span> <span class="mf">0.1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mf">0.00132</span> <span class="mi">0</span> <span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mf">0.1</span><span class="p">];</span>
+<span class="n">W</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mf">0.1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="mf">0.1</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mf">0.1</span><span class="p">];</span>
+<span class="n">V</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mf">0.01</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mf">7.46</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mf">0.01</span><span class="p">];</span>
 
 <span class="p">[</span><span class="n">Kf</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">E</span><span class="p">]</span><span class="o">=</span><span class="n">lqe</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">W</span><span class="p">,</span><span class="n">V</span><span class="p">);</span>
 </pre>
