@@ -77,68 +77,42 @@ if Rob==n
     display('systeme non observable') 
 end
 
-%{
-====pole dominant====
-此时一般就要求性能指标==>simulink模拟
-Temps de reponse a 5%(Tr5%)==> setting time
-Temps de montee (Tm10-90)==> rise time
-Peak reponse de depassement ==>	peak ampititude, overshot,at time
-Erreur de position ==> difference de final value
-Coef amortissement ==> damping raito
-pulsation propre ω(rad/s) ==> natural frequence f*2π
-%}
-
-kesi=0.5;     %Coef d'amortissement
+kesi=0.7;     %Coef d'amortissement
 tr=0.5;        % temps de reponse ==>setting time
 omega0mini=3/(kesi*tr);  
 p1=-kesi*omega0mini+1i*omega0mini*sqrt(1-kesi^2);
 p2=-kesi*omega0mini-1i*omega0mini*sqrt(1-kesi^2);
 
-%dans un rapport 10 avec les valeurs reel pole dominant
-P=[p1; p2; 10*real(p1); 10*real(p2)+0.01];
-%La matrice de contre reaction K 
-K=place(A,B,P);
 
+P=[p1; p2];
+%La matrice de contre reaction Kpole
+Kpole=place(A,B,P);
+e0=1-0.986; % = 0.014
 
-%dans un rapport 5 pour pole d'observateur
-Pob=[p1; p2; 5*real(p1); 5*real(p2)+0.01];
-Kob=place(A,B,Pob);
-L=place(A.',C.',Pob).';
-
-
-%{
-======LQR======
-pour optimiser la matrice de gain
-替换simulink中的Kopt
-%}
+%LQ
 trsi=0.5;  %desired settle time (tr5%)
-x1m=pi;
-x2m=100;
-x3m=10;
-x4m=100;
+x1m=1.05;
+x2m=10;
 
 Q11=1/(trsi*x1m^2);
 Q22=1/(trsi*x2m^2);
-Q33=1/(trsi*x3m^2);
-Q44=1/(trsi*x4m^2);
-Q=[Q11 0 0 0;0 Q22 0 0;0 0 Q33 0; 0 0 0 Q44];
+Q=[Q11 0;0 Q22];
 
-u=0.5;
+u=100;
 r1=1/u^2;
-rho=1;
+rho=0.5;
 %rho=0.6; %要求高性能
 R=rho*r1;
 [Kopt,Popt,E]=lqr(A,B,Q,R);
 
+% pole de FTBF 就是矩阵A的特征值
+[Pf,d]=eig(A-B*Kopt);
 
-%{
-======卡尔曼滤波器======
-M，W，V的值
-把L的值替换为Kf
-%}
+sys1=ss2tf(A,B,C,D)
+sys2=sys1/(1+sys1);
+%[zero,pole,k_gain]=zpkdata(sys2,'v');
 
-M=[0.1 0 0 0; 0 0.1 0 0; 0 0 0.00132 0 ;0 0 0 0.1];
-W=[0.1 0 0 0;0 0.1 0 0;0 0 0.1 0;0 0 0 0.1];
-V=[0.1 0 0 0;0 0.01 0 0; 0 0 7.46 0;0 0 0 0.01];
 
-[Kf,P,E]=lqe(A,M,C,W,V);
+Pob=[0.3; 1.5];
+Kob=place(A,B,Pob);
+L=place(A.',C.',Pob).';
