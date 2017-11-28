@@ -2021,23 +2021,28 @@ For Level Colors
             </ul>
            </li>
            <li>
-            <a href="#15choix-de-la-frequence-dechantillonnage">
-             1.5Choix de la fréquence d’échantillonnage
+            <a href="#15-choix-de-la-frequence-dechantillonnage">
+             1.5 Choix de la fréquence d’échantillonnage
             </a>
            </li>
            <li>
-            <a href="#16modelisation-de-la-transformee-de-laplace-dun-signal-echantillonne9-17reconstitution-dun-signal-echantillonne">
-             1.6Modélisation de la transformée de Laplace d’un signal échantillonné9 17Reconstitution d’un signal échantillonné
+            <a href="#16-modelisation-de-la-transformee-de-laplace-dun-signal-echantillonne9">
+             1.6 Modélisation de la transformée de Laplace d’un signal échantillonné9
+            </a>
+           </li>
+           <li>
+            <a href="#17-reconstitution-dun-signal-echantillonne">
+             1.7 Reconstitution d’un signal échantillonné
             </a>
             <ul>
              <li>
-              <a href="#171fonction-de-transfert-dordre-0-boz">
-               1.7.1Fonction de transfert d’ordre 0 (BOZ)
+              <a href="#171-fonction-de-transfert-dordre-0-boz">
+               1.7.1 Fonction de transfert d’ordre 0 (BOZ)
               </a>
              </li>
              <li>
-              <a href="#172reponse-frequentielle-du-boz">
-               1.7.2Réponse fréquentielle du BOZ
+              <a href="#172-reponse-frequentielle-du-boz">
+               1.7.2 Réponse fréquentielle du BOZ
               </a>
              </li>
             </ul>
@@ -5984,6 +5989,10 @@ For Level Colors
    </p>
    <p>
     donc，
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171128_210641.png"/>
+    </p>
    </p>
    <h2 id="2_1">
     <a aria-hidden="true" class="headeranchor-link" href="#2_1" name="user-content-2_1">
@@ -6000,6 +6009,10 @@ For Level Colors
     <p align="center">
      <img alt="" src="images\cap_20171122_135430.png"/>
     </p>
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171128_210723.png"/>
+    </p>
    </p>
    <h2 id="3_2">
     <a aria-hidden="true" class="headeranchor-link" href="#3_2" name="user-content-3_2">
@@ -6013,8 +6026,9 @@ For Level Colors
      <img alt="" src="images\cap_20171122_132203.png"/>
     </p>
    </p>
-   <div class="codehilite">
-    <pre><span class="n">Co</span><span class="o">=</span><span class="n">ctrb</span><span class="p">(</span><span class="n">sys</span><span class="p">);</span> 
+   <p>
+    <div class="codehilite">
+     <pre><span class="n">Co</span><span class="o">=</span><span class="n">ctrb</span><span class="p">(</span><span class="n">sys</span><span class="p">);</span> 
 <span class="n">Rco</span><span class="o">=</span> <span class="n">rank</span><span class="p">(</span><span class="n">Co</span><span class="p">);</span>
 <span class="n">Ob</span><span class="o">=</span><span class="n">obsv</span><span class="p">(</span><span class="n">sys</span><span class="p">);</span>
 <span class="n">Rob</span><span class="o">=</span><span class="n">rank</span><span class="p">(</span><span class="n">Ob</span><span class="p">);</span>
@@ -6031,7 +6045,12 @@ For Level Colors
     <span class="n">display</span><span class="p">(</span><span class="err">'</span><span class="n">systeme</span> <span class="n">non</span> <span class="n">observable</span><span class="err">'</span><span class="p">)</span> 
 <span class="n">end</span>
 </pre>
-   </div>
+    </div>
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171128_210803.png"/>
+    </p>
+   </p>
    <h2 id="4pole-dominant">
     <a aria-hidden="true" class="headeranchor-link" href="#4pole-dominant" name="user-content-4pole-dominant">
      <span class="headeranchor">
@@ -6044,14 +6063,20 @@ For Level Colors
      <img alt="" src="images\cap_20171122_132244.png"/>
     </p>
    </p>
-   <div class="codehilite">
-    <pre><span class="n">kesi</span><span class="o">=</span><span class="mf">0.7</span><span class="p">;</span>     <span class="o">%</span><span class="n">Coef</span> <span class="n">d</span><span class="err">'</span><span class="n">amortissement</span>
+   <p>
+    <div class="codehilite">
+     <pre><span class="n">kesi</span><span class="o">=</span><span class="mf">0.7</span><span class="p">;</span>     <span class="o">%</span><span class="n">Coef</span> <span class="n">d</span><span class="err">'</span><span class="n">amortissement</span>
 <span class="n">tr</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span>        <span class="o">%</span> <span class="n">temps</span> <span class="n">de</span> <span class="n">reponse</span> <span class="o">==&gt;</span><span class="n">setting</span> <span class="n">time</span>
 <span class="n">omega0mini</span><span class="o">=</span><span class="mi">3</span><span class="o">/</span><span class="p">(</span><span class="n">kesi</span><span class="o">*</span><span class="n">tr</span><span class="p">);</span>  
 <span class="n">p1</span><span class="o">=-</span><span class="n">kesi</span><span class="o">*</span><span class="n">omega0mini</span><span class="o">+</span><span class="mi">1</span><span class="n">i</span><span class="o">*</span><span class="n">omega0mini</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">kesi</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
 <span class="n">p2</span><span class="o">=-</span><span class="n">kesi</span><span class="o">*</span><span class="n">omega0mini</span><span class="o">-</span><span class="mi">1</span><span class="n">i</span><span class="o">*</span><span class="n">omega0mini</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">kesi</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
 </pre>
-   </div>
+    </div>
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171128_210929.png"/>
+    </p>
+   </p>
    <h2 id="5-kpole">
     <a aria-hidden="true" class="headeranchor-link" href="#5-kpole" name="user-content-5-kpole">
      <span class="headeranchor">
@@ -6080,6 +6105,10 @@ For Level Colors
     <p align="center">
      <img alt="" height="400px" src="images\cap_20171122_140622.png" width="650px"/>
     </p>
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171128_211004.png"/>
+    </p>
    </p>
    <h4 id="q">
     <a aria-hidden="true" class="headeranchor-link" href="#q" name="user-content-q">
@@ -6105,8 +6134,9 @@ For Level Colors
      <img alt="" src="images\cap_20171122_132856.png"/>
     </p>
    </p>
-   <div class="codehilite">
-    <pre><span class="o">%</span><span class="n">LQ</span>
+   <p>
+    <div class="codehilite">
+     <pre><span class="o">%</span><span class="n">LQ</span>
 <span class="n">trsi</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span>  <span class="o">%</span><span class="n">desired</span> <span class="n">settle</span> <span class="n">time</span> <span class="p">(</span><span class="n">tr5</span><span class="o">%</span><span class="p">)</span> <span class="n">maxi</span>
 <span class="n">x1m</span><span class="o">=</span><span class="mf">1.05</span><span class="p">;</span>
 <span class="n">x2m</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
@@ -6125,7 +6155,12 @@ For Level Colors
 <span class="o">%</span> <span class="n">pole</span> <span class="n">de</span> <span class="n">FTBF</span> <span class="o">=</span> <span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="o">-</span><span class="n">B</span><span class="o">*</span><span class="n">Kopt</span><span class="p">)</span>
 <span class="p">[</span><span class="n">Pf</span><span class="p">,</span><span class="n">d</span><span class="p">]</span><span class="o">=</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="o">-</span><span class="n">B</span><span class="o">*</span><span class="n">Kopt</span><span class="p">);</span>
 </pre>
-   </div>
+    </div>
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171128_211102.png"/>
+    </p>
+   </p>
    <h4 id="q_1">
     <a aria-hidden="true" class="headeranchor-link" href="#q_1" name="user-content-q_1">
      <span class="headeranchor">
@@ -6166,6 +6201,10 @@ For Level Colors
     <p align="center">
      <img alt="" src="images\cap_20171122_161208.png"/>
     </p>
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171128_211238.png"/>
+    </p>
    </p>
    <h2 id="8">
     <a aria-hidden="true" class="headeranchor-link" href="#8" name="user-content-8">
@@ -6181,6 +6220,10 @@ For Level Colors
     <br/>
     <p align="center">
      <img alt="" src="images\cap_20171122_162136.png"/>
+    </p>
+    <br/>
+    <p align="center">
+     <img alt="" src="images\cap_20171128_211305.png"/>
     </p>
    </p>
    <h1 id="part-b">
@@ -6379,33 +6422,57 @@ For Level Colors
     </a>
     1.4.3Transformée de Laplace du signal échantillonné réel
    </h5>
-   <h4 id="15choix-de-la-frequence-dechantillonnage">
-    <a aria-hidden="true" class="headeranchor-link" href="#15choix-de-la-frequence-dechantillonnage" name="user-content-15choix-de-la-frequence-dechantillonnage">
+   <h4 id="15-choix-de-la-frequence-dechantillonnage">
+    <a aria-hidden="true" class="headeranchor-link" href="#15-choix-de-la-frequence-dechantillonnage" name="user-content-15-choix-de-la-frequence-dechantillonnage">
      <span class="headeranchor">
      </span>
     </a>
-    1.5Choix de la fréquence d’échantillonnage
+    1.5 Choix de la fréquence d’échantillonnage
    </h4>
-   <h4 id="16modelisation-de-la-transformee-de-laplace-dun-signal-echantillonne9-17reconstitution-dun-signal-echantillonne">
-    <a aria-hidden="true" class="headeranchor-link" href="#16modelisation-de-la-transformee-de-laplace-dun-signal-echantillonne9-17reconstitution-dun-signal-echantillonne" name="user-content-16modelisation-de-la-transformee-de-laplace-dun-signal-echantillonne9-17reconstitution-dun-signal-echantillonne">
+   <h4 id="16-modelisation-de-la-transformee-de-laplace-dun-signal-echantillonne9">
+    <a aria-hidden="true" class="headeranchor-link" href="#16-modelisation-de-la-transformee-de-laplace-dun-signal-echantillonne9" name="user-content-16-modelisation-de-la-transformee-de-laplace-dun-signal-echantillonne9">
      <span class="headeranchor">
      </span>
     </a>
-    1.6Modélisation de la transformée de Laplace d’un signal échantillonné9 17Reconstitution d’un signal échantillonné
+    1.6 Modélisation de la transformée de Laplace d’un signal échantillonné9
    </h4>
-   <h5 id="171fonction-de-transfert-dordre-0-boz">
-    <a aria-hidden="true" class="headeranchor-link" href="#171fonction-de-transfert-dordre-0-boz" name="user-content-171fonction-de-transfert-dordre-0-boz">
+   <h4 id="17-reconstitution-dun-signal-echantillonne">
+    <a aria-hidden="true" class="headeranchor-link" href="#17-reconstitution-dun-signal-echantillonne" name="user-content-17-reconstitution-dun-signal-echantillonne">
      <span class="headeranchor">
      </span>
     </a>
-    1.7.1Fonction de transfert d’ordre 0 (BOZ)
+    1.7 Reconstitution d’un signal échantillonné
+   </h4>
+   <p>
+    En traitement du signal, un bloqueur est un dispositif logique utilisé pour la commande des procédés, dans le cas de signaux échantillonnés.Il existe plusieurs sortes de bloqueurs. Leur principe est de « recréer » du signal entre des valeurs discrètes fournies en entrée. Le plus simple est le bloqueur d’ordre 0 dont la sortie garde la même valeur jusqu’à l’arrivée d’une nouvelle valeur en entrée. L’ordre du bloqueur représente la complexité de la section de courbe située entre deux valeurs :
+   </p>
+   <ul>
+    <li>
+     pour un ordre 0, la représentation de la sortie donnera un histogramme en barres
+    </li>
+    <li>
+     pour un ordre 1, on aura des segments reliant directement deux valeurs successives, soit une interpolation linéaire basique.
+    </li>
+    <li>
+     pour un ordre 2, on obtiendra une parabole entre 2 valeurs
+    </li>
+    <li>
+     pour un ordre n, on obtiendra une courbe d’ordre n entre 2 valeurs successives.
+    </li>
+   </ul>
+   <h5 id="171-fonction-de-transfert-dordre-0-boz">
+    <a aria-hidden="true" class="headeranchor-link" href="#171-fonction-de-transfert-dordre-0-boz" name="user-content-171-fonction-de-transfert-dordre-0-boz">
+     <span class="headeranchor">
+     </span>
+    </a>
+    1.7.1 Fonction de transfert d’ordre 0 (BOZ)
    </h5>
-   <h5 id="172reponse-frequentielle-du-boz">
-    <a aria-hidden="true" class="headeranchor-link" href="#172reponse-frequentielle-du-boz" name="user-content-172reponse-frequentielle-du-boz">
+   <h5 id="172-reponse-frequentielle-du-boz">
+    <a aria-hidden="true" class="headeranchor-link" href="#172-reponse-frequentielle-du-boz" name="user-content-172-reponse-frequentielle-du-boz">
      <span class="headeranchor">
      </span>
     </a>
-    1.7.2Réponse fréquentielle du BOZ
+    1.7.2 Réponse fréquentielle du BOZ
    </h5>
    <h3 id="2_2">
     <a aria-hidden="true" class="headeranchor-link" href="#2_2" name="user-content-2_2">
