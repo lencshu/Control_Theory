@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
  <head>
+<script type="text/javascript">/*! lazysizes - v4.0.1 */!function(a,b){var c=b(a,a.document);a.lazySizes=c,"object"==typeof module&&module.exports&&(module.exports=c)}(window,function(a,b){"use strict";if(b.getElementsByClassName){var c,d,e=b.documentElement,f=a.Date,g=a.HTMLPictureElement,h="addEventListener",i="getAttribute",j=a[h],k=a.setTimeout,l=a.requestAnimationFrame||k,m=a.requestIdleCallback,n=/^picture$/i,o=["load","error","lazyincluded","_lazyloaded"],p={},q=Array.prototype.forEach,r=function(a,b){return p[b]||(p[b]=new RegExp("(\\s|^)"+b+"(\\s|$)")),p[b].test(a[i]("class")||"")&&p[b]},s=function(a,b){r(a,b)||a.setAttribute("class",(a[i]("class")||"").trim()+" "+b)},t=function(a,b){var c;(c=r(a,b))&&a.setAttribute("class",(a[i]("class")||"").replace(c," "))},u=function(a,b,c){var d=c?h:"removeEventListener";c&&u(a,b),o.forEach(function(c){a[d](c,b)})},v=function(a,d,e,f,g){var h=b.createEvent("CustomEvent");return e||(e={}),e.instance=c,h.initCustomEvent(d,!f,!g,e),a.dispatchEvent(h),h},w=function(b,c){var e;!g&&(e=a.picturefill||d.pf)?e({reevaluate:!0,elements:[b]}):c&&c.src&&(b.src=c.src)},x=function(a,b){return(getComputedStyle(a,null)||{})[b]},y=function(a,b,c){for(c=c||a.offsetWidth;c<d.minSize&&b&&!a._lazysizesWidth;)c=b.offsetWidth,b=b.parentNode;return c},z=function(){var a,c,d=[],e=[],f=d,g=function(){var b=f;for(f=d.length?e:d,a=!0,c=!1;b.length;)b.shift()();a=!1},h=function(d,e){a&&!e?d.apply(this,arguments):(f.push(d),c||(c=!0,(b.hidden?k:l)(g)))};return h._lsFlush=g,h}(),A=function(a,b){return b?function(){z(a)}:function(){var b=this,c=arguments;z(function(){a.apply(b,c)})}},B=function(a){var b,c=0,e=125,g=d.ricTimeout,h=function(){b=!1,c=f.now(),a()},i=m&&d.ricTimeout?function(){m(h,{timeout:g}),g!==d.ricTimeout&&(g=d.ricTimeout)}:A(function(){k(h)},!0);return function(a){var d;(a=a===!0)&&(g=33),b||(b=!0,d=e-(f.now()-c),0>d&&(d=0),a||9>d&&m?i():k(i,d))}},C=function(a){var b,c,d=99,e=function(){b=null,a()},g=function(){var a=f.now()-c;d>a?k(g,d-a):(m||e)(e)};return function(){c=f.now(),b||(b=k(g,d))}};!function(){var b,c={lazyClass:"lazyload",loadedClass:"lazyloaded",loadingClass:"lazyloading",preloadClass:"lazypreload",errorClass:"lazyerror",autosizesClass:"lazyautosizes",srcAttr:"data-src",srcsetAttr:"data-srcset",sizesAttr:"data-sizes",minSize:40,customMedia:{},init:!0,expFactor:1.5,hFac:.8,loadMode:2,loadHidden:!0,ricTimeout:300};d=a.lazySizesConfig||a.lazysizesConfig||{};for(b in c)b in d||(d[b]=c[b]);a.lazySizesConfig=d,k(function(){d.init&&F()})}();var D=function(){var g,l,m,o,p,y,D,F,G,H,I,J,K,L,M=/^img$/i,N=/^iframe$/i,O="onscroll"in a&&!/glebot/.test(navigator.userAgent),P=0,Q=0,R=0,S=-1,T=function(a){R--,a&&a.target&&u(a.target,T),(!a||0>R||!a.target)&&(R=0)},U=function(a,c){var d,f=a,g="hidden"==x(b.body,"visibility")||"hidden"!=x(a,"visibility");for(F-=c,I+=c,G-=c,H+=c;g&&(f=f.offsetParent)&&f!=b.body&&f!=e;)g=(x(f,"opacity")||1)>0,g&&"visible"!=x(f,"overflow")&&(d=f.getBoundingClientRect(),g=H>d.left&&G<d.right&&I>d.top-1&&F<d.bottom+1);return g},V=function(){var a,f,h,j,k,m,n,p,q,r=c.elements;if((o=d.loadMode)&&8>R&&(a=r.length)){f=0,S++,null==K&&("expand"in d||(d.expand=e.clientHeight>500&&e.clientWidth>500?500:370),J=d.expand,K=J*d.expFactor),K>Q&&1>R&&S>2&&o>2&&!b.hidden?(Q=K,S=0):Q=o>1&&S>1&&6>R?J:P;for(;a>f;f++)if(r[f]&&!r[f]._lazyRace)if(O)if((p=r[f][i]("data-expand"))&&(m=1*p)||(m=Q),q!==m&&(y=innerWidth+m*L,D=innerHeight+m,n=-1*m,q=m),h=r[f].getBoundingClientRect(),(I=h.bottom)>=n&&(F=h.top)<=D&&(H=h.right)>=n*L&&(G=h.left)<=y&&(I||H||G||F)&&(d.loadHidden||"hidden"!=x(r[f],"visibility"))&&(l&&3>R&&!p&&(3>o||4>S)||U(r[f],m))){if(ba(r[f]),k=!0,R>9)break}else!k&&l&&!j&&4>R&&4>S&&o>2&&(g[0]||d.preloadAfterLoad)&&(g[0]||!p&&(I||H||G||F||"auto"!=r[f][i](d.sizesAttr)))&&(j=g[0]||r[f]);else ba(r[f]);j&&!k&&ba(j)}},W=B(V),X=function(a){s(a.target,d.loadedClass),t(a.target,d.loadingClass),u(a.target,Z),v(a.target,"lazyloaded")},Y=A(X),Z=function(a){Y({target:a.target})},$=function(a,b){try{a.contentWindow.location.replace(b)}catch(c){a.src=b}},_=function(a){var b,c=a[i](d.srcsetAttr);(b=d.customMedia[a[i]("data-media")||a[i]("media")])&&a.setAttribute("media",b),c&&a.setAttribute("srcset",c)},aa=A(function(a,b,c,e,f){var g,h,j,l,o,p;(o=v(a,"lazybeforeunveil",b)).defaultPrevented||(e&&(c?s(a,d.autosizesClass):a.setAttribute("sizes",e)),h=a[i](d.srcsetAttr),g=a[i](d.srcAttr),f&&(j=a.parentNode,l=j&&n.test(j.nodeName||"")),p=b.firesLoad||"src"in a&&(h||g||l),o={target:a},p&&(u(a,T,!0),clearTimeout(m),m=k(T,2500),s(a,d.loadingClass),u(a,Z,!0)),l&&q.call(j.getElementsByTagName("source"),_),h?a.setAttribute("srcset",h):g&&!l&&(N.test(a.nodeName)?$(a,g):a.src=g),f&&(h||l)&&w(a,{src:g})),a._lazyRace&&delete a._lazyRace,t(a,d.lazyClass),z(function(){(!p||a.complete&&a.naturalWidth>1)&&(p?T(o):R--,X(o))},!0)}),ba=function(a){var b,c=M.test(a.nodeName),e=c&&(a[i](d.sizesAttr)||a[i]("sizes")),f="auto"==e;(!f&&l||!c||!a[i]("src")&&!a.srcset||a.complete||r(a,d.errorClass)||!r(a,d.lazyClass))&&(b=v(a,"lazyunveilread").detail,f&&E.updateElem(a,!0,a.offsetWidth),a._lazyRace=!0,R++,aa(a,b,f,e,c))},ca=function(){if(!l){if(f.now()-p<999)return void k(ca,999);var a=C(function(){d.loadMode=3,W()});l=!0,d.loadMode=3,W(),j("scroll",function(){3==d.loadMode&&(d.loadMode=2),a()},!0)}};return{_:function(){p=f.now(),c.elements=b.getElementsByClassName(d.lazyClass),g=b.getElementsByClassName(d.lazyClass+" "+d.preloadClass),L=d.hFac,j("scroll",W,!0),j("resize",W,!0),a.MutationObserver?new MutationObserver(W).observe(e,{childList:!0,subtree:!0,attributes:!0}):(e[h]("DOMNodeInserted",W,!0),e[h]("DOMAttrModified",W,!0),setInterval(W,999)),j("hashchange",W,!0),["focus","mouseover","click","load","transitionend","animationend","webkitAnimationEnd"].forEach(function(a){b[h](a,W,!0)}),/d$|^c/.test(b.readyState)?ca():(j("load",ca),b[h]("DOMContentLoaded",W),k(ca,2e4)),c.elements.length?(V(),z._lsFlush()):W()},checkElems:W,unveil:ba}}(),E=function(){var a,c=A(function(a,b,c,d){var e,f,g;if(a._lazysizesWidth=d,d+="px",a.setAttribute("sizes",d),n.test(b.nodeName||""))for(e=b.getElementsByTagName("source"),f=0,g=e.length;g>f;f++)e[f].setAttribute("sizes",d);c.detail.dataAttr||w(a,c.detail)}),e=function(a,b,d){var e,f=a.parentNode;f&&(d=y(a,f,d),e=v(a,"lazybeforesizes",{width:d,dataAttr:!!b}),e.defaultPrevented||(d=e.detail.width,d&&d!==a._lazysizesWidth&&c(a,f,e,d)))},f=function(){var b,c=a.length;if(c)for(b=0;c>b;b++)e(a[b])},g=C(f);return{_:function(){a=b.getElementsByClassName(d.autosizesClass),j("resize",g)},checkElems:g,updateElem:e}}(),F=function(){F.i||(F.i=!0,E._(),D._())};return c={cfg:d,autoSizer:E,loader:D,init:F,uP:w,aC:s,rC:t,hC:r,fire:v,gW:y,rAF:z}}});</script><script type="text/javascript">/*! lazysizes - v4.0.1 */!function(a,b){var c=function(){b(a.lazySizes),a.removeEventListener("lazyunveilread",c,!0)};b=b.bind(null,a,a.document),"object"==typeof module&&module.exports?b(require("lazysizes")):a.lazySizes?c():a.addEventListener("lazyunveilread",c,!0)}(window,function(a,b,c){"use strict";function d(a,c){if(!g[a]){var d=b.createElement(c?"link":"script"),e=b.getElementsByTagName("script")[0];c?(d.rel="stylesheet",d.href=a):d.src=a,g[a]=!0,g[d.src||d.href]=!0,e.parentNode.insertBefore(d,e)}}var e,f,g={};b.addEventListener&&(f=/\(|\)|\s|'/,e=function(a,c){var d=b.createElement("img");d.onload=function(){d.onload=null,d.onerror=null,d=null,c()},d.onerror=d.onload,d.src=a,d&&d.complete&&d.onload&&d.onload()},addEventListener("lazybeforeunveil",function(a){if(a.detail.instance==c){var b,g,h,i;a.defaultPrevented||("none"==a.target.preload&&(a.target.preload="auto"),b=a.target.getAttribute("data-link"),b&&d(b,!0),b=a.target.getAttribute("data-script"),b&&d(b),b=a.target.getAttribute("data-require"),b&&(c.cfg.requireJs?c.cfg.requireJs([b]):d(b)),h=a.target.getAttribute("data-bg"),h&&(a.detail.firesLoad=!0,g=function(){a.target.style.backgroundImage="url("+(f.test(h)?JSON.stringify(h):h)+")",a.detail.firesLoad=!1,c.fire(a.target,"_lazyloaded",{},!0,!0)},e(h,g)),i=a.target.getAttribute("data-poster"),i&&(a.detail.firesLoad=!0,g=function(){a.target.poster=i,a.detail.firesLoad=!1,c.fire(a.target,"_lazyloaded",{},!0,!0)},e(i,g)))}},!1))});</script>
   <meta charset="utf-8"/>
   <style>
    /*左边目录框的样式*/
@@ -1914,7 +1915,7 @@ For Level Colors
          </li>
          <li>
           <a href="#13-signal-quantifie">
-           1.3 Signal quantifié
+           1.3 Signal quantifié 量化的
           </a>
          </li>
          <li>
@@ -2331,12 +2332,31 @@ For Level Colors
          </li>
         </ul>
        </li>
+       <li>
+        <a href="#td_1">
+         TD习题
+        </a>
+        <ul>
+         <li>
+          <a href="#td03">
+           TD03
+          </a>
+         </li>
+         <li>
+          <a href="#td04_1">
+           TD04
+          </a>
+          <ul>
+           <li>
+            <a href="#ex01_2">
+             Ex01
+            </a>
+           </li>
+          </ul>
+         </li>
+        </ul>
+       </li>
       </ul>
-     </li>
-     <li>
-      <a href="#td-03">
-       TD 03
-      </a>
      </li>
     </ul>
    </div>
@@ -2409,7 +2429,7 @@ For Level Colors
    <p>
     Rappel de la relation entre les pôles et les zéros de la FTBF
     <br/>
-    <img alt="" src="images/cap_20171023_201655.png"/>
+    <img class="lazyload" alt="" data-src="images/cap_20171023_201655.png"/>
    </p>
    <p>
     <code>
@@ -2429,7 +2449,7 @@ For Level Colors
     </code>
     ermé :
     <br/>
-    <img alt="" src="images/cap_20171023_201953.png"/>
+    <img class="lazyload" alt="" data-src="images/cap_20171023_201953.png"/>
    </p>
    <p>
     zero: 分子为零，即
@@ -2442,26 +2462,26 @@ For Level Colors
      Q1Q2+k1k2P1P2=0
     </code>
     <br/>
-    <img alt="" src="images/cap_20171023_213222.png"/>
+    <img class="lazyload" alt="" data-src="images/cap_20171023_213222.png"/>
    </p>
    <p>
     alors，
     <br/>
     <p align="center">
-     <img alt="" src="images/cap_20171023_212408.png"/>
+     <img class="lazyload" alt="" data-src="images/cap_20171023_212408.png"/>
     </p>
     <br/>
     suivant,
     <br/>
     <p align="center">
-     <img alt="" src="images/cap_20171023_213222.png"/>
+     <img class="lazyload" alt="" data-src="images/cap_20171023_213222.png"/>
     </p>
    </p>
    <p>
     特征方程就可以写成
     <br/>
     <p align="center">
-     <img alt="" src="images/cap_20171023_213403.png"/>
+     <img class="lazyload" alt="" data-src="images/cap_20171023_213403.png"/>
     </p>
    </p>
    <div class="admonition question">
@@ -2469,7 +2489,7 @@ For Level Colors
      Q1
      <p>
       <p align="center">
-       <img alt="" src="images/cap_20171023_212640.png"/>
+       <img class="lazyload" alt="" data-src="images/cap_20171023_212640.png"/>
       </p>
       <br/>
       Pourquoi
@@ -2491,13 +2511,13 @@ For Level Colors
       特征方程的根(FTBF的pôle)取决于取决于K的值，该值通过以下方程与FTBO的K相关联。而FTBF的零点不受K的影响
       <br/>
       <p align="center">
-       <img alt="" src="images/cap_20171023_215832.png"/>
+       <img class="lazyload" alt="" data-src="images/cap_20171023_215832.png"/>
       </p>
       <br/>
       图示
       <br/>
       <p align="center">
-       <img alt="" src="images/cap_20171023_220909.png"/>
+       <img class="lazyload" alt="" data-src="images/cap_20171023_220909.png"/>
       </p>
      </p>
     </p>
@@ -2557,19 +2577,19 @@ For Level Colors
     可以写成：
     <br/>
     <p align="center">
-     <img alt="" src="images/cap_20171023_225534.png"/>
+     <img class="lazyload" alt="" data-src="images/cap_20171023_225534.png"/>
     </p>
     <br/>
     空间向量满足如下关系：
     <br/>
     <p align="center">
-     <img alt="" src="images/cap_20171023_225641.png"/>
+     <img class="lazyload" alt="" data-src="images/cap_20171023_225641.png"/>
     </p>
     <br/>
     该条件可翻译如下：
     <br/>
     <p align="center">
-     <img alt="" src="images/cap_20171023_225822.png"/>
+     <img class="lazyload" alt="" data-src="images/cap_20171023_225822.png"/>
     </p>
    </p>
    <div class="admonition hint">
@@ -2584,7 +2604,7 @@ For Level Colors
     该条件可翻译成图像为：
     <br/>
     <p align="center">
-     <img alt="" src="images/cap_20171023_231344.png"/>
+     <img class="lazyload" alt="" data-src="images/cap_20171023_231344.png"/>
     </p>
    </p>
    <div class="admonition question">
@@ -2607,7 +2627,7 @@ For Level Colors
    </h3>
    <p>
     <p align="center">
-     <img alt="" src="images/cap_20171023_232003.png"/>
+     <img class="lazyload" alt="" data-src="images/cap_20171023_232003.png"/>
     </p>
    </p>
    <div class="admonition note">
@@ -2699,7 +2719,7 @@ For Level Colors
     unitaire):
     <br/>
     <p align="center">
-     <img alt="" src="images/cap_20171030_192008.png"/>
+     <img class="lazyload" alt="" data-src="images/cap_20171030_192008.png"/>
     </p>
    </p>
    <h6 id="-matlab-poles-dominants">
@@ -2731,7 +2751,7 @@ For Level Colors
     </div>
     <br/>
     <p align="center">
-     <img alt="" src="images/cap_20171111_135924.png"/>
+     <img class="lazyload" alt="" data-src="images/cap_20171111_135924.png"/>
     </p>
    </p>
    <div class="admonition danger">
@@ -2741,7 +2761,7 @@ For Level Colors
    </div>
    <p>
     <p align="center">
-     <img alt="" src="images/cap_20171111_135255.png"/>
+     <img class="lazyload" alt="" data-src="images/cap_20171111_135255.png"/>
     </p>
    </p>
    <div class="admonition hint">
@@ -2758,7 +2778,7 @@ For Level Colors
     验证特征
     <br/>
     <p align="center">
-     <img alt="" src="images/cap_20171111_140754.png"/>
+     <img class="lazyload" alt="" data-src="images/cap_20171111_140754.png"/>
     </p>
    </p>
    <p>
@@ -2900,7 +2920,7 @@ For Level Colors
    </h5>
    <p>
     <p align="center">
-     <img alt="" src="images/cap_20171111_161009.png"/>
+     <img class="lazyload" alt="" data-src="images/cap_20171111_161009.png"/>
     </p>
    </p>
    <p>
@@ -3271,7 +3291,7 @@ For Level Colors
      反馈状态控制的前提是假设所有的状态变量都是可以获取的。这种方法的代价是，状态变量越多，需要的传感器数量以及测量次数就变多了，结果就导致测量精度下降。 一个可替代的方案就是只测量较少的状态变量，然后通过状态观测器去推测其余的变量。Cette hypothèse deviendrait évidemment très onéreuse du fait que plus le nombre de variables d’état est élevé, plus le nombre de capteurs nécessaires à leurs mesures augmente. La fiabilité du système diminuant en conséquence. Une alternative à cette contrainte de coût consiste à ne mesurer qu’un nombre réduit de variables d’état et à estimer les autres au moyen d’un observateur d’état.
      <br/>
      <p align="center">
-      <img alt="" src="images\cap_20171113_130813.png"/>
+      <img class="lazyload" alt="" data-src="images\cap_20171113_130813.png"/>
      </p>
     </li>
     <li>
@@ -3297,14 +3317,14 @@ For Level Colors
      联立开环系统模型以及u(t)的表达式可得
      <br/>
      <p align="center">
-      <img alt="" src="images\cap_20171113_133924.png"/>
+      <img class="lazyload" alt="" data-src="images\cap_20171113_133924.png"/>
      </p>
     </li>
     <li>
      对于极值Pôle Pi, i=1,2,…,n, 反馈系统的设计等价于解决下列代数方程：
      <br/>
      <p align="center">
-      <img alt="" src="images\cap_20171113_134354.png"/>
+      <img class="lazyload" alt="" data-src="images\cap_20171113_134354.png"/>
      </p>
     </li>
    </ul>
@@ -3340,7 +3360,7 @@ For Level Colors
     .
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171113_140002.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171113_140002.png"/>
     </p>
    </p>
    <ul>
@@ -3352,7 +3372,7 @@ For Level Colors
     La formule d’Ackermann qui permet la détermination de la matrice K dans le cas scalaire est donnée par
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171113_140251.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171113_140251.png"/>
     </p>
    </p>
    <div class="admonition caution">
@@ -3452,7 +3472,7 @@ For Level Colors
     l’équation caractéristique est alors donnée par :
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171113_143955.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171113_143955.png"/>
     </p>
    </p>
    <p>
@@ -3471,14 +3491,14 @@ For Level Colors
     donne,
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171113_144612.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171113_144612.png"/>
     </p>
    </p>
    <p>
     donc,
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171113_144805.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171113_144805.png"/>
     </p>
    </p>
    <h5 id="2322-la-methode-directe">
@@ -3494,7 +3514,7 @@ For Level Colors
     $P^{2}$ + 3P + 4.5 = 0
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171113_145328.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171113_145328.png"/>
     </p>
    </p>
    <p>
@@ -3530,7 +3550,7 @@ For Level Colors
     sous Simulink:
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171113_145646.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171113_145646.png"/>
     </p>
    </p>
    <div class="admonition danger">
@@ -3691,19 +3711,19 @@ For Level Colors
     由此可知，动态误差取决于A。所以如果矩阵A不稳定，那么误差也将随着时间变大。Luenberger提出一个把评估误差考虑在内的方法：
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171113_163514.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171113_163514.png"/>
     </p>
     <br/>
     事实上，右边的部分取决于评估误差：
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171113_163803.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171113_163803.png"/>
     </p>
     <br/>
     重新整理观测器的方程可得，
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171113_163904.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171113_163904.png"/>
     </p>
    </p>
    <p>
@@ -3824,7 +3844,7 @@ For Level Colors
      如果我们想对一个状态不可测的系统S=(A,B,C)使用状态反馈，那就需要一个可以提供X(t)的估计值$\hat{X}$(t)的观测器。
      <br/>
      <p align="center">
-      <img alt="" src="images\cap_20171113_175739.png"/>
+      <img class="lazyload" alt="" data-src="images\cap_20171113_175739.png"/>
      </p>
     </li>
    </ul>
@@ -3832,7 +3852,7 @@ For Level Colors
     Les équations d’état et de sortie pour le système global sont donc：
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171113_180148.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171113_180148.png"/>
     </p>
     <br/>
     On considère que l’état du système global est formé par les variables intervenant dans les
@@ -3840,14 +3860,14 @@ For Level Colors
     vecteurs $\hat{X}$(t) et $\hat{\dot{X}}$
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171113_180409.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171113_180409.png"/>
     </p>
    </p>
    <p>
     Ces deux équations peuvent être écrites sous la forme habituelle associée à un système linéaire continu, soit :
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171113_181555.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171113_181555.png"/>
     </p>
    </p>
    <div class="admonition hint">
@@ -3858,7 +3878,7 @@ For Level Colors
      如果系统完全可测，那么观测器可以写成
      <br/>
      <p align="center">
-      <img alt="" src="images\cap_20171113_182308.png"/>
+      <img class="lazyload" alt="" data-src="images\cap_20171113_182308.png"/>
      </p>
      <br/>
      F1和F2相同 –&gt; 观测器在输入输出端不可见
@@ -3951,7 +3971,7 @@ For Level Colors
       反馈状态变量调节的不足之处是只能具有比例和微分。因此就不能消除最终误差incapable si le besoin s’en fait sentir d’annuler l’erreur en régime permanent. 因此要加入一个积分部分。On utilisera un correcteur de type intégral que l’on positionnera comme indiqué sur la figure ci-après.
       <br/>
       <p align="center">
-       <img alt="" src="images\cap_20171113_183709.png"/>
+       <img class="lazyload" alt="" data-src="images\cap_20171113_183709.png"/>
       </p>
      </p>
     </li>
@@ -3974,7 +3994,7 @@ For Level Colors
      d’où
      <br/>
      <p align="center">
-      <img alt="" src="images\cap_20171113_190756.png"/>
+      <img class="lazyload" alt="" data-src="images\cap_20171113_190756.png"/>
      </p>
      <br/>
      综上，重新写成:
@@ -3999,7 +4019,7 @@ For Level Colors
       Assurer une erreur nulle en régime permanent :
       <br/>
       <p align="center">
-       <img alt="" src="images\cap_20171113_195506.png"/>
+       <img class="lazyload" alt="" data-src="images\cap_20171113_195506.png"/>
       </p>
      </li>
     </ol>
@@ -4028,11 +4048,11 @@ For Level Colors
      Dessiner la réponse indicielle
      <br/>
      <p align="center">
-      <img alt="" src="images\cap_20171122_183014.png"/>
+      <img class="lazyload" alt="" data-src="images\cap_20171122_183014.png"/>
      </p>
      <br/>
      <p align="center">
-      <img alt="" src="images\cap_20171122_183237.png"/>
+      <img class="lazyload" alt="" data-src="images\cap_20171122_183237.png"/>
      </p>
     </li>
    </ul>
@@ -4097,14 +4117,14 @@ For Level Colors
     两个单变量一阶系统
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171113_204727.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171113_204727.png"/>
     </p>
    </p>
    <p>
     通过比较两个图线$X^{2}_{i(t)}$来分别分析rapidités响应速度
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171113_205148.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171113_205148.png"/>
     </p>
    </p>
    <p>
@@ -4145,7 +4165,7 @@ For Level Colors
     例题
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171113_213017.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171113_213017.png"/>
     </p>
    </p>
    <h4 id="313-critere-deconomie-energetique-ju">
@@ -4275,7 +4295,7 @@ For Level Colors
     donc,
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171114_100302.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_100302.png"/>
     </p>
     <br/>
     因为P是对称的，所以
@@ -4310,13 +4330,13 @@ For Level Colors
     <br/>
     ②
     <p align="center">
-     <img alt="" src="images\cap_20171114_101438.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_101438.png"/>
     </p>
     <br/>
     ③Les pôles étant les valeurs propres de la matrice (A-BK), 计算det(pI-A+BK)：
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171114_101704.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_101704.png"/>
     </p>
     <br/>
     解得：p1,2 = -1.27$\underline{+}$j0.341
@@ -4456,7 +4476,7 @@ For Level Colors
     方程为：
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171114_144048.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_144048.png"/>
     </p>
    </p>
    <p>
@@ -4560,14 +4580,14 @@ For Level Colors
     滤波器的方程是：
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171114_144048.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_144048.png"/>
     </p>
    </p>
    <p>
     控制信号为：
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171114_150609.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_150609.png"/>
     </p>
    </p>
    <p>
@@ -4579,7 +4599,7 @@ For Level Colors
     展开可得：
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171114_151120.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_151120.png"/>
     </p>
    </p>
    <p>
@@ -4589,13 +4609,13 @@ For Level Colors
     为了实现输出反馈调节，可以用一个状态观测器和一个利用观测状态的状态反馈调节器
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171114_152105.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_152105.png"/>
     </p>
     <br/>
     于是，
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171114_153412.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_153412.png"/>
     </p>
    </p>
    <p>
@@ -4617,13 +4637,13 @@ For Level Colors
       LQG的结构是由如下关系给定的
       <br/>
       <p align="center">
-       <img alt="" src="images\cap_20171114_154228.png"/>
+       <img class="lazyload" alt="" data-src="images\cap_20171114_154228.png"/>
       </p>
       <br/>
       或可图示如下
       <br/>
       <p align="center">
-       <img alt="" src="images\cap_20171114_154334.png"/>
+       <img class="lazyload" alt="" data-src="images\cap_20171114_154334.png"/>
       </p>
      </p>
     </div>
@@ -4650,7 +4670,7 @@ For Level Colors
     Exemple afin d’illustrer notre propos
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171117_005459.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171117_005459.png"/>
     </p>
    </p>
    <ul>
@@ -4675,7 +4695,7 @@ For Level Colors
     - 高岭土进料 fi(t) t/h
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171117_010218.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171117_010218.png"/>
     </p>
    </p>
    <p>
@@ -4687,7 +4707,7 @@ For Level Colors
     建模
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171117_010643.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171117_010643.png"/>
     </p>
    </p>
    <div class="admonition hint">
@@ -4699,14 +4719,14 @@ For Level Colors
     合并最后两项得：
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171117_010726.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171117_010726.png"/>
     </p>
    </p>
    <p>
     状态空间表示
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171117_010831.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171117_010831.png"/>
     </p>
    </p>
    <p>
@@ -4720,13 +4740,13 @@ For Level Colors
     于是可以写成
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171117_011327.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171117_011327.png"/>
     </p>
     <br/>
     观测方程
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171117_011407.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171117_011407.png"/>
     </p>
    </p>
    <p>
@@ -4760,7 +4780,7 @@ For Level Colors
     - Les conditions initiales sont :
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171117_011953.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171117_011953.png"/>
     </p>
    </p>
    <div class="codehilite">
@@ -4778,7 +4798,7 @@ For Level Colors
     用simulink模拟
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171117_012433.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171117_012433.png"/>
     </p>
    </p>
    <p>
@@ -4797,18 +4817,18 @@ For Level Colors
     接下来在LQ中加入建模和测量噪声来观察集成滤波器的必要性
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171117_012759.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171117_012759.png"/>
     </p>
    </p>
    <p>
     高斯噪音生成模块 Band-Limited White Noise
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171117_013138.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171117_013138.png"/>
     </p>
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171117_014152.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171117_014152.png"/>
     </p>
    </p>
    <div class="admonition hint">
@@ -4820,7 +4840,7 @@ For Level Colors
     确定协方差矩阵V：
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171117_014319.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171117_014319.png"/>
     </p>
    </p>
    <p>
@@ -4831,7 +4851,7 @@ For Level Colors
     Quant au débit de Kaolin, on peut penser que notre modèle peut être précis à 0.3 tonnes près.
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171117_014444.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171117_014444.png"/>
     </p>
    </p>
    <p>
@@ -4845,11 +4865,11 @@ For Level Colors
     可得：
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171117_014702.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171117_014702.png"/>
     </p>
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171117_021941.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171117_021941.png"/>
     </p>
    </p>
    <h6 id="-matlab-kalman">
@@ -5147,7 +5167,7 @@ For Level Colors
     </p>
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171114_204910.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_204910.png"/>
     </p>
    </p>
    <h4 id="ex02">
@@ -5166,11 +5186,11 @@ For Level Colors
    </h5>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_205311.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_205311.png"/>
     </p>
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171114_205323.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_205323.png"/>
     </p>
    </p>
    <h5 id="b">
@@ -5182,15 +5202,15 @@ For Level Colors
    </h5>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_205754.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_205754.png"/>
     </p>
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171114_205716.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_205716.png"/>
     </p>
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171114_205915.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_205915.png"/>
     </p>
    </p>
    <h5 id="c">
@@ -5202,11 +5222,11 @@ For Level Colors
    </h5>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_205947.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_205947.png"/>
     </p>
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171114_210016.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_210016.png"/>
     </p>
    </p>
    <h5 id="d">
@@ -5218,15 +5238,15 @@ For Level Colors
    </h5>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_210125.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_210125.png"/>
     </p>
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171114_210155.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_210155.png"/>
     </p>
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171114_210232.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_210232.png"/>
     </p>
    </p>
    <h5 id="e">
@@ -5238,7 +5258,7 @@ For Level Colors
    </h5>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_210852.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_210852.png"/>
     </p>
    </p>
    <h3 id="td02">
@@ -5257,7 +5277,7 @@ For Level Colors
    </h4>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_211804.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_211804.png"/>
     </p>
    </p>
    <h4 id="ex02_1">
@@ -5269,7 +5289,7 @@ For Level Colors
    </h4>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_211918.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_211918.png"/>
     </p>
    </p>
    <h4 id="ex03">
@@ -5281,7 +5301,7 @@ For Level Colors
    </h4>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_212009.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_212009.png"/>
     </p>
     <br/>
     <div class="codehilite">
@@ -5300,7 +5320,7 @@ For Level Colors
    </h4>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_212033.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_212033.png"/>
     </p>
     <br/>
     <div class="codehilite">
@@ -5325,7 +5345,7 @@ For Level Colors
    </h4>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_212055.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_212055.png"/>
     </p>
     <br/>
     <div class="codehilite">
@@ -5352,11 +5372,11 @@ For Level Colors
    </h3>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_211653.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_211653.png"/>
     </p>
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171114_211715.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_211715.png"/>
     </p>
    </p>
    <h4 id="1-equation-de-movement">
@@ -5405,11 +5425,11 @@ For Level Colors
    </h3>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_211520.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_211520.png"/>
     </p>
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171114_211617.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_211617.png"/>
     </p>
    </p>
    <h2 id="td06">
@@ -5421,7 +5441,7 @@ For Level Colors
    </h2>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_211417.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_211417.png"/>
     </p>
    </p>
    <div class="admonition hint">
@@ -5480,7 +5500,7 @@ For Level Colors
    </h1>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_214218.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_214218.png"/>
     </p>
    </p>
    <h2 id="1">
@@ -5492,7 +5512,7 @@ For Level Colors
    </h2>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_214434.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_214434.png"/>
     </p>
    </p>
    <div class="codehilite">
@@ -5517,7 +5537,7 @@ For Level Colors
    </h2>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_214539.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_214539.png"/>
     </p>
    </p>
    <div class="codehilite">
@@ -5534,7 +5554,7 @@ For Level Colors
    </h2>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_214615.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_214615.png"/>
     </p>
    </p>
    <div class="codehilite">
@@ -5554,7 +5574,7 @@ For Level Colors
    </h2>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_214652.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_214652.png"/>
     </p>
    </p>
    <div class="codehilite">
@@ -5581,17 +5601,17 @@ For Level Colors
      <ul>
       <li>
        <p align="center">
-        <img alt="" src="images\cap_20171114_174555.png"/>
+        <img class="lazyload" alt="" data-src="images\cap_20171114_174555.png"/>
        </p>
       </li>
       <li>
        <p align="center">
-        <img alt="" src="images\cap_20171114_180018.png"/>
+        <img class="lazyload" alt="" data-src="images\cap_20171114_180018.png"/>
        </p>
       </li>
       <li>
        <p align="center">
-        <img alt="" src="images\cap_20171114_175732.png"/>
+        <img class="lazyload" alt="" data-src="images\cap_20171114_175732.png"/>
        </p>
       </li>
      </ul>
@@ -5603,7 +5623,7 @@ For Level Colors
     </p>
     <p>
      <p align="center">
-      <img alt="" src="images\cap_20171114_181247.png"/>
+      <img class="lazyload" alt="" data-src="images\cap_20171114_181247.png"/>
      </p>
     </p>
    </div>
@@ -5623,7 +5643,7 @@ For Level Colors
    </h2>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_214752.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_214752.png"/>
     </p>
    </p>
    <div class="codehilite">
@@ -5637,7 +5657,7 @@ For Level Colors
     Couple maxi
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171114_182417.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_182417.png"/>
     </p>
     <br/>
     X1和Cm都符合要求
@@ -5651,7 +5671,7 @@ For Level Colors
    </h2>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_214838.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_214838.png"/>
     </p>
    </p>
    <div class="codehilite">
@@ -5685,7 +5705,7 @@ For Level Colors
    </h2>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_215102.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_215102.png"/>
     </p>
    </p>
    <p>
@@ -5693,12 +5713,12 @@ For Level Colors
     <br/>
     - X1
     <p align="center">
-     <img alt="" src="images\cap_20171114_185005.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_185005.png"/>
     </p>
     <br/>
     - Cm
     <p align="center">
-     <img alt="" src="images\cap_20171114_185256.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_185256.png"/>
     </p>
    </p>
    <ol>
@@ -5706,7 +5726,7 @@ For Level Colors
      计算Q,R矩阵
      <br/>
      <p align="center">
-      <img alt="" src="images\cap_20171114_215253.png"/>
+      <img class="lazyload" alt="" data-src="images\cap_20171114_215253.png"/>
      </p>
     </li>
    </ol>
@@ -5741,7 +5761,7 @@ For Level Colors
    </h2>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_215331.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_215331.png"/>
     </p>
     <br/>
     pour valoriser le parametre prépondérant X1, on prends $\rho$=0.6:
@@ -5801,7 +5821,7 @@ For Level Colors
    </h2>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171114_215426.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_215426.png"/>
     </p>
    </p>
    <h2 id="matlab_1">
@@ -5969,7 +5989,7 @@ For Level Colors
    </h1>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171121_214720.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171121_214720.png"/>
     </p>
    </p>
    <h2 id="1_1">
@@ -5981,7 +6001,7 @@ For Level Colors
    </h2>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171121_214854.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171121_214854.png"/>
     </p>
    </p>
    <p>
@@ -5991,7 +6011,7 @@ For Level Colors
     donc，
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171128_210641.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171128_210641.png"/>
     </p>
    </p>
    <h2 id="2_1">
@@ -6003,15 +6023,15 @@ For Level Colors
    </h2>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171122_132129.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171122_132129.png"/>
     </p>
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171122_135430.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171122_135430.png"/>
     </p>
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171128_210723.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171128_210723.png"/>
     </p>
    </p>
    <h2 id="3_2">
@@ -6023,7 +6043,7 @@ For Level Colors
    </h2>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171122_132203.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171122_132203.png"/>
     </p>
    </p>
    <p>
@@ -6048,7 +6068,7 @@ For Level Colors
     </div>
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171128_210803.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171128_210803.png"/>
     </p>
    </p>
    <h2 id="4pole-dominant">
@@ -6060,7 +6080,7 @@ For Level Colors
    </h2>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171122_132244.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171122_132244.png"/>
     </p>
    </p>
    <p>
@@ -6074,7 +6094,7 @@ For Level Colors
     </div>
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171128_210929.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171128_210929.png"/>
     </p>
    </p>
    <h2 id="5-kpole">
@@ -6086,7 +6106,7 @@ For Level Colors
    </h2>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171122_132431.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171122_132431.png"/>
     </p>
    </p>
    <p>
@@ -6099,7 +6119,7 @@ For Level Colors
     </div>
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171122_141335.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171122_141335.png"/>
     </p>
     <br/>
     <p align="center">
@@ -6107,7 +6127,7 @@ For Level Colors
     </p>
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171128_211004.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171128_211004.png"/>
     </p>
    </p>
    <h4 id="q">
@@ -6131,7 +6151,7 @@ For Level Colors
    </h2>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171122_132856.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171122_132856.png"/>
     </p>
    </p>
    <p>
@@ -6158,7 +6178,7 @@ For Level Colors
     </div>
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171128_211102.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171128_211102.png"/>
     </p>
    </p>
    <h4 id="q_1">
@@ -6186,7 +6206,7 @@ For Level Colors
    </h2>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171122_133034.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171122_133034.png"/>
     </p>
    </p>
    <p>
@@ -6199,11 +6219,11 @@ For Level Colors
     </div>
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171122_161208.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171122_161208.png"/>
     </p>
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171128_211238.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171128_211238.png"/>
     </p>
    </p>
    <h2 id="8">
@@ -6215,15 +6235,15 @@ For Level Colors
    </h2>
    <p>
     <p align="center">
-     <img alt="" src="images\cap_20171122_133056.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171122_133056.png"/>
     </p>
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171122_162136.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171122_162136.png"/>
     </p>
     <br/>
     <p align="center">
-     <img alt="" src="images\cap_20171128_211305.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171128_211305.png"/>
     </p>
    </p>
    <h1 id="part-b">
@@ -6257,6 +6277,11 @@ For Level Colors
     </a>
     1.1 Signal analogique
    </h4>
+   <p>
+    在时间和幅度上都是连续的
+    <br/>
+    Le signal existe à tout instant t et peut prendre un nombre infini de valeurs. Il est continu dans le temps et en amplitude.
+   </p>
    <h4 id="12-signal-echantillonne-discret">
     <a aria-hidden="true" class="headeranchor-link" href="#12-signal-echantillonne-discret" name="user-content-12-signal-echantillonne-discret">
      <span class="headeranchor">
@@ -6264,13 +6289,23 @@ For Level Colors
     </a>
     1.2 Signal échantillonné discret.
    </h4>
+   <p>
+    在时间上是连续的，幅度上不连续
+    <br/>
+    Il n’existe que pour des instants donnés. Il peut prendre un nombre fini de valeurs aux instants considérés. Il est discontinu dans le temps et continu en amplitude.
+   </p>
    <h4 id="13-signal-quantifie">
     <a aria-hidden="true" class="headeranchor-link" href="#13-signal-quantifie" name="user-content-13-signal-quantifie">
      <span class="headeranchor">
      </span>
     </a>
-    1.3 Signal quantifié
+    1.3 Signal quantifié 量化的
    </h4>
+   <p>
+    在时间上是不连续的，幅度上连续
+    <br/>
+    Il existe à tout instant t et peut prendre un nombre fini de valeurs. Il est continu dans le temps et discontinu en amplitude.
+   </p>
    <h4 id="14-signal-numerique">
     <a aria-hidden="true" class="headeranchor-link" href="#14-signal-numerique" name="user-content-14-signal-numerique">
      <span class="headeranchor">
@@ -6278,6 +6313,11 @@ For Level Colors
     </a>
     1.4 Signal numérique
    </h4>
+   <p>
+    在时间和幅度上都是不连续的
+    <br/>
+    Il n’existe que pour des instants donnés et peut prendre un nombre fini de valeurs. Il est discontinu dans le temps et discontinu en amplitude.
+   </p>
    <h3 id="2-transformee-en-z">
     <a aria-hidden="true" class="headeranchor-link" href="#2-transformee-en-z" name="user-content-2-transformee-en-z">
      <span class="headeranchor">
@@ -6830,13 +6870,39 @@ For Level Colors
     </a>
     3.4.2 Cas où les pôles sont complexes
    </h5>
-   <h1 id="td-03">
-    <a aria-hidden="true" class="headeranchor-link" href="#td-03" name="user-content-td-03">
+   <h2 id="td_1">
+    <a aria-hidden="true" class="headeranchor-link" href="#td_1" name="user-content-td_1">
      <span class="headeranchor">
      </span>
     </a>
-    TD 03
-   </h1>
+    TD习题
+   </h2>
+   <h3 id="td03">
+    <a aria-hidden="true" class="headeranchor-link" href="#td03" name="user-content-td03">
+     <span class="headeranchor">
+     </span>
+    </a>
+    TD03
+   </h3>
+   <h3 id="td04_1">
+    <a aria-hidden="true" class="headeranchor-link" href="#td04_1" name="user-content-td04_1">
+     <span class="headeranchor">
+     </span>
+    </a>
+    TD04
+   </h3>
+   <h4 id="ex01_2">
+    <a aria-hidden="true" class="headeranchor-link" href="#ex01_2" name="user-content-ex01_2">
+     <span class="headeranchor">
+     </span>
+    </a>
+    Ex01
+   </h4>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171130_121908.png"/>
+    </p>
+   </p>
   </article>
  </body>
 </html>
