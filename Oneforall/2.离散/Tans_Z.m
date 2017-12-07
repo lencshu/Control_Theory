@@ -25,7 +25,7 @@ zpk
 
 %}
 
-%
+%{
 s=tf('s');
 g=1/(s+1);
 ts=0.1;
@@ -41,7 +41,9 @@ cl=feedback(c*g,1);
 %zoh采样方法
 cz=c2d(g,ts,'zoh')
 bode(c,cz);
+%}
 
+syms z;
+num=conv([1 -1],conv([1 -1],[1 -0.3]))
 
-
-
+den1=conv([1 -1],conv([1 -1],conv([1 -1],[1 -0.3])))
