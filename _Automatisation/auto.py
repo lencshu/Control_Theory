@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*- 
+#pip install gittle
+#git config --global core.autocrlf false
+#
 
 import os
 import os.path
@@ -8,6 +11,7 @@ import subprocess
 import datetime
 from bs4 import BeautifulSoup
 import re
+from gittle import Gittle
 
 #初始化变量
 currentDir = os.getcwd()
@@ -15,7 +19,8 @@ parentDir = os.path.abspath(os.path.join(currentDir, os.pardir))
 iniExiste = os.path.exists(currentDir+"\\auto.ini")
 conf = ConfigParser.ConfigParser()
 
-# commentContent = raw_input("Commit the update [Bug Fixed]: ") or "Bug Fixed"
+commentContent = raw_input("Commit the update [Bug Fixed]: ") or r"Bug Fixed"
+commentContent = "\"" + commentContent + "\""
 
 htmlReplaceResize="///" + parentDir.replace('\\','/') + "/"
 htmlReplaceResize=htmlReplaceResize.replace(':/','://')
@@ -40,10 +45,10 @@ else :
 	htmlName = raw_input("Original Html Name: ")
 	sidebarSize = raw_input("Side Bar Size (%) [30]: ") or "30"
 	sidebarSize = "width:" + sidebarSize + "%"
-	mainpageSize = raw_input("Original Html Name (%) [68]: ") or "68"
+	mainpageSize = raw_input("Main Page Size (%) [68]: ") or "68"
 	mainpageSize = mainpageSize + "%;"
 	deleteOriginHtml = raw_input("Want To Delete Origin Html(Yes:1/[No:0]): ") or "0"
-	multiMediaDir = raw_input("The name of MultiMedia directory: ") or "MultiMedia"
+	multiMediaDir = raw_input("The name of [MultiMedia] directory: ") or "MultiMedia"
 	lastChangeTime = raw_input("Last Changed time of All PNGs Files [0]: ") or "0"
 
 	conf.set("HTML", "HtmlName",htmlName) # 增加指定section 的option
@@ -140,15 +145,21 @@ if int(deleteOriginHtml):
 ## github
 ##
 
-# subprocess.call("git init", cwd=parentDir, shell=True)
-# subprocess.call("git add .", cwd=parentDir, shell=True)
-# subprocess.call("git commit -m " + commentContent, cwd=parentDir, shell=True)
-# subprocess.call("git push -u origin master", cwd=parentDir, shell=True)
+def executeCommand(cmd,arg=""):
+	pr = subprocess.Popen(cmd+arg, cwd = parentDir, shell = True, stdout = subprocess.PIPE, stderr = subprocess.PIPE )
+	(out, error) = pr.communicate()
+	if str(error):
+		print "Error : " + str(error)
+	if str(out):
+		print "out : " + str(out)
 
-
+executeCommand("git add .")
+executeCommand("git commit -m ",commentContent)
+executeCommand("git push -u origin master")
 
 
 """
+#os.path.dirname()
 pngquant.exe @path --force --verbose --quality=45-80 --ext=.png
 print os.path.normpath(refFile)   #输出'/Volumes/Leopard/Users/Caroline/Desktop/1.mp4'
 print os.path.getsize(refFile)    #输出文件大小（字节为单位）
@@ -157,6 +168,25 @@ print os.path.getatime(refFile)   #输出最近访问时间1318921018.0
 print time.gmtime(os.path.getmtime(refFile))   #以struct_time形式输出最近修改时间
 print os.path.abspath(moFile)    #输出绝对路径'/Volumes/Leopard/Users/Caroline/Desktop/1.mp4'
 
+repo = Gittle.init(parentDir)
+for root, dirs, files in os.walk(parentDir):
+	for file in files:
+		repo.stage(os.path.join(root, file))
+repo.commit(message=commentContent)
+repo.push()
 
+# subprocess.call("git init", cwd=parentDir, shell=True)
+# subprocess.call("git add .", cwd=parentDir, shell=True)
+# subprocess.call("git status", cwd=parentDir, shell=True)
+# subprocess.call("git commit -m " + commentContent, cwd=parentDir, shell=True)
+# subprocess.call("git push -u origin master", cwd=parentDir, shell=True)
+pr = subprocess.Popen( "git log" , cwd = parentDir, shell = True, stdout = subprocess.PIPE, stderr = subprocess.PIPE )
 cwd=r'd:\test\local'
+
+
+pr = subprocess.Popen("git commit -m " + commentContent, cwd = parentDir, shell = True, stdout = subprocess.PIPE, stderr = subprocess.PIPE )
+pr = subprocess.Popen( "git add ." , cwd = parentDir, shell = True, stdout = subprocess.PIPE, stderr = subprocess.PIPE )
+pr = subprocess.Popen( "git init" , cwd = parentDir, shell = True, stdout = subprocess.PIPE, stderr = subprocess.PIPE )
+pr = subprocess.Popen( "git push -u origin master" , cwd = parentDir, shell = True, stdout = subprocess.PIPE, stderr = subprocess.PIPE )
+
 """
