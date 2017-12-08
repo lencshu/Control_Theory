@@ -1572,6 +1572,49 @@ MathJax.Hub.Config({
 </li>
 </ul>
 </li>
+<li><a href="#v-pid">V) PID 采样控制</a><ul>
+<li><a href="#1introduction">1.Introduction</a><ul>
+<li><a href="#11choix-de-la-periode-dechantillonnage">1.1Choix de la période d&rsquo;échantillonnage</a></li>
+<li><a href="#12choix-de-la-methode-de-discretisation">1.2Choix de la méthode de discrétisation</a></li>
+</ul>
+</li>
+<li><a href="#2discretisation-des-correcteurs">2.Discrétisation des correcteurs.</a><ul>
+<li><a href="#21regulateur-pi-numerique">2.1Régulateur PI numérique</a></li>
+<li><a href="#22regulateur-pid-numerique">2.2Régulateur PID numérique.</a></li>
+<li><a href="#23regulateur-pid-filtre-numerique">2.3Régulateur PID filtré numérique.</a></li>
+</ul>
+</li>
+<li><a href="#3discretisation-du-processus">3.Discrétisation du processus</a><ul>
+<li><a href="#31preambule">3.1Préambule.</a></li>
+<li><a href="#32processus-du-premier-ordre">3.2Processus du premier ordre.</a></li>
+<li><a href="#33processus-du-second-ordre">3.3Processus du second ordre</a><ul>
+<li><a href="#331-cas-des-poles-doubles">3.3.1 Cas des pôles doubles</a></li>
+<li><a href="#332-cas-des-poles-doubles">3.3.2 Cas des pôles doubles.</a></li>
+<li><a href="#333-cas-des-poles-reels8">3.3.3 Cas des pôles réels8</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#4commande-dun-premier-ordre-par-un-pi">4.Commande d&rsquo;un premier ordre par un P.I.</a><ul>
+<li><a href="#41-comportement-en-premier-ordre">4.1 Comportement en premier ordre.</a><ul>
+<li><a href="#411-choix-du-comportement-en-boucle-fermee">4.1.1 Choix du comportement en boucle fermée.</a></li>
+</ul>
+</li>
+<li><a href="#42-comportement-en-second-ordre">4.2 Comportement en second ordre</a></li>
+<li><a href="#43-resume-du-reglage-dun-correcteur-pi">4.3 Résumé du réglage d&rsquo;un correcteur P.I</a><ul>
+<li><a href="#431-dynamique-du-premier-ordre">4.3.1 Dynamique du premier ordre</a></li>
+<li><a href="#432-dynamique-du-second-ordre">4.3.2 Dynamique du second ordre.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#5-commande-dun-second-ordre-par-un-pid-filtre">5 Commande d&rsquo;un second ordre par un PID filtré.</a><ul>
+<li><a href="#51-comportement-du-second-ordre11">5.1 Comportement du second ordre11</a></li>
+</ul>
+</li>
+<li><a href="#6conclusion">6.Conclusion</a></li>
+</ul>
+</li>
 <li><a href="#td_1">TD习题</a><ul>
 <li><a href="#td03">TD03</a></li>
 <li><a href="#td04_1">TD04</a><ul>
@@ -3231,6 +3274,32 @@ Il n&rsquo;existe que pour des instants donnés et peut prendre un nombre fini d
 <h4 id="34-modele-echantillonne-du-second-ordre"><a name="user-content-34-modele-echantillonne-du-second-ordre" href="#34-modele-echantillonne-du-second-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.4 Modèle échantillonné du second ordre</h4>
 <h5 id="341-cas-ou-les-poles-sont-reels"><a name="user-content-341-cas-ou-les-poles-sont-reels" href="#341-cas-ou-les-poles-sont-reels" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.4.1 Cas où les pôles sont réels</h5>
 <h5 id="342-cas-ou-les-poles-sont-complexes"><a name="user-content-342-cas-ou-les-poles-sont-complexes" href="#342-cas-ou-les-poles-sont-complexes" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.4.2 Cas où les pôles sont complexes</h5>
+<h2 id="v-pid"><a name="user-content-v-pid" href="#v-pid" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>V) PID 采样控制</h2>
+<p>Commande par PID, approché échantillonné</p>
+<h3 id="1introduction"><a name="user-content-1introduction" href="#1introduction" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.Introduction</h3>
+<h4 id="11choix-de-la-periode-dechantillonnage"><a name="user-content-11choix-de-la-periode-dechantillonnage" href="#11choix-de-la-periode-dechantillonnage" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.1Choix de la période d&rsquo;échantillonnage</h4>
+<h4 id="12choix-de-la-methode-de-discretisation"><a name="user-content-12choix-de-la-methode-de-discretisation" href="#12choix-de-la-methode-de-discretisation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.2Choix de la méthode de discrétisation</h4>
+<h3 id="2discretisation-des-correcteurs"><a name="user-content-2discretisation-des-correcteurs" href="#2discretisation-des-correcteurs" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.Discrétisation des correcteurs.</h3>
+<h4 id="21regulateur-pi-numerique"><a name="user-content-21regulateur-pi-numerique" href="#21regulateur-pi-numerique" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1Régulateur PI numérique</h4>
+<h4 id="22regulateur-pid-numerique"><a name="user-content-22regulateur-pid-numerique" href="#22regulateur-pid-numerique" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.2Régulateur PID numérique.</h4>
+<h4 id="23regulateur-pid-filtre-numerique"><a name="user-content-23regulateur-pid-filtre-numerique" href="#23regulateur-pid-filtre-numerique" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3Régulateur PID filtré numérique.</h4>
+<h3 id="3discretisation-du-processus"><a name="user-content-3discretisation-du-processus" href="#3discretisation-du-processus" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.Discrétisation du processus</h3>
+<h4 id="31preambule"><a name="user-content-31preambule" href="#31preambule" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.1Préambule.</h4>
+<h4 id="32processus-du-premier-ordre"><a name="user-content-32processus-du-premier-ordre" href="#32processus-du-premier-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.2Processus du premier ordre.</h4>
+<h4 id="33processus-du-second-ordre"><a name="user-content-33processus-du-second-ordre" href="#33processus-du-second-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.3Processus du second ordre</h4>
+<h5 id="331-cas-des-poles-doubles"><a name="user-content-331-cas-des-poles-doubles" href="#331-cas-des-poles-doubles" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.3.1 Cas des pôles doubles</h5>
+<h5 id="332-cas-des-poles-doubles"><a name="user-content-332-cas-des-poles-doubles" href="#332-cas-des-poles-doubles" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.3.2 Cas des pôles doubles.</h5>
+<h5 id="333-cas-des-poles-reels8"><a name="user-content-333-cas-des-poles-reels8" href="#333-cas-des-poles-reels8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.3.3 Cas des pôles réels8</h5>
+<h3 id="4commande-dun-premier-ordre-par-un-pi"><a name="user-content-4commande-dun-premier-ordre-par-un-pi" href="#4commande-dun-premier-ordre-par-un-pi" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.Commande d&rsquo;un premier ordre par un P.I.</h3>
+<h4 id="41-comportement-en-premier-ordre"><a name="user-content-41-comportement-en-premier-ordre" href="#41-comportement-en-premier-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.1 Comportement en premier ordre.</h4>
+<h5 id="411-choix-du-comportement-en-boucle-fermee"><a name="user-content-411-choix-du-comportement-en-boucle-fermee" href="#411-choix-du-comportement-en-boucle-fermee" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.1.1 Choix du comportement en boucle fermée.</h5>
+<h4 id="42-comportement-en-second-ordre"><a name="user-content-42-comportement-en-second-ordre" href="#42-comportement-en-second-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.2 Comportement en second ordre</h4>
+<h4 id="43-resume-du-reglage-dun-correcteur-pi"><a name="user-content-43-resume-du-reglage-dun-correcteur-pi" href="#43-resume-du-reglage-dun-correcteur-pi" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.3 Résumé du réglage d&rsquo;un correcteur P.I</h4>
+<h5 id="431-dynamique-du-premier-ordre"><a name="user-content-431-dynamique-du-premier-ordre" href="#431-dynamique-du-premier-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.3.1 Dynamique du premier ordre</h5>
+<h5 id="432-dynamique-du-second-ordre"><a name="user-content-432-dynamique-du-second-ordre" href="#432-dynamique-du-second-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.3.2 Dynamique du second ordre.</h5>
+<h3 id="5-commande-dun-second-ordre-par-un-pid-filtre"><a name="user-content-5-commande-dun-second-ordre-par-un-pid-filtre" href="#5-commande-dun-second-ordre-par-un-pid-filtre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5 Commande d&rsquo;un second ordre par un PID filtré.</h3>
+<h4 id="51-comportement-du-second-ordre11"><a name="user-content-51-comportement-du-second-ordre11" href="#51-comportement-du-second-ordre11" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.1 Comportement du second ordre11</h4>
+<h3 id="6conclusion"><a name="user-content-6conclusion" href="#6conclusion" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>6.Conclusion</h3>
 <h2 id="td_1"><a name="user-content-td_1" href="#td_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD习题</h2>
 <h3 id="td03"><a name="user-content-td03" href="#td03" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD03</h3>
 <h3 id="td04_1"><a name="user-content-td04_1" href="#td04_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD04</h3>
