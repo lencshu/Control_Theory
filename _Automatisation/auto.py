@@ -96,11 +96,11 @@ def confAdd(linenumber,pwd):
 	confPwd.set("pwd", str(lineNumber),pwd)
 
 def iniConfPng(t):
-	conf.read('auto.ini')
-	conf.set("MultiMedia", "LastChangeTime",t)
+	confAuto.read('auto.ini')
+	confAuto.set("MultiMedia", "LastChangeTime",t)
 	timeTag=time.strftime("%Y-%m-%d %H:%M:%S %a", time.localtime())
-	conf.set("TimeTag", "IniModifiedTime",timeTag)
-	conf.write(open('auto.ini', 'w'))
+	confAuto.set("TimeTag", "IniModifiedTime",timeTag)
+	confAuto.write(open('auto.ini', 'w'))
 
 ##
 ## 1.1. 生成/读取auto.ini
@@ -111,7 +111,7 @@ if iniAutoExiste:
 	htmlName = confAuto.get("HTML", "HtmlName") # 获取指定section 的option值
 	sidebarSize = confAuto.get("HTML", "SidebarSize")
 	mainpageSize = confAuto.get("HTML", "MainpageSize")
-	# deleteOriginHtml = confAuto.get("HTML", "DeleteOriginHtml")
+	ifpwd = confAuto.get("HTML", "ifpwd")
 	multiMediaDir = confAuto.get("MultiMedia", "DirName") # 获取指定section 的option值
 	lastChangeTime = confAuto.get("MultiMedia", "LastChangeTime")
 
@@ -126,13 +126,13 @@ else :
 	sidebarSize = "width:" + sidebarSize + "%"
 	mainpageSize = raw_input("Main Page Size (%) [68]: ") or "68"
 	mainpageSize = mainpageSize + "%;"
-	# deleteOriginHtml = raw_input("Want To Delete Origin Html(Yes:1/[No:0]): ") or "0"
+	ifpwd = raw_input("Want To mask PWD(Yes:1/[No:0]): ") or "0"
 	lastChangeTime = raw_input("Last Changed time of All PNGs Files [0]: ") or "0"
 
 	confAuto.set("HTML", "HtmlName",htmlName) # 增加指定section 的option
 	confAuto.set("HTML", "SidebarSize",sidebarSize)
 	confAuto.set("HTML", "MainpageSize",mainpageSize)
-	# confAuto.set("HTML", "DeleteOriginHtml",deleteOriginHtml)
+	confAuto.set("HTML", "ifpwd",ifpwd)
 	confAuto.set("MultiMedia", "DirName",multiMediaDir) # 获取指定section 的option值
 	confAuto.set("MultiMedia", "LastChangeTime",lastChangeTime )
 	timeTag=time.strftime("%Y-%m-%d %H:%M:%S %a", time.localtime())
@@ -149,7 +149,7 @@ else :
 markdownName=htmlName.split('.')[0]+".md"
 markdownPath=parentDir+"\\"+markdownName
 
-if not iniPwdExiste:
+if (not iniPwdExiste) and int(ifpwd):
 	confPwd.read(pwdPath)	   # 文件路径
 	confPwd.add_section("file")
 	confPwd.add_section("pwd")
@@ -162,7 +162,7 @@ if not iniPwdExiste:
 ## 2.2 读取祖父目录里面的密码配置文件pwd.ini
 ##
 
-else :
+elif int(ifpwd):
 	confPwd.read(pwdPath)
 	lineNumberInsert=confPwd.options('pwd')
 	optionsNumber=len(confPwd.options('pwd'))

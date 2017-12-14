@@ -1621,6 +1621,20 @@ MathJax.Hub.Config({
 <li><a href="#ex01_2">Ex01</a></li>
 </ul>
 </li>
+<li><a href="#td05">TD05</a><ul>
+<li><a href="#ex01-presentation-du-systeme">Ex01 Présentation du système :</a></li>
+<li><a href="#ex02-fonction-de-transfert-continue">Ex02 Fonction de transfert continue</a></li>
+<li><a href="#ex03-discretisation-du-processus">Ex03 Discrétisation du processus</a></li>
+<li><a href="#ex04-etude-de-differents-correcteurs">Ex04 Étude de différents correcteurs</a><ul>
+<li><a href="#41-correcteur-proportionnel-k-zk">4.1 Correcteur proportionnel : K (z)=K</a></li>
+<li><a href="#42-correcteur-pi">4.2 Correcteur PI :</a></li>
+</ul>
+</li>
+<li><a href="#ex0">Ex0</a></li>
+<li><a href="#ex0_1">Ex0</a></li>
+<li><a href="#ex0_2">Ex0</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -3280,13 +3294,36 @@ Il n&rsquo;existe que pour des instants donnés et peut prendre un nombre fini d
 <h4 id="11choix-de-la-periode-dechantillonnage"><a name="user-content-11choix-de-la-periode-dechantillonnage" href="#11choix-de-la-periode-dechantillonnage" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.1Choix de la période d&rsquo;échantillonnage</h4>
 <h4 id="12choix-de-la-methode-de-discretisation"><a name="user-content-12choix-de-la-methode-de-discretisation" href="#12choix-de-la-methode-de-discretisation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.2Choix de la méthode de discrétisation</h4>
 <h3 id="2discretisation-des-correcteurs"><a name="user-content-2discretisation-des-correcteurs" href="#2discretisation-des-correcteurs" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.Discrétisation des correcteurs.</h3>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_103953.png" /></p></p>
 <h4 id="21regulateur-pi-numerique"><a name="user-content-21regulateur-pi-numerique" href="#21regulateur-pi-numerique" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1Régulateur PI numérique</h4>
+<p>Le régulateur PI a pour transformée de Laplace :<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_104148.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_104327.png" /></p></p>
 <h4 id="22regulateur-pid-numerique"><a name="user-content-22regulateur-pid-numerique" href="#22regulateur-pid-numerique" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.2Régulateur PID numérique.</h4>
+<p>La transmittance de Laplace d&rsquo;un PID est :<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_104414.png" /></p><br />
+- Cette structure n&rsquo;est pas la meilleure à cause de la dérivée qui amplifie le bruit dans les hautes fréquences. Dans ce cas, il est préférable d&rsquo;utiliser un correcteur PID filtré. Cependant, à titre illustratif, nous donnons le calcul de la discrétisation de ce PID. <br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_104539.png" /></p></p>
 <h4 id="23regulateur-pid-filtre-numerique"><a name="user-content-23regulateur-pid-filtre-numerique" href="#23regulateur-pid-filtre-numerique" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3Régulateur PID filtré numérique.</h4>
+<p>由于微分器的存在放大了噪声，所以这个结构不是最好的，需要加入PID滤波器<br />
+La transmittance de Laplace d&rsquo;un PID filtré est la suivante : <br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_104806.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_104839.png" /></p></p>
 <h3 id="3discretisation-du-processus"><a name="user-content-3discretisation-du-processus" href="#3discretisation-du-processus" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.Discrétisation du processus</h3>
 <h4 id="31preambule"><a name="user-content-31preambule" href="#31preambule" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.1Préambule.</h4>
+<p>Un processus continu piloté par une unité de calcul recevra sur son entrée une commande qui sera  maintenue  constante  entre  deux  instants  d&rsquo;échantillonnage.  A  cette  réalité  technologique correspond un schéma d&rsquo;échantillonnage faisant apparaître un échantillonneur d&rsquo;ordre zéro.<br />
+La structure des correcteurs PID avec un réglage par placement des pôles n&rsquo;autorise que des processus du premier et second ordre. Nous allons ici développer la discrétisation.</p>
+<div class="admonition hint">
+<p>带有放置极点位置的调节器的PID只能用在1阶和2阶过程上</p>
+</div>
 <h4 id="32processus-du-premier-ordre"><a name="user-content-32processus-du-premier-ordre" href="#32processus-du-premier-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.2Processus du premier ordre.</h4>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_112055.png" /></p><br />
+P (z) : Fonction de transfert du système muni d&rsquo;un échantillonneur bloqueur d&rsquo;ordre zéro.<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_112316.png" /></p></p>
 <h4 id="33processus-du-second-ordre"><a name="user-content-33processus-du-second-ordre" href="#33processus-du-second-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.3Processus du second ordre</h4>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_112430.png" /></p><br />
+P(z) peut se mettre sous la forme :<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_112507.png" /></p></p>
 <h5 id="331-cas-des-poles-doubles"><a name="user-content-331-cas-des-poles-doubles" href="#331-cas-des-poles-doubles" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.3.1 Cas des pôles doubles</h5>
 <h5 id="332-cas-des-poles-doubles"><a name="user-content-332-cas-des-poles-doubles" href="#332-cas-des-poles-doubles" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.3.2 Cas des pôles doubles.</h5>
 <h5 id="333-cas-des-poles-reels8"><a name="user-content-333-cas-des-poles-reels8" href="#333-cas-des-poles-reels8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.3.3 Cas des pôles réels8</h5>
@@ -3300,8 +3337,124 @@ Il n&rsquo;existe que pour des instants donnés et peut prendre un nombre fini d
 <h3 id="5-commande-dun-second-ordre-par-un-pid-filtre"><a name="user-content-5-commande-dun-second-ordre-par-un-pid-filtre" href="#5-commande-dun-second-ordre-par-un-pid-filtre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5 Commande d&rsquo;un second ordre par un PID filtré.</h3>
 <h4 id="51-comportement-du-second-ordre11"><a name="user-content-51-comportement-du-second-ordre11" href="#51-comportement-du-second-ordre11" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.1 Comportement du second ordre11</h4>
 <h3 id="6conclusion"><a name="user-content-6conclusion" href="#6conclusion" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>6.Conclusion</h3>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_110711.png" /></p></p>
 <h2 id="td_1"><a name="user-content-td_1" href="#td_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD习题</h2>
 <h3 id="td03"><a name="user-content-td03" href="#td03" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD03</h3>
 <h3 id="td04_1"><a name="user-content-td04_1" href="#td04_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD04</h3>
 <h4 id="ex01_2"><a name="user-content-ex01_2" href="#ex01_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex01</h4>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171130_121908.png" /></p></p></article></body></html>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171130_121908.png" /></p></p>
+<h3 id="td05"><a name="user-content-td05" href="#td05" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD05</h3>
+<p>Objectifs   :<br />
+- Modéliser un système.<br />
+- Établir la fonction de transfert du système. <br />
+- Étudier différents correcteurs numériques. <br />
+- Utiliser les outils Matlab, pour mener à bien l&rsquo;étude.<br />
+- Utiliser les outils Simulink , pour mener à bien l&rsquo;étude.</p>
+<h4 id="ex01-presentation-du-systeme"><a name="user-content-ex01-presentation-du-systeme" href="#ex01-presentation-du-systeme" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex01 Présentation du système :</h4>
+<p>Le  système  à  asservir  en  vitesse  est  moteur  à  courant  continu  dont  les  caractéristiques  sont  les suivantes :<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_115623.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_115736.png" /></p></p>
+<ul>
+<li>R: résistance de l&rsquo;induit</li>
+<li>L: inductance de l&rsquo;induit (que nous négligerons)</li>
+<li>J: inertie ramenée sur l&rsquo;arbre moteur</li>
+<li>Tr : couple résistant exercé par la charge mécanique (ici égal à zéro) </li>
+<li>Ke : constante de vitesse du moteur</li>
+<li>KI : constante de couple du moteur</li>
+<li>f: frottement fluide<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_114459.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_121053.png" /></p></li>
+</ul>
+<div class="codehilite"><pre><span class="n">r</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span>            <span class="o">%</span> <span class="n">Résistance</span> <span class="n">d</span> <span class="n">induit</span> <span class="n">S</span><span class="p">.</span><span class="n">I</span>
+<span class="n">k</span><span class="o">=</span><span class="mf">0.1</span><span class="p">;</span>          <span class="o">%</span> <span class="n">constante</span> <span class="n">de</span> <span class="n">vitesse</span> <span class="n">et</span> <span class="n">de</span> <span class="n">couple</span> <span class="n">du</span> <span class="n">moteur</span> <span class="n">SI</span>
+<span class="n">f</span><span class="o">=</span><span class="mf">0.2</span><span class="p">;</span>          <span class="o">%</span> <span class="n">frottement</span> <span class="n">visqueux</span>
+<span class="n">j</span><span class="o">=</span><span class="mf">0.02</span><span class="p">;</span>         <span class="o">%</span> <span class="n">Inertie</span> <span class="n">de</span> <span class="n">l</span> <span class="n">arbre</span> <span class="n">moteur</span>
+<span class="n">l</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span>          <span class="o">%</span> <span class="n">inductance</span> <span class="n">de</span> <span class="n">l</span> <span class="n">induit</span> <span class="p">(</span><span class="n">que</span> <span class="n">nous</span> <span class="n">négligerons</span><span class="p">)</span>
+</pre></div>
+
+
+<h4 id="ex02-fonction-de-transfert-continue"><a name="user-content-ex02-fonction-de-transfert-continue" href="#ex02-fonction-de-transfert-continue" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex02 Fonction de transfert continue</h4>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_114939.png" /></p></p>
+<div class="codehilite"><pre><span class="n">TauxBO</span><span class="o">=</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">j</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">f</span><span class="o">+</span><span class="n">k</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>         <span class="o">%</span> <span class="n">constante</span> <span class="n">de</span> <span class="n">temps</span> <span class="n">du</span> <span class="n">système</span>
+<span class="n">k0</span><span class="o">=</span><span class="n">k</span><span class="o">/</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">f</span><span class="o">+</span><span class="n">k</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>                 <span class="o">%</span> <span class="n">gain</span> <span class="n">statique</span>
+<span class="n">w0</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">TauxBO</span><span class="p">;</span>                    <span class="o">%</span> <span class="n">pulsation</span> <span class="n">naturelle</span><span class="p">,</span> <span class="n">boucle</span> <span class="n">ouvert</span>
+<span class="n">frequence</span><span class="o">=</span><span class="n">w0</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">);</span>            <span class="o">%</span> <span class="n">fréquence</span> <span class="n">naturelle</span><span class="p">,</span><span class="n">w</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">fréquence</span>
+
+<span class="n">num0</span><span class="o">=</span><span class="p">[</span><span class="n">k0</span><span class="p">];</span>
+<span class="n">den0</span><span class="o">=</span><span class="p">[</span><span class="n">TauxBO</span> <span class="mi">1</span><span class="p">];</span>
+<span class="n">Tm</span><span class="o">=</span><span class="n">tf</span><span class="p">(</span><span class="n">num0</span><span class="p">,</span><span class="n">den0</span><span class="p">,</span><span class="err">&#39;</span><span class="n">variable</span><span class="sc">&#39;,&#39;</span><span class="n">p</span><span class="err">&#39;</span><span class="p">)</span>    <span class="o">%</span> <span class="n">Tm</span> <span class="n">fonction</span> <span class="n">de</span> <span class="n">transfert</span> <span class="k">continue</span>
+</pre></div>
+
+
+<h4 id="ex03-discretisation-du-processus"><a name="user-content-ex03-discretisation-du-processus" href="#ex03-discretisation-du-processus" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex03 Discrétisation du processus</h4>
+<p>La période d&rsquo;échantillonnage du processus à discrétiser est Te choisie est de 50ms.</p>
+<ul>
+<li>3.1 Justifier le choix de la période d&rsquo;échantillonnage.<br />
+Le processus est discrétisé avec un échantillonneur d&rsquo;ordre zéro.<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_122039.png" /></p></li>
+</ul>
+<div class="codehilite"><pre><span class="n">Te</span><span class="o">=</span><span class="mf">20e-3</span><span class="p">;</span>           <span class="o">%</span> <span class="n">pédiode</span> <span class="n">d</span> <span class="err">é</span><span class="n">chantillonnag</span> <span class="n">d</span> <span class="n">après</span> <span class="n">CdCh</span>
+<span class="n">Tmd</span><span class="o">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">Tm</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span>      <span class="o">%</span> <span class="n">Tmd</span> <span class="n">fonction</span> <span class="n">de</span> <span class="n">transfert</span> <span class="n">discrétisée</span>
+</pre></div>
+
+
+<ul>
+<li>3.2 Établir la fonction de transfert du moteur : <br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_122711.png" /></p></li>
+</ul>
+<div class="codehilite"><pre><span class="n">zpk</span><span class="p">(</span><span class="n">Tmd</span><span class="p">,</span><span class="sc">&#39;v&#39;</span><span class="p">)</span>            <span class="o">%</span> <span class="n">Pour</span> <span class="n">voir</span> <span class="n">ou</span> <span class="n">sont</span> <span class="n">les</span> <span class="n">poles</span> <span class="p">(</span> <span class="sc">&#39;v&#39;</span><span class="p">)</span> <span class="n">est</span> <span class="n">la</span> <span class="n">car</span> <span class="n">c</span> <span class="n">est</span> <span class="n">une</span> <span class="n">output</span>
+<span class="n">b1</span><span class="o">=</span><span class="mf">0.04521</span>              <span class="o">%</span> <span class="n">coefficient</span> <span class="n">numérateur</span> <span class="n">de</span> <span class="n">Tmd</span>
+<span class="n">a1</span><span class="o">=-</span><span class="mf">0.8146</span>              <span class="o">%</span> <span class="n">coefficient</span> <span class="n">dénonominateur</span> <span class="n">de</span> <span class="n">Tmd</span>
+</pre></div>
+
+
+<h4 id="ex04-etude-de-differents-correcteurs"><a name="user-content-ex04-etude-de-differents-correcteurs" href="#ex04-etude-de-differents-correcteurs" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex04 Étude de différents correcteurs</h4>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_122831.png" /></p></p>
+<h5 id="41-correcteur-proportionnel-k-zk"><a name="user-content-41-correcteur-proportionnel-k-zk" href="#41-correcteur-proportionnel-k-zk" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.1 Correcteur proportionnel : K (z)=K</h5>
+<ul>
+<li>4.1.1 Étudier la stabilité du correcteur proportionnel en fonction de son gain K.</li>
+</ul>
+<div class="codehilite"><pre><span class="o">%</span><span class="c1">//pour trouver valeur l&#39;encadrement de K (0&lt;K&lt;intersection entre ligne bleue et cercle)</span>
+<span class="n">rlocus</span><span class="p">(</span><span class="n">Tmd</span><span class="p">);</span>
+<span class="n">zgrid</span><span class="p">;</span>
+
+<span class="o">%</span><span class="c1">//on choisit la valeur de K</span>
+<span class="n">K</span><span class="o">=</span><span class="mi">12</span><span class="p">;</span> 
+
+<span class="n">Tmd_BOp</span><span class="o">=</span><span class="n">series</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">Tmd</span><span class="p">);</span>  <span class="o">%</span><span class="n">Fct</span> <span class="n">de</span> <span class="n">transfert</span> <span class="n">BO</span> <span class="n">ac</span> <span class="n">gain</span> <span class="n">proportionnel</span>
+<span class="n">Tmd_BFp</span><span class="o">=</span><span class="n">feedback</span><span class="p">(</span><span class="n">Tmd_BOp</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>    <span class="o">%</span><span class="n">connection</span> <span class="n">en</span> <span class="n">boucle</span> <span class="n">fermé</span>
+<span class="o">%</span><span class="n">step</span><span class="p">(</span><span class="n">Tmd_BFp</span><span class="p">);</span>     <span class="o">%</span><span class="n">afficher</span> <span class="n">le</span> <span class="n">step</span> <span class="n">graphe</span>
+</pre></div>
+
+
+<ul>
+<li>4.1.2 Tracer les lieux d’Evan dans le plan complexe z. Commenter. </li>
+</ul>
+<div class="codehilite"><pre><span class="n">Steady_timeP</span><span class="o">=</span><span class="n">stepinfo</span><span class="p">(</span><span class="n">Tmd_BFp</span><span class="p">,</span><span class="err">&#39;</span><span class="n">SettlingTimeThreshold</span><span class="err">&#39;</span><span class="p">,</span><span class="mf">0.05</span><span class="p">);</span>        <span class="o">%</span><span class="n">le</span> <span class="n">temps</span> <span class="n">qu</span> <span class="n">il</span> <span class="n">faut</span> <span class="n">le</span> <span class="n">système</span> <span class="n">soit</span> <span class="n">stable</span>
+
+<span class="n">rlocus</span><span class="p">(</span><span class="n">Tmd_BFp</span><span class="p">);</span>        <span class="o">%</span><span class="n">root</span> <span class="n">locus</span><span class="p">,</span> <span class="n">lieux</span> <span class="n">d</span> <span class="n">Evans</span> <span class="err">&#39;@</span><span class="n">Q4</span><span class="mf">.1.2</span><span class="err">&#39;</span>
+<span class="n">axis</span><span class="p">(</span><span class="err">&#39;</span><span class="n">equal</span><span class="err">&#39;</span><span class="p">);</span><span class="n">grid</span><span class="p">;</span>     <span class="o">%</span><span class="n">readable</span>
+<span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">poles</span><span class="p">]</span><span class="o">=</span><span class="n">rlocfind</span><span class="p">(</span><span class="n">Tmd_BFp</span><span class="p">);</span>    <span class="o">%</span><span class="n">trouver</span> <span class="n">la</span> <span class="n">valeur</span> <span class="n">du</span> <span class="n">point</span>
+<span class="n">sisotool</span><span class="p">(</span><span class="n">Tmd_BFp</span><span class="p">);</span>
+
+<span class="n">Zeta</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">;</span>         <span class="o">%</span><span class="n">damping</span> <span class="n">ratio</span><span class="p">,</span> <span class="n">taux</span> <span class="n">d</span> <span class="n">amortissement</span><span class="p">,</span> <span class="n">overshoot</span>
+<span class="n">sgrid</span><span class="p">(</span><span class="n">Zeta</span><span class="p">,</span><span class="n">frequence</span><span class="p">);</span>
+</pre></div>
+
+
+<div class="admonition hint">
+<p class="admonition-title">Commenter</p>
+<p>Faut que le point reste dans le circle</p>
+</div>
+<h5 id="42-correcteur-pi"><a name="user-content-42-correcteur-pi" href="#42-correcteur-pi" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.2 Correcteur PI :</h5>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_124530.png" /></p><br />
+Nous choisissons comme comportement en boucle fermé un système du premier ordre avec une<br />
+constante de temps en boucle fermée de 24,4 ms.<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_124615.png" /></p><br />
+- 4.2.1 Déterminer la fonction de transfert discrétisée de TBFPI(z)<br />
+- 4.2.2 Déterminer les coefficients du correcteur<br />
+- 4.2.3 Déterminer la réponse à échelon de le temps de réponse à 5%.<br />
+- 4.2.4 Déterminer l&rsquo;erreur de position et l&rsquo;erreur de vitesse. </p>
+<h4 id="ex0"><a name="user-content-ex0" href="#ex0" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex0</h4>
+<h4 id="ex0_1"><a name="user-content-ex0_1" href="#ex0_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex0</h4>
+<h4 id="ex0_2"><a name="user-content-ex0_2" href="#ex0_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex0</h4></article></body></html>

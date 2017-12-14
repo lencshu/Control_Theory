@@ -1,6 +1,6 @@
 ;Script to run the m-file edited in sublime in Matlab.
 
-^+Z:: ;ctrl+shift+c           
+^+Q:: ;ctrl+shift+z           
 SetTitleMatchMode, 2   ; search mode set to 2 (find the phrase anywhere in string)
 ifWinActive, Sublime   ; if active window is Sublime Text
 {
