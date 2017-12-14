@@ -2532,22 +2532,12 @@ For Level Colors
                4.2 Correcteur PI :
               </a>
              </li>
+             <li>
+              <a href="#43-correcteur-pid">
+               4.3 Correcteur PID :
+              </a>
+             </li>
             </ul>
-           </li>
-           <li>
-            <a href="#ex0">
-             Ex0
-            </a>
-           </li>
-           <li>
-            <a href="#ex0_1">
-             Ex0
-            </a>
-           </li>
-           <li>
-            <a href="#ex0_2">
-             Ex0
-            </a>
            </li>
           </ul>
          </li>
@@ -7457,6 +7447,17 @@ For Level Colors
 <span class="n">Tm</span><span class="o">=</span><span class="n">tf</span><span class="p">(</span><span class="n">num0</span><span class="p">,</span><span class="n">den0</span><span class="p">,</span><span class="err">'</span><span class="n">variable</span><span class="sc">','</span><span class="n">p</span><span class="err">'</span><span class="p">)</span>    <span class="o">%</span> <span class="n">Tm</span> <span class="n">fonction</span> <span class="n">de</span> <span class="n">transfert</span> <span class="k">continue</span>
 </pre>
    </div>
+   <div class="admonition hint">
+    <p class="admonition-title">
+     Output
+    </p>
+    <p>
+     Tm =
+     <code>
+      0.2439 / (0.09756 p + 1)
+     </code>
+    </p>
+   </div>
    <h4 id="ex03-discretisation-du-processus">
     <a aria-hidden="true" class="headeranchor-link" href="#ex03-discretisation-du-processus" name="user-content-ex03-discretisation-du-processus">
      <span class="headeranchor">
@@ -7481,7 +7482,32 @@ For Level Colors
    <div class="codehilite">
     <pre><span class="n">Te</span><span class="o">=</span><span class="mf">20e-3</span><span class="p">;</span>           <span class="o">%</span> <span class="n">pédiode</span> <span class="n">d</span> <span class="err">é</span><span class="n">chantillonnag</span> <span class="n">d</span> <span class="n">après</span> <span class="n">CdCh</span>
 <span class="n">Tmd</span><span class="o">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">Tm</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span>      <span class="o">%</span> <span class="n">Tmd</span> <span class="n">fonction</span> <span class="n">de</span> <span class="n">transfert</span> <span class="n">discrétisée</span>
+
+<span class="o">%</span><span class="n">la</span> <span class="n">constante</span> <span class="n">de</span> <span class="n">temps</span> <span class="n">du</span> <span class="n">système</span> <span class="n">sans</span> <span class="n">correcteur</span> <span class="n">en</span> <span class="n">boucle</span> <span class="n">ouvert</span>
+<span class="n">Tauxp</span> <span class="o">=</span> <span class="n">stepinfo</span><span class="p">(</span><span class="n">Tmd</span><span class="p">,</span><span class="err">'</span><span class="n">RiseTimeLimits</span><span class="err">'</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.63</span><span class="p">])</span>
 </pre>
+   </div>
+   <div class="admonition hint">
+    <p class="admonition-title">
+     Tauxp
+    </p>
+    <p>
+     RiseTime: 0.08
+     <br/>
+     SettlingTime: 0.4
+     <br/>
+     SettlingMin: 0.156391105998548
+     <br/>
+     SettlingMax: 0.243902416439551
+     <br/>
+     Overshoot: 0
+     <br/>
+     Undershoot: 0
+     <br/>
+     Peak: 0.243902416439551
+     <br/>
+     PeakTime: 1.58
+    </p>
    </div>
    <ul>
     <li>
@@ -7523,16 +7549,21 @@ For Level Colors
     </li>
    </ul>
    <div class="codehilite">
-    <pre><span class="o">%</span><span class="c1">//pour trouver valeur l'encadrement de K (0&lt;K&lt;intersection entre ligne bleue et cercle)</span>
-<span class="n">rlocus</span><span class="p">(</span><span class="n">Tmd</span><span class="p">);</span>
-<span class="n">zgrid</span><span class="p">;</span>
+    <pre><span class="o">%</span><span class="n">pour</span> <span class="n">trouver</span> <span class="n">valeur</span> <span class="n">l</span> <span class="n">encadrement</span> <span class="n">de</span> <span class="n">K</span> <span class="p">(</span><span class="mi">0</span><span class="o">&lt;</span><span class="n">K</span><span class="o">&lt;</span><span class="n">intersection</span> <span class="n">entre</span> <span class="n">ligne</span> <span class="n">bleue</span> <span class="n">et</span> <span class="n">cercle</span><span class="p">)</span>
 
-<span class="o">%</span><span class="c1">//on choisit la valeur de K</span>
+<span class="n">sisotool</span><span class="p">(</span><span class="n">Tmd</span><span class="p">);</span> <span class="o">%</span> <span class="n">plus</span> <span class="n">puissant</span>
+<span class="o">%</span><span class="n">rlocus</span><span class="p">(</span><span class="n">Tmd</span><span class="p">);</span>
+<span class="o">%</span><span class="n">zgrid</span><span class="p">;</span>
+
+<span class="o">%</span><span class="n">on</span> <span class="n">choisit</span> <span class="n">la</span> <span class="n">valeur</span> <span class="n">de</span> <span class="n">K</span>
 <span class="n">K</span><span class="o">=</span><span class="mi">12</span><span class="p">;</span> 
 
-<span class="n">Tmd_BOp</span><span class="o">=</span><span class="n">series</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">Tmd</span><span class="p">);</span>  <span class="o">%</span><span class="n">Fct</span> <span class="n">de</span> <span class="n">transfert</span> <span class="n">BO</span> <span class="n">ac</span> <span class="n">gain</span> <span class="n">proportionnel</span>
-<span class="n">Tmd_BFp</span><span class="o">=</span><span class="n">feedback</span><span class="p">(</span><span class="n">Tmd_BOp</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>    <span class="o">%</span><span class="n">connection</span> <span class="n">en</span> <span class="n">boucle</span> <span class="n">fermé</span>
-<span class="o">%</span><span class="n">step</span><span class="p">(</span><span class="n">Tmd_BFp</span><span class="p">);</span>     <span class="o">%</span><span class="n">afficher</span> <span class="n">le</span> <span class="n">step</span> <span class="n">graphe</span>
+<span class="o">%</span><span class="n">Fct</span> <span class="n">de</span> <span class="n">transfert</span> <span class="n">BO</span> <span class="n">ac</span> <span class="n">gain</span> <span class="n">proportionnel</span>
+<span class="n">Tmd_BOp</span><span class="o">=</span><span class="n">series</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">Tmd</span><span class="p">);</span>  
+
+<span class="o">%</span><span class="n">connection</span> <span class="n">en</span> <span class="n">boucle</span> <span class="n">fermé</span>
+<span class="n">Tmd_BFp</span><span class="o">=</span><span class="n">feedback</span><span class="p">(</span><span class="n">Tmd_BOp</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>    
+<span class="n">step</span><span class="p">(</span><span class="n">Tmd_BFp</span><span class="p">);</span>      <span class="o">%</span><span class="n">afficher</span> <span class="n">le</span> <span class="n">step</span> <span class="n">graphe</span>
 </pre>
    </div>
    <ul>
@@ -7543,13 +7574,17 @@ For Level Colors
    <div class="codehilite">
     <pre><span class="n">Steady_timeP</span><span class="o">=</span><span class="n">stepinfo</span><span class="p">(</span><span class="n">Tmd_BFp</span><span class="p">,</span><span class="err">'</span><span class="n">SettlingTimeThreshold</span><span class="err">'</span><span class="p">,</span><span class="mf">0.05</span><span class="p">);</span>        <span class="o">%</span><span class="n">le</span> <span class="n">temps</span> <span class="n">qu</span> <span class="n">il</span> <span class="n">faut</span> <span class="n">le</span> <span class="n">système</span> <span class="n">soit</span> <span class="n">stable</span>
 
-<span class="n">rlocus</span><span class="p">(</span><span class="n">Tmd_BFp</span><span class="p">);</span>        <span class="o">%</span><span class="n">root</span> <span class="n">locus</span><span class="p">,</span> <span class="n">lieux</span> <span class="n">d</span> <span class="n">Evans</span> <span class="err">'@</span><span class="n">Q4</span><span class="mf">.1.2</span><span class="err">'</span>
-<span class="n">axis</span><span class="p">(</span><span class="err">'</span><span class="n">equal</span><span class="err">'</span><span class="p">);</span><span class="n">grid</span><span class="p">;</span>     <span class="o">%</span><span class="n">readable</span>
-<span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">poles</span><span class="p">]</span><span class="o">=</span><span class="n">rlocfind</span><span class="p">(</span><span class="n">Tmd_BFp</span><span class="p">);</span>    <span class="o">%</span><span class="n">trouver</span> <span class="n">la</span> <span class="n">valeur</span> <span class="n">du</span> <span class="n">point</span>
 <span class="n">sisotool</span><span class="p">(</span><span class="n">Tmd_BFp</span><span class="p">);</span>
 
-<span class="n">Zeta</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">;</span>         <span class="o">%</span><span class="n">damping</span> <span class="n">ratio</span><span class="p">,</span> <span class="n">taux</span> <span class="n">d</span> <span class="n">amortissement</span><span class="p">,</span> <span class="n">overshoot</span>
+<span class="o">%</span><span class="p">{</span>
+<span class="n">rlocus</span><span class="p">(</span><span class="n">Tmd_BFp</span><span class="p">);</span>        <span class="o">%</span><span class="n">root</span> <span class="n">locus</span><span class="p">,</span> <span class="n">lieux</span> <span class="n">d</span> <span class="n">Evans</span>
+<span class="n">axis</span><span class="p">(</span><span class="err">'</span><span class="n">equal</span><span class="err">'</span><span class="p">);</span>
+<span class="n">grid</span><span class="p">;</span>       <span class="o">%</span><span class="n">readable</span>
+<span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">poles</span><span class="p">]</span><span class="o">=</span><span class="n">rlocfind</span><span class="p">(</span><span class="n">Tmd_BFp</span><span class="p">);</span>    <span class="o">%</span><span class="n">trouver</span> <span class="n">la</span> <span class="n">valeur</span> <span class="n">du</span> <span class="n">point</span>
 <span class="n">sgrid</span><span class="p">(</span><span class="n">Zeta</span><span class="p">,</span><span class="n">frequence</span><span class="p">);</span>
+<span class="o">%</span><span class="p">}</span>
+
+<span class="n">Zeta</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">;</span>         <span class="o">%</span><span class="n">damping</span> <span class="n">ratio</span><span class="p">,</span> <span class="n">taux</span> <span class="n">d</span> <span class="n">amortissement</span><span class="p">,</span> <span class="n">overshoot</span>
 </pre>
    </div>
    <div class="admonition hint">
@@ -7579,9 +7614,12 @@ For Level Colors
     <p align="center">
      <img class="lazyload" alt="" data-src="images\cap_20171214_124615.png"/>
     </p>
-    <br/>
-    - 4.2.1 Déterminer la fonction de transfert discrétisée de TBFPI(z)
    </p>
+   <ul>
+    <li>
+     4.2.1 Déterminer la fonction de transfert discrétisée de T$_{BFPI}$(z)
+    </li>
+   </ul>
    <div class="codehilite">
     <pre><span class="n">TauxPI</span><span class="o">=</span><span class="mf">24.4e-3</span>      <span class="o">%</span> <span class="n">constante</span> <span class="n">de</span> <span class="n">temps</span> <span class="n">en</span> <span class="n">BF</span>
 <span class="n">k1</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>               <span class="o">%</span> <span class="n">gain</span> <span class="n">statique</span>
@@ -7591,7 +7629,6 @@ For Level Colors
 
 <span class="n">T1d</span><span class="o">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span><span class="n">Te</span><span class="p">);</span>     <span class="o">%</span><span class="n">Fonction</span> <span class="n">de</span> <span class="n">transfert</span> <span class="n">discretisée</span>
 <span class="o">%</span><span class="n">hold</span> <span class="n">on</span>
-<span class="n">step</span><span class="p">(</span><span class="n">Tmd_BFp</span><span class="p">);</span>
 </pre>
    </div>
    <ul>
@@ -7600,17 +7637,28 @@ For Level Colors
     </li>
    </ul>
    <div class="codehilite">
-    <pre><span class="n">Alpha</span><span class="o">=</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Te</span><span class="o">/</span><span class="n">TauxPI</span><span class="p">)</span>
-<span class="n">B1</span><span class="o">=</span><span class="mf">0.5594</span><span class="p">;</span> <span class="o">%</span> <span class="o">====</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Alpha</span><span class="p">)</span> <span class="o">:</span> <span class="n">gain</span> <span class="n">statique</span> <span class="n">du</span> <span class="n">système</span> <span class="n">désiré</span>
+    <pre><span class="n">Alpha</span><span class="o">=</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Te</span><span class="o">/</span><span class="n">TauxPI</span><span class="p">);</span>
+<span class="n">B1</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">Alpha</span><span class="p">;</span>
+<span class="o">%</span> <span class="n">gain</span> <span class="n">statique</span> <span class="n">du</span> <span class="n">système</span> <span class="n">désiré</span>
 
 <span class="n">r0pi</span><span class="o">=</span><span class="n">B1</span><span class="o">/</span><span class="n">b1</span><span class="p">;</span>
 <span class="n">r1pi</span><span class="o">=</span><span class="n">r0pi</span><span class="o">*</span><span class="n">a1</span><span class="p">;</span> 
 
-<span class="o">%</span><span class="n">Fonction</span> <span class="n">de</span> <span class="n">transfert</span> <span class="n">du</span> <span class="n">correcteur</span> <span class="n">PI</span>
 <span class="n">numPI</span><span class="o">=</span><span class="p">[</span><span class="n">r0pi</span> <span class="n">r1pi</span><span class="p">];</span>
 <span class="n">denPI</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="o">-</span><span class="mi">1</span><span class="p">];</span>
-<span class="n">Kpi</span><span class="o">=</span><span class="n">tf</span><span class="p">(</span><span class="n">numPI</span><span class="p">,</span><span class="n">denPI</span><span class="p">,</span><span class="n">Te</span><span class="p">,</span><span class="err">'</span><span class="n">variable</span><span class="sc">','</span><span class="n">z</span><span class="err">'</span><span class="p">);</span>  
+<span class="n">Kpi</span><span class="o">=</span><span class="n">tf</span><span class="p">(</span><span class="n">numPI</span><span class="p">,</span><span class="n">denPI</span><span class="p">,</span><span class="n">Te</span><span class="p">,</span><span class="err">'</span><span class="n">variable</span><span class="sc">','</span><span class="n">z</span><span class="err">'</span><span class="p">);</span>  <span class="o">%</span><span class="n">Fonction</span> <span class="n">de</span> <span class="n">transfert</span> <span class="n">du</span> <span class="n">correcteur</span> <span class="n">PI</span>
 </pre>
+   </div>
+   <div class="admonition hint">
+    <p class="admonition-title">
+     Output
+    </p>
+    <p>
+     Kpi =
+     <code>
+      (12.37 z - 10.08)/(z - 1)
+     </code>
+    </p>
    </div>
    <ul>
     <li>
@@ -7621,7 +7669,7 @@ For Level Colors
     <pre><span class="n">Tmd_BOpi</span><span class="o">=</span><span class="n">series</span><span class="p">(</span><span class="n">Kpi</span><span class="p">,</span><span class="n">Tmd</span><span class="p">);</span>   <span class="o">%</span><span class="n">Fct</span> <span class="n">de</span> <span class="n">transfert</span> <span class="n">BO</span> <span class="n">ac</span> <span class="n">gain</span> <span class="n">PI</span>
 <span class="n">Tmd_BFpi</span><span class="o">=</span><span class="n">feedback</span><span class="p">(</span><span class="n">Tmd_BOpi</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
 
-<span class="o">%</span><span class="n">step</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span><span class="n">T1d</span><span class="p">,</span><span class="n">Tmd_BFpi</span><span class="p">);</span>
+<span class="n">step</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span><span class="n">T1d</span><span class="p">,</span><span class="n">Tmd_BFpi</span><span class="p">);</span>
 <span class="n">Steady_timePI</span><span class="o">=</span><span class="n">stepinfo</span><span class="p">(</span><span class="n">Tmd_BFpi</span><span class="p">,</span><span class="err">'</span><span class="n">SettlingTimeThreshold</span><span class="err">'</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
 </pre>
    </div>
@@ -7652,27 +7700,55 @@ For Level Colors
      4.2.4 Déterminer l’erreur de position et l’erreur de vitesse.
     </li>
    </ul>
-   <h4 id="ex0">
-    <a aria-hidden="true" class="headeranchor-link" href="#ex0" name="user-content-ex0">
+   <h5 id="43-correcteur-pid">
+    <a aria-hidden="true" class="headeranchor-link" href="#43-correcteur-pid" name="user-content-43-correcteur-pid">
      <span class="headeranchor">
      </span>
     </a>
-    Ex0
-   </h4>
-   <h4 id="ex0_1">
-    <a aria-hidden="true" class="headeranchor-link" href="#ex0_1" name="user-content-ex0_1">
-     <span class="headeranchor">
-     </span>
-    </a>
-    Ex0
-   </h4>
-   <h4 id="ex0_2">
-    <a aria-hidden="true" class="headeranchor-link" href="#ex0_2" name="user-content-ex0_2">
-     <span class="headeranchor">
-     </span>
-    </a>
-    Ex0
-   </h4>
+    4.3 Correcteur PID :
+   </h5>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171214_154739.png"/>
+    </p>
+   </p>
+   <p>
+    Nous choisissons comme comportement en boucle fermé un système du second ordre avec une
+    <br/>
+    pulsation naturelle (ou propre) $\omega_{1}$=1/$\tau_{BO}$ et de coefficient d’amortissement m=0,707.
+    <br/>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171214_155151.png"/>
+    </p>
+   </p>
+   <div class="codehilite">
+    <pre><span class="o">%</span><span class="n">Determination</span> <span class="n">FT</span> <span class="n">discrétisée</span> <span class="n">d</span> <span class="n">apres</span> <span class="n">Cdc</span>
+<span class="n">w1</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">TauxBO</span>
+<span class="n">m</span><span class="o">=</span><span class="mf">0.707</span><span class="p">;</span>
+</pre>
+   </div>
+   <ul>
+    <li>
+     4.3.1 Déterminer la fonction de transfert discrétisée de T$_{BFPID}$(z)
+    </li>
+   </ul>
+   <div class="codehilite">
+    <pre><span class="n">num3</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="n">den3</span><span class="o">=</span><span class="p">[(</span><span class="mi">1</span><span class="o">/</span><span class="n">w1</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="n">w1</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">T2</span><span class="o">=</span><span class="n">tf</span><span class="p">(</span><span class="n">num3</span><span class="p">,</span><span class="n">den3</span><span class="p">,</span><span class="err">'</span><span class="n">variable</span><span class="sc">','</span><span class="n">p</span><span class="err">'</span><span class="p">);</span>
+</pre>
+   </div>
+   <ul>
+    <li>
+     4.3.2 Déterminer les coefficients du correcteur
+    </li>
+    <li>
+     4.3.3 Déterminer la réponse à échelon de le temps de réponse à 5%.
+    </li>
+    <li>
+     4.3.4 Déterminer l’erreur de position et l’erreur de vitesse.
+    </li>
+   </ul>
   </article>
  </body>
 </html>
