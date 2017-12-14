@@ -3451,10 +3451,60 @@ Le processus est discrétisé avec un échantillonneur d&rsquo;ordre zéro.<br /
 Nous choisissons comme comportement en boucle fermé un système du premier ordre avec une<br />
 constante de temps en boucle fermée de 24,4 ms.<br />
 <p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_124615.png" /></p><br />
-- 4.2.1 Déterminer la fonction de transfert discrétisée de TBFPI(z)<br />
-- 4.2.2 Déterminer les coefficients du correcteur<br />
-- 4.2.3 Déterminer la réponse à échelon de le temps de réponse à 5%.<br />
-- 4.2.4 Déterminer l&rsquo;erreur de position et l&rsquo;erreur de vitesse. </p>
+- 4.2.1 Déterminer la fonction de transfert discrétisée de TBFPI(z)</p>
+<div class="codehilite"><pre><span class="n">TauxPI</span><span class="o">=</span><span class="mf">24.4e-3</span>      <span class="o">%</span> <span class="n">constante</span> <span class="n">de</span> <span class="n">temps</span> <span class="n">en</span> <span class="n">BF</span>
+<span class="n">k1</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>               <span class="o">%</span> <span class="n">gain</span> <span class="n">statique</span>
+<span class="n">num1</span><span class="o">=</span><span class="p">[</span><span class="n">k1</span><span class="p">];</span>
+<span class="n">den1</span><span class="o">=</span><span class="p">[</span><span class="n">TauxPI</span> <span class="mi">1</span><span class="p">];</span>
+<span class="n">T1</span><span class="o">=</span><span class="n">tf</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span><span class="n">den1</span><span class="p">,</span><span class="err">&#39;</span><span class="n">variable</span><span class="sc">&#39;,&#39;</span><span class="n">p</span><span class="err">&#39;</span><span class="p">);</span>
+
+<span class="n">T1d</span><span class="o">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span><span class="n">Te</span><span class="p">);</span>     <span class="o">%</span><span class="n">Fonction</span> <span class="n">de</span> <span class="n">transfert</span> <span class="n">discretisée</span>
+<span class="o">%</span><span class="n">hold</span> <span class="n">on</span>
+<span class="n">step</span><span class="p">(</span><span class="n">Tmd_BFp</span><span class="p">);</span>
+</pre></div>
+
+
+<ul>
+<li>4.2.2 Déterminer les coefficients du correcteur</li>
+</ul>
+<div class="codehilite"><pre><span class="n">Alpha</span><span class="o">=</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Te</span><span class="o">/</span><span class="n">TauxPI</span><span class="p">)</span>
+<span class="n">B1</span><span class="o">=</span><span class="mf">0.5594</span><span class="p">;</span> <span class="o">%</span> <span class="o">====</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Alpha</span><span class="p">)</span> <span class="o">:</span> <span class="n">gain</span> <span class="n">statique</span> <span class="n">du</span> <span class="n">système</span> <span class="n">désiré</span>
+
+<span class="n">r0pi</span><span class="o">=</span><span class="n">B1</span><span class="o">/</span><span class="n">b1</span><span class="p">;</span>
+<span class="n">r1pi</span><span class="o">=</span><span class="n">r0pi</span><span class="o">*</span><span class="n">a1</span><span class="p">;</span> 
+
+<span class="o">%</span><span class="n">Fonction</span> <span class="n">de</span> <span class="n">transfert</span> <span class="n">du</span> <span class="n">correcteur</span> <span class="n">PI</span>
+<span class="n">numPI</span><span class="o">=</span><span class="p">[</span><span class="n">r0pi</span> <span class="n">r1pi</span><span class="p">];</span>
+<span class="n">denPI</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+<span class="n">Kpi</span><span class="o">=</span><span class="n">tf</span><span class="p">(</span><span class="n">numPI</span><span class="p">,</span><span class="n">denPI</span><span class="p">,</span><span class="n">Te</span><span class="p">,</span><span class="err">&#39;</span><span class="n">variable</span><span class="sc">&#39;,&#39;</span><span class="n">z</span><span class="err">&#39;</span><span class="p">);</span>  
+</pre></div>
+
+
+<ul>
+<li>4.2.3 Déterminer la réponse à échelon de le temps de réponse à 5%.</li>
+</ul>
+<div class="codehilite"><pre><span class="n">Tmd_BOpi</span><span class="o">=</span><span class="n">series</span><span class="p">(</span><span class="n">Kpi</span><span class="p">,</span><span class="n">Tmd</span><span class="p">);</span>   <span class="o">%</span><span class="n">Fct</span> <span class="n">de</span> <span class="n">transfert</span> <span class="n">BO</span> <span class="n">ac</span> <span class="n">gain</span> <span class="n">PI</span>
+<span class="n">Tmd_BFpi</span><span class="o">=</span><span class="n">feedback</span><span class="p">(</span><span class="n">Tmd_BOpi</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="o">%</span><span class="n">step</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span><span class="n">T1d</span><span class="p">,</span><span class="n">Tmd_BFpi</span><span class="p">);</span>
+<span class="n">Steady_timePI</span><span class="o">=</span><span class="n">stepinfo</span><span class="p">(</span><span class="n">Tmd_BFpi</span><span class="p">,</span><span class="err">&#39;</span><span class="n">SettlingTimeThreshold</span><span class="err">&#39;</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="admonition hint">
+<p class="admonition-title">Output</p>
+<p>RiseTime: 0.04<br />
+SettlingTime: 0.08<br />
+SettlingMin: 0.914497313377725<br />
+SettlingMax: 1.00000508894982<br />
+Overshoot: 0.000508894982131913<br />
+Undershoot: 0<br />
+Peak: 1.00000508894982<br />
+PeakTime: 0.32</p>
+</div>
+<ul>
+<li>4.2.4 Déterminer l&rsquo;erreur de position et l&rsquo;erreur de vitesse. </li>
+</ul>
 <h4 id="ex0"><a name="user-content-ex0" href="#ex0" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex0</h4>
 <h4 id="ex0_1"><a name="user-content-ex0_1" href="#ex0_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex0</h4>
 <h4 id="ex0_2"><a name="user-content-ex0_2" href="#ex0_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex0</h4></article></body></html>

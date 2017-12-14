@@ -172,28 +172,27 @@ Tmd_BFp=feedback(Tmd_BOp,1);	%connection en boucle fermé
 %Fontion de transfert discrétisée avec correcteur PI '@Q4.2'  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%4.2.1
+%%%%%%%4.2.1 Fonction de transfert en BF continue T1 d apres CdC
+%%%%w1=4*w0;
 
-%etap 1: Fonction de transfert en BF continue T1 d apres CdC @4.2.1
-
-TePI=24.4e-3
-
-w1=4*w0;
-num1=[1];
-den1=[1/w1 1];
+TauxPI=24.4e-3		% constante de temps en BF
+k1=1;				% gain statique
+num1=[k1];
+den1=[TauxPI 1];
 T1=tf(num1,den1,'variable','p');
 
-T1d=c2d(T1,TePI);	%Fonction de transfert discretisée
+T1d=c2d(T1,Te);		%Fonction de transfert discretisée
 %hold on
-step(Tmd_BFp);
-
-%%%%Alpha=e^(-Te/Taux)
-B1=0.3363;	% le gain statique du système désiré
+%step(Tmd_BFp);
 
 
-%%%%%%%4.2.2
 
-%étape 2: Calcul des coeficients du correcteur PI @4.2.2
+
+%%%%%%%4.2.2 Calcul des coeficients du correcteur PI
+
+Alpha=exp(-Te/TauxPI)
+B1=0.5594; % ==== (1-Alpha) : gain statique du système désiré
+
 r0pi=B1/b1;
 r1pi=r0pi*a1; 
 
@@ -201,12 +200,13 @@ numPI=[r0pi r1pi];
 denPI=[1 -1];
 Kpi=tf(numPI,denPI,Te,'variable','z');	%Fonction de transfert du correcteur PI
 
-%étape 3: Fonction de transfert en BF avec un correcteur PI
+%%%%%%%4.2.3 Fonction de transfert en BF avec un correcteur PI
+
 Tmd_BOpi=series(Kpi,Tmd);	%Fct de transfert BO ac gain PI
 Tmd_BFpi=feedback(Tmd_BOpi,1);
 
-%step(T1,T1d,Tmd_BFpi);
-%Steady_timePI=stepinfo(Tmd_BFpi,'SettlingTimeThreshold',0.05)
+step(T1,T1d,Tmd_BFpi);
+Steady_timePI=stepinfo(Tmd_BFpi,'SettlingTimeThreshold',0.05)
 
 %{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
