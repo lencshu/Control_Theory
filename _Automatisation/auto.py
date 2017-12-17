@@ -172,7 +172,7 @@ elif int(ifpwd):
 ## 1.去掉markdown里面的敏感信息并更新到pwd.ini
 ##
 
-if modeSwitch:
+if modeSwitch and int(ifpwd):
 	with open(markdownPath) as mdFile:
 		confPwd.read(pwdPath)
 		for line in mdFile:
