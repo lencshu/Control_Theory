@@ -2,7 +2,8 @@
 %   Asservissement DC Moteur     %
 %      en vitesse                %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+clc;
+clear;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    parmaètres du moteur DC     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -55,9 +56,9 @@ step(T0_BF)
 
 Taux1=24.4e-3 ; % constante de temps en BF
 k1=1;  % gain statique
-numl=[k1];
+numl = [1];
 den1=[Taux1 1];
-T1=tf(num1,den1)
+T1=tf(numl,den1)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Fonction de transfert en BF  %
@@ -80,7 +81,7 @@ r1pi=r0pi*a1;
 %   Fonction transfert           %
 %      du correcteur PI          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- numPI=[r0pi r1pi];
+numPI=[r0pi r1pi];
 denPI=[1 -1];
 Kpi=tf(numPI,denPI,Te,'variable','z')
 

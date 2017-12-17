@@ -38,7 +38,7 @@ cl=feedback(c*g,1);
 %step(1/s-cl/s);
 %bode(c*g);
 
-%zoh采样方法
+%zoh閲囨牱鏂规硶
 cz=c2d(g,ts,'zoh')
 bode(c,cz);
 %}
@@ -95,22 +95,22 @@ rlocus(T3d);
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 	1	parmaètres du moteur DC     
+% 	1	parma猫tres du moteur DC     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-r=2;            % Résistance d induit S.I
+r=2;            % R茅sistance d induit S.I
 k=0.1;          % constante de vitesse et de couple du moteur SI
 f=0.2;          % frottement visqueux
 j=0.02;         % Inertie de l arbre moteur
-l=0.5;			% inductance de l induit (que nous négligerons)
+l=0.5;			% inductance de l induit (que nous n茅gligerons)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 	2	Fonction de tranfert continue
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Taux0=(r*j)/(r*f+k^2);			% constante de temps du système
+Taux0=(r*j)/(r*f+k^2);			% constante de temps du syst猫me
 k0=k/(r*f+k^2);					% gain statique 
 w0=1/Taux0;						% pulsation naturelle, boucle ouvert
-frequence=w0/(2*pi);			% fréquence naturelle,w=2*pi*fréquence
+frequence=w0/(2*pi);			% fr茅quence naturelle,w=2*pi*fr茅quence
 
 num0=[k0];
 den0=[Taux0 1];
@@ -118,31 +118,31 @@ Tm=tf(num0,den0,'variable','p')    % Tm fonction de transfert continue
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%	3	Fontion de transfert discrétisée sans correcteur
+%	3	Fontion de transfert discr茅tis茅e sans correcteur
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%	3.1 
-%Justifier le choix de la période d échantillonnage
-Te=50e-3;	%20e-3		% pédiode d échantillonnag d après CdCh
-Tmd=c2d(Tm,Te)			% Tmd fonction de transfert discrétisée
+%Justifier le choix de la p茅riode d 茅chantillonnage
+Te=50e-3;	%20e-3		% p茅diode d 茅chantillonnag d apr猫s CdCh
+Tmd=c2d(Tm,Te)			% Tmd fonction de transfert discr茅tis茅e
 
-%la constante de temps du système sans correcteur en boucle ouvert
+%la constante de temps du syst猫me sans correcteur en boucle ouvert
 Tauxp = stepinfo(Tmd,'RiseTimeLimits',[0,0.63])
 
 %%%%%%%%%%%	3.2 
-%Établir la fonction de transfert du moteur
+%脡tablir la fonction de transfert du moteur
 
 zpk(Tmd,'v')			% Pour voir ou sont les poles ( 'v') est la car c est une output
-b1=0.097806			% coefficient numérateur de Tmd
-a1=-0.599				% coefficient dénonominateur de Tmd
+b1=0.097806			% coefficient num茅rateur de Tmd
+a1=-0.599				% coefficient d茅nonominateur de Tmd
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%	4.1	Fontion de transfert discrétisée avec correcteur proportionnel
+%	4.1	Fontion de transfert discr茅tis茅e avec correcteur proportionnel
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%4.1.1 
-%Étudier la stabilité du correcteur proportionnel en fonction de son gain K
+%脡tudier la stabilit茅 du correcteur proportionnel en fonction de son gain K
 %pour trouver valeur l encadrement de K (0<K<intersection entre ligne bleue et cercle)
 
 %%sisotool(Tmd); % plus puissant
@@ -155,7 +155,7 @@ K=12;
 %Fct de transfert BO ac gain proportionnel
 Tmd_BOp=series(K,Tmd);	
 
-%connection en boucle fermé
+%connection en boucle ferm茅
 Tmd_BFp=feedback(Tmd_BOp,1);	
 %step(Tmd_BFp);		%afficher le step graphe
 
@@ -163,7 +163,7 @@ Tmd_BFp=feedback(Tmd_BOp,1);
 
 %%%%%%%4.1.2 
 
-Steady_timeP=stepinfo(Tmd_BFp,'SettlingTimeThreshold',0.05);		%le temps qu il faut le système soit stable
+Steady_timeP=stepinfo(Tmd_BFp,'SettlingTimeThreshold',0.05);		%le temps qu il faut le syst猫me soit stable
 
 %%sisotool(Tmd_BFp);
 
@@ -180,7 +180,7 @@ Zeta = 0.7;			%damping ratio, taux d amortissement, overshoot
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%	4.2	Fontion de transfert discrétisée avec correcteur PI  %
+%	4.2	Fontion de transfert discr茅tis茅e avec correcteur PI  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%4.2.1 Fonction de transfert en BF continue T1 d apres CdC
@@ -191,7 +191,7 @@ num1=[k1];
 den1=[TauxPI 1];
 T1=tf(num1,den1,'variable','p');
 
-T1d=c2d(T1,Te);		%Fonction de transfert discretisée
+T1d=c2d(T1,Te);		%Fonction de transfert discretis茅e
 %hold on
 
 
@@ -201,7 +201,7 @@ T1d=c2d(T1,Te);		%Fonction de transfert discretisée
 
 Alpha=exp(-Te/TauxPI);
 B1=1-Alpha;
-% gain statique du système désiré
+% gain statique du syst猫me d茅sir茅
 
 r0pi=B1/b1;
 r1pi=r0pi*a1; 
@@ -221,17 +221,17 @@ Tmd_BFpi=feedback(Tmd_BOpi,1);
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%	4.3	Fontion de transfert discrétisée avec correcteur PID
+%	4.3	Fontion de transfert discr茅tis茅e avec correcteur PID
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%Determination FT discrétisée d apres Cdc
+%Determination FT discr茅tis茅e d apres Cdc
 w1=1/Taux0;				% Pulsation naturelle
 m=0.707;
 
 
 
 %%%%%%%%4.3.1 
-%Déterminer la fonction de transfert discrétisée de T_BFPID(z)
+%D茅terminer la fonction de transfert discr茅tis茅e de T_BFPID(z)
 num3=[k0];							% Gain statique
 den3=[(1/w1)^2 (2*m)/w1 1];
 T2=tf(num3,den3,'variable','p');
@@ -249,7 +249,7 @@ T4d=series(T3d,T2d);
 
 
 %%%%%%%%4.3.2 
-%Déterminer les coefficients du correcteur
+%D茅terminer les coefficients du correcteur
 %  0.0008615 z^-2 + 0.0007821 z^-3
 %  0.09892 z^2 + 0.08386 z + 5.164e-05
 %  ----------------------------------
@@ -275,7 +275,7 @@ Kpid=tf(numPID,denPID,Te,'variable','z')
 
 %{
 %%%%%%%%4.3.3
-%Déterminer la réponse à échelon de le temps de réponse à 5%.
+%D茅terminer la r茅ponse 脿 茅chelon de le temps de r茅ponse 脿 5%.
 
 Steady_timePID=stepinfo(T_BFpid,'SettlingTimeThreshold',0.05);
 
@@ -300,12 +300,12 @@ p3=- 0.3182; %}
 p1=-1.453
 p2=0.5863
 p3=-0.01026
-	%On définit les coefficients du correcteur
+	%On d茅finit les coefficients du correcteur
 r0pid=(1-a1+p1)/b1;
 r1pid=(p2+a1)/b1;
 r2pid=p3/b1;
 
-%Fonction de transfert du correcteur PID filtré
+%Fonction de transfert du correcteur PID filtr茅
 numPID=[r0pid r1pid r2pid];
 denPID=[1 -1 0];
 Kpid=tf(numPID,denPID,Te,'variable','z');
