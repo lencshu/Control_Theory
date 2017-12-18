@@ -3344,27 +3344,47 @@ P(z) peut se mettre sous la forme :<br />
 <h4 id="ex01_2"><a name="user-content-ex01_2" href="#ex01_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex01</h4>
 <p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171130_121908.png" /></p></p>
 <h3 id="td05"><a name="user-content-td05" href="#td05" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD05</h3>
-<p>Objectifs   :<br />
-- Modéliser un système.<br />
-- Établir la fonction de transfert du système. <br />
-- Étudier différents correcteurs numériques. <br />
-- Utiliser les outils Matlab, pour mener à bien l&rsquo;étude.<br />
-- Utiliser les outils Simulink , pour mener à bien l&rsquo;étude.</p>
+<ul>
+<li>Objectifs   :<ul>
+<li>Modéliser un système.</li>
+<li>Établir la fonction de transfert du système. </li>
+<li>Étudier différents correcteurs numériques. </li>
+<li>Utiliser les outils Matlab, pour mener à bien l&rsquo;étude.</li>
+<li>Utiliser les outils Simulink , pour mener à bien l&rsquo;étude.</li>
+</ul>
+</li>
+</ul>
 <h4 id="ex01-presentation-du-systeme"><a name="user-content-ex01-presentation-du-systeme" href="#ex01-presentation-du-systeme" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex01 Présentation du système :</h4>
 <p>Le  système  à  asservir  en  vitesse  est  moteur  à  courant  continu  dont  les  caractéristiques  sont  les suivantes :<br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_115623.png" /></p><br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_115736.png" /></p></p>
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_114459.png" /></p></p>
 <ul>
 <li>R: résistance de l&rsquo;induit</li>
 <li>L: inductance de l&rsquo;induit (que nous négligerons)</li>
 <li>J: inertie ramenée sur l&rsquo;arbre moteur</li>
-<li>Tr : couple résistant exercé par la charge mécanique (ici égal à zéro) </li>
-<li>Ke : constante de vitesse du moteur</li>
-<li>KI : constante de couple du moteur</li>
-<li>f: frottement fluide<br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_114459.png" /></p><br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_121053.png" /></p></li>
+<li>T$_{r}$ : couple résistant exercé par la charge mécanique (ici égal à zéro) </li>
+<li>K$_{e}$ : constante de vitesse du moteur</li>
+<li>K$_{I}$ : constante de couple du moteur</li>
+<li>f: frottement fluide (coéfficient de frottement visqueux)</li>
 </ul>
+<p>建模</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" disabled checked> 1.Equation électrique:</p>
+<ul>
+<li>$V(t) = R.i(t) + L\frac{di(t)}{dt} + \overbrace{ K_{e}.\Omega(t)}^{Force.ElectroMotrice}$</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled checked> 2.Equation mécanique:</p>
+<ul>
+<li>$J.\frac{d\Omega(t)}{dt} = \overbrace{K_{I}.i(t)}^{moment.couple.electromagnetique} - \overbrace{ f.\Omega(t)}^{Perte} - C_{charge}(t)$</li>
+</ul>
+</li>
+</ul>
+<p><a href="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_115623.png">补充图片</a><br />
+<a href="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_115736.png">补充解释</a></p>
+<p>计算步骤:<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_121053.png" /></p></p>
 <div class="codehilite"><pre><span class="n">r</span><span class="p">=</span><span class="mi">2</span><span class="p">;</span>        <span class="c">% Résistance d induit S.I</span>
 <span class="n">k</span><span class="p">=</span><span class="mf">0.1</span><span class="p">;</span>      <span class="c">% constante de vitesse et de couple du moteur SI</span>
 <span class="n">f</span><span class="p">=</span><span class="mf">0.2</span><span class="p">;</span>      <span class="c">% frottement visqueux</span>
