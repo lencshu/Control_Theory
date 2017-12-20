@@ -1450,40 +1450,30 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li><a href="#part-b">Part B 离散信号处理</a><ul>
-<li><a href="#i-transformee-en-z">I) Transformée en Z</a><ul>
-<li><a href="#1_2">1 信号分类</a></li>
-<li><a href="#11-signal-analogique">1.1 Signal analogique</a></li>
-<li><a href="#12-signal-echantillonne-discret">1.2 Signal échantillonné discret.</a></li>
-<li><a href="#13-signal-quantifie">1.3 Signal quantifié 量化的</a></li>
-<li><a href="#14-signal-numerique">1.4 Signal numérique</a></li>
-<li><a href="#2-transformee-en-z">2 Transformée en Z</a><ul>
-<li><a href="#21_1">2.1 定义和性质</a><ul>
-<li><a href="#211-laplace-z">2.1.1 Laplace ==&gt; Z 变换</a></li>
-<li><a href="#212_1">2.1.2 计算规则和性质</a></li>
-<li><a href="#213-z">2.1.3 Z表格</a></li>
-</ul>
-</li>
-<li><a href="#22-pz">2.2 P平面和Z平面的对应关系</a></li>
-<li><a href="#23-inversion-de-la-transformee-en-z">2.3 Inversion de la transformée en Z</a></li>
-<li><a href="#231-generalites">2.3.1 Généralités</a></li>
-<li><a href="#232-methodes-analytiques">2.3.2 Méthodes analytiques</a></li>
-<li><a href="#233-methodes-numeriques">2.3.3 Méthodes numériques</a></li>
-</ul>
-</li>
+<li><a href="#_4">序</a></li>
+<li><a href="#i-z">I) Z 变换</a><ul>
+<li><a href="#1_2">1 定义和性质</a></li>
+<li><a href="#2-pz">2 P平面和Z平面的对应关系</a></li>
+<li><a href="#3-inversion-de-la-transformee-en-z">3 Inversion de la transformée en Z</a></li>
+<li><a href="#31-generalites">3.1 Généralités</a></li>
+<li><a href="#32-methodes-analytiques">3.2 Méthodes analytiques</a></li>
+<li><a href="#33-methode-de-lequation-aux-differences-equation-recurrente">3.3 Méthode de l&rsquo;équation aux différences (équation récurrente)</a></li>
 </ul>
 </li>
 <li><a href="#ii">II) 采样系统理论</a><ul>
 <li><a href="#1_3">1 信号采样</a><ul>
+<li><a href="#_5">信号分类</a></li>
 <li><a href="#11-definitions">1.1 Définitions</a></li>
 <li><a href="#12-echantillonneur-bloqueur">1.2 Échantillonneur bloqueur</a></li>
 <li><a href="#13-echantillonnage-reel">1.3 Échantillonnage réel</a></li>
 <li><a href="#14-transformee-de-laplace-dun-signal-echantillonne">1.4 Transformée de Laplace d&rsquo;un signal échantillonné</a><ul>
-<li><a href="#141transformee-de-laplace-dune-impulsion-a-lorigine5-142cas-dune-impulsion-decalee-de-te">1.4.1Transformée de Laplace d&rsquo;une impulsion à l&rsquo;origine5 142Cas d&rsquo;une impulsion décalée de Te</a></li>
+<li><a href="#141-transformee-de-laplace-dune-impulsion-a-lorigine">1.4.1 Transformée de Laplace d&rsquo;une impulsion à l&rsquo;origine</a></li>
+<li><a href="#142-cas-dune-impulsion-decalee-de-te">1.4.2 Cas d&rsquo;une impulsion décalée de Te</a></li>
 <li><a href="#143transformee-de-laplace-du-signal-echantillonne-reel">1.4.3Transformée de Laplace du signal échantillonné réel</a></li>
 </ul>
 </li>
 <li><a href="#15-choix-de-la-frequence-dechantillonnage">1.5 Choix de la fréquence d&rsquo;échantillonnage</a></li>
-<li><a href="#16-modelisation-de-la-transformee-de-laplace-dun-signal-echantillonne9">1.6 Modélisation de la transformée de Laplace d&rsquo;un signal échantillonné9</a></li>
+<li><a href="#16-modelisation-de-la-transformee-de-laplace-dun-signal-echantillonne">1.6 Modélisation de la transformée de Laplace d&rsquo;un signal échantillonné</a></li>
 <li><a href="#17-reconstitution-dun-signal-echantillonne">1.7 Reconstitution d&rsquo;un signal échantillonné</a><ul>
 <li><a href="#171-fonction-de-transfert-dordre-0-boz">1.7.1 Fonction de transfert d&rsquo;ordre 0 (BOZ)</a></li>
 <li><a href="#172-reponse-frequentielle-du-boz">1.7.2 Réponse fréquentielle du BOZ</a></li>
@@ -1492,8 +1482,6 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li><a href="#2_2">2 采样系统</a><ul>
-<li><a href="#21-definitions">2.1 Définitions</a></li>
-<li><a href="#22-fonction-de-transfert-echantillonnee">2.2 Fonction de transfert échantillonnée</a></li>
 <li><a href="#23-application">2.3 Application</a><ul>
 <li><a href="#231-premier-cas">2.3.1 Premier cas</a></li>
 <li><a href="#232-deuxieme-cas">2.3.2 Deuxième cas</a></li>
@@ -1512,126 +1500,16 @@ MathJax.Hub.Config({
 <li><a href="#iii-comportement-des-systemes-asservis">III) Comportement des systèmes asservis</a><ul>
 <li><a href="#1-stabilite">1 Stabilité</a><ul>
 <li><a href="#11-stabilite-absolue">1.1 Stabilité absolue</a></li>
-<li><a href="#12-critere-de-jury">1.2 Critère de Jury</a></li>
+<li><a href="#12-critere-de-jury">1.2 Critère de Jury 朱利判据</a></li>
 <li><a href="#13-application">1.3 Application</a><ul>
 <li><a href="#131-systeme-dordre-1">1.3.1 Système d&rsquo;ordre 1</a></li>
 <li><a href="#132-systeme-dordre-2">1.3.2 Système d&rsquo;ordre 2</a></li>
 <li><a href="#133-systeme-dordre-3">1.3.3 Système d&rsquo;ordre 3</a></li>
-<li><a href="#134-systeme-dordre-4">1.3.4 système d&rsquo;ordre 4</a></li>
 </ul>
 </li>
 <li><a href="#14-application-a-un-systeme-du-premier-ordre">1.4 Application à un système du premier ordre</a></li>
 <li><a href="#15-correspondance-plan-p-plan-z">1.5 Correspondance plan p – plan z</a></li>
 <li><a href="#16-degre-de-stabilite-robustesse">1.6 Degré de stabilité : robustesse</a></li>
-</ul>
-</li>
-<li><a href="#2-precision-statique">2 Précision statique</a><ul>
-<li><a href="#21-precision-en-labsence-de-perturbation">2.1 Précision en l&rsquo;absence de perturbation</a><ul>
-<li><a href="#211-reponse-a-un-echelon">2.1.1 Réponse à un échelon</a></li>
-<li><a href="#212-reponse-a-une-rampe">2.1.2 Réponse à une rampe</a></li>
-<li><a href="#213-reponse-en-acceleration">2.1.3 Réponse en accélération</a></li>
-<li><a href="#214-bilan">2.1.4 Bilan</a></li>
-</ul>
-</li>
-<li><a href="#22-precision-en-presence-de-perturbations">2.2 Précision en présence de perturbations</a></li>
-<li><a href="#23-conclusions">2.3 Conclusions</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#iv">IV) 采样系统应用</a><ul>
-<li><a href="#1-introduction">1 Introduction</a></li>
-<li><a href="#2-choix-de-la-periode-dechantillonnage">2 Choix de la période d&rsquo;échantillonnage</a><ul>
-<li><a href="#21-considerations-pratiques">2.1 Considérations pratiques</a></li>
-<li><a href="#22-application-a-un-premier-ordre">2.2 Application à un premier ordre</a></li>
-<li><a href="#23-application-a-un-second-ordre">2.3 Application à un second ordre</a></li>
-<li><a href="#24-exemples-de-choix-de-periode-dechantillonnage">2.4 Exemples de choix de période d&rsquo;échantillonnage</a></li>
-</ul>
-</li>
-<li><a href="#3-modele-mathematique-des-systemes-echantillonnes">3 Modèle mathématique des systèmes échantillonnés</a><ul>
-<li><a href="#31-forme-generale">3.1 Forme générale</a><ul>
-<li><a href="#311-systeme-du-premier-ordre-muni-dun-boz">3.1.1 Système du premier ordre muni d&rsquo;un BOZ</a></li>
-<li><a href="#312-systeme-du-second-ordre-muni-dun-boz">3.1.2 Système du second ordre muni d&rsquo;un BOZ</a></li>
-</ul>
-</li>
-<li><a href="#32-forme-generale-avec-integrateur">3.2 Forme générale avec intégrateur</a><ul>
-<li><a href="#321-fonction-de-transfert-dun-integrateur">3.2.1 Fonction de transfert d&rsquo;un intégrateur</a></li>
-<li><a href="#322-forme-generale">3.2.2 Forme générale</a></li>
-</ul>
-</li>
-<li><a href="#33-modele-echantillonne-du-premier-ordre">3.3 Modèle échantillonné du premier ordre</a><ul>
-<li><a href="#331-comportement-statique">3.3.1 Comportement statique</a></li>
-<li><a href="#332-comportement-dynamique">3.3.2 Comportement dynamique</a></li>
-</ul>
-</li>
-<li><a href="#34-modele-echantillonne-du-second-ordre">3.4 Modèle échantillonné du second ordre</a><ul>
-<li><a href="#341-cas-ou-les-poles-sont-reels">3.4.1 Cas où les pôles sont réels</a></li>
-<li><a href="#342-cas-ou-les-poles-sont-complexes">3.4.2 Cas où les pôles sont complexes</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#v-pid">V) PID 采样控制</a><ul>
-<li><a href="#1introduction">1.Introduction</a><ul>
-<li><a href="#11choix-de-la-periode-dechantillonnage">1.1Choix de la période d&rsquo;échantillonnage</a></li>
-<li><a href="#12choix-de-la-methode-de-discretisation">1.2Choix de la méthode de discrétisation</a></li>
-</ul>
-</li>
-<li><a href="#2discretisation-des-correcteurs">2.Discrétisation des correcteurs.</a><ul>
-<li><a href="#21regulateur-pi-numerique">2.1Régulateur PI numérique</a></li>
-<li><a href="#22regulateur-pid-numerique">2.2Régulateur PID numérique.</a></li>
-<li><a href="#23regulateur-pid-filtre-numerique">2.3Régulateur PID filtré numérique.</a></li>
-</ul>
-</li>
-<li><a href="#3discretisation-du-processus">3.Discrétisation du processus</a><ul>
-<li><a href="#31preambule">3.1Préambule.</a></li>
-<li><a href="#32processus-du-premier-ordre">3.2Processus du premier ordre.</a></li>
-<li><a href="#33processus-du-second-ordre">3.3Processus du second ordre</a><ul>
-<li><a href="#331-cas-des-poles-doubles">3.3.1 Cas des pôles doubles</a></li>
-<li><a href="#332-cas-des-poles-doubles">3.3.2 Cas des pôles doubles.</a></li>
-<li><a href="#333-cas-des-poles-reels8">3.3.3 Cas des pôles réels8</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#4commande-dun-premier-ordre-par-un-pi">4.Commande d&rsquo;un premier ordre par un P.I.</a><ul>
-<li><a href="#41-comportement-en-premier-ordre">4.1 Comportement en premier ordre.</a><ul>
-<li><a href="#411-choix-du-comportement-en-boucle-fermee">4.1.1 Choix du comportement en boucle fermée.</a></li>
-</ul>
-</li>
-<li><a href="#42-comportement-en-second-ordre">4.2 Comportement en second ordre</a></li>
-<li><a href="#43-resume-du-reglage-dun-correcteur-pi">4.3 Résumé du réglage d&rsquo;un correcteur P.I</a><ul>
-<li><a href="#431-dynamique-du-premier-ordre">4.3.1 Dynamique du premier ordre</a></li>
-<li><a href="#432-dynamique-du-second-ordre">4.3.2 Dynamique du second ordre.</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#5-commande-dun-second-ordre-par-un-pid-filtre">5 Commande d&rsquo;un second ordre par un PID filtré.</a><ul>
-<li><a href="#51-comportement-du-second-ordre11">5.1 Comportement du second ordre11</a></li>
-</ul>
-</li>
-<li><a href="#6conclusion">6.Conclusion</a></li>
-</ul>
-</li>
-<li><a href="#td_1">TD习题</a><ul>
-<li><a href="#td03">TD03</a></li>
-<li><a href="#td04_1">TD04</a><ul>
-<li><a href="#ex01_2">Ex01</a></li>
-</ul>
-</li>
-<li><a href="#td05">TD05</a><ul>
-<li><a href="#ex01-presentation-du-systeme">Ex01 Présentation du système :</a></li>
-<li><a href="#ex02-fonction-de-transfert-continue">Ex02 Fonction de transfert continue</a></li>
-<li><a href="#ex03-discretisation-du-processus">Ex03 Discrétisation du processus</a></li>
-<li><a href="#ex04-etude-de-differents-correcteurs">Ex04 Étude de différents correcteurs</a><ul>
-<li><a href="#41-correcteur-proportionnel-k-zk">4.1 Correcteur proportionnel : K (z)=K</a></li>
-<li><a href="#42-correcteur-pi">4.2 Correcteur PI :</a></li>
-<li><a href="#43-correcteur-pid">4.3 Correcteur PID :</a></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -3184,48 +3062,386 @@ Pole de FTBF怎么算  ????<br />
 <p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171122_133056.png" /></p><br />
 <p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171122_162136.png" /></p><br />
 <p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171128_211305.png" /></p></p>
+<div class="toc">
+<ul>
+<li><a href="#_1">总结</a></li>
+<li><a href="#part-a">Part A 连续信号处理</a><ul>
+<li><a href="#i-placement-des-poles-1948">I) Placement des pôles 1948</a><ul>
+<li><a href="#11">1.1 目的</a></li>
+<li><a href="#12-ftboftbf">1.2 分别回忆针对FTBO和FTBF零点与极点的关系</a></li>
+<li><a href="#13-lieu-devans">1.3 Lieu d’Evans</a></li>
+<li><a href="#131-conditions-definissant-le-lieu-devans">1.3.1  Conditions définissant le lieu d’Evans</a></li>
+<li><a href="#132-exemples-a">1.3.2  exemples a)</a></li>
+<li><a href="#132-exemples-b">1.3.2  exemples b)</a><ul>
+<li><a href="#-matlab-poles-dominants">---- Matlab pôles dominants</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#ii-commande-par-retour-detat">II) Commande par retour d’état</a><ul>
+<li><a href="#21">2.1 转换成状态空间形式</a><ul>
+<li><a href="#211">2.1.1  选择状态变量</a><ul>
+<li><a href="#3">例题 3阶系统</a></li>
+</ul>
+</li>
+<li><a href="#212">2.1.2  数学分析</a></li>
+<li><a href="#213">2.1.3  由转换方程到状态表示</a></li>
+<li><a href="#214">2.1.4  状态表示到转换方程</a></li>
+</ul>
+</li>
+<li><a href="#22">2.2  系统的可控性和可观性</a><ul>
+<li><a href="#221">2.2.1 系统的可控性(可调性)</a><ul>
+<li><a href="#_2">举例说明</a></li>
+</ul>
+</li>
+<li><a href="#222">2.2.2 系统的可观性</a><ul>
+<li><a href="#_3">举例说明</a></li>
+</ul>
+</li>
+<li><a href="#matlab">可控性可观性总结及matlab程序</a><ul>
+<li><a href="#-matlab-observable-controlable">---- Matlab observable controlable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#23-commande-par-retour-detat">2.3  Commande par retour d’état</a><ul>
+<li><a href="#231-presentation">2.3.1  Présentation</a></li>
+<li><a href="#232-etude-dun-systeme-siso">2.3.2  Etude d’un système SISO</a><ul>
+<li><a href="#2321-ackermann-sur-cayley-hamilton">2.3.2.1 方法一 Ackermann sur Cayley-Hamilton</a></li>
+<li><a href="#2322-la-methode-directe">2.3.2.2 方法二 la méthode directe</a></li>
+<li><a href="#2323-logiciel">2.3.2.3 方法三 logiciel</a><ul>
+<li><a href="#-matlab-k-de-siso">---- Matlab K de SISO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#233-etude-dun-systeme-mimo">2.3.3  Etude d’un système MIMO</a><ul>
+<li><a href="#-matlab-k-de-mimo">---- Matlab K de MIMO</a></li>
+</ul>
+</li>
+<li><a href="#234-reconstructeur-detat-ou-observateur">2.3.4  Reconstructeur d’état ou observateur</a><ul>
+<li><a href="#-matlab-l-de-mimo">---- Matlab L de MIMO</a></li>
+</ul>
+</li>
+<li><a href="#235-observateur">2.3.5  Observateur 状态反馈控制</a></li>
+<li><a href="#236-integrale">2.3.6 Intégrale 状态反馈控制</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#iii-lqr">III) LQR</a><ul>
+<li><a href="#31-critere-doptimisation-quadratique">3.1 Critère d’optimisation quadratique</a><ul>
+<li><a href="#311-presentation">3.1.1 Présentation</a></li>
+<li><a href="#312-critere-des-performances-jx">3.1.2 Critère des performances Jx</a></li>
+<li><a href="#313-critere-deconomie-energetique-ju">3.1.3 Critère d’économie énergétique Ju</a></li>
+</ul>
+</li>
+<li><a href="#314-critere-quadratiquede-compromis-j_lq">3.14 Critère quadratique(de compromis) $J_{LQ}$.</a></li>
+<li><a href="#32-solution-du-probleme-lqr">3.2 Solution du problème LQR</a><ul>
+<li><a href="#-matlabkpe">---- Matlab[K,P,E]</a></li>
+</ul>
+</li>
+<li><a href="#33-lqr">3.3 LQR应用</a></li>
+</ul>
+</li>
+<li><a href="#ivlqg">IV)LQG</a></li>
+<li><a href="#41-principe-du-filtre-de-kalman">4.1 Principe du filtre de Kalman</a></li>
+<li><a href="#42-lq">4.2 类比LQ优化</a></li>
+<li><a href="#43-mise-en-uvre-du-filtre-de-kalman">4.3 Mise en œuvre du filtre de Kalman</a></li>
+<li><a href="#44-la-commande-lqg">4.4 La commande LQG</a></li>
+<li><a href="#441-le-principe-de-separation">4.4.1 Le principe de séparation</a><ul>
+<li><a href="#-matlab-lqg">---- matlab LQG</a></li>
+</ul>
+</li>
+<li><a href="#442-sechage-du-kaolin">4.4.2 干燥高岭土 Séchage du Kaolin</a><ul>
+<li><a href="#-matlab-kalman">----- matlab kalman</a></li>
+</ul>
+</li>
+<li><a href="#v-conception-des-systemes-asservis-intelligents">V) Conception des systèmes asservis intelligents</a></li>
+<li><a href="#51-logique-floue">5.1 Logique floue</a></li>
+<li><a href="#52-reseaux-de-neurones">5.2 Réseaux de neurones</a></li>
+<li><a href="#53-algorithmes-genetiques">5.3 Algorithmes génétiques</a></li>
+<li><a href="#vi-simulations-numeriques">VI) Simulations numériques</a></li>
+<li><a href="#61-software-in-the-loop-sil">6.1 Software In the Loop :SIL</a></li>
+<li><a href="#62-hardware-in-the-loop-hil">6.2 Hardware In the Loop :HIL</a></li>
+</ul>
+</li>
+<li><a href="#a">附录 A</a><ul>
+<li><a href="#i">I 英法对照</a></li>
+<li><a href="#ii-matlab">II Matlab 公式</a></li>
+<li><a href="#td">TD习题</a><ul>
+<li><a href="#td01">TD01</a><ul>
+<li><a href="#ex01">Ex01</a></li>
+<li><a href="#ex02">Ex02</a><ul>
+<li><a href="#a_1">a)</a></li>
+<li><a href="#b">b)</a></li>
+<li><a href="#c">c)</a></li>
+<li><a href="#d">d)</a></li>
+<li><a href="#e">e)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#td02">TD02</a><ul>
+<li><a href="#ex01_1">Ex01</a></li>
+<li><a href="#ex02_1">Ex02</a></li>
+<li><a href="#ex03">Ex03</a></li>
+<li><a href="#ex04">Ex04</a></li>
+<li><a href="#ex05">Ex05</a></li>
+</ul>
+</li>
+<li><a href="#td03-chariot-et-prehenseur">TD03 Chariot et Prehenseur</a><ul>
+<li><a href="#1-equation-de-movement">1) Equation de movement</a></li>
+</ul>
+</li>
+<li><a href="#td04">TD04</a></li>
+</ul>
+</li>
+<li><a href="#td06">TD06</a></li>
+</ul>
+</li>
+<li><a href="#median-2016">Median 2016</a><ul>
+<li><a href="#1">1) 微分方程</a></li>
+<li><a href="#2">2) 代入数据</a></li>
+<li><a href="#3_1">3) 可控性和可观性</a></li>
+<li><a href="#4-pole-dominant">4) Pôle dominant和性能指标</a></li>
+<li><a href="#5-pkk">5) 矩阵P,K和性能参数(重新计算K)</a></li>
+<li><a href="#6-l">6) 矩阵L和观测器</a></li>
+<li><a href="#7-x1cm">7) 观测器和系统的积分部件的初始条件各自对X1和Cm的影响</a></li>
+<li><a href="#9rhokopt">9)权重$\rho$及其确定的Kopt和系统性能指标</a></li>
+<li><a href="#10lq">10)结合LQ和观测器</a></li>
+<li><a href="#matlab_1">完整matlab程序</a></li>
+</ul>
+</li>
+<li><a href="#median-2017">Median 2017</a><ul>
+<li><a href="#1_1">1.建模</a></li>
+<li><a href="#2_1">2.代数</a></li>
+<li><a href="#3_2">3.能控性和能观性</a></li>
+<li><a href="#4pole-dominant">4.pôle dominant 和 系统响应特征</a></li>
+<li><a href="#5-kpole">5. Kpôle</a><ul>
+<li><a href="#q">=====Q</a></li>
+</ul>
+</li>
+<li><a href="#6lqrftbfpole">6.LQR、FTBF的pôle</a><ul>
+<li><a href="#q_1">=====Q</a></li>
+</ul>
+</li>
+<li><a href="#7">7. 观测器</a></li>
+<li><a href="#8">8.初始条件的影响</a></li>
+</ul>
+</li>
+<li><a href="#part-b">Part B 离散信号处理</a><ul>
+<li><a href="#_4">序</a></li>
+<li><a href="#i-z">I) Z 变换</a><ul>
+<li><a href="#1_2">1 定义和性质</a></li>
+<li><a href="#2-pz">2 P平面和Z平面的对应关系</a></li>
+<li><a href="#3-inversion-de-la-transformee-en-z">3 Inversion de la transformée en Z</a></li>
+<li><a href="#31-generalites">3.1 Généralités</a></li>
+<li><a href="#32-methodes-analytiques">3.2 Méthodes analytiques</a></li>
+<li><a href="#33-methode-de-lequation-aux-differences-equation-recurrente">3.3 Méthode de l&rsquo;équation aux différences (équation récurrente)</a></li>
+</ul>
+</li>
+<li><a href="#ii">II) 采样系统理论</a><ul>
+<li><a href="#1_3">1 信号采样</a><ul>
+<li><a href="#_5">信号分类</a></li>
+<li><a href="#11-definitions">1.1 Définitions</a></li>
+<li><a href="#12-echantillonneur-bloqueur">1.2 Échantillonneur bloqueur</a></li>
+<li><a href="#13-echantillonnage-reel">1.3 Échantillonnage réel</a></li>
+<li><a href="#14-transformee-de-laplace-dun-signal-echantillonne">1.4 Transformée de Laplace d&rsquo;un signal échantillonné</a><ul>
+<li><a href="#141-transformee-de-laplace-dune-impulsion-a-lorigine">1.4.1 Transformée de Laplace d&rsquo;une impulsion à l&rsquo;origine</a></li>
+<li><a href="#142-cas-dune-impulsion-decalee-de-te">1.4.2 Cas d&rsquo;une impulsion décalée de Te</a></li>
+<li><a href="#143transformee-de-laplace-du-signal-echantillonne-reel">1.4.3Transformée de Laplace du signal échantillonné réel</a></li>
+</ul>
+</li>
+<li><a href="#15-choix-de-la-frequence-dechantillonnage">1.5 Choix de la fréquence d&rsquo;échantillonnage</a></li>
+<li><a href="#16-modelisation-de-la-transformee-de-laplace-dun-signal-echantillonne">1.6 Modélisation de la transformée de Laplace d&rsquo;un signal échantillonné</a></li>
+<li><a href="#17-reconstitution-dun-signal-echantillonne">1.7 Reconstitution d&rsquo;un signal échantillonné</a><ul>
+<li><a href="#171-fonction-de-transfert-dordre-0-boz">1.7.1 Fonction de transfert d&rsquo;ordre 0 (BOZ)</a></li>
+<li><a href="#172-reponse-frequentielle-du-boz">1.7.2 Réponse fréquentielle du BOZ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#2_2">2 采样系统</a><ul>
+<li><a href="#23-application">2.3 Application</a><ul>
+<li><a href="#231-premier-cas">2.3.1 Premier cas</a></li>
+<li><a href="#232-deuxieme-cas">2.3.2 Deuxième cas</a></li>
+<li><a href="#233-fonction-de-transfert-dun-processus-muni-dun-boz">2.3.3 Fonction de transfert d&rsquo;un processus muni d&rsquo;un BOZ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#3-synthese-dune-fonction-de-transfert-en-z">3 Synthèse d&rsquo;une fonction de transfert en z</a><ul>
+<li><a href="#31-mise-en-evidence-de-lequation-recurrente">3.1 Mise en évidence de l&rsquo;équation récurrente</a></li>
+<li><a href="#32-cas-dun-systeme-quelconque">3.2 Cas d&rsquo;un système quelconque</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#iii-comportement-des-systemes-asservis">III) Comportement des systèmes asservis</a><ul>
+<li><a href="#1-stabilite">1 Stabilité</a><ul>
+<li><a href="#11-stabilite-absolue">1.1 Stabilité absolue</a></li>
+<li><a href="#12-critere-de-jury">1.2 Critère de Jury 朱利判据</a></li>
+<li><a href="#13-application">1.3 Application</a><ul>
+<li><a href="#131-systeme-dordre-1">1.3.1 Système d&rsquo;ordre 1</a></li>
+<li><a href="#132-systeme-dordre-2">1.3.2 Système d&rsquo;ordre 2</a></li>
+<li><a href="#133-systeme-dordre-3">1.3.3 Système d&rsquo;ordre 3</a></li>
+</ul>
+</li>
+<li><a href="#14-application-a-un-systeme-du-premier-ordre">1.4 Application à un système du premier ordre</a></li>
+<li><a href="#15-correspondance-plan-p-plan-z">1.5 Correspondance plan p – plan z</a></li>
+<li><a href="#16-degre-de-stabilite-robustesse">1.6 Degré de stabilité : robustesse</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
 <h1 id="part-b"><a name="user-content-part-b" href="#part-b" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Part B 离散信号处理</h1>
-<h2 id="i-transformee-en-z"><a name="user-content-i-transformee-en-z" href="#i-transformee-en-z" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>I) Transformée en Z</h2>
-<h4 id="1_2"><a name="user-content-1_2" href="#1_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1 信号分类</h4>
-<p>Classification des signaux </p>
-<h4 id="11-signal-analogique"><a name="user-content-11-signal-analogique" href="#11-signal-analogique" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.1 Signal analogique</h4>
-<p>在时间和幅度上都是连续的<br />
-Le signal existe à tout instant t et peut prendre un nombre infini de valeurs. Il est continu dans le temps et en amplitude.</p>
-<h4 id="12-signal-echantillonne-discret"><a name="user-content-12-signal-echantillonne-discret" href="#12-signal-echantillonne-discret" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.2 Signal échantillonné discret.</h4>
-<p>在时间上是连续的，幅度上不连续<br />
-Il n&rsquo;existe que pour des instants donnés. Il peut prendre un nombre fini de valeurs aux instants considérés. Il est discontinu dans le temps et continu en amplitude.</p>
-<h4 id="13-signal-quantifie"><a name="user-content-13-signal-quantifie" href="#13-signal-quantifie" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.3 Signal quantifié 量化的</h4>
-<p>在时间上是不连续的，幅度上连续<br />
-Il existe à tout instant t et peut prendre un nombre fini de valeurs. Il est continu dans le temps et discontinu en amplitude.</p>
-<h4 id="14-signal-numerique"><a name="user-content-14-signal-numerique" href="#14-signal-numerique" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.4 Signal numérique</h4>
-<p>在时间和幅度上都是不连续的<br />
-Il n&rsquo;existe que pour des instants donnés et peut prendre un nombre fini de valeurs. Il est discontinu dans le temps et discontinu en amplitude.</p>
-<h3 id="2-transformee-en-z"><a name="user-content-2-transformee-en-z" href="#2-transformee-en-z" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2 Transformée en Z</h3>
-<h4 id="21_1"><a name="user-content-21_1" href="#21_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1 定义和性质</h4>
-<h5 id="211-laplace-z"><a name="user-content-211-laplace-z" href="#211-laplace-z" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1.1 Laplace ==&gt; Z 变换</h5>
-<p>Passage de la transformée de Laplace à la transformée en Z</p>
-<h5 id="212_1"><a name="user-content-212_1" href="#212_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1.2 计算规则和性质</h5>
-<p>Propriétés et règles de calcul</p>
-<h5 id="213-z"><a name="user-content-213-z" href="#213-z" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1.3 Z表格</h5>
-<p>Établissement d&rsquo;une table de transformée en Z</p>
-<h4 id="22-pz"><a name="user-content-22-pz" href="#22-pz" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.2 P平面和Z平面的对应关系</h4>
-<p>Correspondance entre le plan p et le plan des z</p>
-<h4 id="23-inversion-de-la-transformee-en-z"><a name="user-content-23-inversion-de-la-transformee-en-z" href="#23-inversion-de-la-transformee-en-z" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3 Inversion de la transformée en Z</h4>
-<h4 id="231-generalites"><a name="user-content-231-generalites" href="#231-generalites" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3.1 Généralités</h4>
-<h4 id="232-methodes-analytiques"><a name="user-content-232-methodes-analytiques" href="#232-methodes-analytiques" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3.2 Méthodes analytiques</h4>
-<h4 id="233-methodes-numeriques"><a name="user-content-233-methodes-numeriques" href="#233-methodes-numeriques" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3.3 Méthodes numériques</h4>
+<h2 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>序</h2>
+<ul>
+<li>
+<p>疑问</p>
+<ul>
+<li>margin state</li>
+<li>波特图</li>
+<li>确定系数：r0 r1</li>
+<li>为什么要变3阶</li>
+<li>p1 p2 p3怎么确定</li>
+<li>lerreur de position, vitesse</li>
+</ul>
+</li>
+<li>
+<p>连续信号的采样会导致信息丢失</p>
+<ul>
+<li>采样周期</li>
+<li>数值取整数 quantization<ul>
+<li>缩小 step size</li>
+</ul>
+</li>
+<li>数据延迟<ul>
+<li>处理周期：测量，数字化，算法，处理</li>
+<li>延迟缩小了带宽<br />
+-电脑可以减少信息损耗</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>基本结构<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_145521.png" /></p></p>
+</li>
+<li>discrete controller：<ul>
+<li>Z 转化，应用于比较方程</li>
+<li>S 转化，应用于微分方程</li>
+<li>Z domain 用来创建比较方程</li>
+</ul>
+</li>
+<li>
+<p>创建 digital z domain controller 的三种方法：<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_150306.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_150743.png" /></p></p>
+</li>
+<li>
+<p>缺陷：</p>
+<ul>
+<li>数字化会使高频信号损失，同时丢失了phase margin的稳定性。因为0.1s的采样增加了系统的phase lag</li>
+</ul>
+</li>
+<li>
+<p>数字化的具体方法<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_151834.png" /></p></p>
+</li>
+<li>z变换不是全部内容<ul>
+<li>数字化的方法<ul>
+<li>&lsquo;zoh&rsquo;</li>
+<li>&lsquo;foh&rsquo;</li>
+<li>&lsquo;impulse&rsquo;</li>
+<li>&lsquo;tustin&rsquo; 只转换而没有hold过程</li>
+<li>&lsquo;matched&rsquo; 只转换而没有hold过程</li>
+<li>如果采样时间足够小，那么几种方法差别不大</li>
+</ul>
+</li>
+<li>impulse 更贴近Z转换的计算式 但是跟实际的函数差距比较大：两次采样数据之间没有ZOH,所以数据会回落。如果想要跟实际的数据贴近那就用ZOH<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_154803.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_155000.png" /></p></li>
+</ul>
+</li>
+</ul>
+<p>ZOH的数学证明:<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_161121.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_161057.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_161527.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_161745.png" /></p></p>
+<p>注意：<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_162818.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_163303.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_164242.png" /></p></p>
+<h2 id="i-z"><a name="user-content-i-z" href="#i-z" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>I) Z 变换</h2>
+<p>Transformée en Z</p>
+<h4 id="1_2"><a name="user-content-1_2" href="#1_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1 定义和性质</h4>
+<ul>
+<li>
+<p>1.1 Laplace ==&gt; Z 变换<br />
+Passage de la transformée de Laplace à la transformée en Z<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_174811.png" /></p></p>
+</li>
+<li>
+<p>1.2 计算规则和性质<br />
+Propriétés et règles de calcul</p>
+</li>
+<li>1.3 Z表格<br />
+Établissement d&rsquo;une table de transformée en Z</li>
+</ul>
+<h4 id="2-pz"><a name="user-content-2-pz" href="#2-pz" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2 P平面和Z平面的对应关系</h4>
+<p>Correspondance entre le plan p et le plan des z<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_175321.png" /></p></p>
+<h4 id="3-inversion-de-la-transformee-en-z"><a name="user-content-3-inversion-de-la-transformee-en-z" href="#3-inversion-de-la-transformee-en-z" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3 Inversion de la transformée en Z</h4>
+<h4 id="31-generalites"><a name="user-content-31-generalites" href="#31-generalites" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.1 Généralités</h4>
+<h4 id="32-methodes-analytiques"><a name="user-content-32-methodes-analytiques" href="#32-methodes-analytiques" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.2 Méthodes analytiques</h4>
+<p><p align="center"><img alt="" height="300px" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_175712.png" width="800px" /></p></p>
+<h4 id="33-methode-de-lequation-aux-differences-equation-recurrente"><a name="user-content-33-methode-de-lequation-aux-differences-equation-recurrente" href="#33-methode-de-lequation-aux-differences-equation-recurrente" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.3 Méthode de l&rsquo;équation aux différences (équation récurrente)</h4>
+<p><p align="center"><img alt="" height="300px" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_180037.png" width="800px" /></p></p>
 <h2 id="ii"><a name="user-content-ii" href="#ii" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>II) 采样系统理论</h2>
 <p>Systèmes échantillonnés</p>
 <h3 id="1_3"><a name="user-content-1_3" href="#1_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1 信号采样</h3>
 <p>Signal échantillonné</p>
+<h4 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>信号分类</h4>
+<p>Classification des signaux <br />
+- 1 Signal analogique<br />
+在时间和幅度上都是连续的<br />
+Le signal existe à tout instant t et peut prendre un nombre infini de valeurs. Il est continu dans le temps et en amplitude.<br />
+- 2 Signal échantillonné discret.<br />
+在时间上是连续的，幅度上不连续<br />
+Il n&rsquo;existe que pour des instants donnés. Il peut prendre un nombre fini de valeurs aux instants considérés. Il est discontinu dans le temps et continu en amplitude.<br />
+- 3 Signal quantifié 量化的<br />
+在时间上是不连续的，幅度上连续<br />
+Il existe à tout instant t et peut prendre un nombre fini de valeurs. Il est continu dans le temps et discontinu en amplitude.<br />
+- 4 Signal numérique<br />
+在时间和幅度上都是不连续的<br />
+Il n&rsquo;existe que pour des instants donnés et peut prendre un nombre fini de valeurs. Il est discontinu dans le temps et discontinu en amplitude.</p>
 <h4 id="11-definitions"><a name="user-content-11-definitions" href="#11-definitions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.1 Définitions</h4>
+<p>Le plus souvent l&rsquo;échantillonnage est effectué à des instants équidistants : l&rsquo;espace entre ces instants est appelé période d&rsquo;échantillonnage.<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_180851.png" /></p></p>
 <h4 id="12-echantillonneur-bloqueur"><a name="user-content-12-echantillonneur-bloqueur" href="#12-echantillonneur-bloqueur" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.2 Échantillonneur bloqueur</h4>
+<p><p align="center"><img alt="" height="250px" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_183857.png" width="400px" /></p></p>
 <h4 id="13-echantillonnage-reel"><a name="user-content-13-echantillonnage-reel" href="#13-echantillonnage-reel" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.3 Échantillonnage réel</h4>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_184026.png" /></p></p>
 <h4 id="14-transformee-de-laplace-dun-signal-echantillonne"><a name="user-content-14-transformee-de-laplace-dun-signal-echantillonne" href="#14-transformee-de-laplace-dun-signal-echantillonne" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.4 Transformée de Laplace d&rsquo;un signal échantillonné</h4>
-<h5 id="141transformee-de-laplace-dune-impulsion-a-lorigine5-142cas-dune-impulsion-decalee-de-te"><a name="user-content-141transformee-de-laplace-dune-impulsion-a-lorigine5-142cas-dune-impulsion-decalee-de-te" href="#141transformee-de-laplace-dune-impulsion-a-lorigine5-142cas-dune-impulsion-decalee-de-te" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.4.1Transformée de Laplace d&rsquo;une impulsion à l&rsquo;origine5 142Cas d&rsquo;une impulsion décalée de Te</h5>
+<h5 id="141-transformee-de-laplace-dune-impulsion-a-lorigine"><a name="user-content-141-transformee-de-laplace-dune-impulsion-a-lorigine" href="#141-transformee-de-laplace-dune-impulsion-a-lorigine" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.4.1 Transformée de Laplace d&rsquo;une impulsion à l&rsquo;origine</h5>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_184423.png" /></p></p>
+<h5 id="142-cas-dune-impulsion-decalee-de-te"><a name="user-content-142-cas-dune-impulsion-decalee-de-te" href="#142-cas-dune-impulsion-decalee-de-te" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.4.2 Cas d&rsquo;une impulsion décalée de Te</h5>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_184519.png" /></p></p>
 <h5 id="143transformee-de-laplace-du-signal-echantillonne-reel"><a name="user-content-143transformee-de-laplace-du-signal-echantillonne-reel" href="#143transformee-de-laplace-du-signal-echantillonne-reel" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.4.3Transformée de Laplace du signal échantillonné réel</h5>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_184647.png" /></p><br />
+On constate que la transformée de Laplace du signal échantillonné réel dépend de la nature de l&rsquo;échantillonneur  à  cause  du  terme  e$^{−p\Delta t}$ (ce  terme  est  un  retard  pur)  ainsi  que  la periode d&rsquo;échantillonnage Te</p>
 <h4 id="15-choix-de-la-frequence-dechantillonnage"><a name="user-content-15-choix-de-la-frequence-dechantillonnage" href="#15-choix-de-la-frequence-dechantillonnage" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.5 Choix de la fréquence d&rsquo;échantillonnage</h4>
-<h4 id="16-modelisation-de-la-transformee-de-laplace-dun-signal-echantillonne9"><a name="user-content-16-modelisation-de-la-transformee-de-laplace-dun-signal-echantillonne9" href="#16-modelisation-de-la-transformee-de-laplace-dun-signal-echantillonne9" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.6 Modélisation de la transformée de Laplace d&rsquo;un signal échantillonné9</h4>
+<p>le théoèrme de Shannon: $F_{e} &gt; 2f_{0}$<br />
+En pratique, on adopte: $5f_{0} &lt; F_{e} &lt; 25f_{0}$<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_185815.png" /></p></p>
+<h4 id="16-modelisation-de-la-transformee-de-laplace-dun-signal-echantillonne"><a name="user-content-16-modelisation-de-la-transformee-de-laplace-dun-signal-echantillonne" href="#16-modelisation-de-la-transformee-de-laplace-dun-signal-echantillonne" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.6 Modélisation de la transformée de Laplace d&rsquo;un signal échantillonné</h4>
 <h4 id="17-reconstitution-dun-signal-echantillonne"><a name="user-content-17-reconstitution-dun-signal-echantillonne" href="#17-reconstitution-dun-signal-echantillonne" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.7 Reconstitution d&rsquo;un signal échantillonné</h4>
 <p>En traitement du signal, un bloqueur est un dispositif logique utilisé pour la commande des procédés, dans le cas de signaux échantillonnés.Il existe plusieurs sortes de bloqueurs. Leur principe est de « recréer » du signal entre des valeurs discrètes fournies en entrée. Le plus simple est le bloqueur d&rsquo;ordre 0 dont la sortie garde la même valeur jusqu&rsquo;à l&rsquo;arrivée d&rsquo;une nouvelle valeur en entrée. L&rsquo;ordre du bloqueur représente la complexité de la section de courbe située entre deux valeurs :</p>
 <ul>
@@ -3235,417 +3451,128 @@ Il n&rsquo;existe que pour des instants donnés et peut prendre un nombre fini d
 <li>pour un ordre n, on obtiendra une courbe d&rsquo;ordre n entre 2 valeurs successives.</li>
 </ul>
 <h5 id="171-fonction-de-transfert-dordre-0-boz"><a name="user-content-171-fonction-de-transfert-dordre-0-boz" href="#171-fonction-de-transfert-dordre-0-boz" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.7.1 Fonction de transfert d&rsquo;ordre 0 (BOZ)</h5>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_190144.png" /></p></p>
 <h5 id="172-reponse-frequentielle-du-boz"><a name="user-content-172-reponse-frequentielle-du-boz" href="#172-reponse-frequentielle-du-boz" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.7.2 Réponse fréquentielle du BOZ</h5>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_190444.png" /></p></p>
+<p>Si nous tolèrons une erreur $\varepsilon$ sur le signal reconstitué, on montre que la fréquence d&rsquo;échantillonnage doit vérifier la relation : <br />
+$$Fe≥f_{0}*\frac{2.2}{\sqrt{\varepsilon}}$$</p>
 <h3 id="2_2"><a name="user-content-2_2" href="#2_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2 采样系统</h3>
 <p>Système échantillonné</p>
-<h4 id="21-definitions"><a name="user-content-21-definitions" href="#21-definitions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1 Définitions</h4>
-<h4 id="22-fonction-de-transfert-echantillonnee"><a name="user-content-22-fonction-de-transfert-echantillonnee" href="#22-fonction-de-transfert-echantillonnee" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.2 Fonction de transfert échantillonnée</h4>
+<ul>
+<li>2.1 Définitions</li>
+<li>2.2 Fonction de transfert échantillonnée<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_195459.png" /></p></li>
+</ul>
 <h4 id="23-application"><a name="user-content-23-application" href="#23-application" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3 Application</h4>
 <h5 id="231-premier-cas"><a name="user-content-231-premier-cas" href="#231-premier-cas" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3.1 Premier cas</h5>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_200006.png" /></p></p>
 <h5 id="232-deuxieme-cas"><a name="user-content-232-deuxieme-cas" href="#232-deuxieme-cas" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3.2 Deuxième cas</h5>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_200628.png" /></p></p>
 <h5 id="233-fonction-de-transfert-dun-processus-muni-dun-boz"><a name="user-content-233-fonction-de-transfert-dun-processus-muni-dun-boz" href="#233-fonction-de-transfert-dun-processus-muni-dun-boz" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3.3 Fonction de transfert d&rsquo;un processus muni d&rsquo;un BOZ</h5>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_201524.png" /></p></p>
 <h3 id="3-synthese-dune-fonction-de-transfert-en-z"><a name="user-content-3-synthese-dune-fonction-de-transfert-en-z" href="#3-synthese-dune-fonction-de-transfert-en-z" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3 Synthèse d&rsquo;une fonction de transfert en z</h3>
 <h4 id="31-mise-en-evidence-de-lequation-recurrente"><a name="user-content-31-mise-en-evidence-de-lequation-recurrente" href="#31-mise-en-evidence-de-lequation-recurrente" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.1 Mise en évidence de l&rsquo;équation récurrente</h4>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_202359.png" /></p></p>
 <h4 id="32-cas-dun-systeme-quelconque"><a name="user-content-32-cas-dun-systeme-quelconque" href="#32-cas-dun-systeme-quelconque" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.2 Cas d&rsquo;un système quelconque</h4>
+<p>Pour retrouver l&rsquo;équation récurrente, il suffira d&rsquo;agir selon l&rsquo;algorithme suivant :</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked> Mettre F(z) sous la forme d&rsquo;un rapport de deux polynômes en $z^{−k}$ .</li>
+<li class="task-list-item"><input type="checkbox" disabled checked> En déduire la relation qui lie S(z) à E(z).</li>
+<li class="task-list-item"><input type="checkbox" disabled checked> Exprimer la relation de récurrence sachant que multiplier $z^{−1}$ revient à retarder d&rsquo;une période<br />
+d&rsquo;échantillonnage .</li>
+</ul>
 <h2 id="iii-comportement-des-systemes-asservis"><a name="user-content-iii-comportement-des-systemes-asservis" href="#iii-comportement-des-systemes-asservis" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>III) Comportement des systèmes asservis</h2>
 <h3 id="1-stabilite"><a name="user-content-1-stabilite" href="#1-stabilite" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1 Stabilité</h3>
 <h4 id="11-stabilite-absolue"><a name="user-content-11-stabilite-absolue" href="#11-stabilite-absolue" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.1 Stabilité absolue</h4>
-<h4 id="12-critere-de-jury"><a name="user-content-12-critere-de-jury" href="#12-critere-de-jury" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.2 Critère de Jury</h4>
+<p>On rappelle qu&rsquo;un système est stable, lorsque écarté de sa postion initiale, il tend à y revenir.<br />
+Décomposons S(Z)/Z en éléments simples, puis revenons à S(z), il vient :</p>
+<p>$$\frac{S(z)}{z}=\frac{A_{1}}{z-z_{1}}+\frac{A_{2}}{z-z_{2}}+\frac{A_{3}}{z-z_{3}}+&hellip;+\frac{A_{n}}{z-z_{n}}$$<br />
+<strong>$$n : ordre.du.système$$</strong><br />
+Donc,<br />
+$$S(z)=\frac{A_{1}z}{z-z_{1}}+\frac{A_{2}z}{z-z_{2}}+\frac{A_{3}z}{z-z_{1}}+&hellip;+\frac{A_{n}z}{z-z_{n}}$$</p>
+<p>Tous les termes de S(z) sont de la forme $\frac{z}{z-\alpha}$. Et pour originaux des termes de la forme $e^{aKT_{e}}$, avec:<br />
+- a&lt;0 si ∣$\alpha$∣&lt;1<br />
+- a&gt;0 si ∣$\alpha$∣&gt;1<br />
+Donc,<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_220736.png" /></p></p>
+<p><strong>FTBF à retour unitaire</strong><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_221003.png" /></p></p>
+<p><strong>FTBF à retour Non-unitaire</strong><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171220_221330.png" /></p></p>
+<div class="admonition caution">
+<p class="admonition-title">系统稳定的条件</p>
+<p>在1+FTBO(z)=0条件下求得的根，其绝对值小于1<br />
+Dans ces conditions un système bouclé est stable si les racines de son équation caractéristique 1+FTBO(z)=0 ont, chacune, leur module inférieur à 1.</p>
+</div>
+<h4 id="12-critere-de-jury"><a name="user-content-12-critere-de-jury" href="#12-critere-de-jury" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.2 Critère de Jury 朱利判据</h4>
+<p><strong>两个条件:</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled> 当特征方程中的最高阶数n为<ul>
+<li>奇数：<ul>
+<li>f(<code>z=1</code>)&gt;0</li>
+<li>f(<code>z=-1</code>)&lt;0</li>
+</ul>
+</li>
+<li>偶数：<ul>
+<li>f(<code>z=1</code>)&gt;0</li>
+<li>f(<code>z=-1</code>)&gt;0</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled> 验证<ul>
+<li>建立Jury array a,b,c各有两行，反向重新写一遍。<code>n≥3时才有jury表格</code><ul>
+<li>将Z的系数$a_{n}$按照Z的阶数从低到高排列</li>
+<li>$b_{k}$的值 = det($a_{0},a_{n-k};a_{n},a_{k}$) ==&gt; $b_{k} = a_{0} a_{k} - a_{n} a_{n-k}$</li>
+<li>$c_{k}$的值 = det($b_{0},b_{n-k-1};b_{n-1},b_{k}$) ==&gt; $c_{k} = b_{0} b_{k} - b_{n-1} b_{n-k-1}$</li>
+<li>以此类推直到只剩下3项 $r_{0},r_{1},r_{2}$，行数为<code>2n-3</code>,</li>
+</ul>
+</li>
+<li>$|a_{0}|&lt;|a_{n}|$</li>
+<li>$|b_{0}|&gt;|b_{n-1}|$</li>
+<li>$|c_{0}|&gt;|c_{n-2}|$</li>
+<li>&hellip;</li>
+<li>$|r_{0}|&gt;|r_{2}|$</li>
+</ul>
+</li>
+</ul>
 <h4 id="13-application"><a name="user-content-13-application" href="#13-application" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.3 Application</h4>
 <h5 id="131-systeme-dordre-1"><a name="user-content-131-systeme-dordre-1" href="#131-systeme-dordre-1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.3.1 Système d&rsquo;ordre 1</h5>
+<ul>
+<li>$D(z)=a_{1}z+a_{0}$<ul>
+<li>$a_{1}+a_{0}&gt;0$</li>
+<li>$-a_{1}+a_{0}&lt;0$</li>
+</ul>
+</li>
+</ul>
 <h5 id="132-systeme-dordre-2"><a name="user-content-132-systeme-dordre-2" href="#132-systeme-dordre-2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.3.2 Système d&rsquo;ordre 2</h5>
+<ul>
+<li>$D(z)=a_{2}z^{2}+a^{1}z+a_{0}$<ul>
+<li>$a_{2}+a_{1}+a_{0}&gt;0$</li>
+<li>$a_{2}-a_{1}+a_{0}&gt;0$</li>
+<li>$|a_{0}|&lt;a_{2}$</li>
+</ul>
+</li>
+</ul>
 <h5 id="133-systeme-dordre-3"><a name="user-content-133-systeme-dordre-3" href="#133-systeme-dordre-3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.3.3 Système d&rsquo;ordre 3</h5>
-<h5 id="134-systeme-dordre-4"><a name="user-content-134-systeme-dordre-4" href="#134-systeme-dordre-4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.3.4 système d&rsquo;ordre 4</h5>
+<ul>
+<li>$D(z)=a_{3}z^{3}+a_{2}z^{2}+a^{1}z+a_{0}$<ul>
+<li>$a_{3}+a_{2}+a_{1}+a_{0}&gt;0$</li>
+<li>$-a_{3}+a_{2}-a_{1}+a_{0}&lt;0$</li>
+<li>$|a_{0}|&lt;a_{3}$</li>
+<li>$|a_{0}^{2}-a_{3}^{2}|&gt;|a_{0}a_{2}-a_{1}a_{3}|$</li>
+</ul>
+</li>
+</ul>
 <h4 id="14-application-a-un-systeme-du-premier-ordre"><a name="user-content-14-application-a-un-systeme-du-premier-ordre" href="#14-application-a-un-systeme-du-premier-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.4 Application à un système du premier ordre</h4>
-<h4 id="15-correspondance-plan-p-plan-z"><a name="user-content-15-correspondance-plan-p-plan-z" href="#15-correspondance-plan-p-plan-z" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.5 Correspondance plan p – plan z</h4>
-<h4 id="16-degre-de-stabilite-robustesse"><a name="user-content-16-degre-de-stabilite-robustesse" href="#16-degre-de-stabilite-robustesse" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.6 Degré de stabilité : robustesse</h4>
-<h3 id="2-precision-statique"><a name="user-content-2-precision-statique" href="#2-precision-statique" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2 Précision statique</h3>
-<h4 id="21-precision-en-labsence-de-perturbation"><a name="user-content-21-precision-en-labsence-de-perturbation" href="#21-precision-en-labsence-de-perturbation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1 Précision en l&rsquo;absence de perturbation</h4>
-<h5 id="211-reponse-a-un-echelon"><a name="user-content-211-reponse-a-un-echelon" href="#211-reponse-a-un-echelon" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1.1 Réponse à un échelon</h5>
-<h5 id="212-reponse-a-une-rampe"><a name="user-content-212-reponse-a-une-rampe" href="#212-reponse-a-une-rampe" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1.2 Réponse à une rampe</h5>
-<h5 id="213-reponse-en-acceleration"><a name="user-content-213-reponse-en-acceleration" href="#213-reponse-en-acceleration" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1.3 Réponse en accélération</h5>
-<h5 id="214-bilan"><a name="user-content-214-bilan" href="#214-bilan" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1.4 Bilan</h5>
-<h4 id="22-precision-en-presence-de-perturbations"><a name="user-content-22-precision-en-presence-de-perturbations" href="#22-precision-en-presence-de-perturbations" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.2 Précision en présence de perturbations</h4>
-<h4 id="23-conclusions"><a name="user-content-23-conclusions" href="#23-conclusions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3 Conclusions</h4>
-<h2 id="iv"><a name="user-content-iv" href="#iv" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>IV) 采样系统应用</h2>
-<p>systèmes échantillonnés</p>
-<h3 id="1-introduction"><a name="user-content-1-introduction" href="#1-introduction" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1 Introduction</h3>
-<h3 id="2-choix-de-la-periode-dechantillonnage"><a name="user-content-2-choix-de-la-periode-dechantillonnage" href="#2-choix-de-la-periode-dechantillonnage" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2 Choix de la période d&rsquo;échantillonnage</h3>
-<h4 id="21-considerations-pratiques"><a name="user-content-21-considerations-pratiques" href="#21-considerations-pratiques" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1 Considérations pratiques</h4>
-<h4 id="22-application-a-un-premier-ordre"><a name="user-content-22-application-a-un-premier-ordre" href="#22-application-a-un-premier-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.2 Application à un premier ordre</h4>
-<h4 id="23-application-a-un-second-ordre"><a name="user-content-23-application-a-un-second-ordre" href="#23-application-a-un-second-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3 Application à un second ordre</h4>
-<h4 id="24-exemples-de-choix-de-periode-dechantillonnage"><a name="user-content-24-exemples-de-choix-de-periode-dechantillonnage" href="#24-exemples-de-choix-de-periode-dechantillonnage" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.4 Exemples de choix de période d&rsquo;échantillonnage</h4>
-<h3 id="3-modele-mathematique-des-systemes-echantillonnes"><a name="user-content-3-modele-mathematique-des-systemes-echantillonnes" href="#3-modele-mathematique-des-systemes-echantillonnes" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3 Modèle mathématique des systèmes échantillonnés</h3>
-<h4 id="31-forme-generale"><a name="user-content-31-forme-generale" href="#31-forme-generale" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.1 Forme générale</h4>
-<h5 id="311-systeme-du-premier-ordre-muni-dun-boz"><a name="user-content-311-systeme-du-premier-ordre-muni-dun-boz" href="#311-systeme-du-premier-ordre-muni-dun-boz" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.1.1 Système du premier ordre muni d&rsquo;un BOZ</h5>
-<h5 id="312-systeme-du-second-ordre-muni-dun-boz"><a name="user-content-312-systeme-du-second-ordre-muni-dun-boz" href="#312-systeme-du-second-ordre-muni-dun-boz" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.1.2 Système du second ordre muni d&rsquo;un BOZ</h5>
-<h4 id="32-forme-generale-avec-integrateur"><a name="user-content-32-forme-generale-avec-integrateur" href="#32-forme-generale-avec-integrateur" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.2 Forme générale avec intégrateur</h4>
-<h5 id="321-fonction-de-transfert-dun-integrateur"><a name="user-content-321-fonction-de-transfert-dun-integrateur" href="#321-fonction-de-transfert-dun-integrateur" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.2.1 Fonction de transfert d&rsquo;un intégrateur</h5>
-<h5 id="322-forme-generale"><a name="user-content-322-forme-generale" href="#322-forme-generale" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.2.2 Forme générale</h5>
-<h4 id="33-modele-echantillonne-du-premier-ordre"><a name="user-content-33-modele-echantillonne-du-premier-ordre" href="#33-modele-echantillonne-du-premier-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.3 Modèle échantillonné du premier ordre</h4>
-<h5 id="331-comportement-statique"><a name="user-content-331-comportement-statique" href="#331-comportement-statique" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.3.1 Comportement statique</h5>
-<h5 id="332-comportement-dynamique"><a name="user-content-332-comportement-dynamique" href="#332-comportement-dynamique" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.3.2 Comportement dynamique</h5>
-<h4 id="34-modele-echantillonne-du-second-ordre"><a name="user-content-34-modele-echantillonne-du-second-ordre" href="#34-modele-echantillonne-du-second-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.4 Modèle échantillonné du second ordre</h4>
-<h5 id="341-cas-ou-les-poles-sont-reels"><a name="user-content-341-cas-ou-les-poles-sont-reels" href="#341-cas-ou-les-poles-sont-reels" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.4.1 Cas où les pôles sont réels</h5>
-<h5 id="342-cas-ou-les-poles-sont-complexes"><a name="user-content-342-cas-ou-les-poles-sont-complexes" href="#342-cas-ou-les-poles-sont-complexes" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.4.2 Cas où les pôles sont complexes</h5>
-<h2 id="v-pid"><a name="user-content-v-pid" href="#v-pid" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>V) PID 采样控制</h2>
-<p>Commande par PID, approché échantillonné</p>
-<h3 id="1introduction"><a name="user-content-1introduction" href="#1introduction" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.Introduction</h3>
-<h4 id="11choix-de-la-periode-dechantillonnage"><a name="user-content-11choix-de-la-periode-dechantillonnage" href="#11choix-de-la-periode-dechantillonnage" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.1Choix de la période d&rsquo;échantillonnage</h4>
-<h4 id="12choix-de-la-methode-de-discretisation"><a name="user-content-12choix-de-la-methode-de-discretisation" href="#12choix-de-la-methode-de-discretisation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.2Choix de la méthode de discrétisation</h4>
-<h3 id="2discretisation-des-correcteurs"><a name="user-content-2discretisation-des-correcteurs" href="#2discretisation-des-correcteurs" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.Discrétisation des correcteurs.</h3>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_103953.png" /></p></p>
-<h4 id="21regulateur-pi-numerique"><a name="user-content-21regulateur-pi-numerique" href="#21regulateur-pi-numerique" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1Régulateur PI numérique</h4>
-<p>Le régulateur PI a pour transformée de Laplace :<br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_104148.png" /></p><br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_104327.png" /></p></p>
-<h4 id="22regulateur-pid-numerique"><a name="user-content-22regulateur-pid-numerique" href="#22regulateur-pid-numerique" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.2Régulateur PID numérique.</h4>
-<p>La transmittance de Laplace d&rsquo;un PID est :<br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_104414.png" /></p><br />
-- Cette structure n&rsquo;est pas la meilleure à cause de la dérivée qui amplifie le bruit dans les hautes fréquences. Dans ce cas, il est préférable d&rsquo;utiliser un correcteur PID filtré. Cependant, à titre illustratif, nous donnons le calcul de la discrétisation de ce PID. <br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_104539.png" /></p></p>
-<h4 id="23regulateur-pid-filtre-numerique"><a name="user-content-23regulateur-pid-filtre-numerique" href="#23regulateur-pid-filtre-numerique" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3Régulateur PID filtré numérique.</h4>
-<p>由于微分器的存在放大了噪声，所以这个结构不是最好的，需要加入PID滤波器<br />
-La transmittance de Laplace d&rsquo;un PID filtré est la suivante : <br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_104806.png" /></p><br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_104839.png" /></p></p>
-<h3 id="3discretisation-du-processus"><a name="user-content-3discretisation-du-processus" href="#3discretisation-du-processus" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.Discrétisation du processus</h3>
-<h4 id="31preambule"><a name="user-content-31preambule" href="#31preambule" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.1Préambule.</h4>
-<p>Un processus continu piloté par une unité de calcul recevra sur son entrée une commande qui sera  maintenue  constante  entre  deux  instants  d&rsquo;échantillonnage.  A  cette  réalité  technologique correspond un schéma d&rsquo;échantillonnage faisant apparaître un échantillonneur d&rsquo;ordre zéro.<br />
-La structure des correcteurs PID avec un réglage par placement des pôles n&rsquo;autorise que des processus du premier et second ordre. Nous allons ici développer la discrétisation.</p>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_000520.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_000749.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_001154.png" /></p></p>
 <div class="admonition hint">
-<p>带有放置极点位置的调节器的PID只能用在1阶和2阶过程上</p>
+<p class="admonition-title">失稳</p>
+<p>因为误差只在采样的时候才计算，所以增加了系统的不稳定性</p>
 </div>
-<h4 id="32processus-du-premier-ordre"><a name="user-content-32processus-du-premier-ordre" href="#32processus-du-premier-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.2Processus du premier ordre.</h4>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_112055.png" /></p><br />
-P (z) : Fonction de transfert du système muni d&rsquo;un échantillonneur bloqueur d&rsquo;ordre zéro.<br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_112316.png" /></p></p>
-<h4 id="33processus-du-second-ordre"><a name="user-content-33processus-du-second-ordre" href="#33processus-du-second-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.3Processus du second ordre</h4>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_112430.png" /></p><br />
-P(z) peut se mettre sous la forme :<br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_112507.png" /></p></p>
-<h5 id="331-cas-des-poles-doubles"><a name="user-content-331-cas-des-poles-doubles" href="#331-cas-des-poles-doubles" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.3.1 Cas des pôles doubles</h5>
-<h5 id="332-cas-des-poles-doubles"><a name="user-content-332-cas-des-poles-doubles" href="#332-cas-des-poles-doubles" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.3.2 Cas des pôles doubles.</h5>
-<h5 id="333-cas-des-poles-reels8"><a name="user-content-333-cas-des-poles-reels8" href="#333-cas-des-poles-reels8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.3.3 Cas des pôles réels8</h5>
-<h3 id="4commande-dun-premier-ordre-par-un-pi"><a name="user-content-4commande-dun-premier-ordre-par-un-pi" href="#4commande-dun-premier-ordre-par-un-pi" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.Commande d&rsquo;un premier ordre par un P.I.</h3>
-<h4 id="41-comportement-en-premier-ordre"><a name="user-content-41-comportement-en-premier-ordre" href="#41-comportement-en-premier-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.1 Comportement en premier ordre.</h4>
-<h5 id="411-choix-du-comportement-en-boucle-fermee"><a name="user-content-411-choix-du-comportement-en-boucle-fermee" href="#411-choix-du-comportement-en-boucle-fermee" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.1.1 Choix du comportement en boucle fermée.</h5>
-<h4 id="42-comportement-en-second-ordre"><a name="user-content-42-comportement-en-second-ordre" href="#42-comportement-en-second-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.2 Comportement en second ordre</h4>
-<h4 id="43-resume-du-reglage-dun-correcteur-pi"><a name="user-content-43-resume-du-reglage-dun-correcteur-pi" href="#43-resume-du-reglage-dun-correcteur-pi" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.3 Résumé du réglage d&rsquo;un correcteur P.I</h4>
-<h5 id="431-dynamique-du-premier-ordre"><a name="user-content-431-dynamique-du-premier-ordre" href="#431-dynamique-du-premier-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.3.1 Dynamique du premier ordre</h5>
-<h5 id="432-dynamique-du-second-ordre"><a name="user-content-432-dynamique-du-second-ordre" href="#432-dynamique-du-second-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.3.2 Dynamique du second ordre.</h5>
-<h3 id="5-commande-dun-second-ordre-par-un-pid-filtre"><a name="user-content-5-commande-dun-second-ordre-par-un-pid-filtre" href="#5-commande-dun-second-ordre-par-un-pid-filtre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5 Commande d&rsquo;un second ordre par un PID filtré.</h3>
-<h4 id="51-comportement-du-second-ordre11"><a name="user-content-51-comportement-du-second-ordre11" href="#51-comportement-du-second-ordre11" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.1 Comportement du second ordre11</h4>
-<h3 id="6conclusion"><a name="user-content-6conclusion" href="#6conclusion" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>6.Conclusion</h3>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_110711.png" /></p></p>
-<h2 id="td_1"><a name="user-content-td_1" href="#td_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD习题</h2>
-<h3 id="td03"><a name="user-content-td03" href="#td03" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD03</h3>
-<h3 id="td04_1"><a name="user-content-td04_1" href="#td04_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD04</h3>
-<h4 id="ex01_2"><a name="user-content-ex01_2" href="#ex01_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex01</h4>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171130_121908.png" /></p></p>
-<h3 id="td05"><a name="user-content-td05" href="#td05" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD05</h3>
-<ul>
-<li>Objectifs   :<ul>
-<li>Modéliser un système.</li>
-<li>Établir la fonction de transfert du système. </li>
-<li>Étudier différents correcteurs numériques. </li>
-<li>Utiliser les outils Matlab, pour mener à bien l&rsquo;étude.</li>
-<li>Utiliser les outils Simulink , pour mener à bien l&rsquo;étude.</li>
-</ul>
-</li>
-</ul>
-<h4 id="ex01-presentation-du-systeme"><a name="user-content-ex01-presentation-du-systeme" href="#ex01-presentation-du-systeme" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex01 Présentation du système :</h4>
-<p>Le  système  à  asservir  en  vitesse  est  moteur  à  courant  continu  dont  les  caractéristiques  sont  les suivantes :<br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_114459.png" /></p></p>
-<ul>
-<li>R: résistance de l&rsquo;induit</li>
-<li>L: inductance de l&rsquo;induit (que nous négligerons)</li>
-<li>J: inertie ramenée sur l&rsquo;arbre moteur</li>
-<li>T$_{r}$ : couple résistant exercé par la charge mécanique (ici égal à zéro) </li>
-<li>K$_{e}$ : constante de vitesse du moteur</li>
-<li>K$_{I}$ : constante de couple du moteur</li>
-<li>f: frottement fluide (coéfficient de frottement visqueux)</li>
-</ul>
-<p>建模</p>
-<ul class="task-list">
-<li class="task-list-item">
-<p><input type="checkbox" disabled checked> 1.Equation électrique:</p>
-<ul>
-<li>$V(t) = R.i(t) + L\frac{di(t)}{dt} + \overbrace{ K_{e}.\Omega(t)}^{Force.ElectroMotrice}$</li>
-</ul>
-</li>
-<li class="task-list-item">
-<p><input type="checkbox" disabled checked> 2.Equation mécanique:</p>
-<ul>
-<li>$J.\frac{d\Omega(t)}{dt} = \overbrace{K_{I}.i(t)}^{moment.couple.electromagnetique} - \overbrace{ f.\Omega(t)}^{Perte} - C_{charge}(t)$</li>
-</ul>
-</li>
-</ul>
-<p><a href="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_115623.png">补充图片</a><br />
-<a href="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_115736.png">补充解释</a></p>
-<p>计算步骤:<br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_121053.png" /></p></p>
-<div class="codehilite"><pre><span class="n">r</span><span class="p">=</span><span class="mi">2</span><span class="p">;</span>        <span class="c">% Résistance d induit S.I</span>
-<span class="n">k</span><span class="p">=</span><span class="mf">0.1</span><span class="p">;</span>      <span class="c">% constante de vitesse et de couple du moteur SI</span>
-<span class="n">f</span><span class="p">=</span><span class="mf">0.2</span><span class="p">;</span>      <span class="c">% frottement visqueux</span>
-<span class="nb">j</span><span class="p">=</span><span class="mf">0.02</span><span class="p">;</span>     <span class="c">% Inertie de l arbre moteur</span>
-<span class="n">l</span><span class="p">=</span><span class="mf">0.5</span><span class="p">;</span>      <span class="c">% inductance de l induit (que nous négligerons)</span>
-</pre></div>
-
-
-<h4 id="ex02-fonction-de-transfert-continue"><a name="user-content-ex02-fonction-de-transfert-continue" href="#ex02-fonction-de-transfert-continue" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex02 Fonction de transfert continue</h4>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_114939.png" /></p></p>
-<div class="codehilite"><pre><span class="n">TauxBO</span><span class="p">=(</span><span class="n">r</span><span class="o">*</span><span class="nb">j</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">f</span><span class="o">+</span><span class="n">k</span>^<span class="mi">2</span><span class="p">);</span>         <span class="c">% constante de temps du système</span>
-<span class="n">k0</span><span class="p">=</span><span class="n">k</span><span class="o">/</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">f</span><span class="o">+</span><span class="n">k</span>^<span class="mi">2</span><span class="p">);</span>                 <span class="c">% gain statique</span>
-<span class="n">w0</span><span class="p">=</span><span class="mi">1</span><span class="o">/</span><span class="n">TauxBO</span><span class="p">;</span>                    <span class="c">% pulsation naturelle, boucle ouvert</span>
-<span class="n">frequence</span><span class="p">=</span><span class="n">w0</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">);</span>            <span class="c">% fréquence naturelle,w=2*pi*fréquence</span>
-
-<span class="n">num0</span><span class="p">=[</span><span class="n">k0</span><span class="p">];</span>
-<span class="n">den0</span><span class="p">=[</span><span class="n">TauxBO</span> <span class="mi">1</span><span class="p">];</span>
-<span class="n">Tm</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">num0</span><span class="p">,</span><span class="n">den0</span><span class="p">,</span><span class="s">&#39;variable&#39;</span><span class="p">,</span><span class="s">&#39;p&#39;</span><span class="p">)</span>    <span class="c">% Tm fonction de transfert continue</span>
-</pre></div>
-
-
-<div class="admonition note">
-<p class="admonition-title">Output</p>
-<p>Tm = <code>0.2439 / (0.09756 p + 1)</code></p>
-</div>
-<h4 id="ex03-discretisation-du-processus"><a name="user-content-ex03-discretisation-du-processus" href="#ex03-discretisation-du-processus" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex03 Discrétisation du processus</h4>
-<p>La période d&rsquo;échantillonnage du processus à discrétiser est Te choisie est de 50ms.</p>
-<ul>
-<li>3.1 Justifier le choix de la période d&rsquo;échantillonnage.<br />
-Le processus est discrétisé avec un échantillonneur d&rsquo;ordre zéro.<br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_122039.png" /></p></li>
-</ul>
-<div class="codehilite"><pre><span class="n">Te</span><span class="p">=</span><span class="mf">20e-3</span><span class="p">;</span>           <span class="c">% pédiode d échantillonnag d après CdCh</span>
-<span class="n">Tmd</span><span class="p">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">Tm</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span>      <span class="c">% Tmd fonction de transfert discrétisée</span>
-
-<span class="c">%la constante de temps du système sans correcteur en boucle ouvert</span>
-<span class="n">Tauxp</span> <span class="p">=</span> <span class="n">stepinfo</span><span class="p">(</span><span class="n">Tmd</span><span class="p">,</span><span class="s">&#39;RiseTimeLimits&#39;</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.63</span><span class="p">])</span>
-</pre></div>
-
-
-<div class="admonition note">
-<p class="admonition-title">Tauxp</p>
-<p>RiseTime: 0.08<br />
-SettlingTime: 0.4<br />
-SettlingMin: 0.156391105998548<br />
-SettlingMax: 0.243902416439551<br />
-Overshoot: 0<br />
-Undershoot: 0<br />
-Peak: 0.243902416439551<br />
-PeakTime: 1.58</p>
-</div>
-<ul>
-<li>3.2 Établir la fonction de transfert du moteur : <br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_122711.png" /></p></li>
-</ul>
-<div class="codehilite"><pre><span class="n">zpk</span><span class="p">(</span><span class="n">Tmd</span><span class="p">,</span><span class="s">&#39;v&#39;</span><span class="p">)</span>            <span class="c">% Pour voir ou sont les poles ( &#39;v&#39;) est la car c est une output</span>
-<span class="n">b1</span><span class="p">=</span><span class="n">Tmd</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">);</span>               <span class="c">% coefficient numérateur de Tmd</span>
-<span class="n">a1</span><span class="p">=</span><span class="n">T0d</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">);</span>               <span class="c">% coefficient dénonominateur de Tmd</span>
-</pre></div>
-
-
-<div class="admonition note">
-<p class="admonition-title">Output</p>
-<p>b1 = 0.0978058012558279<br />
-a1 = -0.598996214851105</p>
-</div>
-<h4 id="ex04-etude-de-differents-correcteurs"><a name="user-content-ex04-etude-de-differents-correcteurs" href="#ex04-etude-de-differents-correcteurs" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex04 Étude de différents correcteurs</h4>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_122831.png" /></p></p>
-<h5 id="41-correcteur-proportionnel-k-zk"><a name="user-content-41-correcteur-proportionnel-k-zk" href="#41-correcteur-proportionnel-k-zk" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.1 Correcteur proportionnel : K (z)=K</h5>
-<ul>
-<li>4.1.1 Étudier la stabilité du correcteur proportionnel en fonction de son gain K.</li>
-</ul>
-<div class="codehilite"><pre><span class="c">%pour trouver valeur l&#39;encadrement de K (0&lt;K&lt;intersection entre ligne bleue et cercle)</span>
-
-<span class="n">sisotool</span><span class="p">(</span><span class="n">Tmd</span><span class="p">);</span> <span class="c">% plus puissant</span>
-<span class="c">%rlocus(Tmd);</span>
-<span class="c">%zgrid;</span>
-
-<span class="c">%on choisit la valeur de K</span>
-<span class="n">K</span><span class="p">=</span><span class="mi">12</span><span class="p">;</span> 
-
-<span class="c">%Fct de transfert BO ac gain proportionnel</span>
-<span class="n">Tmd_BOp</span><span class="p">=</span><span class="n">series</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">Tmd</span><span class="p">);</span>  
-
-<span class="c">%connection en boucle fermé</span>
-<span class="n">Tmd_BFp</span><span class="p">=</span><span class="n">feedback</span><span class="p">(</span><span class="n">Tmd_BOp</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>    
-<span class="n">step</span><span class="p">(</span><span class="n">Tmd_BFp</span><span class="p">);</span>      <span class="c">%afficher le step graphe</span>
-</pre></div>
-
-
-<ul>
-<li>4.1.2 Tracer les lieux d’Evan dans le plan complexe z. Commenter. </li>
-</ul>
-<div class="codehilite"><pre><span class="n">Steady_timeP</span><span class="p">=</span><span class="n">stepinfo</span><span class="p">(</span><span class="n">Tmd_BFp</span><span class="p">,</span><span class="s">&#39;SettlingTimeThreshold&#39;</span><span class="p">,</span><span class="mf">0.05</span><span class="p">);</span>        <span class="c">%le temps qu il faut le système soit stable</span>
-
-<span class="n">sisotool</span><span class="p">(</span><span class="n">Tmd_BFp</span><span class="p">);</span>
-
-<span class="cm">%{</span>
-<span class="cm">rlocus(Tmd_BFp);        %root locus, lieux d Evans</span>
-<span class="cm">axis(&#39;equal&#39;);</span>
-<span class="cm">grid;       %readable</span>
-<span class="cm">[k,poles]=rlocfind(Tmd_BFp);    %trouver la valeur du point</span>
-<span class="cm">sgrid(Zeta,frequence);</span>
-<span class="cm">%}</span>
-</pre></div>
-
-
-<div class="admonition note">
-<p class="admonition-title">Commenter</p>
-<p>Faut que le point reste dans le circle</p>
-</div>
-<h5 id="42-correcteur-pi"><a name="user-content-42-correcteur-pi" href="#42-correcteur-pi" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.2 Correcteur PI :</h5>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_124530.png" /></p><br />
-Nous choisissons comme comportement en boucle fermé un système du premier ordre avec une<br />
-constante de temps en boucle fermée de 24,4 ms.<br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_124615.png" /></p></p>
-<ul>
-<li>
-<p>4.2.1 Déterminer la fonction de transfert discrétisée de T$_{BFPI}$(z)</p>
-</li>
-<li>
-<p>cahier des charges</p>
-<ul>
-<li>erreur position nulle</li>
-<li>constante de temps de 24.4 ms</li>
-<li>gain unitaire</li>
-</ul>
-</li>
-</ul>
-<div class="codehilite"><pre><span class="n">TauxPI</span><span class="p">=</span><span class="mf">24.4e-3</span>      <span class="c">% constante de temps en BF</span>
-<span class="n">k1</span><span class="p">=</span><span class="mi">1</span><span class="p">;</span>               <span class="c">% gain statique</span>
-<span class="n">num1</span><span class="p">=[</span><span class="n">k1</span><span class="p">];</span>
-<span class="n">den1</span><span class="p">=[</span><span class="n">TauxPI</span> <span class="mi">1</span><span class="p">];</span>
-<span class="n">T1</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span><span class="n">den1</span><span class="p">,</span><span class="s">&#39;variable&#39;</span><span class="p">,</span><span class="s">&#39;p&#39;</span><span class="p">);</span>
-
-<span class="n">T1d</span><span class="p">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span><span class="n">Te</span><span class="p">);</span>     <span class="c">%Fonction de transfert discretisée</span>
-<span class="c">%hold on</span>
-</pre></div>
-
-
-<ul>
-<li>4.2.2 Déterminer les coefficients du correcteur</li>
-</ul>
-<div class="codehilite"><pre><span class="c">% gain statique du système désiré</span>
-<span class="c">%确定B1的第一种方法</span>
-<span class="n">Alpha</span><span class="p">=</span><span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Te</span><span class="o">/</span><span class="n">TauxPI</span><span class="p">);</span>
-<span class="n">B1</span><span class="p">=</span><span class="mi">1</span><span class="o">-</span><span class="n">Alpha</span><span class="p">;</span>
-<span class="c">%确定B1的第二种方法</span>
-<span class="n">B1</span><span class="p">=</span><span class="n">T1d</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span> 
-<span class="n">A1</span><span class="p">=</span><span class="n">T1d</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="c">%确定系数</span>
-<span class="n">r0pi</span><span class="p">=</span><span class="n">B1</span><span class="o">/</span><span class="n">b1</span><span class="p">;</span>
-<span class="n">r1pi</span><span class="p">=</span><span class="n">r0pi</span><span class="o">*</span><span class="n">a1</span><span class="p">;</span> 
-
-<span class="n">numPI</span><span class="p">=[</span><span class="n">r0pi</span> <span class="n">r1pi</span><span class="p">];</span>
-<span class="n">denPI</span><span class="p">=[</span><span class="mi">1</span> <span class="o">-</span><span class="mi">1</span><span class="p">];</span>
-
-<span class="c">%直接转换为Z变换函数</span>
-<span class="n">Kpi</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">numPI</span><span class="p">,</span><span class="n">denPI</span><span class="p">,</span><span class="n">Te</span><span class="p">,</span><span class="s">&#39;variable&#39;</span><span class="p">,</span><span class="s">&#39;z&#39;</span><span class="p">);</span>  <span class="c">%Fonction de transfert du correcteur PI</span>
-</pre></div>
-
-
-<div class="admonition note">
-<p class="admonition-title">Output</p>
-<p>Kpi = <code>(8.907z-5.335)/(z-1)</code></p>
-</div>
-<ul>
-<li>4.2.3 Déterminer la réponse à échelon de le temps de réponse à 5%.</li>
-</ul>
-<div class="codehilite"><pre><span class="c">%确定闭环转换函数</span>
-<span class="n">Tmd_BOpi</span><span class="p">=</span><span class="n">series</span><span class="p">(</span><span class="n">Kpi</span><span class="p">,</span><span class="n">Tmd</span><span class="p">);</span>   <span class="c">%Fct de transfert BO ac gain PI</span>
-<span class="n">Tmd_BFpi</span><span class="p">=</span><span class="n">feedback</span><span class="p">(</span><span class="n">Tmd_BOpi</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
-
-<span class="n">step</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span><span class="n">T1d</span><span class="p">,</span><span class="n">Tmd_BFpi</span><span class="p">);</span>
-<span class="n">Steady_timePI</span><span class="p">=</span><span class="n">stepinfo</span><span class="p">(</span><span class="n">Tmd_BFpi</span><span class="p">,</span><span class="s">&#39;SettlingTimeThreshold&#39;</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
-</pre></div>
-
-
-<div class="admonition note">
-<p class="admonition-title">Output</p>
-<p>RiseTime: 0.05<br />
-SettlingTime: 0.1<br />
-SettlingMin: 0.983400133996619<br />
-SettlingMax: 1<br />
-Overshoot: 2.22044604925031e-14<br />
-Undershoot: 0<br />
-Peak: 1<br />
-PeakTime: 0.9</p>
-</div>
-<ul>
-<li>4.2.4 Déterminer l&rsquo;erreur de position et l&rsquo;erreur de vitesse. </li>
-</ul>
-<h5 id="43-correcteur-pid"><a name="user-content-43-correcteur-pid" href="#43-correcteur-pid" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.3 Correcteur PID :</h5>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_154739.png" /></p></p>
-<p>Nous choisissons comme comportement en boucle fermé un système du second ordre avec une<br />
-pulsation naturelle (ou propre) $\omega_{1}$=1/$\tau_{BO}$ et de coefficient d&rsquo;amortissement m=0,707.<br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_155151.png" /></p></p>
-<div class="codehilite"><pre><span class="c">%给定的条件</span>
-<span class="c">%Determination FT discrétisée d apres Cdc</span>
-<span class="n">w1</span><span class="p">=</span><span class="mi">1</span><span class="o">/</span><span class="n">TauxBO</span>
-<span class="n">m</span><span class="p">=</span><span class="mf">0.707</span><span class="p">;</span> <span class="c">%damping ratio, taux d amortissement, overshoot</span>
-</pre></div>
-
-
-<ul>
-<li>4.3.1 Déterminer la fonction de transfert discrétisée de T$_{BFPID}$(z)</li>
-</ul>
-<div class="codehilite"><pre><span class="n">num3</span><span class="p">=[</span><span class="mi">1</span><span class="p">];</span> <span class="c">% gain statique</span>
-<span class="n">den3</span><span class="p">=[(</span><span class="mi">1</span><span class="o">/</span><span class="n">w1</span><span class="p">)</span>^<span class="mi">2</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="n">w1</span> <span class="mi">1</span><span class="p">]</span>
-
-<span class="c">%Fonction de transfert en BF discrétisée</span>
-<span class="n">T2</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">num3</span><span class="p">,</span><span class="n">den3</span><span class="p">,</span><span class="s">&#39;variable&#39;</span><span class="p">,</span><span class="s">&#39;p&#39;</span><span class="p">);</span>
-<span class="n">T2d</span><span class="p">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">T2</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span>
-
-<span class="c">% Fonction de transfert en BF discrétisée Ordre 3</span>
-<span class="n">Td</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,[</span><span class="mi">1</span> <span class="o">-</span><span class="mf">0.001</span><span class="p">],</span><span class="n">Te</span><span class="p">)</span>
-<span class="n">T3d</span><span class="p">=</span><span class="n">T2d</span><span class="o">*</span><span class="n">Td</span>  <span class="c">% Fonction de transfert d&#39;ordre 3</span>
-</pre></div>
-
-
-<ul>
-<li>4.3.2 Déterminer les coefficients du correcteur</li>
-</ul>
-<div class="codehilite"><pre><span class="hll"><span class="p">[</span><span class="n">P2d</span><span class="p">]=</span><span class="n">T3d</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span> <span class="c">% Tableau contenant les coefficients du dénominateur</span>
-</span><span class="n">p1</span><span class="p">=</span><span class="n">P2d</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">p2</span><span class="p">=</span><span class="n">P2d</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">p3</span><span class="p">=</span><span class="n">P2d</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-
-<span class="c">%Calcul des coefficients du correcteur PID  </span>
-<span class="n">r0pid</span><span class="p">=(</span><span class="mi">1</span><span class="o">-</span><span class="n">a1</span><span class="o">+</span><span class="n">p1</span><span class="p">)</span><span class="o">/</span><span class="n">b1</span>       
-<span class="n">r1pid</span><span class="p">=(</span><span class="n">p2</span><span class="o">+</span><span class="n">a1</span><span class="p">)</span><span class="o">/</span><span class="n">b1</span>
-<span class="n">r2pid</span><span class="p">=</span><span class="n">p3</span><span class="o">/</span><span class="n">b1</span>
-
-<span class="c">%Fonction transfert du correcteur PID</span>
-<span class="n">numPID</span><span class="p">=[</span><span class="n">r0pid</span> <span class="n">r1pid</span> <span class="n">r2pid</span><span class="p">];</span>
-<span class="n">denPID</span><span class="p">=[</span><span class="mi">1</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">0</span><span class="p">];</span>
-<span class="n">Kpid</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">numPID</span><span class="p">,</span><span class="n">denPID</span><span class="p">,</span><span class="n">Te</span><span class="p">,</span><span class="s">&#39;variable&#39;</span><span class="p">,</span><span class="s">&#39;z&#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<ul>
-<li>4.3.3 Déterminer la réponse à échelon de le temps de réponse à 5%.</li>
-</ul>
-<div class="codehilite"><pre><span class="o">%</span><span class="n">Fonction</span> <span class="n">transfert</span> <span class="n">en</span> <span class="n">BO</span> <span class="n">Correcteur</span> <span class="o">+</span> <span class="n">Processus</span>
-<span class="hll"><span class="n">Tm_BOpid</span><span class="o">=</span><span class="n">Kpid</span><span class="o">*</span><span class="n">Tmd</span><span class="p">;</span>   <span class="o">%</span> <span class="n">fonction</span> <span class="n">de</span> <span class="n">transfert</span> <span class="n">en</span> <span class="n">B0</span>
-</span>
-<span class="o">%</span><span class="n">Fonction</span> <span class="n">transfert</span> <span class="n">en</span> <span class="n">BF</span> <span class="n">Correcteur</span> <span class="o">+</span> <span class="n">Processus</span>
-<span class="hll"><span class="n">Tm_BFpid</span><span class="o">=</span><span class="n">feedback</span><span class="p">(</span><span class="n">Tm_BOpid</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>   <span class="o">%</span> <span class="n">fonction</span> <span class="n">de</span> <span class="n">transfert</span> <span class="n">en</span> <span class="n">B0</span>
-</span>
-<span class="n">step</span><span class="p">(</span><span class="n">Tmd</span><span class="p">,</span><span class="n">Tmd_BFp</span><span class="p">,</span><span class="n">Tmd_BFpi</span><span class="p">,</span><span class="n">T2</span><span class="p">,</span><span class="n">T2d</span><span class="p">,</span><span class="n">T3d</span><span class="p">,</span><span class="n">Tm_BFpid</span><span class="p">)</span>   <span class="o">%</span> <span class="n">réponse</span> <span class="err">à</span> <span class="n">un</span> <span class="err">é</span><span class="n">chelon</span>
-<span class="n">legend</span><span class="p">(</span><span class="s">&#39;Tmd&#39;</span><span class="p">,</span><span class="s">&#39;Tmd_BFp&#39;</span><span class="p">,</span><span class="s">&#39;Tmd_BFpi&#39;</span><span class="p">,</span><span class="s">&#39;T2&#39;</span><span class="p">,</span><span class="s">&#39;T2d&#39;</span><span class="p">,</span><span class="s">&#39;T3d&#39;</span><span class="p">,</span><span class="s">&#39;Tm_BFpid&#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<ul>
-<li>4.3.4 Déterminer l&rsquo;erreur de position et l&rsquo;erreur de vitesse.</li>
-</ul>
-<div class="codehilite"><pre><span class="n">NPID</span><span class="p">=</span><span class="n">Kpid</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span> <span class="c">% numérateur Kpid</span>
-<span class="n">DPID</span><span class="p">=</span><span class="n">Kpid</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span> <span class="c">% dénominateur Kpid</span>
-
-<span class="n">NP</span><span class="p">=</span><span class="n">Tmd</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>    <span class="c">% numérateur du système en BO</span>
-<span class="n">DP</span><span class="p">=</span><span class="n">Tmd</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>     <span class="c">% dénominateur du sytème en B0</span>
-</pre></div></article></body></html>
+<h4 id="15-correspondance-plan-p-plan-z"><a name="user-content-15-correspondance-plan-p-plan-z" href="#15-correspondance-plan-p-plan-z" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.5 Correspondance plan p – plan z</h4>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_001606.png" /></p></p>
+<h4 id="16-degre-de-stabilite-robustesse"><a name="user-content-16-degre-de-stabilite-robustesse" href="#16-degre-de-stabilite-robustesse" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.6 Degré de stabilité : robustesse</h4>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_001845.png" /></p></p></article></body></html>
