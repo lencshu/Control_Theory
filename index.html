@@ -25,6 +25,17 @@
 A { text-decoration: none} 
 A:hover { text-decoration:underline;} 
 
+img {
+/*  border: 0px dotted #e6e6e6;
+  padding: 0em;*/
+
+  /*max-width:2.5rem;*/
+  /*max-height:500px;*/
+  box-shadow: 1px 1px 10px #d3d3d3;
+  overflow:hidden;
+  zoom: 0.65;
+}
+
 .markdown-body {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -2130,6 +2141,89 @@ For Level Colors
            </li>
           </ul>
          </li>
+         <li>
+          <a href="#2-precision-statique">
+           2 Précision statique
+          </a>
+          <ul>
+           <li>
+            <a href="#21_1">
+             2.1 无干扰情况
+            </a>
+            <ul>
+             <li>
+              <a href="#211-echelon">
+               2.1.1 échelon 输入响应
+              </a>
+             </li>
+             <li>
+              <a href="#212-rampe">
+               2.1.2 rampe 输入响应
+              </a>
+             </li>
+             <li>
+              <a href="#213-acceleration">
+               2.1.3 accélération 响应
+              </a>
+             </li>
+             <li>
+              <a href="#214-bilan">
+               2.1.4 Bilan
+              </a>
+             </li>
+            </ul>
+           </li>
+           <li>
+            <a href="#22_1">
+             2.2 有干扰
+            </a>
+           </li>
+           <li>
+            <a href="#23-conclusions">
+             2.3 Conclusions
+            </a>
+           </li>
+          </ul>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <a href="#iv">
+         IV) 系统的数字化
+        </a>
+        <ul>
+         <li>
+          <a href="#1-introduction">
+           1 Introduction
+          </a>
+         </li>
+         <li>
+          <a href="#2_3">
+           2 选择采样频率
+          </a>
+          <ul>
+           <li>
+            <a href="#21-considerations-pratiques">
+             2.1 Considérations pratiques
+            </a>
+           </li>
+           <li>
+            <a href="#22-application-a-un-premier-ordre">
+             2.2 Application à un premier ordre
+            </a>
+           </li>
+           <li>
+            <a href="#23-application-a-un-second-ordre">
+             2.3 Application à un second ordre
+            </a>
+           </li>
+           <li>
+            <a href="#24-exemples-de-choix-de-periode-dechantillonnage">
+             2.4 Exemples de choix de période d’échantillonnage
+            </a>
+           </li>
+          </ul>
+         </li>
         </ul>
        </li>
       </ul>
@@ -2212,7 +2306,9 @@ For Level Colors
    <p>
     Rappel de la relation entre les pôles et les zéros de la FTBF
     <br/>
-    <img class="lazyload" alt="" data-src="images/cap_20171023_201655.png"/>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images/cap_20171023_201655.png"/>
+    </p>
    </p>
    <p>
     <code>
@@ -2232,7 +2328,9 @@ For Level Colors
     </code>
     ermé :
     <br/>
-    <img class="lazyload" alt="" data-src="images/cap_20171023_201953.png"/>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images/cap_20171023_201953.png"/>
+    </p>
    </p>
    <p>
     zero: 分子为零，即
@@ -2245,7 +2343,9 @@ For Level Colors
      Q1Q2+k1k2P1P2=0
     </code>
     <br/>
-    <img class="lazyload" alt="" data-src="images/cap_20171023_213222.png"/>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images/cap_20171023_213222.png"/>
+    </p>
    </p>
    <p>
     alors，
@@ -2452,13 +2552,13 @@ For Level Colors
       </code>
       <br/>
       <p align="center">
-       <img alt="" height="300px" src="images/cap_20171024_000518.png" width="500px"/>
+       <img class="lazyload" alt="" data-src="images/cap_20171024_000518.png"/>
       </p>
       <br/>
       验证M的条件：
       <br/>
       <p align="center">
-       <img alt="" height="50px" src="images/cap_20171024_001455.png" width="600px"/>
+       <img class="lazyload" alt="" data-src="images/cap_20171024_001455.png"/>
       </p>
      </p>
     </p>
@@ -2514,7 +2614,7 @@ For Level Colors
    </h6>
    <p>
     <p align="center">
-     <img alt="" height="150px" src="images\cap_20171114_163857.png" width="400px"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_163857.png"/>
     </p>
    </p>
    <p>
@@ -2568,7 +2668,7 @@ For Level Colors
     总结
     <br/>
     <p align="center">
-     <img alt="" height="150px" src="images/cap_20171111_141153.png" width="450px"/>
+     <img class="lazyload" alt="" data-src="images/cap_20171111_141153.png"/>
     </p>
    </p>
    <div class="admonition attention">
@@ -2651,7 +2751,7 @@ For Level Colors
     Mise sous forme d’état (voir annexe ou cours MC53)
     <br/>
     <p align="center">
-     <img alt="" height="300px" src="images/cap_20171111_153234.png" width="700px"/>
+     <img alt="" height="600px" src="images/cap_20171111_153234.png" width="1400px"/>
     </p>
    </p>
    <div class="admonition hint">
@@ -3941,7 +4041,7 @@ For Level Colors
     于是X(t)(系统的性能)根据二阶优化标准可以写成：
     <br/>
     <p align="center">
-     <img alt="" height="50px" src="images\cap_20171113_212622.png" width="150px"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171113_212622.png"/>
     </p>
    </p>
    <p>
@@ -4044,7 +4144,7 @@ For Level Colors
     例题
     <br/>
     <p align="center">
-     <img alt="" height="180px" src="images\cap_20171113_221403.png" width="400px"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171113_221403.png"/>
     </p>
    </p>
    <ul>
@@ -4064,7 +4164,7 @@ For Level Colors
     P的形式为：
     <br/>
     <p align="center">
-     <img alt="" height="30px" src="images\cap_20171113_221738.png" width="100px"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171113_221738.png"/>
     </p>
     <br/>
     代入Riccati方程：
@@ -4072,7 +4172,7 @@ For Level Colors
     $$PA+A^{t}P+Q-PBR^{-1}B^{t}P=0$$
     <br/>
     <p align="center">
-     <img alt="" height="100px" src="images\cap_20171114_100042.png" width="450px"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_100042.png"/>
     </p>
     <br/>
     donc,
@@ -4108,7 +4208,7 @@ For Level Colors
    <p>
     解得：①
     <p align="center">
-     <img alt="" height="30px" src="images\cap_20171114_101319.png" width="100px"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_101319.png"/>
     </p>
     <br/>
     ②
@@ -4133,7 +4233,7 @@ For Level Colors
    </h6>
    <p>
     <p align="center">
-     <img alt="" height="200px" src="images\cap_20171114_185502.png" width="400px"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_185502.png"/>
     </p>
     <br/>
     <div class="codehilite">
@@ -4230,7 +4330,7 @@ For Level Colors
     方程和结果 Mise en équation et résultats
     <br/>
     <p align="center">
-     <img alt="" height="80px" src="images/cap_20171027_105517.png" width="300px"/>
+     <img class="lazyload" alt="" data-src="images/cap_20171027_105517.png"/>
     </p>
     <br/>
     - w
@@ -4252,7 +4352,7 @@ For Level Colors
     结构如下：
     <br/>
     <p align="center">
-     <img alt="" height="250px" src="images\cap_20171114_143404.png" width="450px"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_143404.png"/>
     </p>
    </p>
    <p>
@@ -4946,11 +5046,11 @@ For Level Colors
    </h4>
    <p>
     <p align="center">
-     <img alt="" height="200px" src="images/cap_20171106_205602.png" width="500px"/>
+     <img class="lazyload" alt="" data-src="images/cap_20171106_205602.png"/>
     </p>
     <br/>
     <p align="center">
-     <img class="lazyload" alt="" data-src="images\cap_20171114_204910.png"/>
+     <img alt="" height="700px" src="images\cap_20171114_204910.png" width="1300px"/>
     </p>
    </p>
    <h4 id="ex02">
@@ -4985,15 +5085,15 @@ For Level Colors
    </h5>
    <p>
     <p align="center">
-     <img class="lazyload" alt="" data-src="images\cap_20171114_205754.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_205754.png" width="1200px"/>
     </p>
     <br/>
     <p align="center">
-     <img class="lazyload" alt="" data-src="images\cap_20171114_205716.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_205716.png" width="1200px"/>
     </p>
     <br/>
     <p align="center">
-     <img class="lazyload" alt="" data-src="images\cap_20171114_205915.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_205915.png" width="1200px"/>
     </p>
    </p>
    <h5 id="c">
@@ -5005,11 +5105,11 @@ For Level Colors
    </h5>
    <p>
     <p align="center">
-     <img class="lazyload" alt="" data-src="images\cap_20171114_205947.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_205947.png" width="1200px"/>
     </p>
     <br/>
     <p align="center">
-     <img class="lazyload" alt="" data-src="images\cap_20171114_210016.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_210016.png" width="1200px"/>
     </p>
    </p>
    <h5 id="d">
@@ -5021,15 +5121,15 @@ For Level Colors
    </h5>
    <p>
     <p align="center">
-     <img class="lazyload" alt="" data-src="images\cap_20171114_210125.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_210125.png" width="1200px"/>
     </p>
     <br/>
     <p align="center">
-     <img class="lazyload" alt="" data-src="images\cap_20171114_210155.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_210155.png" width="1200px"/>
     </p>
     <br/>
     <p align="center">
-     <img class="lazyload" alt="" data-src="images\cap_20171114_210232.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_210232.png" width="1200px"/>
     </p>
    </p>
    <h5 id="e">
@@ -5041,7 +5141,7 @@ For Level Colors
    </h5>
    <p>
     <p align="center">
-     <img class="lazyload" alt="" data-src="images\cap_20171114_210852.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_210852.png" width="1200px"/>
     </p>
    </p>
    <h3 id="td02">
@@ -5060,7 +5160,7 @@ For Level Colors
    </h4>
    <p>
     <p align="center">
-     <img class="lazyload" alt="" data-src="images\cap_20171114_211804.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_211804.png" width="1200px"/>
     </p>
    </p>
    <h4 id="ex02_1">
@@ -5072,7 +5172,7 @@ For Level Colors
    </h4>
    <p>
     <p align="center">
-     <img class="lazyload" alt="" data-src="images\cap_20171114_211918.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_211918.png" width="1200px"/>
     </p>
    </p>
    <h4 id="ex03">
@@ -5084,7 +5184,7 @@ For Level Colors
    </h4>
    <p>
     <p align="center">
-     <img class="lazyload" alt="" data-src="images\cap_20171114_212009.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_212009.png" width="1200px"/>
     </p>
     <br/>
     <div class="codehilite">
@@ -5208,11 +5308,11 @@ For Level Colors
    </h3>
    <p>
     <p align="center">
-     <img class="lazyload" alt="" data-src="images\cap_20171114_211520.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_211520.png" width="1000px"/>
     </p>
     <br/>
     <p align="center">
-     <img class="lazyload" alt="" data-src="images\cap_20171114_211617.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_211617.png" width="1000px"/>
     </p>
    </p>
    <h2 id="td06">
@@ -5224,7 +5324,7 @@ For Level Colors
    </h2>
    <p>
     <p align="center">
-     <img class="lazyload" alt="" data-src="images\cap_20171114_211417.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171114_211417.png" width="1000px"/>
     </p>
    </p>
    <div class="admonition hint">
@@ -6029,839 +6129,6 @@ For Level Colors
      <img class="lazyload" alt="" data-src="images\cap_20171128_211305.png"/>
     </p>
    </p>
-   <div class="toc">
-    <ul>
-     <li>
-      <a href="#_1">
-       总结
-      </a>
-     </li>
-     <li>
-      <a href="#part-a">
-       Part A 连续信号处理
-      </a>
-      <ul>
-       <li>
-        <a href="#i-placement-des-poles-1948">
-         I) Placement des pôles 1948
-        </a>
-        <ul>
-         <li>
-          <a href="#11">
-           1.1 目的
-          </a>
-         </li>
-         <li>
-          <a href="#12-ftboftbf">
-           1.2 分别回忆针对FTBO和FTBF零点与极点的关系
-          </a>
-         </li>
-         <li>
-          <a href="#13-lieu-devans">
-           1.3 Lieu d’Evans
-          </a>
-         </li>
-         <li>
-          <a href="#131-conditions-definissant-le-lieu-devans">
-           1.3.1  Conditions définissant le lieu d’Evans
-          </a>
-         </li>
-         <li>
-          <a href="#132-exemples-a">
-           1.3.2  exemples a)
-          </a>
-         </li>
-         <li>
-          <a href="#132-exemples-b">
-           1.3.2  exemples b)
-          </a>
-          <ul>
-           <li>
-            <a href="#-matlab-poles-dominants">
-             ---- Matlab pôles dominants
-            </a>
-           </li>
-          </ul>
-         </li>
-        </ul>
-       </li>
-       <li>
-        <a href="#ii-commande-par-retour-detat">
-         II) Commande par retour d’état
-        </a>
-        <ul>
-         <li>
-          <a href="#21">
-           2.1 转换成状态空间形式
-          </a>
-          <ul>
-           <li>
-            <a href="#211">
-             2.1.1  选择状态变量
-            </a>
-            <ul>
-             <li>
-              <a href="#3">
-               例题 3阶系统
-              </a>
-             </li>
-            </ul>
-           </li>
-           <li>
-            <a href="#212">
-             2.1.2  数学分析
-            </a>
-           </li>
-           <li>
-            <a href="#213">
-             2.1.3  由转换方程到状态表示
-            </a>
-           </li>
-           <li>
-            <a href="#214">
-             2.1.4  状态表示到转换方程
-            </a>
-           </li>
-          </ul>
-         </li>
-         <li>
-          <a href="#22">
-           2.2  系统的可控性和可观性
-          </a>
-          <ul>
-           <li>
-            <a href="#221">
-             2.2.1 系统的可控性(可调性)
-            </a>
-            <ul>
-             <li>
-              <a href="#_2">
-               举例说明
-              </a>
-             </li>
-            </ul>
-           </li>
-           <li>
-            <a href="#222">
-             2.2.2 系统的可观性
-            </a>
-            <ul>
-             <li>
-              <a href="#_3">
-               举例说明
-              </a>
-             </li>
-            </ul>
-           </li>
-           <li>
-            <a href="#matlab">
-             可控性可观性总结及matlab程序
-            </a>
-            <ul>
-             <li>
-              <a href="#-matlab-observable-controlable">
-               ---- Matlab observable controlable
-              </a>
-             </li>
-            </ul>
-           </li>
-          </ul>
-         </li>
-         <li>
-          <a href="#23-commande-par-retour-detat">
-           2.3  Commande par retour d’état
-          </a>
-          <ul>
-           <li>
-            <a href="#231-presentation">
-             2.3.1  Présentation
-            </a>
-           </li>
-           <li>
-            <a href="#232-etude-dun-systeme-siso">
-             2.3.2  Etude d’un système SISO
-            </a>
-            <ul>
-             <li>
-              <a href="#2321-ackermann-sur-cayley-hamilton">
-               2.3.2.1 方法一 Ackermann sur Cayley-Hamilton
-              </a>
-             </li>
-             <li>
-              <a href="#2322-la-methode-directe">
-               2.3.2.2 方法二 la méthode directe
-              </a>
-             </li>
-             <li>
-              <a href="#2323-logiciel">
-               2.3.2.3 方法三 logiciel
-              </a>
-              <ul>
-               <li>
-                <a href="#-matlab-k-de-siso">
-                 ---- Matlab K de SISO
-                </a>
-               </li>
-              </ul>
-             </li>
-            </ul>
-           </li>
-           <li>
-            <a href="#233-etude-dun-systeme-mimo">
-             2.3.3  Etude d’un système MIMO
-            </a>
-            <ul>
-             <li>
-              <a href="#-matlab-k-de-mimo">
-               ---- Matlab K de MIMO
-              </a>
-             </li>
-            </ul>
-           </li>
-           <li>
-            <a href="#234-reconstructeur-detat-ou-observateur">
-             2.3.4  Reconstructeur d’état ou observateur
-            </a>
-            <ul>
-             <li>
-              <a href="#-matlab-l-de-mimo">
-               ---- Matlab L de MIMO
-              </a>
-             </li>
-            </ul>
-           </li>
-           <li>
-            <a href="#235-observateur">
-             2.3.5  Observateur 状态反馈控制
-            </a>
-           </li>
-           <li>
-            <a href="#236-integrale">
-             2.3.6 Intégrale 状态反馈控制
-            </a>
-           </li>
-          </ul>
-         </li>
-        </ul>
-       </li>
-       <li>
-        <a href="#iii-lqr">
-         III) LQR
-        </a>
-        <ul>
-         <li>
-          <a href="#31-critere-doptimisation-quadratique">
-           3.1 Critère d’optimisation quadratique
-          </a>
-          <ul>
-           <li>
-            <a href="#311-presentation">
-             3.1.1 Présentation
-            </a>
-           </li>
-           <li>
-            <a href="#312-critere-des-performances-jx">
-             3.1.2 Critère des performances Jx
-            </a>
-           </li>
-           <li>
-            <a href="#313-critere-deconomie-energetique-ju">
-             3.1.3 Critère d’économie énergétique Ju
-            </a>
-           </li>
-          </ul>
-         </li>
-         <li>
-          <a href="#314-critere-quadratiquede-compromis-j_lq">
-           3.14 Critère quadratique(de compromis) $J_{LQ}$.
-          </a>
-         </li>
-         <li>
-          <a href="#32-solution-du-probleme-lqr">
-           3.2 Solution du problème LQR
-          </a>
-          <ul>
-           <li>
-            <a href="#-matlabkpe">
-             ---- Matlab[K,P,E]
-            </a>
-           </li>
-          </ul>
-         </li>
-         <li>
-          <a href="#33-lqr">
-           3.3 LQR应用
-          </a>
-         </li>
-        </ul>
-       </li>
-       <li>
-        <a href="#ivlqg">
-         IV)LQG
-        </a>
-       </li>
-       <li>
-        <a href="#41-principe-du-filtre-de-kalman">
-         4.1 Principe du filtre de Kalman
-        </a>
-       </li>
-       <li>
-        <a href="#42-lq">
-         4.2 类比LQ优化
-        </a>
-       </li>
-       <li>
-        <a href="#43-mise-en-uvre-du-filtre-de-kalman">
-         4.3 Mise en œuvre du filtre de Kalman
-        </a>
-       </li>
-       <li>
-        <a href="#44-la-commande-lqg">
-         4.4 La commande LQG
-        </a>
-       </li>
-       <li>
-        <a href="#441-le-principe-de-separation">
-         4.4.1 Le principe de séparation
-        </a>
-        <ul>
-         <li>
-          <a href="#-matlab-lqg">
-           ---- matlab LQG
-          </a>
-         </li>
-        </ul>
-       </li>
-       <li>
-        <a href="#442-sechage-du-kaolin">
-         4.4.2 干燥高岭土 Séchage du Kaolin
-        </a>
-        <ul>
-         <li>
-          <a href="#-matlab-kalman">
-           ----- matlab kalman
-          </a>
-         </li>
-        </ul>
-       </li>
-       <li>
-        <a href="#v-conception-des-systemes-asservis-intelligents">
-         V) Conception des systèmes asservis intelligents
-        </a>
-       </li>
-       <li>
-        <a href="#51-logique-floue">
-         5.1 Logique floue
-        </a>
-       </li>
-       <li>
-        <a href="#52-reseaux-de-neurones">
-         5.2 Réseaux de neurones
-        </a>
-       </li>
-       <li>
-        <a href="#53-algorithmes-genetiques">
-         5.3 Algorithmes génétiques
-        </a>
-       </li>
-       <li>
-        <a href="#vi-simulations-numeriques">
-         VI) Simulations numériques
-        </a>
-       </li>
-       <li>
-        <a href="#61-software-in-the-loop-sil">
-         6.1 Software In the Loop :SIL
-        </a>
-       </li>
-       <li>
-        <a href="#62-hardware-in-the-loop-hil">
-         6.2 Hardware In the Loop :HIL
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li>
-      <a href="#a">
-       附录 A
-      </a>
-      <ul>
-       <li>
-        <a href="#i">
-         I 英法对照
-        </a>
-       </li>
-       <li>
-        <a href="#ii-matlab">
-         II Matlab 公式
-        </a>
-       </li>
-       <li>
-        <a href="#td">
-         TD习题
-        </a>
-        <ul>
-         <li>
-          <a href="#td01">
-           TD01
-          </a>
-          <ul>
-           <li>
-            <a href="#ex01">
-             Ex01
-            </a>
-           </li>
-           <li>
-            <a href="#ex02">
-             Ex02
-            </a>
-            <ul>
-             <li>
-              <a href="#a_1">
-               a)
-              </a>
-             </li>
-             <li>
-              <a href="#b">
-               b)
-              </a>
-             </li>
-             <li>
-              <a href="#c">
-               c)
-              </a>
-             </li>
-             <li>
-              <a href="#d">
-               d)
-              </a>
-             </li>
-             <li>
-              <a href="#e">
-               e)
-              </a>
-             </li>
-            </ul>
-           </li>
-          </ul>
-         </li>
-         <li>
-          <a href="#td02">
-           TD02
-          </a>
-          <ul>
-           <li>
-            <a href="#ex01_1">
-             Ex01
-            </a>
-           </li>
-           <li>
-            <a href="#ex02_1">
-             Ex02
-            </a>
-           </li>
-           <li>
-            <a href="#ex03">
-             Ex03
-            </a>
-           </li>
-           <li>
-            <a href="#ex04">
-             Ex04
-            </a>
-           </li>
-           <li>
-            <a href="#ex05">
-             Ex05
-            </a>
-           </li>
-          </ul>
-         </li>
-         <li>
-          <a href="#td03-chariot-et-prehenseur">
-           TD03 Chariot et Prehenseur
-          </a>
-          <ul>
-           <li>
-            <a href="#1-equation-de-movement">
-             1) Equation de movement
-            </a>
-           </li>
-          </ul>
-         </li>
-         <li>
-          <a href="#td04">
-           TD04
-          </a>
-         </li>
-        </ul>
-       </li>
-       <li>
-        <a href="#td06">
-         TD06
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li>
-      <a href="#median-2016">
-       Median 2016
-      </a>
-      <ul>
-       <li>
-        <a href="#1">
-         1) 微分方程
-        </a>
-       </li>
-       <li>
-        <a href="#2">
-         2) 代入数据
-        </a>
-       </li>
-       <li>
-        <a href="#3_1">
-         3) 可控性和可观性
-        </a>
-       </li>
-       <li>
-        <a href="#4-pole-dominant">
-         4) Pôle dominant和性能指标
-        </a>
-       </li>
-       <li>
-        <a href="#5-pkk">
-         5) 矩阵P,K和性能参数(重新计算K)
-        </a>
-       </li>
-       <li>
-        <a href="#6-l">
-         6) 矩阵L和观测器
-        </a>
-       </li>
-       <li>
-        <a href="#7-x1cm">
-         7) 观测器和系统的积分部件的初始条件各自对X1和Cm的影响
-        </a>
-       </li>
-       <li>
-        <a href="#9rhokopt">
-         9)权重$\rho$及其确定的Kopt和系统性能指标
-        </a>
-       </li>
-       <li>
-        <a href="#10lq">
-         10)结合LQ和观测器
-        </a>
-       </li>
-       <li>
-        <a href="#matlab_1">
-         完整matlab程序
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li>
-      <a href="#median-2017">
-       Median 2017
-      </a>
-      <ul>
-       <li>
-        <a href="#1_1">
-         1.建模
-        </a>
-       </li>
-       <li>
-        <a href="#2_1">
-         2.代数
-        </a>
-       </li>
-       <li>
-        <a href="#3_2">
-         3.能控性和能观性
-        </a>
-       </li>
-       <li>
-        <a href="#4pole-dominant">
-         4.pôle dominant 和 系统响应特征
-        </a>
-       </li>
-       <li>
-        <a href="#5-kpole">
-         5. Kpôle
-        </a>
-        <ul>
-         <li>
-          <a href="#q">
-           =====Q
-          </a>
-         </li>
-        </ul>
-       </li>
-       <li>
-        <a href="#6lqrftbfpole">
-         6.LQR、FTBF的pôle
-        </a>
-        <ul>
-         <li>
-          <a href="#q_1">
-           =====Q
-          </a>
-         </li>
-        </ul>
-       </li>
-       <li>
-        <a href="#7">
-         7. 观测器
-        </a>
-       </li>
-       <li>
-        <a href="#8">
-         8.初始条件的影响
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li>
-      <a href="#part-b">
-       Part B 离散信号处理
-      </a>
-      <ul>
-       <li>
-        <a href="#_4">
-         序
-        </a>
-       </li>
-       <li>
-        <a href="#i-z">
-         I) Z 变换
-        </a>
-        <ul>
-         <li>
-          <a href="#1_2">
-           1 定义和性质
-          </a>
-         </li>
-         <li>
-          <a href="#2-pz">
-           2 P平面和Z平面的对应关系
-          </a>
-         </li>
-         <li>
-          <a href="#3-inversion-de-la-transformee-en-z">
-           3 Inversion de la transformée en Z
-          </a>
-         </li>
-         <li>
-          <a href="#31-generalites">
-           3.1 Généralités
-          </a>
-         </li>
-         <li>
-          <a href="#32-methodes-analytiques">
-           3.2 Méthodes analytiques
-          </a>
-         </li>
-         <li>
-          <a href="#33-methode-de-lequation-aux-differences-equation-recurrente">
-           3.3 Méthode de l’équation aux différences (équation récurrente)
-          </a>
-         </li>
-        </ul>
-       </li>
-       <li>
-        <a href="#ii">
-         II) 采样系统理论
-        </a>
-        <ul>
-         <li>
-          <a href="#1_3">
-           1 信号采样
-          </a>
-          <ul>
-           <li>
-            <a href="#_5">
-             信号分类
-            </a>
-           </li>
-           <li>
-            <a href="#11-definitions">
-             1.1 Définitions
-            </a>
-           </li>
-           <li>
-            <a href="#12-echantillonneur-bloqueur">
-             1.2 Échantillonneur bloqueur
-            </a>
-           </li>
-           <li>
-            <a href="#13-echantillonnage-reel">
-             1.3 Échantillonnage réel
-            </a>
-           </li>
-           <li>
-            <a href="#14-transformee-de-laplace-dun-signal-echantillonne">
-             1.4 Transformée de Laplace d’un signal échantillonné
-            </a>
-            <ul>
-             <li>
-              <a href="#141-transformee-de-laplace-dune-impulsion-a-lorigine">
-               1.4.1 Transformée de Laplace d’une impulsion à l’origine
-              </a>
-             </li>
-             <li>
-              <a href="#142-cas-dune-impulsion-decalee-de-te">
-               1.4.2 Cas d’une impulsion décalée de Te
-              </a>
-             </li>
-             <li>
-              <a href="#143transformee-de-laplace-du-signal-echantillonne-reel">
-               1.4.3Transformée de Laplace du signal échantillonné réel
-              </a>
-             </li>
-            </ul>
-           </li>
-           <li>
-            <a href="#15-choix-de-la-frequence-dechantillonnage">
-             1.5 Choix de la fréquence d’échantillonnage
-            </a>
-           </li>
-           <li>
-            <a href="#16-modelisation-de-la-transformee-de-laplace-dun-signal-echantillonne">
-             1.6 Modélisation de la transformée de Laplace d’un signal échantillonné
-            </a>
-           </li>
-           <li>
-            <a href="#17-reconstitution-dun-signal-echantillonne">
-             1.7 Reconstitution d’un signal échantillonné
-            </a>
-            <ul>
-             <li>
-              <a href="#171-fonction-de-transfert-dordre-0-boz">
-               1.7.1 Fonction de transfert d’ordre 0 (BOZ)
-              </a>
-             </li>
-             <li>
-              <a href="#172-reponse-frequentielle-du-boz">
-               1.7.2 Réponse fréquentielle du BOZ
-              </a>
-             </li>
-            </ul>
-           </li>
-          </ul>
-         </li>
-         <li>
-          <a href="#2_2">
-           2 采样系统
-          </a>
-          <ul>
-           <li>
-            <a href="#23-application">
-             2.3 Application
-            </a>
-            <ul>
-             <li>
-              <a href="#231-premier-cas">
-               2.3.1 Premier cas
-              </a>
-             </li>
-             <li>
-              <a href="#232-deuxieme-cas">
-               2.3.2 Deuxième cas
-              </a>
-             </li>
-             <li>
-              <a href="#233-fonction-de-transfert-dun-processus-muni-dun-boz">
-               2.3.3 Fonction de transfert d’un processus muni d’un BOZ
-              </a>
-             </li>
-            </ul>
-           </li>
-          </ul>
-         </li>
-         <li>
-          <a href="#3-synthese-dune-fonction-de-transfert-en-z">
-           3 Synthèse d’une fonction de transfert en z
-          </a>
-          <ul>
-           <li>
-            <a href="#31-mise-en-evidence-de-lequation-recurrente">
-             3.1 Mise en évidence de l’équation récurrente
-            </a>
-           </li>
-           <li>
-            <a href="#32-cas-dun-systeme-quelconque">
-             3.2 Cas d’un système quelconque
-            </a>
-           </li>
-          </ul>
-         </li>
-        </ul>
-       </li>
-       <li>
-        <a href="#iii-comportement-des-systemes-asservis">
-         III) Comportement des systèmes asservis
-        </a>
-        <ul>
-         <li>
-          <a href="#1-stabilite">
-           1 Stabilité
-          </a>
-          <ul>
-           <li>
-            <a href="#11-stabilite-absolue">
-             1.1 Stabilité absolue
-            </a>
-           </li>
-           <li>
-            <a href="#12-critere-de-jury">
-             1.2 Critère de Jury 朱利判据
-            </a>
-           </li>
-           <li>
-            <a href="#13-application">
-             1.3 Application
-            </a>
-            <ul>
-             <li>
-              <a href="#131-systeme-dordre-1">
-               1.3.1 Système d’ordre 1
-              </a>
-             </li>
-             <li>
-              <a href="#132-systeme-dordre-2">
-               1.3.2 Système d’ordre 2
-              </a>
-             </li>
-             <li>
-              <a href="#133-systeme-dordre-3">
-               1.3.3 Système d’ordre 3
-              </a>
-             </li>
-            </ul>
-           </li>
-           <li>
-            <a href="#14-application-a-un-systeme-du-premier-ordre">
-             1.4 Application à un système du premier ordre
-            </a>
-           </li>
-           <li>
-            <a href="#15-correspondance-plan-p-plan-z">
-             1.5 Correspondance plan p – plan z
-            </a>
-           </li>
-           <li>
-            <a href="#16-degre-de-stabilite-robustesse">
-             1.6 Degré de stabilité : robustesse
-            </a>
-           </li>
-          </ul>
-         </li>
-        </ul>
-       </li>
-      </ul>
-     </li>
-    </ul>
-   </div>
    <h1 id="part-b">
     <a aria-hidden="true" class="headeranchor-link" href="#part-b" name="user-content-part-b">
      <span class="headeranchor">
@@ -7786,6 +7053,253 @@ For Level Colors
    <p>
     <p align="center">
      <img class="lazyload" alt="" data-src="images\cap_20171221_001845.png"/>
+    </p>
+   </p>
+   <h3 id="2-precision-statique">
+    <a aria-hidden="true" class="headeranchor-link" href="#2-precision-statique" name="user-content-2-precision-statique">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2 Précision statique
+   </h3>
+   <h4 id="21_1">
+    <a aria-hidden="true" class="headeranchor-link" href="#21_1" name="user-content-21_1">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.1 无干扰情况
+   </h4>
+   <p>
+    Précision en l’absence de perturbation
+    <br/>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171221_145205.png"/>
+    </p>
+   </p>
+   <p>
+    Pour  obtenir  l’écart  en  régime permanent, il suffit d’appliquer le théorème de la valeur finale.
+    <br/>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171221_145401.png"/>
+    </p>
+   </p>
+   <p>
+    La valeur de l’écart en régime permanent dépend de la forme du signal d’entrée et celle de la fonction de transfert en boucle ouverte. D’une manière générale, celle-ci s’écrit :
+    <br/>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171221_145551.png"/>
+    </p>
+   </p>
+   <h5 id="211-echelon">
+    <a aria-hidden="true" class="headeranchor-link" href="#211-echelon" name="user-content-211-echelon">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.1.1 échelon 输入响应
+   </h5>
+   <p>
+    <strong>
+     Réponse à un échelon
+    </strong>
+    <br/>
+    <p align="center">
+     <img alt="" height="240px" src="images\cap_20171221_145851.png" width="500px"/>
+    </p>
+   </p>
+   <h5 id="212-rampe">
+    <a aria-hidden="true" class="headeranchor-link" href="#212-rampe" name="user-content-212-rampe">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.1.2 rampe 输入响应
+   </h5>
+   <p>
+    <strong>
+     Réponse à une rampe
+    </strong>
+    <br/>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171221_150648.png"/>
+    </p>
+   </p>
+   <h5 id="213-acceleration">
+    <a aria-hidden="true" class="headeranchor-link" href="#213-acceleration" name="user-content-213-acceleration">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.1.3 accélération 响应
+   </h5>
+   <p>
+    <strong>
+     Réponse en accélération
+    </strong>
+    <br/>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171221_150914.png"/>
+    </p>
+   </p>
+   <h5 id="214-bilan">
+    <a aria-hidden="true" class="headeranchor-link" href="#214-bilan" name="user-content-214-bilan">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.1.4 Bilan
+   </h5>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171221_151100.png"/>
+    </p>
+   </p>
+   <h4 id="22_1">
+    <a aria-hidden="true" class="headeranchor-link" href="#22_1" name="user-content-22_1">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.2 有干扰
+   </h4>
+   <p>
+    Précision en présence de perturbations
+    <br/>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171221_151740.png"/>
+    </p>
+    <br/>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171221_165334.png"/>
+    </p>
+    <br/>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171221_165530.png"/>
+    </p>
+   </p>
+   <h4 id="23-conclusions">
+    <a aria-hidden="true" class="headeranchor-link" href="#23-conclusions" name="user-content-23-conclusions">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.3 Conclusions
+   </h4>
+   <p>
+    积分器的引入可以解决精度的问题。
+    <br/>
+    Les résultats obtenus sont tout à fait comparables à ceux obtenus pour les systèmes continus : l’introduction d’un ou plusieurs intégrateurs permet de résoudre le problème de précision. Notons toutefois que la période d’échantillonnage intervient dans le calcul de l’erreur de trainage.
+   </p>
+   <p>
+    Mais  attention :  le  calcul  n’est  effectué  qu’aux  instants  d’échantillonnnage  et  en  régime permanent. Les exigences fixées sur le nombre d’intégrateurs vont influencer très certainement le régime transitoire. Si la période d’échantillonnage est mal choisie (trop longue), le réglage sera très mauvais malgré une erreur nulle aux instants d’échantillonnage.
+   </p>
+   <div class="admonition hint">
+    <p class="admonition-title">
+     注意
+    </p>
+    <p>
+     积分器会很大程度上影响 transitoire
+    </p>
+   </div>
+   <h2 id="iv">
+    <a aria-hidden="true" class="headeranchor-link" href="#iv" name="user-content-iv">
+     <span class="headeranchor">
+     </span>
+    </a>
+    IV) 系统的数字化
+   </h2>
+   <p>
+    systèmes échantillonnés
+   </p>
+   <h3 id="1-introduction">
+    <a aria-hidden="true" class="headeranchor-link" href="#1-introduction" name="user-content-1-introduction">
+     <span class="headeranchor">
+     </span>
+    </a>
+    1 Introduction
+   </h3>
+   <ul>
+    <li>
+     优点:
+     <ul>
+      <li>
+       L’échantillonnage peut augmenter la sensibilité et la souplesse, par exemple, certains organes de puissance de processus industriels contrôlant des puissances considérables, peuvent être pilotées par des signaux numériques sans qu’il soit nécessaire à des chaînes d’amplification importantes et coûteuses.
+      </li>
+      <li>
+       Le système échantillonné est cadencée par une horloge, et on visualisera son comportement qu’aux instants d’échantillonnage. De ce fait, le système échantillonne est plus « lent » que le système continue car on a systématiquement une période d’échantillonnage de retard, alors que les réactions de celui-ci sont instantanées.
+      </li>
+      <li>
+       Si le système est piloté par une machine programmable, il sera facile de mémoriser les signaux et de garder aussi longtemps que l’on veut, sans perte de précision, pour les réutiliser au moment voulu.
+      </li>
+     </ul>
+    </li>
+   </ul>
+   <p>
+    L’horloge d’échantillonnage va être un élément essentiel du système : n’oublions pas en effet que la fonction de transfert en Z est modifiée quand on change la période d’échantillonnage Te. Le choix de sa période sera déterminant dans la conception d’un système échantillonné et on montre que si celle-ci est bien choisie, les systèmes échantillonnés ont un meilleur comportement que le système continu équivalent.
+   </p>
+   <h3 id="2_3">
+    <a aria-hidden="true" class="headeranchor-link" href="#2_3" name="user-content-2_3">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2 选择采样频率
+   </h3>
+   <p>
+    Choix de la période d’échantillonnage
+   </p>
+   <h4 id="21-considerations-pratiques">
+    <a aria-hidden="true" class="headeranchor-link" href="#21-considerations-pratiques" name="user-content-21-considerations-pratiques">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.1 Considérations pratiques
+   </h4>
+   <p>
+    Le théorème de Shannon:
+    <br/>
+    $$F_{e}=\frac{1}{T_{e}} &gt; 2f_{0}$$
+    <br/>
+    où $f_{0}$ est la plus haute des fréquences transmises par le processus, caractérisée par
+   </p>
+   <ul>
+    <li>
+     premier ordre: la constante de temps $\tau$
+    </li>
+    <li>
+     second ordre: La pulsation propre $\omega _{N}$
+    </li>
+    <li>
+     En pratique, on adopte: $5f_{0} &lt; f_{e} &lt; 25f_{0}$
+    </li>
+   </ul>
+   <h4 id="22-application-a-un-premier-ordre">
+    <a aria-hidden="true" class="headeranchor-link" href="#22-application-a-un-premier-ordre" name="user-content-22-application-a-un-premier-ordre">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.2 Application à un premier ordre
+   </h4>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171221_175007.png"/>
+    </p>
+   </p>
+   <h4 id="23-application-a-un-second-ordre">
+    <a aria-hidden="true" class="headeranchor-link" href="#23-application-a-un-second-ordre" name="user-content-23-application-a-un-second-ordre">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.3 Application à un second ordre
+   </h4>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171221_180329.png"/>
+    </p>
+   </p>
+   <h4 id="24-exemples-de-choix-de-periode-dechantillonnage">
+    <a aria-hidden="true" class="headeranchor-link" href="#24-exemples-de-choix-de-periode-dechantillonnage" name="user-content-24-exemples-de-choix-de-periode-dechantillonnage">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.4 Exemples de choix de période d’échantillonnage
+   </h4>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171221_180411.png"/>
     </p>
    </p>
   </article>

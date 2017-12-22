@@ -19,6 +19,17 @@
 A { text-decoration: none} 
 A:hover { text-decoration:underline;} 
 
+img {
+/*  border: 0px dotted #e6e6e6;
+  padding: 0em;*/
+
+  /*max-width:2.5rem;*/
+  /*max-height:500px;*/
+  box-shadow: 1px 1px 10px #d3d3d3;
+  overflow:hidden;
+  zoom: 0.65;
+}
+
 .markdown-body {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -1512,6 +1523,29 @@ MathJax.Hub.Config({
 <li><a href="#16-degre-de-stabilite-robustesse">1.6 Degré de stabilité : robustesse</a></li>
 </ul>
 </li>
+<li><a href="#2-precision-statique">2 Précision statique</a><ul>
+<li><a href="#21_1">2.1 无干扰情况</a><ul>
+<li><a href="#211-echelon">2.1.1 échelon 输入响应</a></li>
+<li><a href="#212-rampe">2.1.2 rampe 输入响应</a></li>
+<li><a href="#213-acceleration">2.1.3 accélération 响应</a></li>
+<li><a href="#214-bilan">2.1.4 Bilan</a></li>
+</ul>
+</li>
+<li><a href="#22_1">2.2 有干扰</a></li>
+<li><a href="#23-conclusions">2.3 Conclusions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#iv">IV) 系统的数字化</a><ul>
+<li><a href="#1-introduction">1 Introduction</a></li>
+<li><a href="#2_3">2 选择采样频率</a><ul>
+<li><a href="#21-considerations-pratiques">2.1 Considérations pratiques</a></li>
+<li><a href="#22-application-a-un-premier-ordre">2.2 Application à un premier ordre</a></li>
+<li><a href="#23-application-a-un-second-ordre">2.3 Application à un second ordre</a></li>
+<li><a href="#24-exemples-de-choix-de-periode-dechantillonnage">2.4 Exemples de choix de période d&rsquo;échantillonnage</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1535,12 +1569,12 @@ Le principe général est de comparer la consigne et l&rsquo;état du système d
 当FTBO的Gain从0到正无穷时，求解特征方程的根(pôles de la FTBF)</p>
 <h3 id="12-ftboftbf"><a name="user-content-12-ftboftbf" href="#12-ftboftbf" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.2 分别回忆针对FTBO和FTBF零点与极点的关系</h3>
 <p>Rappel de la relation entre les pôles et les zéros de la FTBF <br />
-<img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171023_201655.png" /></p>
+<p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171023_201655.png" /></p></p>
 <p><code>F</code>onction <code>T</code>ransfert de <code>B</code>oucle <code>F</code>ermé :<br />
-<img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171023_201953.png" /></p>
+<p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171023_201953.png" /></p></p>
 <p>zero: 分子为零，即 <code>P1=0 or Q2=0</code><br />
 pôle: 分母为零，即 求解特征方程的根 <code>Q1Q2+k1k2P1P2=0</code><br />
-<img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171023_213222.png" /></p>
+<p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171023_213222.png" /></p></p>
 <p>alors，<br />
 <p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171023_212408.png" /></p><br />
 suivant,<br />
@@ -1596,9 +1630,9 @@ FTBF的pôle是在空间一系列点，对应K值从小到大的变化。</p>
 <p align="center"><img alt="" height="120px" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171023_235404.png" width="600px" /></p><br />
     3.1 当k=0时，FTBO和BTBF的pôle相同<br />
     3.2 当k=4时，实数值和虚数值的交界处，在该点处<code>ξ的值等于1</code><br />
-    <p align="center"><img alt="" height="300px" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171024_000518.png" width="500px" /></p><br />
+    <p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171024_000518.png" /></p><br />
     验证M的条件：<br />
-    <p align="center"><img alt="" height="50px" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171024_001455.png" width="600px" /></p></p>
+    <p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171024_001455.png" /></p></p>
 </p>
 <div class="admonition hint">
 <p class="admonition-title">复平面的性质<p><strong>不同的质量标准决定了阻尼amortissement：<code>ξ≥0.5</code></strong><br />
@@ -1613,7 +1647,7 @@ FTBF的pôle是在空间一系列点，对应K值从小到大的变化。</p>
 unitaire): <br />
 <p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171030_192008.png" /></p></p>
 <h6 id="-matlab-poles-dominants"><a name="user-content--matlab-poles-dominants" href="#-matlab-poles-dominants" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>---- Matlab pôles dominants</h6>
-<p><p align="center"><img alt="" height="150px" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_163857.png" width="400px" /></p></p>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_163857.png" /></p></p>
 <p><div class="codehilite"><pre><span class="n">clc</span>
 <span class="n">clear</span>
 
@@ -1639,7 +1673,7 @@ unitaire): <br />
 <p>验证特征<br />
 <p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171111_140754.png" /></p></p>
 <p>总结<br />
-<p align="center"><img alt="" height="150px" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171111_141153.png" width="450px" /></p></p>
+<p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171111_141153.png" /></p></p>
 <div class="admonition attention">
 <p class="admonition-title">结论</p>
 <p>En règle générale, il est admis que lorsque le module du pôle réel p3 reste supérieur ou égal à 10 fois le module de la partie réelle des racines complexes conjuguées, le troisième ordre est assimilable à un système du deuxième ordre. <br />
@@ -1656,7 +1690,7 @@ unitaire): <br />
 </ul>
 <h3 id="21"><a name="user-content-21" href="#21" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1 转换成状态空间形式</h3>
 <p>Mise sous forme d’état (voir annexe ou cours MC53) <br />
-<p align="center"><img alt="" height="300px" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171111_153234.png" width="700px" /></p></p>
+<p align="center"><img alt="" height="600px" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171111_153234.png" width="1400px" /></p></p>
 <div class="admonition hint">
 <p class="admonition-title">D</p>
 <p>D est la matrice de transmission directe ou matrice de couplage entrées-sorties.Dans de nombreux cas elle est identiquement nulle puisqu&rsquo;elle représente le cas particuliers des liaisons qui sont la limite du principe de causalité. 通常D为0，因为该矩阵表明特例情况下因果关系的限制关系</p>
@@ -2154,7 +2188,7 @@ $$G_{[p]}=\frac{1+p}{(p+2)(p+3)}$$</p>
 <p><strong>$$性能标准Jx$$</strong><br />
 - 目前的问题是这两个参数X1,X2有相同的权重。绕过这个问题的方法是引入一个权重矩阵Q，这是个对称且为正的矩阵。<br />
 于是X(t)(系统的性能)根据二阶优化标准可以写成：<br />
-<p align="center"><img alt="" height="50px" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171113_212622.png" width="150px" /></p></p>
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171113_212622.png" /></p></p>
 <p>例题<br />
 <p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171113_213017.png" /></p></p>
 <h4 id="313-critere-deconomie-energetique-ju"><a name="user-content-313-critere-deconomie-energetique-ju" href="#313-critere-deconomie-energetique-ju" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.1.3 Critère d’économie énergétique Ju</h4>
@@ -2187,7 +2221,7 @@ $$J_{LQ}=J_{x}+J_{u}=\int_0^\infty X^{t}(t)QX(t)dt+\int_0^\infty U^{t}(t)RU(t)dt
 $$PA+A^{t}P+Q-PBR^{-1}B^{t}P=0$$</p>
 <p>矩阵P是该问题（稳定闭环系统）的唯一解（只取正值），K的值通过$K=R^{-1}B^{t}P$求得</p>
 <p>例题<br />
-<p align="center"><img alt="" height="180px" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171113_221403.png" width="400px" /></p></p>
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171113_221403.png" /></p></p>
 <ul>
 <li>①déterminer la matrice P de Riccati</li>
 <li>②déterminer la matrice de contre réaction K</li>
@@ -2195,10 +2229,10 @@ $$PA+A^{t}P+Q-PBR^{-1}B^{t}P=0$$</p>
 </ul>
 <p>解：<br />
 P的形式为：<br />
-<p align="center"><img alt="" height="30px" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171113_221738.png" width="100px" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171113_221738.png" /></p><br />
 代入Riccati方程：<br />
 $$PA+A^{t}P+Q-PBR^{-1}B^{t}P=0$$<br />
-<p align="center"><img alt="" height="100px" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_100042.png" width="450px" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_100042.png" /></p><br />
 donc,<br />
 <p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_100302.png" /></p><br />
 因为P是对称的，所以<code>P12=P21</code>，于是得到4个方程</p>
@@ -2213,13 +2247,13 @@ donc,<br />
 </pre></div>
 
 
-<p>解得：①<p align="center"><img alt="" height="30px" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_101319.png" width="100px" /></p><br />
+<p>解得：①<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_101319.png" /></p><br />
 ②<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_101438.png" /></p><br />
 ③Les pôles étant les valeurs propres de la matrice (A-BK), 计算det(pI-A+BK)：<br />
 <p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_101704.png" /></p><br />
 解得：p1,2 = -1.27$\underline{+}$j0.341</p>
 <h6 id="-matlabkpe"><a name="user-content--matlabkpe" href="#-matlabkpe" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>---- Matlab[K,P,E]</h6>
-<p><p align="center"><img alt="" height="200px" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_185502.png" width="400px" /></p><br />
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_185502.png" /></p><br />
 <div class="codehilite"><pre><span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="mi">1</span><span class="p">;</span><span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">B</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">Q</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span> <span class="mi">1</span><span class="p">]</span>
@@ -2256,7 +2290,7 @@ donc,<br />
 先让评估误差均值最小(状态和评估的差值)<br />
 不展开介绍卡尔曼滤波器的理论，只介绍如何使在用连续系统建立好的结论。</p>
 <p>方程和结果 Mise en équation et résultats<br />
-<p align="center"><img alt="" height="80px" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171027_105517.png" width="300px" /></p><br />
+<p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171027_105517.png" /></p><br />
 - w <br />
     - 是n维的未知干扰。<br />
     - 变换自均值为0的高斯白噪音模型，协方差W(非负的n*n维的矩阵)<br />
@@ -2265,7 +2299,7 @@ donc,<br />
     - 测量误差。<br />
     - 变换自均值为0的高斯白噪音模型，协方差V(非负的p*n维的矩阵)</p>
 <p>结构如下：<br />
-<p align="center"><img alt="" height="250px" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_143404.png" width="450px" /></p></p>
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_143404.png" /></p></p>
 <p>方程为：<br />
 <p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_144048.png" /></p></p>
 <p>开环系统的动态性能被闭环测量的评估所纠正。<br />
@@ -2531,32 +2565,32 @@ printsys(num,den,’s’) %以传递函数形式显示出来</p>
 <h2 id="td"><a name="user-content-td" href="#td" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD习题</h2>
 <h3 id="td01"><a name="user-content-td01" href="#td01" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD01</h3>
 <h4 id="ex01"><a name="user-content-ex01" href="#ex01" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex01</h4>
-<p><p align="center"><img alt="" height="200px" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171106_205602.png" width="500px" /></p><br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_204910.png" /></p></p>
+<p><p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171106_205602.png" /></p><br />
+<p align="center"><img alt="" height="700px" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_204910.png" width="1300px" /></p></p>
 <h4 id="ex02"><a name="user-content-ex02" href="#ex02" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex02</h4>
 <h5 id="a_1"><a name="user-content-a_1" href="#a_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>a)</h5>
 <p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_205311.png" /></p><br />
 <p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_205323.png" /></p></p>
 <h5 id="b"><a name="user-content-b" href="#b" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>b)</h5>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_205754.png" /></p><br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_205716.png" /></p><br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_205915.png" /></p></p>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_205754.png" width="1200px" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_205716.png" width="1200px" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_205915.png" width="1200px" /></p></p>
 <h5 id="c"><a name="user-content-c" href="#c" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>c)</h5>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_205947.png" /></p><br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_210016.png" /></p></p>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_205947.png" width="1200px" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_210016.png" width="1200px" /></p></p>
 <h5 id="d"><a name="user-content-d" href="#d" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>d)</h5>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_210125.png" /></p><br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_210155.png" /></p><br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_210232.png" /></p></p>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_210125.png" width="1200px" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_210155.png" width="1200px" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_210232.png" width="1200px" /></p></p>
 <h5 id="e"><a name="user-content-e" href="#e" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>e)</h5>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_210852.png" /></p></p>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_210852.png" width="1200px" /></p></p>
 <h3 id="td02"><a name="user-content-td02" href="#td02" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD02</h3>
 <h4 id="ex01_1"><a name="user-content-ex01_1" href="#ex01_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex01</h4>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_211804.png" /></p></p>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_211804.png" width="1200px" /></p></p>
 <h4 id="ex02_1"><a name="user-content-ex02_1" href="#ex02_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex02</h4>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_211918.png" /></p></p>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_211918.png" width="1200px" /></p></p>
 <h4 id="ex03"><a name="user-content-ex03" href="#ex03" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Ex03</h4>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_212009.png" /></p><br />
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_212009.png" width="1200px" /></p><br />
 <div class="codehilite"><pre><span class="n">num</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>
 <span class="n">den</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="mi">3</span> <span class="mi">6</span> <span class="mi">2</span><span class="p">];</span>
 <span class="p">[</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">D</span><span class="p">]</span><span class="o">=</span><span class="n">tf2ss</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="n">den</span><span class="p">)</span>
@@ -2619,10 +2653,10 @@ printsys(num,den,’s’) %以传递函数形式显示出来</p>
 
 
 <h3 id="td04"><a name="user-content-td04" href="#td04" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD04</h3>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_211520.png" /></p><br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_211617.png" /></p></p>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_211520.png" width="1000px" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_211617.png" width="1000px" /></p></p>
 <h2 id="td06"><a name="user-content-td06" href="#td06" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD06</h2>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_211417.png" /></p></p>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_211417.png" width="1000px" /></p></p>
 <div class="admonition hint">
 <p class="admonition-title">5 équations<p>1 moteur:<br />
 2 électromagnétique:<br />
@@ -3062,243 +3096,6 @@ Pole de FTBF怎么算  ????<br />
 <p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171122_133056.png" /></p><br />
 <p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171122_162136.png" /></p><br />
 <p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171128_211305.png" /></p></p>
-<div class="toc">
-<ul>
-<li><a href="#_1">总结</a></li>
-<li><a href="#part-a">Part A 连续信号处理</a><ul>
-<li><a href="#i-placement-des-poles-1948">I) Placement des pôles 1948</a><ul>
-<li><a href="#11">1.1 目的</a></li>
-<li><a href="#12-ftboftbf">1.2 分别回忆针对FTBO和FTBF零点与极点的关系</a></li>
-<li><a href="#13-lieu-devans">1.3 Lieu d’Evans</a></li>
-<li><a href="#131-conditions-definissant-le-lieu-devans">1.3.1  Conditions définissant le lieu d’Evans</a></li>
-<li><a href="#132-exemples-a">1.3.2  exemples a)</a></li>
-<li><a href="#132-exemples-b">1.3.2  exemples b)</a><ul>
-<li><a href="#-matlab-poles-dominants">---- Matlab pôles dominants</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#ii-commande-par-retour-detat">II) Commande par retour d’état</a><ul>
-<li><a href="#21">2.1 转换成状态空间形式</a><ul>
-<li><a href="#211">2.1.1  选择状态变量</a><ul>
-<li><a href="#3">例题 3阶系统</a></li>
-</ul>
-</li>
-<li><a href="#212">2.1.2  数学分析</a></li>
-<li><a href="#213">2.1.3  由转换方程到状态表示</a></li>
-<li><a href="#214">2.1.4  状态表示到转换方程</a></li>
-</ul>
-</li>
-<li><a href="#22">2.2  系统的可控性和可观性</a><ul>
-<li><a href="#221">2.2.1 系统的可控性(可调性)</a><ul>
-<li><a href="#_2">举例说明</a></li>
-</ul>
-</li>
-<li><a href="#222">2.2.2 系统的可观性</a><ul>
-<li><a href="#_3">举例说明</a></li>
-</ul>
-</li>
-<li><a href="#matlab">可控性可观性总结及matlab程序</a><ul>
-<li><a href="#-matlab-observable-controlable">---- Matlab observable controlable</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#23-commande-par-retour-detat">2.3  Commande par retour d’état</a><ul>
-<li><a href="#231-presentation">2.3.1  Présentation</a></li>
-<li><a href="#232-etude-dun-systeme-siso">2.3.2  Etude d’un système SISO</a><ul>
-<li><a href="#2321-ackermann-sur-cayley-hamilton">2.3.2.1 方法一 Ackermann sur Cayley-Hamilton</a></li>
-<li><a href="#2322-la-methode-directe">2.3.2.2 方法二 la méthode directe</a></li>
-<li><a href="#2323-logiciel">2.3.2.3 方法三 logiciel</a><ul>
-<li><a href="#-matlab-k-de-siso">---- Matlab K de SISO</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#233-etude-dun-systeme-mimo">2.3.3  Etude d’un système MIMO</a><ul>
-<li><a href="#-matlab-k-de-mimo">---- Matlab K de MIMO</a></li>
-</ul>
-</li>
-<li><a href="#234-reconstructeur-detat-ou-observateur">2.3.4  Reconstructeur d’état ou observateur</a><ul>
-<li><a href="#-matlab-l-de-mimo">---- Matlab L de MIMO</a></li>
-</ul>
-</li>
-<li><a href="#235-observateur">2.3.5  Observateur 状态反馈控制</a></li>
-<li><a href="#236-integrale">2.3.6 Intégrale 状态反馈控制</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#iii-lqr">III) LQR</a><ul>
-<li><a href="#31-critere-doptimisation-quadratique">3.1 Critère d’optimisation quadratique</a><ul>
-<li><a href="#311-presentation">3.1.1 Présentation</a></li>
-<li><a href="#312-critere-des-performances-jx">3.1.2 Critère des performances Jx</a></li>
-<li><a href="#313-critere-deconomie-energetique-ju">3.1.3 Critère d’économie énergétique Ju</a></li>
-</ul>
-</li>
-<li><a href="#314-critere-quadratiquede-compromis-j_lq">3.14 Critère quadratique(de compromis) $J_{LQ}$.</a></li>
-<li><a href="#32-solution-du-probleme-lqr">3.2 Solution du problème LQR</a><ul>
-<li><a href="#-matlabkpe">---- Matlab[K,P,E]</a></li>
-</ul>
-</li>
-<li><a href="#33-lqr">3.3 LQR应用</a></li>
-</ul>
-</li>
-<li><a href="#ivlqg">IV)LQG</a></li>
-<li><a href="#41-principe-du-filtre-de-kalman">4.1 Principe du filtre de Kalman</a></li>
-<li><a href="#42-lq">4.2 类比LQ优化</a></li>
-<li><a href="#43-mise-en-uvre-du-filtre-de-kalman">4.3 Mise en œuvre du filtre de Kalman</a></li>
-<li><a href="#44-la-commande-lqg">4.4 La commande LQG</a></li>
-<li><a href="#441-le-principe-de-separation">4.4.1 Le principe de séparation</a><ul>
-<li><a href="#-matlab-lqg">---- matlab LQG</a></li>
-</ul>
-</li>
-<li><a href="#442-sechage-du-kaolin">4.4.2 干燥高岭土 Séchage du Kaolin</a><ul>
-<li><a href="#-matlab-kalman">----- matlab kalman</a></li>
-</ul>
-</li>
-<li><a href="#v-conception-des-systemes-asservis-intelligents">V) Conception des systèmes asservis intelligents</a></li>
-<li><a href="#51-logique-floue">5.1 Logique floue</a></li>
-<li><a href="#52-reseaux-de-neurones">5.2 Réseaux de neurones</a></li>
-<li><a href="#53-algorithmes-genetiques">5.3 Algorithmes génétiques</a></li>
-<li><a href="#vi-simulations-numeriques">VI) Simulations numériques</a></li>
-<li><a href="#61-software-in-the-loop-sil">6.1 Software In the Loop :SIL</a></li>
-<li><a href="#62-hardware-in-the-loop-hil">6.2 Hardware In the Loop :HIL</a></li>
-</ul>
-</li>
-<li><a href="#a">附录 A</a><ul>
-<li><a href="#i">I 英法对照</a></li>
-<li><a href="#ii-matlab">II Matlab 公式</a></li>
-<li><a href="#td">TD习题</a><ul>
-<li><a href="#td01">TD01</a><ul>
-<li><a href="#ex01">Ex01</a></li>
-<li><a href="#ex02">Ex02</a><ul>
-<li><a href="#a_1">a)</a></li>
-<li><a href="#b">b)</a></li>
-<li><a href="#c">c)</a></li>
-<li><a href="#d">d)</a></li>
-<li><a href="#e">e)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#td02">TD02</a><ul>
-<li><a href="#ex01_1">Ex01</a></li>
-<li><a href="#ex02_1">Ex02</a></li>
-<li><a href="#ex03">Ex03</a></li>
-<li><a href="#ex04">Ex04</a></li>
-<li><a href="#ex05">Ex05</a></li>
-</ul>
-</li>
-<li><a href="#td03-chariot-et-prehenseur">TD03 Chariot et Prehenseur</a><ul>
-<li><a href="#1-equation-de-movement">1) Equation de movement</a></li>
-</ul>
-</li>
-<li><a href="#td04">TD04</a></li>
-</ul>
-</li>
-<li><a href="#td06">TD06</a></li>
-</ul>
-</li>
-<li><a href="#median-2016">Median 2016</a><ul>
-<li><a href="#1">1) 微分方程</a></li>
-<li><a href="#2">2) 代入数据</a></li>
-<li><a href="#3_1">3) 可控性和可观性</a></li>
-<li><a href="#4-pole-dominant">4) Pôle dominant和性能指标</a></li>
-<li><a href="#5-pkk">5) 矩阵P,K和性能参数(重新计算K)</a></li>
-<li><a href="#6-l">6) 矩阵L和观测器</a></li>
-<li><a href="#7-x1cm">7) 观测器和系统的积分部件的初始条件各自对X1和Cm的影响</a></li>
-<li><a href="#9rhokopt">9)权重$\rho$及其确定的Kopt和系统性能指标</a></li>
-<li><a href="#10lq">10)结合LQ和观测器</a></li>
-<li><a href="#matlab_1">完整matlab程序</a></li>
-</ul>
-</li>
-<li><a href="#median-2017">Median 2017</a><ul>
-<li><a href="#1_1">1.建模</a></li>
-<li><a href="#2_1">2.代数</a></li>
-<li><a href="#3_2">3.能控性和能观性</a></li>
-<li><a href="#4pole-dominant">4.pôle dominant 和 系统响应特征</a></li>
-<li><a href="#5-kpole">5. Kpôle</a><ul>
-<li><a href="#q">=====Q</a></li>
-</ul>
-</li>
-<li><a href="#6lqrftbfpole">6.LQR、FTBF的pôle</a><ul>
-<li><a href="#q_1">=====Q</a></li>
-</ul>
-</li>
-<li><a href="#7">7. 观测器</a></li>
-<li><a href="#8">8.初始条件的影响</a></li>
-</ul>
-</li>
-<li><a href="#part-b">Part B 离散信号处理</a><ul>
-<li><a href="#_4">序</a></li>
-<li><a href="#i-z">I) Z 变换</a><ul>
-<li><a href="#1_2">1 定义和性质</a></li>
-<li><a href="#2-pz">2 P平面和Z平面的对应关系</a></li>
-<li><a href="#3-inversion-de-la-transformee-en-z">3 Inversion de la transformée en Z</a></li>
-<li><a href="#31-generalites">3.1 Généralités</a></li>
-<li><a href="#32-methodes-analytiques">3.2 Méthodes analytiques</a></li>
-<li><a href="#33-methode-de-lequation-aux-differences-equation-recurrente">3.3 Méthode de l&rsquo;équation aux différences (équation récurrente)</a></li>
-</ul>
-</li>
-<li><a href="#ii">II) 采样系统理论</a><ul>
-<li><a href="#1_3">1 信号采样</a><ul>
-<li><a href="#_5">信号分类</a></li>
-<li><a href="#11-definitions">1.1 Définitions</a></li>
-<li><a href="#12-echantillonneur-bloqueur">1.2 Échantillonneur bloqueur</a></li>
-<li><a href="#13-echantillonnage-reel">1.3 Échantillonnage réel</a></li>
-<li><a href="#14-transformee-de-laplace-dun-signal-echantillonne">1.4 Transformée de Laplace d&rsquo;un signal échantillonné</a><ul>
-<li><a href="#141-transformee-de-laplace-dune-impulsion-a-lorigine">1.4.1 Transformée de Laplace d&rsquo;une impulsion à l&rsquo;origine</a></li>
-<li><a href="#142-cas-dune-impulsion-decalee-de-te">1.4.2 Cas d&rsquo;une impulsion décalée de Te</a></li>
-<li><a href="#143transformee-de-laplace-du-signal-echantillonne-reel">1.4.3Transformée de Laplace du signal échantillonné réel</a></li>
-</ul>
-</li>
-<li><a href="#15-choix-de-la-frequence-dechantillonnage">1.5 Choix de la fréquence d&rsquo;échantillonnage</a></li>
-<li><a href="#16-modelisation-de-la-transformee-de-laplace-dun-signal-echantillonne">1.6 Modélisation de la transformée de Laplace d&rsquo;un signal échantillonné</a></li>
-<li><a href="#17-reconstitution-dun-signal-echantillonne">1.7 Reconstitution d&rsquo;un signal échantillonné</a><ul>
-<li><a href="#171-fonction-de-transfert-dordre-0-boz">1.7.1 Fonction de transfert d&rsquo;ordre 0 (BOZ)</a></li>
-<li><a href="#172-reponse-frequentielle-du-boz">1.7.2 Réponse fréquentielle du BOZ</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#2_2">2 采样系统</a><ul>
-<li><a href="#23-application">2.3 Application</a><ul>
-<li><a href="#231-premier-cas">2.3.1 Premier cas</a></li>
-<li><a href="#232-deuxieme-cas">2.3.2 Deuxième cas</a></li>
-<li><a href="#233-fonction-de-transfert-dun-processus-muni-dun-boz">2.3.3 Fonction de transfert d&rsquo;un processus muni d&rsquo;un BOZ</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#3-synthese-dune-fonction-de-transfert-en-z">3 Synthèse d&rsquo;une fonction de transfert en z</a><ul>
-<li><a href="#31-mise-en-evidence-de-lequation-recurrente">3.1 Mise en évidence de l&rsquo;équation récurrente</a></li>
-<li><a href="#32-cas-dun-systeme-quelconque">3.2 Cas d&rsquo;un système quelconque</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#iii-comportement-des-systemes-asservis">III) Comportement des systèmes asservis</a><ul>
-<li><a href="#1-stabilite">1 Stabilité</a><ul>
-<li><a href="#11-stabilite-absolue">1.1 Stabilité absolue</a></li>
-<li><a href="#12-critere-de-jury">1.2 Critère de Jury 朱利判据</a></li>
-<li><a href="#13-application">1.3 Application</a><ul>
-<li><a href="#131-systeme-dordre-1">1.3.1 Système d&rsquo;ordre 1</a></li>
-<li><a href="#132-systeme-dordre-2">1.3.2 Système d&rsquo;ordre 2</a></li>
-<li><a href="#133-systeme-dordre-3">1.3.3 Système d&rsquo;ordre 3</a></li>
-</ul>
-</li>
-<li><a href="#14-application-a-un-systeme-du-premier-ordre">1.4 Application à un système du premier ordre</a></li>
-<li><a href="#15-correspondance-plan-p-plan-z">1.5 Correspondance plan p – plan z</a></li>
-<li><a href="#16-degre-de-stabilite-robustesse">1.6 Degré de stabilité : robustesse</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
 <h1 id="part-b"><a name="user-content-part-b" href="#part-b" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Part B 离散信号处理</h1>
 <h2 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>序</h2>
 <ul>
@@ -3575,4 +3372,65 @@ Dans ces conditions un système bouclé est stable si les racines de son équati
 <h4 id="15-correspondance-plan-p-plan-z"><a name="user-content-15-correspondance-plan-p-plan-z" href="#15-correspondance-plan-p-plan-z" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.5 Correspondance plan p – plan z</h4>
 <p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_001606.png" /></p></p>
 <h4 id="16-degre-de-stabilite-robustesse"><a name="user-content-16-degre-de-stabilite-robustesse" href="#16-degre-de-stabilite-robustesse" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.6 Degré de stabilité : robustesse</h4>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_001845.png" /></p></p></article></body></html>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_001845.png" /></p></p>
+<h3 id="2-precision-statique"><a name="user-content-2-precision-statique" href="#2-precision-statique" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2 Précision statique</h3>
+<h4 id="21_1"><a name="user-content-21_1" href="#21_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1 无干扰情况</h4>
+<p>Précision en l&rsquo;absence de perturbation<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_145205.png" /></p></p>
+<p>Pour  obtenir  l&rsquo;écart  en  régime permanent, il suffit d&rsquo;appliquer le théorème de la valeur finale.<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_145401.png" /></p></p>
+<p>La valeur de l&rsquo;écart en régime permanent dépend de la forme du signal d&rsquo;entrée et celle de la fonction de transfert en boucle ouverte. D&rsquo;une manière générale, celle-ci s&rsquo;écrit :<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_145551.png" /></p></p>
+<h5 id="211-echelon"><a name="user-content-211-echelon" href="#211-echelon" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1.1 échelon 输入响应</h5>
+<p><strong>Réponse à un échelon</strong><br />
+<p align="center"><img alt="" height="240px" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_145851.png" width="500px" /></p></p>
+<h5 id="212-rampe"><a name="user-content-212-rampe" href="#212-rampe" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1.2 rampe 输入响应</h5>
+<p><strong>Réponse à une rampe</strong><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_150648.png" /></p></p>
+<h5 id="213-acceleration"><a name="user-content-213-acceleration" href="#213-acceleration" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1.3 accélération 响应</h5>
+<p><strong>Réponse en accélération</strong><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_150914.png" /></p></p>
+<h5 id="214-bilan"><a name="user-content-214-bilan" href="#214-bilan" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1.4 Bilan</h5>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_151100.png" /></p></p>
+<h4 id="22_1"><a name="user-content-22_1" href="#22_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.2 有干扰</h4>
+<p>Précision en présence de perturbations<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_151740.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_165334.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_165530.png" /></p></p>
+<h4 id="23-conclusions"><a name="user-content-23-conclusions" href="#23-conclusions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3 Conclusions</h4>
+<p>积分器的引入可以解决精度的问题。<br />
+Les résultats obtenus sont tout à fait comparables à ceux obtenus pour les systèmes continus : l&rsquo;introduction d&rsquo;un ou plusieurs intégrateurs permet de résoudre le problème de précision. Notons toutefois que la période d&rsquo;échantillonnage intervient dans le calcul de l&rsquo;erreur de trainage.</p>
+<p>Mais  attention :  le  calcul  n&rsquo;est  effectué  qu&rsquo;aux  instants  d&rsquo;échantillonnnage  et  en  régime permanent. Les exigences fixées sur le nombre d&rsquo;intégrateurs vont influencer très certainement le régime transitoire. Si la période d&rsquo;échantillonnage est mal choisie (trop longue), le réglage sera très mauvais malgré une erreur nulle aux instants d&rsquo;échantillonnage.</p>
+<div class="admonition hint">
+<p class="admonition-title">注意</p>
+<p>积分器会很大程度上影响 transitoire</p>
+</div>
+<h2 id="iv"><a name="user-content-iv" href="#iv" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>IV) 系统的数字化</h2>
+<p>systèmes échantillonnés</p>
+<h3 id="1-introduction"><a name="user-content-1-introduction" href="#1-introduction" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1 Introduction</h3>
+<ul>
+<li>优点:<ul>
+<li>L&rsquo;échantillonnage peut augmenter la sensibilité et la souplesse, par exemple, certains organes de puissance de processus industriels contrôlant des puissances considérables, peuvent être pilotées par des signaux numériques sans qu&rsquo;il soit nécessaire à des chaînes d&rsquo;amplification importantes et coûteuses.</li>
+<li>Le système échantillonné est cadencée par une horloge, et on visualisera son comportement qu&rsquo;aux instants d&rsquo;échantillonnage. De ce fait, le système échantillonne est plus « lent » que le système continue car on a systématiquement une période d&rsquo;échantillonnage de retard, alors que les réactions de celui-ci sont instantanées.</li>
+<li>Si le système est piloté par une machine programmable, il sera facile de mémoriser les signaux et de garder aussi longtemps que l&rsquo;on veut, sans perte de précision, pour les réutiliser au moment voulu.</li>
+</ul>
+</li>
+</ul>
+<p>L&rsquo;horloge d&rsquo;échantillonnage va être un élément essentiel du système : n&rsquo;oublions pas en effet que la fonction de transfert en Z est modifiée quand on change la période d&rsquo;échantillonnage Te. Le choix de sa période sera déterminant dans la conception d&rsquo;un système échantillonné et on montre que si celle-ci est bien choisie, les systèmes échantillonnés ont un meilleur comportement que le système continu équivalent.</p>
+<h3 id="2_3"><a name="user-content-2_3" href="#2_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2 选择采样频率</h3>
+<p>Choix de la période d&rsquo;échantillonnage</p>
+<h4 id="21-considerations-pratiques"><a name="user-content-21-considerations-pratiques" href="#21-considerations-pratiques" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1 Considérations pratiques</h4>
+<p>Le théorème de Shannon:<br />
+$$F_{e}=\frac{1}{T_{e}} &gt; 2f_{0}$$<br />
+où $f_{0}$ est la plus haute des fréquences transmises par le processus, caractérisée par</p>
+<ul>
+<li>premier ordre: la constante de temps $\tau$</li>
+<li>second ordre: La pulsation propre $\omega _{N}$</li>
+<li>En pratique, on adopte: $5f_{0} &lt; f_{e} &lt; 25f_{0}$</li>
+</ul>
+<h4 id="22-application-a-un-premier-ordre"><a name="user-content-22-application-a-un-premier-ordre" href="#22-application-a-un-premier-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.2 Application à un premier ordre</h4>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_175007.png" /></p></p>
+<h4 id="23-application-a-un-second-ordre"><a name="user-content-23-application-a-un-second-ordre" href="#23-application-a-un-second-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3 Application à un second ordre</h4>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_180329.png" /></p></p>
+<h4 id="24-exemples-de-choix-de-periode-dechantillonnage"><a name="user-content-24-exemples-de-choix-de-periode-dechantillonnage" href="#24-exemples-de-choix-de-periode-dechantillonnage" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.4 Exemples de choix de période d&rsquo;échantillonnage</h4>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_180411.png" /></p></p></article></body></html>

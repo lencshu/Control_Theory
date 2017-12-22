@@ -1,32 +1,45 @@
+[TOC]
 
-
-###2 Précision statique
-####2.1 Précision en l'absence de perturbation
-#####2.1.1 Réponse à un échelon
-#####2.1.2 Réponse à une rampe
-#####2.1.3 Réponse en accélération
-#####2.1.4 Bilan
-####2.2 Précision en présence de perturbations
-####2.3 Conclusions
-
-## IV) 采样系统应用
-systèmes échantillonnés
-###1 Introduction
-###2 Choix de la période d'échantillonnage
-####2.1 Considérations pratiques
-####2.2 Application à un premier ordre
-####2.3 Application à un second ordre
-####2.4 Exemples de choix de période d'échantillonnage
 ###3 Modèle mathématique des systèmes échantillonnés
 ####3.1 Forme générale
 #####3.1.1 Système du premier ordre muni d'un BOZ
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_181118.png)</p>
+
 #####3.1.2 Système du second ordre muni d'un BOZ
-####3.2 Forme générale avec intégrateur
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_181502.png)</p>
+
+####3.2 intégrateur avec BOZ
 #####3.2.1 Fonction de transfert d'un intégrateur
-#####3.2.2 Forme générale
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_181734.png)</p>
+
+#####3.2.2 Forme générale avec un intégrateur
+Aussi la forme standard d'une fonction de transfert en z
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_182439.png)</p>
+
 ####3.3 Modèle échantillonné du premier ordre
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171222_092057.png)</p>
+
 #####3.3.1 Comportement statique
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171222_092234.png)</p>
+	
+	l'échantillonnage ne modifie pas l'amplitude des signaux.
+
 #####3.3.2 Comportement dynamique
+
+- En régime cintinue
+    - Le comportement dynamique d'un système continu est influencé par la constante de temps：$\tau$
+    - Le pôle de la fonction de transfert: $P_{0}=-\frac{1}{\tau}$
+    - Temps de réponse($3\tau$ à 5%): $t_{r}$
+
+- En régime échantillonné `F(z)`:
+	+ Le pôle : $Z_{0}=e^{\frac{-T_{e}}{\tau}}=e^{P_{0}T_{e}}$
+		* toujours `inférieur à 1`
+		* lié à la période d'échantillonnage $T_{e}$
+	+ les temps de réponse à un échelon:
+		* on va revenir à l'équation de récurrence:
+		* <p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171222_093619.png)</p>
+
+
 ####3.4 Modèle échantillonné du second ordre
 #####3.4.1 Cas où les pôles sont réels
 #####3.4.2 Cas où les pôles sont complexes
@@ -392,4 +405,129 @@ NP=Tmd.num{1}    % numérateur du système en BO
 DP=Tmd.den{1}     % dénominateur du sytème en B0
 ~~~
 
+
+
+TD06
+1. 建立微分方程
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171222_152831.png)</p>
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171222_155836.png)</p>
+
+3.1 数字化
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171222_155940.png)</p>
+
+~~~matlab hl_lines="1 8 16"
+% parmatres du moteur DC 
+r=2;            % Rsistance d induit S.I
+k=0.1;          % constante de vitesse et de couple du moteur SI
+f=0.2;          % frottement visqueux
+j= 0.02;        % Inertie de l arbre moteur
+l=0.5; 			%inductance de l induit
+
+% Fonction de tranfert  continue
+T0=k/(r*f+k*k);				%gain statique
+w0=sqrt((f*r+k*k)/(l*j));	%pulsation naturelle, boucle ouvert
+m0=(l*f+r*j)/(r*f+k*k)*(w0/2);	%damping ratio, taux d amortissement
+num0=[T0];
+den0=[1/(w0*w0) 2*m0/w0 1];
+Tm=tf(num0,den0,'variable','p');    % Tm fonction de transfert continue
+
+% Fontion de transfert discrtise sans correcteur
+Te=10e-3;			%Periode d'chantillonnage d'aprs CdC
+Tmd=c2d(Tm,Te)		% Tmd fonction de transfert discrtise
+Tauxp = stepinfo(Tmd,'RiseTimeLimits',[0,0.63])       %la constante de temps Tp du systme sans correcteur en boucle ouvert
+zpk(Tmd,'v')		%Pour voir ou sont les poles ( 'v') est la car c'est une output
+~~~
+
+
+
+3.2
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171222_160043.png)</p>
+
+~~~python hl_lines="1"
+%Coefs de TF moteur
+b1=Tmd.num{1}(2)
+b2=Tmd.num{1}(3)
+a1=Tmd.den{1}(2)
+a2=Tmd.den{1}(3)
+~~~
+
+4.1
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171222_160122.png)</p>
+
+~~~python hl_lines="1 14"
+%Fontion de transfert discrtise avec correcteur P 
+rlocus(Tmd);axis('equal');grid; % l'encadrement de K (0<K<intersectione): 0<gain<200
+%[k,poles]=rlocfind(Tmd_BFp); %trouver la valeur du point
+% sisotool(Tmd);
+
+%on choisit la valeur de K
+K=12; 
+
+Tmd_B0p=series(K,Tmd);			%correcteur P en serie 
+Tmd_BFp=feedback(Tmd_B0p,1);	%boucle ferme
+
+step(Tmd_BFp);		%afficher le step graphe
+Steady_timeP=stepinfo(Tmd_BFp,'SettlingTimeThreshold',0.05)
+
+%lieux d Evans
+sisotool(Tmd_BFp);
+~~~
+
+
+4.2
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171222_160234.png)</p>
+
+~~~python hl_lines="1 9 18 23"
+%correcteur PID filtre
+w1=4*w0;	%pulsation de BF d aprs CdC
+m1=0.707;	%damping ratio, taux d amortissement, overshoot
+num1=[1];
+den1=[(1/w1)^2 (2*m1)/w1 1];
+T1=tf(num1,den1,'variable','p');
+T1d=c2d(T1,Te);		%Determination T1d(z)
+
+%Coefs du correcteir PID
+[P]=T1d.den{1};
+p1PID=P(2);
+p2PID=P(3);
+r0pid=(1+p1PID+p2PID)/(b1+b2);
+r1pid=a1*r0pid;
+r2pid=a2*r0pid;
+s1=r0pid*b2-p2PID;
+
+%Fonction de transfert du correcteur PID filtre
+numPID=[r0pid r1pid r2pid];
+denPID=conv([1 -1],[1 s1]);
+Kpid=tf(numPID,denPID,Te,'variable','z');
+
+%La reponse a 5%
+Tmd_BOpid=series(Kpid,Tmd)
+Tmd_BFpid=feedback(Tmd_BOpid,1)
+Steady_timePID=stepinfo(Tmd_BFpid,'SettlingTimeThreshold',0.05)
+
+step(T1,T1d,Tmd_BFpid)
+~~~
+
+5.
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171222_160303.png)</p>
+
+~~~python hl_lines="1"
+%待研究
+num2=[1];
+den2=[1 0];
+Gamma_statique=tf(num2,den2,Te,'variable','z');
+
+Ks=(Gamma_statique)/(Tmd*(1-Gamma_statique));	%FT de statique
+                                      
+T_statique_pile_bo=series(Ks,Tmd);
+T_statique_pile_bf=feedback(T_statique_pile_bo,1);
+step(T_statique_pile_bf,T1d,Tmd_BFpid);
+Steady_timestatique=stepinfo(T_statique_pile_bf,'SettlingTimeThreshold',0.05);
+
+%Erreur vitesse nulle
+num3=[2 -1];
+den3=[1 0 0];
+Gamma_trainage=tf(num3,den3,Te,'variable','z');
+Kt=(Gamma_trainage)/(Tmd*(1-Gamma_trainage)); %FT de tranage
+~~~
 
