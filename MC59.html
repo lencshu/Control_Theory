@@ -19,12 +19,22 @@
 A { text-decoration: none} 
 A:hover { text-decoration:underline;} 
 
+
 img {
-  
   box-shadow: 1px 1px 10px #d3d3d3;
   height: auto;
   max-width: 60vw;
 }
+
+/*img {
+  border: 0px dotted #e6e6e6;
+  padding: 0em;
+  max-width:2.5rem;
+  max-height:500px;
+  box-shadow: 1px 1px 10px #d3d3d3;
+  overflow:hidden;
+  zoom: 0.65;
+}*/
 
 .markdown-body {
   font-family: sans-serif;
@@ -2771,10 +2781,10 @@ printsys(num,den,’s’) %以传递函数形式显示出来</p>
     X1和Cm都符合要求</p>
 <h2 id="6-l"><a name="user-content-6-l" href="#6-l" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>6) 矩阵L和观测器</h2>
 <p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171114_214838.png" /></p></p>
-<div class="codehilite"><pre><span class="o">%</span><span class="n">dans</span> <span class="n">un</span> <span class="n">rapport</span> <span class="mi">5</span> <span class="n">pour</span> <span class="n">pole</span> <span class="n">d</span><span class="s">&#39;observateur</span>
-<span class="n">Pob</span><span class="o">=</span><span class="p">[</span><span class="n">p1</span><span class="p">;</span> <span class="n">p2</span><span class="p">;</span> <span class="mi">5</span><span class="o">*</span><span class="n">real</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span> <span class="mi">5</span><span class="o">*</span><span class="n">real</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span><span class="o">+</span><span class="mf">0.01</span><span class="p">];</span>
-<span class="n">Kob</span><span class="o">=</span><span class="n">place</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Pob</span><span class="p">);</span>
-<span class="n">L</span><span class="o">=</span><span class="n">place</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="s">&#39;,C.&#39;</span><span class="p">,</span><span class="n">Pob</span><span class="p">)</span><span class="o">.</span><span class="s">&#39;;</span>
+<div class="codehilite"><pre><span class="c">%dans un rapport 5 pour pole d&#39;observateur</span>
+<span class="n">Pob</span><span class="p">=[</span><span class="n">p1</span><span class="p">;</span> <span class="n">p2</span><span class="p">;</span> <span class="mi">5</span><span class="o">*</span><span class="nb">real</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span> <span class="mi">5</span><span class="o">*</span><span class="nb">real</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span><span class="o">+</span><span class="mf">0.01</span><span class="p">];</span>
+<span class="n">Kob</span><span class="p">=</span><span class="n">place</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Pob</span><span class="p">);</span>
+<span class="n">L</span><span class="p">=</span><span class="n">place</span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="o">&#39;</span><span class="p">,</span><span class="n">C</span><span class="p">.</span><span class="o">&#39;</span><span class="p">,</span><span class="n">Pob</span><span class="p">).</span><span class="o">&#39;</span><span class="p">;</span>
 </pre></div>
 
 
