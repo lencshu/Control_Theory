@@ -5,7 +5,7 @@
 %%% Objectifs: Réalisation d'un correcteur polynômiale qui doit réponde
 %%% au cahier des charges suivavnts:
 %%% dynamique fixée par un second ordre : w1=1.4 rad/s - m=0.8
-%%% Ep: erreur de position nulle -² réponse à un échelon
+%%% Ep: erreur de position nulle - réponse à un échelon
 %%% Ev: erreur de vitesse nulle - réponsde à une rampe
 
 %%% Le processus analogique a pour caractéristiques:
@@ -30,8 +30,7 @@ T0d=zpk(F0d);
 %k0 gain 
 
 
-%%% Discrétisation de la fonction en BF fixé par le cahier
-%%% des charges
+%%% Discrétisation de la fonction en BF fixé par le cahier des charges
 
 w1=1.4 ; % pulsation propre du processus en BF
 m1=0.8;  % coefficient d'amortissement
@@ -42,17 +41,13 @@ F1d=c2d(F1,Te) % Discrétisation de la fonction de transfert en BF
 [z1d,p1d,T1d]=zpkdata(F1d) % liste zéro - pôle - gain
 
 [D1d]=F1d.den{1} % liste des coefficients du dénominateur de F1d
-                   % D1d=z^2+D1d(2)*z+D1d(3) - dénominateur de la fonction
-                   % de transfert en BF
+% D1d=z^2+D1d(2)*z+D1d(3) - dénominateur de la fonction de transfert en BF
 % Réalisation du correcteur
-% Pour cela , il faut déterminer les polynômes O(z) et Pi(z)
-% qui vérifien l'équation diophantienne
+% Pour cela , il faut déterminer les polynômes O(z) et Pi(z) qui vérifien l'équation diophantienne
 % N-(z)*O(z)+D-(z)*Sr(z)*Pi(z)=DBF(z) avec PI(0)<>0
 % 
-% Erreur position nulle , il faut donc un intégrateur
-% Sr=(1-z^-1)
-% Erreur de vitesse =0.5 - ev=D-(1)*Ky(1)*PI(1)/DBF(1)
-% pour une rampe Ky(z)=Te
+% Erreur position nulle , il faut donc un intégrateur Sr=(1-z^-1)
+% Erreur de vitesse =0.5 - ev=D-(1)*Ky(1)*PI(1)/DBF(1) pour une rampe Ky(z)=Te
 ev=0.5; % erreur de vitesse en régime permanent
 DBF1=sum(D1d) % =DBF(1)
 %%% Résolution du système linéaire 

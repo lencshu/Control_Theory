@@ -8260,7 +8260,7 @@ For Level Colors
     </li>
     <li>
      <p>
-      3.Structure du correcteur numérique
+      3.Structure du correcteur numérique K(z)
       <br/>
       <p align="center">
        <img class="lazyload" alt="" data-src="images\cap_20171225_001804.png"/>
@@ -8334,9 +8334,213 @@ For Level Colors
     </p>
     <br/>
     <p align="center">
-     <img class="lazyload" alt="" data-src="images\cap_20171225_005654.png"/>
+     <img class="lazyload" alt="" data-src="images\cap_20171225_151755.png"/>
     </p>
    </p>
+   <ul>
+    <li>
+     目的: 设计un correcteur polynômiale
+    </li>
+    <li>
+     要求 cahier des charges:
+     <ul>
+      <li>
+       dynamique fixée par un second ordre :
+       <ul>
+        <li>
+         <code>
+          w1=1.4 rad/s
+         </code>
+        </li>
+        <li>
+         <code>
+          m=0.8
+         </code>
+        </li>
+       </ul>
+      </li>
+      <li>
+       Ep: erreur de position nulle -
+       <code>
+        réponse à un échelon
+       </code>
+      </li>
+      <li>
+       Ev: erreur de vitesse nulle -
+       <code>
+        réponsde à une rampe
+       </code>
+      </li>
+     </ul>
+    </li>
+    <li>
+     初始条件:
+     <ul>
+      <li>
+       Le processus analogique a pour caractéristiques:
+       <ul>
+        <li>
+         <code>
+          w0=0.8 rad/s
+         </code>
+        </li>
+        <li>
+         <code>
+          m=0.1
+         </code>
+        </li>
+        <li>
+         gain statique
+         <code>
+          T0=1
+         </code>
+        </li>
+       </ul>
+      </li>
+      <li>
+       Période échantillonnage
+       <code>
+        Te=0.72
+       </code>
+      </li>
+     </ul>
+    </li>
+   </ul>
+   <div class="admonition hint">
+    <p class="admonition-title">
+     思路：
+    </p>
+    <ul>
+     <li>
+      构建processus的传递函数
+     </li>
+     <li>
+      根据CdCs构建要求的传递函数
+     </li>
+     <li>
+      通过线性方程求corresctur的参数
+      <ul>
+       <li>
+        déterminer les polynômes $\Theta$(z) et $\Pi$(z) de l’équation Diophantienne $D_{BF}(z)=N^{-}(z)\Theta(z)+ D^{-}(z)S_{r}(z)\Pi(z)$
+       </li>
+       <li>
+        Erreur position nulle , il faut donc un intégrateur Sr=(1-z^-1)
+       </li>
+       <li>
+        Erreur de vitesse = 0.5 $\Rightarrow$ ev = $\frac{D^{-}(1).Ky(1).PI(1)}{DBF(1)}$
+        <code>
+         DBF(1)=sum(D1d)
+        </code>
+        pour une rampe
+        <code>
+         Ky(1)=Te
+        </code>
+       </li>
+      </ul>
+     </li>
+     <li>
+      构建corresteur K(z)
+      <ul>
+       <li>
+        $K(z)=\frac{D^{+}(z)S_{m}(z)\Theta(z)}{N^{+}(z)S_{r}(z)\Pi(z)}$
+       </li>
+       <li>
+        其中:
+        <ul>
+         <li>
+          $D^{+}(z): Processus的TF方程的分母 \Rightarrow$ Dstable=tf(F0d.den{1},1,Te)
+         </li>
+         <li>
+          $S_{m}(z)$: 有integrateur:$(1-z^{-1})$没:1
+         </li>
+         <li>
+          $\Theta(z)$: 求解线性方程所得的 $\Pi$ 值的集合 $\Rightarrow$ Theta=tf(theta,1,Te)
+         </li>
+         <li>
+          $N^{+}(z)$: Processus的TF方程的
+          <code>
+           增益k
+          </code>
+          $\times$
+          <code>
+           [1 零点的相反数]
+          </code>
+          $\Rightarrow$ [z0,k0]=zero(F0d); Nstable=tf(1,k0*[1 -z0],Te)
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </div>
+   <div class="codehilite">
+    <pre><span class="hll"><span class="c">%%%% Le processus analogique TFBO</span>
+</span><span class="n">Te</span><span class="p">=</span><span class="mf">0.72</span><span class="p">;</span> <span class="c">% Période échantillonnage</span>
+<span class="n">w0</span><span class="p">=</span><span class="mf">0.8</span><span class="p">;</span> <span class="c">% pulsation propre du processus en BO</span>
+<span class="n">m</span><span class="p">=</span><span class="mf">0.1</span><span class="p">;</span>   <span class="c">% coefficient d'amortissement</span>
+<span class="n">T0</span><span class="p">=</span><span class="mi">1</span><span class="p">;</span>   <span class="c">% gain statique</span>
+
+<span class="n">num0</span><span class="p">=[</span><span class="n">T0</span><span class="p">];</span>
+<span class="n">den0</span><span class="p">=[</span><span class="mi">1</span><span class="o">/</span><span class="n">w0</span>^<span class="mi">2</span> <span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="o">/</span><span class="n">w0</span> <span class="mi">1</span><span class="p">];</span>
+<span class="n">F0</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">num0</span><span class="p">,</span><span class="n">den0</span><span class="p">)</span>    <span class="c">% F0(p)</span>
+<span class="n">F0d</span><span class="p">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">F0</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span>      <span class="c">% discrétisation de la fonction de transfert en BO</span>
+
+<span class="c">% T0d=zpk(F0d);</span>
+<span class="c">% [z0d,p0d,k0]=zpkdata(T0d)</span>
+
+<span class="hll"><span class="c">%%%% FTBF fixé par le cahier des charges</span>
+</span><span class="n">w1</span><span class="p">=</span><span class="mf">1.4</span> <span class="p">;</span> <span class="c">% pulsation propre du processus en BF</span>
+<span class="n">m1</span><span class="p">=</span><span class="mf">0.8</span><span class="p">;</span>  <span class="c">% coefficient d'amortissement</span>
+<span class="n">num1</span><span class="p">=[</span><span class="mi">1</span><span class="p">];</span>
+<span class="n">den1</span><span class="p">=[</span><span class="mi">1</span><span class="o">/</span><span class="n">w1</span>^<span class="mi">2</span> <span class="mi">2</span><span class="o">*</span><span class="n">m1</span><span class="o">/</span><span class="n">w1</span> <span class="mi">1</span><span class="p">];</span>
+<span class="n">F1</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span><span class="n">den1</span><span class="p">)</span>
+<span class="n">F1d</span><span class="p">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">F1</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span> <span class="c">% Discrétisation de la fonction de transfert en BF </span>
+<span class="c">% [z1d,p1d,T1d]=zpkdata(F1d) % liste zéro - pôle - gain</span>
+
+<span class="p">[</span><span class="n">D1d</span><span class="p">]=</span><span class="n">F1d</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span> <span class="c">% D1d=z^2+D1d(2)*z+D1d(3)</span>
+
+<span class="hll"><span class="c">%%%% Coefs du correcteur</span>
+</span><span class="n">ev</span><span class="p">=</span><span class="mf">0.5</span><span class="p">;</span> <span class="c">% erreur de vitesse en régime permanent</span>
+<span class="n">DBF1</span><span class="p">=</span><span class="n">sum</span><span class="p">(</span><span class="n">D1d</span><span class="p">)</span> <span class="c">% =DBF(1)</span>
+<span class="c">%% Résolution du système linéaire </span>
+<span class="c">% 不存在积分器</span>
+<span class="n">A</span><span class="p">=[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">;</span><span class="mi">1</span> <span class="mi">0</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">1</span><span class="p">;</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">]</span>
+<span class="c">% 存在一个积分器</span>
+<span class="c">% A=[1 0 1 0;0 1 -1 1;0 0 0 -1; 0 0 1 1];</span>
+<span class="n">B</span><span class="p">=[</span><span class="mi">1</span><span class="p">;</span><span class="n">D1d</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="n">D1d</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="n">ev</span><span class="o">*</span><span class="n">DBF1</span><span class="o">/</span><span class="n">Te</span><span class="p">]</span>
+<span class="n">Sol</span><span class="p">=</span><span class="n">A</span><span class="o">\</span><span class="n">B</span> <span class="c">% Solution du système</span>
+<span class="n">theta0</span><span class="p">=</span><span class="n">Sol</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">theta1</span><span class="p">=</span><span class="n">Sol</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">pI0</span><span class="p">=</span><span class="n">Sol</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">pI1</span><span class="p">=</span><span class="n">Sol</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="n">theta</span><span class="p">=[</span><span class="n">theta0</span> <span class="n">theta1</span><span class="p">];</span> <span class="c">%polynôme theta(z)=theta0*z+theta1</span>
+<span class="n">pI</span><span class="p">=[</span><span class="n">pI0</span> <span class="n">pI1</span><span class="p">];</span> <span class="c">%polunôme pI(z)=pI0*z+pI1</span>
+
+<span class="hll"><span class="c">%%%% Réalisation du correcteur</span>
+</span><span class="c">%%% K(z)=[Dstable(z)Sm(z)Theta(z)]/[Nstable(z)Sr(z)Pi(z)] D和N交换位置</span>
+<span class="n">Ds</span><span class="p">=</span><span class="n">F0d</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span> <span class="p">;</span>
+<span class="c">%获取的系数需要再Z转换</span>
+<span class="n">Dstable</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">Ds</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span>
+<span class="n">Sm</span><span class="p">=</span><span class="mi">1</span><span class="p">;</span>   <span class="c">% pas d'integrateur</span>
+<span class="n">Theta</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span>
+
+<span class="p">[</span><span class="n">z0</span><span class="p">,</span><span class="n">k0</span><span class="p">]=</span><span class="n">zero</span><span class="p">(</span><span class="n">F0d</span><span class="p">);</span> <span class="c">%return zero point of sys F0d</span>
+<span class="n">Ns</span><span class="p">=</span><span class="n">k0</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span> <span class="o">-</span><span class="n">z0</span><span class="p">];</span> 
+<span class="n">Nstable</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Ns</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span><span class="c">% 1/N+(z)</span>
+<span class="n">Sr</span><span class="p">=[</span><span class="mi">1</span> <span class="o">-</span><span class="mi">1</span><span class="p">];</span> <span class="c">% un integrateur</span>
+<span class="n">tfSr</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Sr</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span>    <span class="c">% Sr(z)</span>
+<span class="n">Pi</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">pI</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span> <span class="c">% 1/pI(z)</span>
+
+<span class="n">K</span><span class="p">=</span><span class="n">Dstable</span><span class="o">*</span><span class="n">Theta</span><span class="o">*</span><span class="n">Nstable</span><span class="o">*</span><span class="n">tfSr</span><span class="o">*</span><span class="n">Pi</span>
+
+<span class="c">%%%% Extraction simulink</span>
+<span class="n">NK</span><span class="p">=</span><span class="n">K</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">DK</span><span class="p">=</span><span class="n">K</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+
+<span class="n">NP</span><span class="p">=</span><span class="n">F0d</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">DP</span><span class="p">=</span><span class="n">F0d</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+</pre>
+   </div>
    <h2 id="td_1">
     <a aria-hidden="true" class="headeranchor-link" href="#td_1" name="user-content-td_1">
      <span class="headeranchor">
