@@ -1,105 +1,183 @@
-[TOC]
-
-###3 Modèle mathématique des systèmes échantillonnés
-####3.1 Forme générale
-#####3.1.1 Système du premier ordre muni d'un BOZ
-<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_181118.png)</p>
-
-#####3.1.2 Système du second ordre muni d'un BOZ
-<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_181502.png)</p>
-
-####3.2 intégrateur avec BOZ
-#####3.2.1 Fonction de transfert d'un intégrateur
-<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_181734.png)</p>
-
-#####3.2.2 Forme générale avec un intégrateur
-Aussi la forme standard d'une fonction de transfert en z
-<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_182439.png)</p>
-
-####3.3 Modèle échantillonné du premier ordre
-<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171222_092057.png)</p>
-
-#####3.3.1 Comportement statique
-<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171222_092234.png)</p>
-	
-	l'échantillonnage ne modifie pas l'amplitude des signaux.
-
-#####3.3.2 Comportement dynamique
-
-- En régime cintinue
-    - Le comportement dynamique d'un système continu est influencé par la constante de temps：$\tau$
-    - Le pôle de la fonction de transfert: $P_{0}=-\frac{1}{\tau}$
-    - Temps de réponse($3\tau$ à 5%): $t_{r}$
-
-- En régime échantillonné `F(z)`:
-	+ Le pôle : $Z_{0}=e^{\frac{-T_{e}}{\tau}}=e^{P_{0}T_{e}}$
-		* toujours `inférieur à 1`
-		* lié à la période d'échantillonnage $T_{e}$
-	+ les temps de réponse à un échelon:
-		* on va revenir à l'équation de récurrence:
-		* <p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171222_093619.png)</p>
-
 
 ####3.4 Modèle échantillonné du second ordre
+
+La transformée en Z utilisé le changement de variable en $z=e^{pT_{e}}$, ce qui implique obligatoirement que tous les pôles de la fonction de transfert F(p) se transforme en $z_{i}=e^{p_{i}T_{e}}$ 
+
 #####3.4.1 Cas où les pôles sont réels
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171224_002246.png)</p>
+
+- Gain statique : $G(0)=\underset{Z\rightarrow1}{lim} F(z)$
+- Comportement dynamique :
+	+ les pôles $Z_{i}$ 越靠近1，对应的$P_{i}$越趋近原点(`grande constante de temps`) $\Rightarrow$ 系统反应越缓慢
+	+ 反之 les pôles $Z_{i}$ 越靠近原点，系统反应越快、
+	+ L'influence du zéro `零点的影响`：
+		* si -1<z$_{0}$<0, le zéro change peu de chose.
+		* Plus z$_{0}$ se rapproche des pôles, plus le temps de montée diminue. La réponse est plus nerveuse.
+		* Si $z_{i}<z_{0}<1$, la réponse présente un dépassement, d'autant plus important que z$_{0}$ est proche de 1.
+
+
 #####3.4.2 Cas où les pôles sont complexes
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171224_154246.png)</p>
+
+
+- Gain statique : $G(0)=\underset{Z\rightarrow1}{lim} F(z)$
+- Comportement dynamique
+
 
 ## V) PID 采样控制
 Commande par PID, approché échantillonné
 ###1.Introduction
+
 ####1.1Choix de la période d'échantillonnage
+$\frac{T_{p}}{10} < T_{e} < \frac{T_{p}}{2}$
+
 ####1.2Choix de la méthode de discrétisation
+[Voir](##序)
+
 ###2.Discrétisation des correcteurs.
+
+Pour calculer les fonctions de transfert des correcteurs PI, PID et PID filtré, ces fonctions de transfert en 'z' seront mise sous la forme du rapport de deux polynômes :
 <p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_103953.png)</p>
 ####2.1Régulateur PI numérique
 Le régulateur PI a pour transformée de Laplace :
-<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_104148.png)</p>
-<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_104327.png)</p>
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171224_202529.png)</p>
 
 ####2.2Régulateur PID numérique.
-La transmittance de Laplace d'un PID est :
-<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_104414.png)</p>
-- Cette structure n'est pas la meilleure à cause de la dérivée qui amplifie le bruit dans les hautes fréquences. Dans ce cas, il est préférable d'utiliser un correcteur PID filtré. Cependant, à titre illustratif, nous donnons le calcul de la discrétisation de ce PID. 
-<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_104539.png)</p>
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171224_203459.png)</p>
 
-####2.3Régulateur PID filtré numérique.
-由于微分器的存在放大了噪声，所以这个结构不是最好的，需要加入PID滤波器
-La transmittance de Laplace d'un PID filtré est la suivante : 
-<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_104806.png)</p>
-<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_104839.png)</p>
+!!! danger "不是最优结构"
+	由于微分器的存在放大了噪声，所以这个结构不是最好的，需要加入PID滤波器
+
+	Cette structure n'est pas la meilleure à cause de la dérivée qui amplifie le bruit dans les hautes fréquences. Dans ce cas, il est préférable d'utiliser un correcteur PID filtré. Cependant, à titre illustratif, nous donnons le calcul de la discrétisation de ce PID. 
+
+####2.3 Régulateur PID filtré numérique.
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171224_204611.png)</p>
 
 ###3.Discrétisation du processus
+
 ####3.1Préambule.
-Un processus continu piloté par une unité de calcul recevra sur son entrée une commande qui sera  maintenue  constante  entre  deux  instants  d'échantillonnage.  A  cette  réalité  technologique correspond un schéma d'échantillonnage faisant apparaître un échantillonneur d'ordre zéro.
-La structure des correcteurs PID avec un réglage par placement des pôles n'autorise que des processus du premier et second ordre. Nous allons ici développer la discrétisation.
+
+La structure des correcteurs PID avec un réglage par placement des pôles n'autorise que des processus du premier et second ordre. 
 
 !!! hint ""
 	带有放置极点位置的调节器的PID只能用在1阶和2阶过程上
 
 ####3.2Processus du premier ordre.
-<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_112055.png)</p>
-P (z) : Fonction de transfert du système muni d'un échantillonneur bloqueur d'ordre zéro.
-<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_112316.png)</p>
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171224_210425.png)</p>
+
+
 
 ####3.3Processus du second ordre
-<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_112430.png)</p>
-P(z) peut se mettre sous la forme :
-<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_112507.png)</p>
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171224_211214.png)</p>
 
-#####3.3.1 Cas des pôles doubles
-#####3.3.2 Cas des pôles doubles.
-#####3.3.3 Cas des pôles réels8
+!!! note "a1, a2, b1, b2"
+	- a1, a2, b1, b2
+		+ 1. les pôles complexes
+		+ 2. les pôles réels
+
+#####3.3.1 Cas des pôles complexes
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171224_213344.png)</p>
+
+#####3.3.2 Cas des pôles complexes mais c=0
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171224_213505.png)</p>
+
+#####3.3.3 Cas des pôles réels
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171224_214151.png)</p>
+
 ###4.Commande d'un premier ordre par un P.I.
+La commande d'un premier ordre par un correcteur P.I donne un comportement en boucle fermée du second ordre.
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171224_214816.png)</p>
+
 ####4.1 Comportement en premier ordre.
-#####4.1.1 Choix du comportement en boucle fermée.
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171224_221803.png)</p>
+
 ####4.2 Comportement en second ordre
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171224_222740.png)</p>
+
 ####4.3 Résumé du réglage d'un correcteur P.I
 #####4.3.1 Dynamique du premier ordre
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171224_223500.png)</p>
+
+
 #####4.3.2 Dynamique du second ordre.
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171224_224348.png)</p>
+
+#####4.3.3 
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171224_224443.png)</p>
+
 ###5 Commande d'un second ordre par un PID filtré.
-####5.1 Comportement du second ordre11 
+
+Ici, le correcteur est du second ordre. Si nous voulons maîtriser complètement le fonctionnement en boucle fermée, le processus devra être du même ordre.
+
+Dans le cas d'un simplification entre les pôles et les zéros du correcteur, le comportement en boucle fermée sera régi par un second ordre.
+
+Dans le cas contraire, nous aurons un quatrième ordre dont les quatre pôles peuvent être fixés. Ce  deuxième cas aboutissant à des relations lourdes à gérer, nous ne traiterons que la première proposition.
+
+!!! hint ""
+	- `processus` 和 `correcteur` 的阶数都为`2`
+
+
+Le schéma-bloc de l'ensemble processus-correcteur est le suivant :
+
+####5.1 Comportement du second ordre
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171224_235715.png)</p>
+
+
 ###6.Conclusion
 <p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171214_110711.png)</p>
+
+Les correcteurs P.I, P.I.D et P.ID filtré ont respectivement une structure fixe du premier ordre et du second ordre. Nous avons, à partir de ces deux structures, montré comment il était possible de régler un processus modélisé par un premier ou second ordre.
+
+Pour un fonctionnement en boucle fermée par l'utilisateur, il est aisé de calculer les expressions des polynômes S(z) et R(z) nécessaires à l'établissement de l'équation récurrente de la commande.
+
+Le  calcul  des  actions  Kp,  Ti,  Td  et  N  n'est  pas  indispensable  pour faire  la  synthèse  du correcteur, leurs calculs dépendront du choix des paramètres de réglages accessibles par l'utilisateur.
+
+Il est possible, à ce niveau, de dévoyer le concept de réglage d'un PID et considérer finalement que les actions accessibles au régleur sont la pulsation propre et le coefficient d’amortissement du système en boucle fermée. Dans ce cas, à partir de la connaissance de ω0  et m, l'unité numérique déterminer R(z) et S(z) à l'aide des relations vues dans ce chapitre et déterminer ensuite l'équation récurrente de la commande.
+
+L'intérêt  de  cette  approche  est  d'offir  au  régleur  un  moyen  de  réglage  simple  présentant seulement  deux actions. Le réglage du coefficient d'amortissement le  dépassement et la pulsation propre fixe le temps de réponse. Il est clair que, dans une approche classique, les quatre réglages Kp, Ti ; Td et N influent tous sur le temps de réponse et le dépassement.
+
+Dans cette synthèsed en temps discret d'un correcteur de type P.ID, il possible que certains valeurs de réglages Kp ;Ti, Td et N soient négatives. Contrairement au cas continu, cela n'implique pas que le correcteur ne soit pas réglables. Vous pouvez for bien appliquer la commande. Il est clair cependant que ; dans ce cas, l'équivalence au continu perd, quelque peu, de sa consistance.
+
+Un dernier point pint qu'il ne faut pas perdre de vu dans une approche en temps discret, c'est le temps qui est discrétisé et qu'il inutile de sur-échantillonner. Vous choisirez donc un pas de calcul le plus grand possible tout en veillant eu respect du théorème de Shannon.
+
+Si vous faites ce choix d'échantillonnage correct, approximativement entre le dixième et la moitié de la constante de temps principale du processus, le calcul des actions du correcteur devra se faire impérativement avec une approche échantillonnée.
+
+##VI) Les équations polynomiales
+
+- 1.Synoptique de l'asservissement
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171225_000349.png)</p>
+
+- 2.Factorisation de la la fonction de transfert
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171225_000929.png)</p>
+举例
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171225_004001.png)</p>
+
+- 3.Structure du correcteur numérique
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171225_001804.png)</p>
+
+- 4.Expression de la FTBO(z)
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171225_001912.png)</p>
+
+- 5.Expression de la FTBF(z)
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171225_002216.png)</p>
+
+- 6.Expression de l'erreur en régime permanent
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171225_002332.png)</p>
+
+- 7.总结
+
+!!! hint "套路"
+	- Problème: trouver les polynômes $\Theta(z)$ et $\Pi(z)$. Cela revient à résoudre l'équation Diophantienne.
+		- On fixe le régime transitoire avec le polynôme $D_{BF}(z)=N^{-}(z)\Theta(z)+ D^{-}(z)S_{r}(z)\Pi(z)$ équation Diophantienne(connue).
+		- On fixe le type d'erreur à annuler en régime permanent $S_{r}(z)$(connu).
+		- On fixe de plus une valeur à l'erreur d'ordre immédiatement supérieur (possibilité).
+
+
+###举例
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171225_003749.png)</p>
+<p align="center">![](C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171225_005654.png)</p>
+
+
 
 
 ## TD习题
