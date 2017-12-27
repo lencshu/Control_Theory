@@ -117,6 +117,21 @@ def executeCommand(cmd,cwDir,arg=""):
 	if str(out):
 		print "out : " + str(out)
 
+def confReadOrAdd(section,option):
+    try:
+        value=confAuto.get(section,option)
+    except ConfigParser.NoSectionError:
+        confAuto.add_section(section)
+        print "Enter the valur of",option,':'
+        value = raw_input()
+        confAuto.set(section, value, value)
+        confAuto.write(open('auto.ini', 'w'))
+    except ConfigParser.NoOptionError:
+        print "Enter the valur of",option,':'
+        value = raw_input()
+        confAuto.set(section, value, value)
+        confAuto.write(open('auto.ini', 'w'))
+    return value
 
 
 ##
@@ -125,18 +140,23 @@ def executeCommand(cmd,cwDir,arg=""):
 
 if iniAutoExiste:
 	confAuto.read('auto.ini')	   # 文件路径
-	htmlName = confAuto.get("HTML", "HtmlName") # 获取指定section 的option值
-	sidebarSize = confAuto.get("HTML", "SidebarSize")
-	mainpageSize = confAuto.get("HTML", "MainpageSize")
-	ifpwd = confAuto.get("HTML", "ifpwd")
-	multiMediaDir = confAuto.get("MultiMedia", "DirName") # 获取指定section 的option值
-	lastChangeTime = confAuto.get("MultiMedia", "LastChangeTime")
+	htmlName = confReadOrAdd("HTML", "HtmlName") # 获取指定section 的option值
+	sidebarSize = confReadOrAdd("HTML", "SidebarSize")
+	mainpageSize = confReadOrAdd("HTML", "MainpageSize")
+	ifpwd = confReadOrAdd("HTML", "ifpwd")
+	multiMediaDir = confReadOrAdd("MultiMedia", "DirName") # 获取指定section 的option值
+	lastChangeTime = confReadOrAdd("MultiMedia", "LastChangeTime")
+
+	ifhexo = confReadOrAdd("HEXO", "ifhexo")
+	lang = confReadOrAdd("HEXO", "lang")
+	hexoDir = confReadOrAdd("HEXO", "hexoDir")
 
 else :
 	confAuto.read('auto.ini')
 	confAuto.add_section("MultiMedia") # 增加section
 	confAuto.add_section("HTML") 
 	confAuto.add_section("TimeTag")
+	confAuto.add_section("HEXO")
 	htmlName = raw_input("Original Html Name: ")
 	multiMediaDir = raw_input("The name of [MultiMedia] directory: ") or "MultiMedia"
 	sidebarSize = raw_input("Side Bar Size (%) [30]: ") or "30"
@@ -145,6 +165,13 @@ else :
 	mainpageSize = mainpageSize + "%;"
 	ifpwd = raw_input("Want To mask PWD(Yes:1/[No:0]): ") or "0"
 	lastChangeTime = raw_input("Last Changed time of All PNGs Files [0]: ") or "0"
+	ifhexo = raw_input("Post to hexo or not?[no:enter]") or "0"
+	if int(ifhexo):
+		postDir = raw_input("Post directory")
+		hexoDir = raw_input("Hexo Root directory [Default:enter]") or "C:\\Users\\lencs\\Desktop\\Blog\\gliang.eu"
+	else:
+		postDir = ''
+		hexoDir = "C:\\Users\\lencs\\Desktop\\Blog\\gliang.eu"
 
 	confAuto.set("HTML", "HtmlName",htmlName) # 增加指定section 的option
 	confAuto.set("HTML", "SidebarSize",sidebarSize)
@@ -152,23 +179,38 @@ else :
 	confAuto.set("HTML", "ifpwd",ifpwd)
 	confAuto.set("MultiMedia", "DirName",multiMediaDir) # 获取指定section 的option值
 	confAuto.set("MultiMedia", "LastChangeTime",lastChangeTime )
+	confAuto.set("HEXO", "ifhexo",ifhexo )
+	confAuto.set("HEXO", "postDir",postDir )
+	confAuto.set("HEXO", "hexoDir",hexoDir )
 	timeTag=time.strftime("%Y-%m-%d %H:%M:%S %a", time.localtime())
 	confAuto.set("TimeTag", "IniModifiedTime",timeTag)
 	confAuto.write(open('auto.ini', 'w'))
+
+
+### 简单处理
+
+markdownName=htmlName.split('.')[0]+".md"
+markdownPath=parentDir+"\\"+markdownName
 
 args = " --force --verbose --quality=45-80 --ext=.png"
 mediaFolder = parentDir +"\\" + multiMediaDir
 lastChangeTime=float(lastChangeTime)
 refTimeAfterAll = lastChangeTime
+postDir = hexoDir + "\\source\\_posts\\" + lang
+imagesHexoDir = postDir + '\\' + htmlName.split('.')[0] + '\\' + multiMediaDir
 
+
+if not os.path.exists(mediaFolder):
+	os.makedirs(mediaFolder)
+if not os.path.exists(imagesHexoDir):
+	os.makedirs(imagesHexoDir)
+
+imagesHexoDir = imagesHexoDir.replace('\\','/')
 
 
 ##
 ## 1.2创建祖父目录里面的密码配置文件pwd.ini
 ##
-
-markdownName=htmlName.split('.')[0]+".md"
-markdownPath=parentDir+"\\"+markdownName
 
 if (not iniPwdExiste) and int(ifpwd):
 	confPwd.read(pwdPath)	   # 文件路径
@@ -179,6 +221,7 @@ if (not iniPwdExiste) and int(ifpwd):
 	confPwd.set("file", "IniCreatTime",timeTag)
 	confPwd.set("file", "IniModifiedTime",timeTag)
 	confPwd.write(open(pwdPath, 'w'))
+
 ##
 ## 2.2 读取祖父目录里面的密码配置文件pwd.ini
 ##
@@ -188,8 +231,6 @@ elif int(ifpwd):
 	lineNumberInsert=confPwd.options('pwd')
 	optionsNumber=len(confPwd.options('pwd'))
 	itemsToInsert=confPwd.items('pwd')
-
-
 
 
 ##
@@ -391,10 +432,12 @@ if modeSwitch:
 ## C:\Users\lencs\Desktop\Blog\gliang.eu\source\_posts\Fr-Ch ==>从ini中读取
 ##
 
-postDir="C:\\Users\\lencs\\Desktop\\Blog\\gliang.eu\\source\\_posts\\Fr-Ch"
+# postDir="C:\\Users\\lencs\\Desktop\\Blog\\gliang.eu\\source\\_posts\\Fr-Ch"
+# hexoDir="C:\\Users\\lencs\\Desktop\\Blog\\gliang.eu"
+# imagesHexoDir="C:/Users/lencs/Desktop/Blog/gliang.eu/source/_posts/Fr-Ch/MC59/images"
+
+
 postPath=postDir + '\\' + markdownName
-hexoDir="C:\\Users\\lencs\\Desktop\\Blog\\gliang.eu"
-imagesHexoDir="C:/Users/lencs/Desktop/Blog/gliang.eu/source/_posts/Fr-Ch/MC59/images"
 mdImagesPathdel=parentDir+'\\'
 postExiste = os.path.exists(postPath)
 imagesHexoExiste = os.path.exists(imagesHexoDir)
@@ -404,7 +447,7 @@ pattern = re.compile(r"^[\t\r\f\v ]")
 lostTarget=0
 
 
-if modeSwitch:
+if modeSwitch and int(ifhexo):
 	if postExiste:
 		os.remove(postPath)
 	keyCircle="<p align=\"center\">"
@@ -433,7 +476,7 @@ if modeSwitch:
 				tagKey=re.findall(r'\".*?\"',line)
 				# if 'hint' in line.lower():
 					# line = re.sub(r'.*!!!.*', '{% note info %}',line) + '\t'+ tagKey[0]
-				if 'hint' or 'note' or 'caution' or 'unknow' or 'question' or 'danger' in line.lower():
+				if 'hint' or 'note' or 'caution' or 'unknow' or 'question' or 'danger' or 'attention' in line.lower():
 				# if 'note' or 'caution' or 'unknow' or 'question' or 'danger' in line.lower():
 					line = re.sub(r'.*!!!.*', '{% note success %}',line) + '\t'+ tagKey[0] + '\n'
 				lostTarget=0
@@ -462,10 +505,11 @@ if modeSwitch:
 ##
 ## 1.8 复制照片文件夹
 ##
-mediaSourceFolder = mediaFolder.replace('\\','/')
-print mediaSourceFolder
 
-if modeSwitch:
+mediaSourceFolder = mediaFolder.replace('\\','/')
+# print mediaSourceFolder
+
+if modeSwitch and int(ifhexo):
 	print "==== Hint Decoded, Coping images"
 	if imagesHexoExiste:
 		shutil.rmtree(imagesHexoDir)
@@ -477,7 +521,7 @@ if modeSwitch:
 ## 1.9 运行hexo命令
 ##
 
-if modeSwitch:
+if modeSwitch and int(ifhexo):
 	print "==== Delete original HTMLs"
 	executeCommand("hexo clean", hexoDir)
 	print "==== Generate new HTMLs "
@@ -489,7 +533,7 @@ if modeSwitch:
 ## 1.10 运行git命令
 ##
 
-if modeSwitch:
+if modeSwitch and int(ifhexo):
 	print "==== Git hexo stage all "
 	executeCommand("git add .", hexoDir)
 	print "==== Git hexo commit all "
