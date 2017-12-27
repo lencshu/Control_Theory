@@ -462,11 +462,14 @@ if modeSwitch:
 ##
 ## 1.8 复制照片文件夹
 ##
+mediaSourceFolder = mediaFolder.replace('\\','/')
+print mediaSourceFolder
+
 if modeSwitch:
 	print "==== Hint Decoded, Coping images"
 	if imagesHexoExiste:
 		shutil.rmtree(imagesHexoDir)
-	shutil.copytree(mediaFolder, imagesHexoDir)
+	shutil.copytree(mediaSourceFolder, imagesHexoDir)
 
 
 
