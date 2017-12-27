@@ -124,12 +124,13 @@ def confReadOrAdd(section,option):
         confAuto.add_section(section)
         print "Enter the valur of",option,':'
         value = raw_input()
-        confAuto.set(section, value, value)
+        confAuto.set(section, option, value)
         confAuto.write(open('auto.ini', 'w'))
     except ConfigParser.NoOptionError:
         print "Enter the valur of",option,':'
         value = raw_input()
-        confAuto.set(section, value, value)
+		# confAuto.set("HTML", "ifpwd",ifpwd)
+        confAuto.set(section, option, value)
         confAuto.write(open('auto.ini', 'w'))
     return value
 
@@ -439,7 +440,7 @@ if modeSwitch:
 
 
 postPath=postDir + '\\' + markdownName
-mdImagesPathdel=parentDir+'\\'
+mdImagesPathdel=parentDir+"\\"
 postExiste = os.path.exists(postPath)
 
 annotationTarget=0
@@ -458,7 +459,9 @@ if modeSwitch and int(ifhexo):
 		mdSimReplace = mdSimReplace.replace(keyCircle,'')
 		mdSimReplace = re.sub(r"{:height=\"\d+px\" width=\"\d+px\"}</p>", '' ,mdSimReplace)
 		mdSimReplace = mdSimReplace.replace('</p>','')
-		mdSimReplace = mdSimReplace.replace('mdImagesPathdel','')
+		# print mdImagesPathdel
+		mdSimReplace = mdSimReplace.replace(mdImagesPathdel,'')
+		mdSimReplace = mdSimReplace.replace('</audio>',"</audio>\n")
 		mdSimReplace = mdSimReplace.replace("[TOC]\n\n---",'---')
 		file = open('temp.md', 'w')
 		file.write(mdSimReplace)

@@ -44,7 +44,7 @@ step(Tmd_BFp);      %afficher le step graphe
 Steady_timeP=stepinfo(Tmd_BFp,'SettlingTimeThreshold',0.05)
 
 %lieux d Evans
-sisotool(Tmd_BFp);
+%sisotool(Tmd_BFp);
 
 %correcteur PID filtre
 w1=4*w0;    %pulsation de BF d aprs CdC
@@ -66,6 +66,7 @@ s1=r0pid*b2-p2PID;
 %Fonction de transfert du correcteur PID filtre
 numPID=[r0pid r1pid r2pid];
 denPID=conv([1 -1],[1 s1]);
+%denK=[1 s1-1 -s1]
 Kpid=tf(numPID,denPID,Te,'variable','z');
 
 %La reponse a 5%
@@ -74,6 +75,73 @@ Tmd_BFpid=feedback(Tmd_BOpid,1)
 Steady_timePID=stepinfo(Tmd_BFpid,'SettlingTimeThreshold',0.05)
 
 step(T1,T1d,Tmd_BFpid)
+
+
+
+
+%{
+%%%%%%%%%%%%
+Mise en place d'un correceteur polynomial 1er cas erreur de position nulle 
+%%%%%%%%%%%%
+%}
+
+%Détermination N+,N-,D+,D-,Sm
+% [Z0d,P0d,k0]=zpkdata(Tmd)
+[Z0,k0]=zero(Tmd)
+Nstable=tf(k0*[1 -Z0],1,Te)	% N+(z)
+Dstable=tf(Tmd.den{1},1,Te)
+Sm=1
+
+% Résolution de l'eq diophantienne
+%Détermination de O(z) et PI(z) 
+%O(z)=o0+o1*^-1   et PI(z)=pi0
+%%%%%%%%%需要计算！
+pi0=1
+o0=p1PID+pi0
+o1=p2PID
+
+% Réalisation du correceur Kp(z)
+%printsys('z',Sr)
+Sr=[1 -1 0] % =(1-z^-1)*z^-2
+TSr=tf(1,Sr,Te)
+Ttheta=tf([o0 o1],1,Te)
+Kp=Ds*Sm*Ttheta*TSr*1/Ns
+
+% Extraction Simulink
+NKep=Kp.num{1}
+DKep=Kp.den{1}
+
+
+%{
+%%%%%%%%%%%%
+ Mise en place d'un correceteur polynomial 2ème cas erreur de vitesse nulle il faut deux intégrateurs
+Sr1=(1-z^-1)^2                       
+%%%%%%%%%%%%
+%}
+
+% Résolution de l'eq diophantienne
+%Détermination de O1(z) et PI1(z) 
+%O1(z)=o10+o11*^-1   et PI(z)=pi10
+pi10=1
+o10=p1PID+2*pi10
+o11=p2PID-pi10
+
+
+% Réalisation du correceur Kp1(z) 
+Ttheta1=tf([o10 o11],1,Te)
+Sr1=[1 -2 1]        % Annule l'erreur de vitesse- deux intégrateurs
+TSr1=tf(1,Sr1,Te)   % fonction de transfert de Sr1
+Kp1=Ds*Sm*Ttheta1*TSr1*1/Ns
+
+
+% Extraction Simulink
+NKp1=Kp1.num{1}
+DKp1=Kp1.den{1}
+
+NP=T0d.num{1}
+DP=T0d.den{1}
+
+%{
 
 %待研究
 num2=[1];
@@ -92,3 +160,4 @@ num3=[2 -1];
 den3=[1 0 0];
 Gamma_trainage=tf(num3,den3,Te,'variable','z');
 Kt=(Gamma_trainage)/(Tmd*(1-Gamma_trainage)); %FT de tranage
+%}

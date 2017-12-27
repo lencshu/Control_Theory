@@ -4098,23 +4098,67 @@ pulsation naturelle (ou propre) $\omega_{1}$=1/$\tau_{BO}$ et de coefficient d&r
 
 <h4 id="5"><a name="user-content-5" href="#5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5. 误差分析</h4>
 <p><p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171222_160303.png" /></p></p>
-<div class="codehilite"><pre><span class="hll"><span class="o">%</span><span class="err">待研究</span>
-</span><span class="n">num2</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-<span class="n">den2</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="mi">0</span><span class="p">];</span>
-<span class="n">Gamma_statique</span><span class="o">=</span><span class="n">tf</span><span class="p">(</span><span class="n">num2</span><span class="p">,</span><span class="n">den2</span><span class="p">,</span><span class="n">Te</span><span class="p">,</span><span class="s">&#39;variable&#39;</span><span class="p">,</span><span class="s">&#39;z&#39;</span><span class="p">);</span>
+<div class="codehilite"><pre><span class="hll"><span class="cm">%{</span>
+</span><span class="cm">%%%%%%%%%%%%</span>
+<span class="cm">Mise en place d&#39;un correceteur polynomial 1er cas erreur de position nulle </span>
+<span class="cm">%%%%%%%%%%%%</span>
+<span class="cm">%}</span>
 
-<span class="n">Ks</span><span class="o">=</span><span class="p">(</span><span class="n">Gamma_statique</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Tmd</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Gamma_statique</span><span class="p">));</span>   <span class="o">%</span><span class="n">FT</span> <span class="n">de</span> <span class="n">statique</span>
+<span class="c">%Détermination N+,N-,D+,D-,Sm</span>
+<span class="c">% [Z0d,P0d,k0]=zpkdata(Tmd)</span>
+<span class="p">[</span><span class="n">Z0</span><span class="p">,</span><span class="n">k0</span><span class="p">]=</span><span class="n">zero</span><span class="p">(</span><span class="n">Tmd</span><span class="p">)</span>
+<span class="n">Nstable</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">k0</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span> <span class="o">-</span><span class="n">Z0</span><span class="p">],</span><span class="mi">1</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span> <span class="c">% N+(z)</span>
+<span class="n">Dstable</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">Tmd</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span><span class="mi">1</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span>
+<span class="n">Sm</span><span class="p">=</span><span class="mi">1</span>
 
-<span class="n">T_statique_pile_bo</span><span class="o">=</span><span class="n">series</span><span class="p">(</span><span class="n">Ks</span><span class="p">,</span><span class="n">Tmd</span><span class="p">);</span>
-<span class="n">T_statique_pile_bf</span><span class="o">=</span><span class="n">feedback</span><span class="p">(</span><span class="n">T_statique_pile_bo</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
-<span class="n">step</span><span class="p">(</span><span class="n">T_statique_pile_bf</span><span class="p">,</span><span class="n">T1d</span><span class="p">,</span><span class="n">Tmd_BFpid</span><span class="p">);</span>
-<span class="n">Steady_timestatique</span><span class="o">=</span><span class="n">stepinfo</span><span class="p">(</span><span class="n">T_statique_pile_bf</span><span class="p">,</span><span class="s">&#39;SettlingTimeThreshold&#39;</span><span class="p">,</span><span class="mf">0.05</span><span class="p">);</span>
+<span class="c">% Résolution de l&#39;eq diophantienne</span>
+<span class="c">%Détermination de O(z) et PI(z) </span>
+<span class="c">%O(z)=o0+o1*^-1   et PI(z)=pi0</span>
+<span class="c">%%%%%%%%%需要计算！</span>
+<span class="n">pi0</span><span class="p">=</span><span class="mi">1</span>
+<span class="n">o0</span><span class="p">=</span><span class="n">p1PID</span><span class="o">+</span><span class="n">pi0</span>
+<span class="n">o1</span><span class="p">=</span><span class="n">p2PID</span>
 
-<span class="o">%</span><span class="n">Erreur</span> <span class="n">vitesse</span> <span class="n">nulle</span>
-<span class="n">num3</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span> <span class="o">-</span><span class="mi">1</span><span class="p">];</span>
-<span class="n">den3</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">];</span>
-<span class="n">Gamma_trainage</span><span class="o">=</span><span class="n">tf</span><span class="p">(</span><span class="n">num3</span><span class="p">,</span><span class="n">den3</span><span class="p">,</span><span class="n">Te</span><span class="p">,</span><span class="s">&#39;variable&#39;</span><span class="p">,</span><span class="s">&#39;z&#39;</span><span class="p">);</span>
-<span class="n">Kt</span><span class="o">=</span><span class="p">(</span><span class="n">Gamma_trainage</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Tmd</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Gamma_trainage</span><span class="p">));</span> <span class="o">%</span><span class="n">FT</span> <span class="n">de</span> <span class="n">tranage</span>
+<span class="c">% Réalisation du correceur Kp(z)</span>
+<span class="c">%printsys(&#39;z&#39;,Sr)</span>
+<span class="n">Sr</span><span class="p">=[</span><span class="mi">1</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">0</span><span class="p">]</span> <span class="c">% =(1-z^-1)*z^-2</span>
+<span class="n">TSr</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Sr</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span>
+<span class="n">Ttheta</span><span class="p">=</span><span class="n">tf</span><span class="p">([</span><span class="n">o0</span> <span class="n">o1</span><span class="p">],</span><span class="mi">1</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span>
+<span class="n">Kp</span><span class="p">=</span><span class="n">Ds</span><span class="o">*</span><span class="n">Sm</span><span class="o">*</span><span class="n">Ttheta</span><span class="o">*</span><span class="n">TSr</span><span class="o">*</span><span class="mi">1</span><span class="o">/</span><span class="n">Ns</span>
+
+<span class="c">% Extraction Simulink</span>
+<span class="n">NKep</span><span class="p">=</span><span class="n">Kp</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">DKep</span><span class="p">=</span><span class="n">Kp</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+
+
+<span class="cm">%{</span>
+<span class="cm">%%%%%%%%%%%%</span>
+<span class="cm"> Mise en place d&#39;un correceteur polynomial 2ème cas erreur de vitesse nulle il faut deux intégrateurs</span>
+<span class="cm">Sr1=(1-z^-1)^2                       </span>
+<span class="cm">%%%%%%%%%%%%</span>
+<span class="cm">%}</span>
+
+<span class="c">% Résolution de l&#39;eq diophantienne</span>
+<span class="c">%Détermination de O1(z) et PI1(z) </span>
+<span class="c">%O1(z)=o10+o11*^-1   et PI(z)=pi10</span>
+<span class="n">pi10</span><span class="p">=</span><span class="mi">1</span>
+<span class="n">o10</span><span class="p">=</span><span class="n">p1PID</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">pi10</span>
+<span class="n">o11</span><span class="p">=</span><span class="n">p2PID</span><span class="o">-</span><span class="n">pi10</span>
+
+
+<span class="c">% Réalisation du correceur Kp1(z) </span>
+<span class="n">Ttheta1</span><span class="p">=</span><span class="n">tf</span><span class="p">([</span><span class="n">o10</span> <span class="n">o11</span><span class="p">],</span><span class="mi">1</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span>
+<span class="n">Sr1</span><span class="p">=[</span><span class="mi">1</span> <span class="o">-</span><span class="mi">2</span> <span class="mi">1</span><span class="p">]</span>        <span class="c">% Annule l&#39;erreur de vitesse- deux intégrateurs</span>
+<span class="n">TSr1</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Sr1</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span>   <span class="c">% fonction de transfert de Sr1</span>
+<span class="n">Kp1</span><span class="p">=</span><span class="n">Ds</span><span class="o">*</span><span class="n">Sm</span><span class="o">*</span><span class="n">Ttheta1</span><span class="o">*</span><span class="n">TSr1</span><span class="o">*</span><span class="mi">1</span><span class="o">/</span><span class="n">Ns</span>
+
+
+<span class="c">% Extraction Simulink</span>
+<span class="n">NKp1</span><span class="p">=</span><span class="n">Kp1</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">DKp1</span><span class="p">=</span><span class="n">Kp1</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+
+<span class="n">NP</span><span class="p">=</span><span class="n">T0d</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">DP</span><span class="p">=</span><span class="n">T0d</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
 </pre></div>
 
 
