@@ -416,7 +416,7 @@ if modeSwitch:
 		mdSimReplace = re.sub(r"{:height=\"\d+px\" width=\"\d+px\"}</p>", '' ,mdSimReplace)
 		mdSimReplace = mdSimReplace.replace('</p>','')
 		mdSimReplace = mdSimReplace.replace('mdImagesPathdel','')
-		# mdSimReplace = mdSimReplace.replace(keyCircle,'')
+		mdSimReplace = mdSimReplace.replace("[TOC]\n\n---",'---')
 		file = open('temp.md', 'w')
 		file.write(mdSimReplace)
 	file.close( )
@@ -479,7 +479,7 @@ if modeSwitch:
 	executeCommand("hexo clean", hexoDir)
 	print "==== Generate new HTMLs "
 	executeCommand("hexo g", hexoDir)
-	print "==== Uplading to GIthub "
+	print "==== Uplading to Hexo GitPage "
 	executeCommand("hexo d", hexoDir)
 
 ##
