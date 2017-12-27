@@ -199,10 +199,11 @@ refTimeAfterAll = lastChangeTime
 postDir = hexoDir + "\\source\\_posts\\" + lang
 imagesHexoDir = postDir + '\\' + htmlName.split('.')[0] + '\\' + multiMediaDir
 
+imagesHexoExiste = os.path.exists(imagesHexoDir)
 
 if not os.path.exists(mediaFolder):
 	os.makedirs(mediaFolder)
-if not os.path.exists(imagesHexoDir):
+if (not imagesHexoExiste):
 	os.makedirs(imagesHexoDir)
 
 imagesHexoDir = imagesHexoDir.replace('\\','/')
@@ -440,7 +441,6 @@ if modeSwitch:
 postPath=postDir + '\\' + markdownName
 mdImagesPathdel=parentDir+'\\'
 postExiste = os.path.exists(postPath)
-imagesHexoExiste = os.path.exists(imagesHexoDir)
 
 annotationTarget=0
 pattern = re.compile(r"^[\t\r\f\v ]")
@@ -511,10 +511,15 @@ mediaSourceFolder = mediaFolder.replace('\\','/')
 
 if modeSwitch and int(ifhexo):
 	print "==== Hint Decoded, Coping images"
-	if imagesHexoExiste:
-		shutil.rmtree(imagesHexoDir)
+	# print imagesHexoExiste,imagesHexoDir
+	# shutil.wait()
+	# RMDIR /S
+	shutil.rmtree(imagesHexoDir)
+	time.sleep(2)
+	# rmImages = subprocess.Popen("rm -force -Recurse " + imagesHexoDir, shell = True, stdout = subprocess.PIPE, stderr = subprocess.PIPE )
+	# rmImages.wait()
 	shutil.copytree(mediaSourceFolder, imagesHexoDir)
-
+	time.sleep(2)
 
 
 ##
