@@ -2476,6 +2476,218 @@ For Level Colors
       </ul>
      </li>
      <li>
+      <a href="#final-2016">
+       Final 2016
+      </a>
+      <ul>
+       <li>
+        <a href="#exercice-no1-1er-ordre">
+         Exercice No.1: 1er ordre
+        </a>
+        <ul>
+         <li>
+          <a href="#donnees">
+           Données
+          </a>
+         </li>
+         <li>
+          <a href="#1_5">
+           1.建立方程
+          </a>
+         </li>
+         <li>
+          <a href="#2gain">
+           2.求时间常数和增益gain
+          </a>
+         </li>
+         <li>
+          <a href="#3_3">
+           3.数字采样
+          </a>
+         </li>
+         <li>
+          <a href="#4correcteur-proportionnel-kp">
+           4.Correcteur proportionnel Kp
+          </a>
+          <ul>
+           <li>
+            <a href="#41">
+             4.1 闭环
+            </a>
+           </li>
+           <li>
+            <a href="#42-gain">
+             4.2 Gain的取值范围
+            </a>
+           </li>
+           <li>
+            <a href="#43-lieux-devans">
+             4.3 lieux d’Evans
+            </a>
+           </li>
+           <li>
+            <a href="#44-erreur-de-position">
+             4.4 erreur de position
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li>
+          <a href="#5cdcs">
+           5.更改CdCs
+          </a>
+          <ul>
+           <li>
+            <a href="#51">
+             5.1 采样周期的选择
+            </a>
+           </li>
+           <li>
+            <a href="#52">
+             5.2 建立微分方程
+            </a>
+           </li>
+           <li>
+            <a href="#53">
+             5.3 数字化采样
+            </a>
+           </li>
+           <li>
+            <a href="#54-pi">
+             5.4 PI
+            </a>
+            <ul>
+             <li>
+              <a href="#541">
+               5.4.1 积分器消除误差
+              </a>
+             </li>
+             <li>
+              <a href="#542">
+               5.4.2 确定系数
+              </a>
+             </li>
+             <li>
+              <a href="#543-reponse-5">
+               5.4.3 réponse 5%
+              </a>
+             </li>
+            </ul>
+           </li>
+          </ul>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <a href="#exercice-no2-2eme-ordre">
+         Exercice No.2: 2eme ordre
+        </a>
+        <ul>
+         <li>
+          <a href="#donnees-ajoutees">
+           Données ajoutées
+          </a>
+         </li>
+         <li>
+          <a href="#1_6">
+           1.微分方程及采样
+          </a>
+          <ul>
+           <li>
+            <a href="#11_1">
+             1.1 微分方程
+            </a>
+           </li>
+           <li>
+            <a href="#12-wm">
+             1.2 计算w和m
+            </a>
+           </li>
+           <li>
+            <a href="#13">
+             1.3 数字化
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li>
+          <a href="#2cdcs">
+           2.CdCs更改
+          </a>
+          <ul>
+           <li>
+            <a href="#21_2">
+             2.1 验证采样周期
+            </a>
+           </li>
+           <li>
+            <a href="#22-p">
+             2.2 计算P系数
+            </a>
+           </li>
+           <li>
+            <a href="#23-z">
+             2.3 计算Z系数
+            </a>
+           </li>
+           <li>
+            <a href="#24-pid">
+             2.4 PID
+            </a>
+            <ul>
+             <li>
+              <a href="#241-pid">
+               2.4.1 PID系数
+              </a>
+             </li>
+             <li>
+              <a href="#242-reponse-a-5">
+               2.4.2 Réponse à 5%
+              </a>
+             </li>
+            </ul>
+           </li>
+          </ul>
+         </li>
+         <li>
+          <a href="#3-erreur-de-position">
+           3 Erreur de position
+          </a>
+          <ul>
+           <li>
+            <a href="#31_1">
+             3.1 确定系数
+            </a>
+           </li>
+           <li>
+            <a href="#32-reponse-a-un-echelon">
+             3.2 réponse à un échelon
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li>
+          <a href="#4erreur-de-vitesse">
+           4.Erreur de vitesse
+          </a>
+          <ul>
+           <li>
+            <a href="#41_1">
+             4.1 确定系数
+            </a>
+           </li>
+           <li>
+            <a href="#42-reponse-a-une-rampe">
+             4.2 réponse  à  une rampe
+            </a>
+           </li>
+          </ul>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+     <li>
       <a href="#_5">
        附录
       </a>
@@ -8868,6 +9080,402 @@ For Level Colors
 <span class="n">DP</span><span class="p">=</span><span class="n">T0d</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
 </pre>
    </div>
+   <h1 id="final-2016">
+    <a aria-hidden="true" class="headeranchor-link" href="#final-2016" name="user-content-final-2016">
+     <span class="headeranchor">
+     </span>
+    </a>
+    Final 2016
+   </h1>
+   <p>
+    Asservissement de température d’un four
+   </p>
+   <h2 id="exercice-no1-1er-ordre">
+    <a aria-hidden="true" class="headeranchor-link" href="#exercice-no1-1er-ordre" name="user-content-exercice-no1-1er-ordre">
+     <span class="headeranchor">
+     </span>
+    </a>
+    Exercice No.1: 1er ordre
+   </h2>
+   <h3 id="donnees">
+    <a aria-hidden="true" class="headeranchor-link" href="#donnees" name="user-content-donnees">
+     <span class="headeranchor">
+     </span>
+    </a>
+    Données
+   </h3>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_001453.png"/>
+    </p>
+   </p>
+   <h3 id="1_5">
+    <a aria-hidden="true" class="headeranchor-link" href="#1_5" name="user-content-1_5">
+     <span class="headeranchor">
+     </span>
+    </a>
+    1.建立方程
+   </h3>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_001714.png"/>
+    </p>
+   </p>
+   <h3 id="2gain">
+    <a aria-hidden="true" class="headeranchor-link" href="#2gain" name="user-content-2gain">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.求时间常数和增益gain
+   </h3>
+   <p>
+    Exprimer et calculer les grandeurs $T_{0}$ et $\tau$
+   </p>
+   <h3 id="3_3">
+    <a aria-hidden="true" class="headeranchor-link" href="#3_3" name="user-content-3_3">
+     <span class="headeranchor">
+     </span>
+    </a>
+    3.数字采样
+   </h3>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_002400.png"/>
+    </p>
+   </p>
+   <h3 id="4correcteur-proportionnel-kp">
+    <a aria-hidden="true" class="headeranchor-link" href="#4correcteur-proportionnel-kp" name="user-content-4correcteur-proportionnel-kp">
+     <span class="headeranchor">
+     </span>
+    </a>
+    4.Correcteur proportionnel Kp
+   </h3>
+   <h4 id="41">
+    <a aria-hidden="true" class="headeranchor-link" href="#41" name="user-content-41">
+     <span class="headeranchor">
+     </span>
+    </a>
+    4.1 闭环
+   </h4>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_002501.png"/>
+    </p>
+   </p>
+   <h4 id="42-gain">
+    <a aria-hidden="true" class="headeranchor-link" href="#42-gain" name="user-content-42-gain">
+     <span class="headeranchor">
+     </span>
+    </a>
+    4.2 Gain的取值范围
+   </h4>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_002745.png"/>
+    </p>
+   </p>
+   <h4 id="43-lieux-devans">
+    <a aria-hidden="true" class="headeranchor-link" href="#43-lieux-devans" name="user-content-43-lieux-devans">
+     <span class="headeranchor">
+     </span>
+    </a>
+    4.3 lieux d’Evans
+   </h4>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_002910.png"/>
+    </p>
+   </p>
+   <h4 id="44-erreur-de-position">
+    <a aria-hidden="true" class="headeranchor-link" href="#44-erreur-de-position" name="user-content-44-erreur-de-position">
+     <span class="headeranchor">
+     </span>
+    </a>
+    4.4 erreur de position
+   </h4>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_002952.png"/>
+    </p>
+   </p>
+   <h3 id="5cdcs">
+    <a aria-hidden="true" class="headeranchor-link" href="#5cdcs" name="user-content-5cdcs">
+     <span class="headeranchor">
+     </span>
+    </a>
+    5.更改CdCs
+   </h3>
+   <h4 id="51">
+    <a aria-hidden="true" class="headeranchor-link" href="#51" name="user-content-51">
+     <span class="headeranchor">
+     </span>
+    </a>
+    5.1 采样周期的选择
+   </h4>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_003202.png"/>
+    </p>
+   </p>
+   <h4 id="52">
+    <a aria-hidden="true" class="headeranchor-link" href="#52" name="user-content-52">
+     <span class="headeranchor">
+     </span>
+    </a>
+    5.2 建立微分方程
+   </h4>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_003309.png"/>
+    </p>
+   </p>
+   <h4 id="53">
+    <a aria-hidden="true" class="headeranchor-link" href="#53" name="user-content-53">
+     <span class="headeranchor">
+     </span>
+    </a>
+    5.3 数字化采样
+   </h4>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_003543.png"/>
+    </p>
+   </p>
+   <h4 id="54-pi">
+    <a aria-hidden="true" class="headeranchor-link" href="#54-pi" name="user-content-54-pi">
+     <span class="headeranchor">
+     </span>
+    </a>
+    5.4 PI
+   </h4>
+   <h5 id="541">
+    <a aria-hidden="true" class="headeranchor-link" href="#541" name="user-content-541">
+     <span class="headeranchor">
+     </span>
+    </a>
+    5.4.1 积分器消除误差
+   </h5>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_003624.png"/>
+    </p>
+   </p>
+   <h5 id="542">
+    <a aria-hidden="true" class="headeranchor-link" href="#542" name="user-content-542">
+     <span class="headeranchor">
+     </span>
+    </a>
+    5.4.2 确定系数
+   </h5>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_003823.png"/>
+    </p>
+   </p>
+   <h5 id="543-reponse-5">
+    <a aria-hidden="true" class="headeranchor-link" href="#543-reponse-5" name="user-content-543-reponse-5">
+     <span class="headeranchor">
+     </span>
+    </a>
+    5.4.3 réponse 5%
+   </h5>
+   <p>
+    Déterminer le temps de réponse à 5% pour un échelon unitaire.
+   </p>
+   <h2 id="exercice-no2-2eme-ordre">
+    <a aria-hidden="true" class="headeranchor-link" href="#exercice-no2-2eme-ordre" name="user-content-exercice-no2-2eme-ordre">
+     <span class="headeranchor">
+     </span>
+    </a>
+    Exercice No.2: 2eme ordre
+   </h2>
+   <h3 id="donnees-ajoutees">
+    <a aria-hidden="true" class="headeranchor-link" href="#donnees-ajoutees" name="user-content-donnees-ajoutees">
+     <span class="headeranchor">
+     </span>
+    </a>
+    Données ajoutées
+   </h3>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_004651.png"/>
+    </p>
+   </p>
+   <h3 id="1_6">
+    <a aria-hidden="true" class="headeranchor-link" href="#1_6" name="user-content-1_6">
+     <span class="headeranchor">
+     </span>
+    </a>
+    1.微分方程及采样
+   </h3>
+   <h4 id="11_1">
+    <a aria-hidden="true" class="headeranchor-link" href="#11_1" name="user-content-11_1">
+     <span class="headeranchor">
+     </span>
+    </a>
+    1.1 微分方程
+   </h4>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_004726.png"/>
+    </p>
+   </p>
+   <h4 id="12-wm">
+    <a aria-hidden="true" class="headeranchor-link" href="#12-wm" name="user-content-12-wm">
+     <span class="headeranchor">
+     </span>
+    </a>
+    1.2 计算w和m
+   </h4>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_004820.png"/>
+    </p>
+   </p>
+   <h4 id="13">
+    <a aria-hidden="true" class="headeranchor-link" href="#13" name="user-content-13">
+     <span class="headeranchor">
+     </span>
+    </a>
+    1.3 数字化
+   </h4>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_005021.png"/>
+    </p>
+   </p>
+   <h3 id="2cdcs">
+    <a aria-hidden="true" class="headeranchor-link" href="#2cdcs" name="user-content-2cdcs">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.CdCs更改
+   </h3>
+   <h4 id="21_2">
+    <a aria-hidden="true" class="headeranchor-link" href="#21_2" name="user-content-21_2">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.1 验证采样周期
+   </h4>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_005130.png"/>
+    </p>
+   </p>
+   <h4 id="22-p">
+    <a aria-hidden="true" class="headeranchor-link" href="#22-p" name="user-content-22-p">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.2 计算P系数
+   </h4>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_005220.png"/>
+    </p>
+   </p>
+   <h4 id="23-z">
+    <a aria-hidden="true" class="headeranchor-link" href="#23-z" name="user-content-23-z">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.3 计算Z系数
+   </h4>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_005444.png"/>
+    </p>
+   </p>
+   <h4 id="24-pid">
+    <a aria-hidden="true" class="headeranchor-link" href="#24-pid" name="user-content-24-pid">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.4 PID
+   </h4>
+   <h5 id="241-pid">
+    <a aria-hidden="true" class="headeranchor-link" href="#241-pid" name="user-content-241-pid">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.4.1 PID系数
+   </h5>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_005539.png"/>
+    </p>
+   </p>
+   <h5 id="242-reponse-a-5">
+    <a aria-hidden="true" class="headeranchor-link" href="#242-reponse-a-5" name="user-content-242-reponse-a-5">
+     <span class="headeranchor">
+     </span>
+    </a>
+    2.4.2 Réponse à 5%
+   </h5>
+   <p>
+    Déterminer le temps de réponse à 5% pour un échelon unitaire.
+   </p>
+   <h3 id="3-erreur-de-position">
+    <a aria-hidden="true" class="headeranchor-link" href="#3-erreur-de-position" name="user-content-3-erreur-de-position">
+     <span class="headeranchor">
+     </span>
+    </a>
+    3 Erreur de position
+   </h3>
+   <h4 id="31_1">
+    <a aria-hidden="true" class="headeranchor-link" href="#31_1" name="user-content-31_1">
+     <span class="headeranchor">
+     </span>
+    </a>
+    3.1 确定系数
+   </h4>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_005758.png"/>
+    </p>
+   </p>
+   <h4 id="32-reponse-a-un-echelon">
+    <a aria-hidden="true" class="headeranchor-link" href="#32-reponse-a-un-echelon" name="user-content-32-reponse-a-un-echelon">
+     <span class="headeranchor">
+     </span>
+    </a>
+    3.2 réponse à un échelon
+   </h4>
+   <p>
+    Vérifier (sous Matlab faire valider par l’enseignant) la réponse à un échelon afin de voir si le cahier des charges est respecté.
+   </p>
+   <h3 id="4erreur-de-vitesse">
+    <a aria-hidden="true" class="headeranchor-link" href="#4erreur-de-vitesse" name="user-content-4erreur-de-vitesse">
+     <span class="headeranchor">
+     </span>
+    </a>
+    4.Erreur de vitesse
+   </h3>
+   <h4 id="41_1">
+    <a aria-hidden="true" class="headeranchor-link" href="#41_1" name="user-content-41_1">
+     <span class="headeranchor">
+     </span>
+    </a>
+    4.1 确定系数
+   </h4>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_010143.png"/>
+    </p>
+   </p>
+   <h4 id="42-reponse-a-une-rampe">
+    <a aria-hidden="true" class="headeranchor-link" href="#42-reponse-a-une-rampe" name="user-content-42-reponse-a-une-rampe">
+     <span class="headeranchor">
+     </span>
+    </a>
+    4.2 réponse  à  une rampe
+   </h4>
+   <p>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20171228_010301.png"/>
+    </p>
+   </p>
    <h1 id="_5">
     <a aria-hidden="true" class="headeranchor-link" href="#_5" name="user-content-_5">
      <span class="headeranchor">
