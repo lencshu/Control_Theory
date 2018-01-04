@@ -166,10 +166,12 @@ else :
 	mainpageSize = mainpageSize + "%;"
 	ifpwd = raw_input("Want To mask PWD(Yes:1/[No:0]): ") or "0"
 	lastChangeTime = raw_input("Last Changed time of All PNGs Files [0]: ") or "0"
-	ifhexo = raw_input("Post to hexo or not?[no:enter]") or "0"
+	ifhexo = raw_input("Post to hexo or not?[no:enter]: ") or "0"
 	if int(ifhexo):
-		postDir = raw_input("Post directory")
-		hexoDir = raw_input("Hexo Root directory [Default:enter]") or "C:\\Users\\lencs\\Desktop\\Blog\\gliang.eu"
+		postDir = raw_input("Post directory: ")
+		lang = raw_input("Hexo lang type: ")
+		hexoDir = raw_input("Hexo Root directory [Default:enter]: ") or "C:\\Users\\lencs\\Desktop\\Blog\\gliang.eu"
+
 	else:
 		postDir = ''
 		hexoDir = "C:\\Users\\lencs\\Desktop\\Blog\\gliang.eu"
@@ -183,6 +185,8 @@ else :
 	confAuto.set("HEXO", "ifhexo",ifhexo )
 	confAuto.set("HEXO", "postDir",postDir )
 	confAuto.set("HEXO", "hexoDir",hexoDir )
+	confAuto.set("HEXO", "lang",lang)
+
 	timeTag=time.strftime("%Y-%m-%d %H:%M:%S %a", time.localtime())
 	confAuto.set("TimeTag", "IniModifiedTime",timeTag)
 	confAuto.write(open('auto.ini', 'w'))
@@ -451,24 +455,26 @@ lostTarget=0
 if modeSwitch and int(ifhexo):
 	if postExiste:
 		os.remove(postPath)
-	keyCircle="<p align=\"center\">"
-	mdSimReplace = open(markdownPath,"r+")
+	# keyCircle="<p align=\"center\">"
+	keyCircle="[TOC]\n\n---"
+	mdSimReplace = open(markdownPath,"r")
 	mdSimReplace = mdSimReplace.read()
 	post = mdSimReplace.find(keyCircle)
 	if post != -1:
-		mdSimReplace = mdSimReplace.replace(keyCircle,'')
+		mdSimReplace = mdSimReplace.replace(keyCircle,'---')
 		mdSimReplace = re.sub(r"{:height=\"\d+px\" width=\"\d+px\"}</p>", '' ,mdSimReplace)
 		mdSimReplace = mdSimReplace.replace('</p>','')
 		# print mdImagesPathdel
 		mdSimReplace = mdSimReplace.replace(mdImagesPathdel,'')
 		mdSimReplace = mdSimReplace.replace('</audio>',"</audio>\n")
-		mdSimReplace = mdSimReplace.replace("[TOC]\n\n---",'---')
-		file = open('temp.md', 'w')
-		file.write(mdSimReplace)
+		mdSimReplace = mdSimReplace.replace("<p align=\"center\">",'')
+		# mdSimReplace = mdSimReplace.replace("[TOC]\n\n---",'---')
+	file = open('temp.md', 'w')
+	file.write(mdSimReplace)
 	file.close( )
 	
 	print "==== Simple replacement done, starting hint decode"
-	with open('temp.md') as mdFile:
+	with open('temp.md','r') as mdFile:
 		for line in mdFile:
 			videKey=pattern.search(line)
 			if "!!!" in line:

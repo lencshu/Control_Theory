@@ -1626,7 +1626,7 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li><a href="#final-2016">Final 2016</a><ul>
-<li><a href="#exercice-no1-1er-ordre">Exercice No.1: 1er ordre</a><ul>
+<li><a href="#1er-ordre">1er ordre</a><ul>
 <li><a href="#donnees">Données</a></li>
 <li><a href="#1_5">1.建立方程</a></li>
 <li><a href="#2gain">2.求时间常数和增益gain</a></li>
@@ -1652,7 +1652,7 @@ MathJax.Hub.Config({
 </li>
 </ul>
 </li>
-<li><a href="#exercice-no2-2eme-ordre">Exercice No.2: 2eme ordre</a><ul>
+<li><a href="#2eme-ordre">2eme ordre</a><ul>
 <li><a href="#donnees-ajoutees">Données ajoutées</a></li>
 <li><a href="#1_6">1.微分方程及采样</a><ul>
 <li><a href="#11_1">1.1 微分方程</a></li>
@@ -4125,6 +4125,13 @@ pulsation naturelle (ou propre) $\omega_{1}$=1/$\tau_{BO}$ et de coefficient d&r
 
 <h4 id="42-pid-filtre"><a name="user-content-42-pid-filtre" href="#42-pid-filtre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.2 PID filtre</h4>
 <p><p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171222_160234.png" /></p></p>
+<div class="admonition hint">
+<p class="admonition-title">思路</p>
+<p>1.先根据CdC的技术规格建立理论上的传递方程TFpidfiltreDesired<br />
+2.由TFpidfiltreDesired得到<strong>p1, p2, r0, r1, r2, s1</strong>的值<br />
+3.接着，算出TFpidfiltre的实际值<br />
+4.最后和TFprocess形成闭环</p>
+</div>
 <div class="codehilite"><pre><span class="hll"><span class="o">%</span><span class="n">correcteur</span> <span class="n">PID</span> <span class="n">filtre</span>
 </span><span class="n">w1</span><span class="o">=</span><span class="mi">4</span><span class="o">*</span><span class="n">w0</span><span class="p">;</span>    <span class="o">%</span><span class="n">pulsation</span> <span class="n">de</span> <span class="n">BF</span> <span class="n">d</span> <span class="n">aprs</span> <span class="n">CdC</span>
 <span class="n">m1</span><span class="o">=</span><span class="mf">0.707</span><span class="p">;</span>   <span class="o">%</span><span class="n">damping</span> <span class="n">ratio</span><span class="p">,</span> <span class="n">taux</span> <span class="n">d</span> <span class="n">amortissement</span><span class="p">,</span> <span class="n">overshoot</span>
@@ -4134,16 +4141,16 @@ pulsation naturelle (ou propre) $\omega_{1}$=1/$\tau_{BO}$ et de coefficient d&r
 <span class="n">T1d</span><span class="o">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span><span class="n">Te</span><span class="p">);</span>     <span class="o">%</span><span class="n">Determination</span> <span class="n">T1d</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 
 <span class="hll"><span class="o">%</span><span class="n">Coefs</span> <span class="n">du</span> <span class="n">correcteir</span> <span class="n">PID</span>
-</span><span class="p">[</span><span class="n">P</span><span class="p">]</span><span class="o">=</span><span class="n">T1d</span><span class="o">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
-<span class="n">p1PID</span><span class="o">=</span><span class="n">P</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-<span class="n">p2PID</span><span class="o">=</span><span class="n">P</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span><span class="p">[</span><span class="n">P</span><span class="p">]</span><span class="o">=</span><span class="n">T1d</span><span class="o">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span> <span class="o">%</span><span class="err">分母是一维的</span>
+<span class="n">p1PID</span><span class="o">=</span><span class="n">P</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>     <span class="o">%</span><span class="err">取第二个数</span>
+<span class="n">p2PID</span><span class="o">=</span><span class="n">P</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>     <span class="o">%</span><span class="err">取第三个数</span>
 <span class="n">r0pid</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">p1PID</span><span class="o">+</span><span class="n">p2PID</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">b1</span><span class="o">+</span><span class="n">b2</span><span class="p">);</span>
 <span class="n">r1pid</span><span class="o">=</span><span class="n">a1</span><span class="o">*</span><span class="n">r0pid</span><span class="p">;</span>
 <span class="n">r2pid</span><span class="o">=</span><span class="n">a2</span><span class="o">*</span><span class="n">r0pid</span><span class="p">;</span>
 <span class="n">s1</span><span class="o">=</span><span class="n">r0pid</span><span class="o">*</span><span class="n">b2</span><span class="o">-</span><span class="n">p2PID</span><span class="p">;</span>
 
 <span class="hll"><span class="o">%</span><span class="n">Fonction</span> <span class="n">de</span> <span class="n">transfert</span> <span class="n">du</span> <span class="n">correcteur</span> <span class="n">PID</span> <span class="n">filtre</span>
-</span><span class="n">numPID</span><span class="o">=</span><span class="p">[</span><span class="n">r0pid</span> <span class="n">r1pid</span> <span class="n">r2pid</span><span class="p">];</span>
+</span><span class="n">numPID</span><span class="o">=</span><span class="p">[</span><span class="n">r0pid</span> <span class="n">r1pid</span> <span class="n">r2pid</span><span class="p">];</span> <span class="o">%</span><span class="err">阶数从左往右依次递减</span>
 <span class="n">denPID</span><span class="o">=</span><span class="n">conv</span><span class="p">([</span><span class="mi">1</span> <span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span> <span class="n">s1</span><span class="p">]);</span>
 <span class="n">Kpid</span><span class="o">=</span><span class="n">tf</span><span class="p">(</span><span class="n">numPID</span><span class="p">,</span><span class="n">denPID</span><span class="p">,</span><span class="n">Te</span><span class="p">,</span><span class="s">&#39;variable&#39;</span><span class="p">,</span><span class="s">&#39;z&#39;</span><span class="p">);</span>
 
@@ -4158,6 +4165,26 @@ pulsation naturelle (ou propre) $\omega_{1}$=1/$\tau_{BO}$ et de coefficient d&r
 
 <h4 id="5"><a name="user-content-5" href="#5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5. 误差分析</h4>
 <p><p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171222_160303.png" /></p></p>
+<div class="admonition hint">
+<p class="admonition-title">思路</p>
+<p>erreur position nulle ==&gt;K(z):<br />
+1.获取TFprocess的零点和增益<br />
+2.建立DBF时，待定系数用的是TFpidfiltre的分母，并且:<br />
+    - $\Theta=\Theta_{0}+\Theta_{1} \times z^{-1}$<br />
+    - $\Pi=\Pi_{0}$<br />
+<code>pi0_ep=1</code><br />
+<code>theta0_ep=p1PID+pi0_ep</code><br />
+<code>theta1_ep=p2PID</code><br />
+3.Sr:分母里存在的积分器，Sm:分子里存在的积分器。对于position nulle，分母里要有<strong>1</strong>个积分器 $\Rightarrow$ Sr=(1-z^-1)<br />
+4.D和N要交换位置即：之前的分母D在上，分子N在下</p>
+<p>erreur vitesse nulle ==&gt;K(z):<br />
+1.$N^{+},D^{+},S_{m}$都不变<br />
+2.对于position nulle，分母里要有<strong>2</strong>个积分器 $\Rightarrow$ Sr=(1-z^-1)^2<br />
+3.求解系数？？？？<br />
+<code>pi0_ev=1</code><br />
+<code>theta0_ev=p1PID+2*pi0_ev</code><br />
+<code>theta1_ev=p2PID-pi0_ev</code></p>
+</div>
 <div class="codehilite"><pre><span class="hll"><span class="cm">%{</span>
 </span><span class="cm">%%%%%%%%%%%%</span>
 <span class="cm">Mise en place d&#39;un correceteur polynomial 1er cas erreur de position nulle </span>
@@ -4167,28 +4194,30 @@ pulsation naturelle (ou propre) $\omega_{1}$=1/$\tau_{BO}$ et de coefficient d&r
 <span class="c">%Détermination N+,N-,D+,D-,Sm</span>
 <span class="c">% [Z0d,P0d,k0]=zpkdata(Tmd)</span>
 <span class="p">[</span><span class="n">Z0</span><span class="p">,</span><span class="n">k0</span><span class="p">]=</span><span class="n">zero</span><span class="p">(</span><span class="n">Tmd</span><span class="p">)</span>
-<span class="n">Nstable</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">k0</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span> <span class="o">-</span><span class="n">Z0</span><span class="p">],</span><span class="mi">1</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span> <span class="c">% N+(z)</span>
+<span class="n">Nstable</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">k0</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span> <span class="o">-</span><span class="n">Z0</span><span class="p">],</span> <span class="n">Te</span><span class="p">)</span>   
+<span class="c">% N+(z) 获取分子 等价于:Nstable=tf([Tmd.num{1}(2) Tmd.num{1}(3)],1,Te)</span>
 <span class="n">Dstable</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">Tmd</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span><span class="mi">1</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span>
 <span class="n">Sm</span><span class="p">=</span><span class="mi">1</span>
 
 <span class="c">% Résolution de l&#39;eq diophantienne</span>
 <span class="c">%Détermination de O(z) et PI(z) </span>
 <span class="c">%O(z)=o0+o1*^-1   et PI(z)=pi0</span>
-<span class="c">%%%%%%%%%需要计算！</span>
-<span class="n">pi0</span><span class="p">=</span><span class="mi">1</span>
-<span class="n">o0</span><span class="p">=</span><span class="n">p1PID</span><span class="o">+</span><span class="n">pi0</span>
-<span class="n">o1</span><span class="p">=</span><span class="n">p2PID</span>
+<span class="c">%%%% WTF？？？？？？</span>
+<span class="n">pi0_ep</span><span class="p">=</span><span class="mi">1</span>
+<span class="n">theta0_ep</span><span class="p">=</span><span class="n">p1PID</span><span class="o">+</span><span class="n">pi0_ep</span>
+<span class="n">theta1_ep</span><span class="p">=</span><span class="n">p2PID</span>
 
 <span class="c">% Réalisation du correceur Kp(z)</span>
-<span class="c">%printsys(&#39;z&#39;,Sr)</span>
-<span class="n">Sr</span><span class="p">=[</span><span class="mi">1</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">0</span><span class="p">]</span> <span class="c">% =(1-z^-1)*z^-2</span>
-<span class="n">TSr</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Sr</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span>
-<span class="n">Ttheta</span><span class="p">=</span><span class="n">tf</span><span class="p">([</span><span class="n">o0</span> <span class="n">o1</span><span class="p">],</span><span class="mi">1</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span>
-<span class="n">Kp</span><span class="p">=</span><span class="n">Ds</span><span class="o">*</span><span class="n">Sm</span><span class="o">*</span><span class="n">Ttheta</span><span class="o">*</span><span class="n">TSr</span><span class="o">*</span><span class="mi">1</span><span class="o">/</span><span class="n">Ns</span>
+<span class="c">%printsys(&#39;z&#39;,Sr_ep)</span>
+<span class="n">Sr_ep</span><span class="p">=[</span><span class="mi">1</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">0</span><span class="p">]</span> <span class="c">% =(1-z^-1)</span>
+<span class="n">TSr_ep</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Sr_ep</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span>   <span class="c">%=(1-z^-1)*z^-2</span>
+<span class="n">Ttheta_ep</span><span class="p">=</span><span class="n">tf</span><span class="p">([</span><span class="n">theta0_ep</span> <span class="n">theta1_ep</span><span class="p">],</span><span class="mi">1</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span>
+<span class="n">Kp_ep</span><span class="p">=</span><span class="n">Dstable</span><span class="o">*</span><span class="n">Sm</span><span class="o">*</span><span class="n">Ttheta_ep</span><span class="o">*</span><span class="n">TSr_ep</span><span class="o">*</span><span class="mi">1</span><span class="o">*</span><span class="n">Nstable</span>
 
 <span class="c">% Extraction Simulink</span>
-<span class="n">NKep</span><span class="p">=</span><span class="n">Kp</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
-<span class="n">DKep</span><span class="p">=</span><span class="n">Kp</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">NKp_ep</span><span class="p">=</span><span class="n">Kp_ep</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">DKp_ep</span><span class="p">=</span><span class="n">Kp_ep</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+
 
 
 <span class="cm">%{</span>
@@ -4201,30 +4230,30 @@ pulsation naturelle (ou propre) $\omega_{1}$=1/$\tau_{BO}$ et de coefficient d&r
 <span class="c">% Résolution de l&#39;eq diophantienne</span>
 <span class="c">%Détermination de O1(z) et PI1(z) </span>
 <span class="c">%O1(z)=o10+o11*^-1   et PI(z)=pi10</span>
-<span class="n">pi10</span><span class="p">=</span><span class="mi">1</span>
-<span class="n">o10</span><span class="p">=</span><span class="n">p1PID</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">pi10</span>
-<span class="n">o11</span><span class="p">=</span><span class="n">p2PID</span><span class="o">-</span><span class="n">pi10</span>
-
+<span class="c">%%%%% WTF？？？？？？</span>
+<span class="n">pi0_ev</span><span class="p">=</span><span class="mi">1</span>
+<span class="n">theta0_ev</span><span class="p">=</span><span class="n">p1PID</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">pi0_ev</span>
+<span class="n">theta1_ev</span><span class="p">=</span><span class="n">p2PID</span><span class="o">-</span><span class="n">pi0_ev</span>
 
 <span class="c">% Réalisation du correceur Kp1(z) </span>
-<span class="n">Ttheta1</span><span class="p">=</span><span class="n">tf</span><span class="p">([</span><span class="n">o10</span> <span class="n">o11</span><span class="p">],</span><span class="mi">1</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span>
-<span class="n">Sr1</span><span class="p">=[</span><span class="mi">1</span> <span class="o">-</span><span class="mi">2</span> <span class="mi">1</span><span class="p">]</span>        <span class="c">% Annule l&#39;erreur de vitesse- deux intégrateurs</span>
-<span class="n">TSr1</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Sr1</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span>   <span class="c">% fonction de transfert de Sr1</span>
-<span class="n">Kp1</span><span class="p">=</span><span class="n">Ds</span><span class="o">*</span><span class="n">Sm</span><span class="o">*</span><span class="n">Ttheta1</span><span class="o">*</span><span class="n">TSr1</span><span class="o">*</span><span class="mi">1</span><span class="o">/</span><span class="n">Ns</span>
-
+<span class="n">Ttheta_ev</span><span class="p">=</span><span class="n">tf</span><span class="p">([</span><span class="n">theta0_ev</span> <span class="n">theta1_ev</span><span class="p">],</span><span class="mi">1</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span>
+<span class="n">Sr_ev</span><span class="p">=[</span><span class="mi">1</span> <span class="o">-</span><span class="mi">2</span> <span class="mi">1</span><span class="p">]</span>   
+<span class="c">% Annule l&#39;erreur de vitesse - deux intégrateurs = conv([1 -1],[1 -1])</span>
+<span class="n">TSr_ev</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Sr_ev</span><span class="p">,</span><span class="n">Te</span><span class="p">)</span>   <span class="c">% fonction de transfert de Sr_ev</span>
+<span class="n">Kp_ev</span><span class="p">=</span><span class="n">Dstable</span><span class="o">*</span><span class="n">Sm</span><span class="o">*</span><span class="n">Ttheta_ev</span><span class="o">*</span><span class="n">TSr_ev</span><span class="o">*</span><span class="mi">1</span><span class="o">*</span><span class="n">Nstable</span>
 
 <span class="c">% Extraction Simulink</span>
-<span class="n">NKp1</span><span class="p">=</span><span class="n">Kp1</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
-<span class="n">DKp1</span><span class="p">=</span><span class="n">Kp1</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">NKp_ev</span><span class="p">=</span><span class="n">Kp_ev</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">DKp_ev</span><span class="p">=</span><span class="n">Kp_ev</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
 
-<span class="n">NP</span><span class="p">=</span><span class="n">T0d</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
-<span class="n">DP</span><span class="p">=</span><span class="n">T0d</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">NP</span><span class="p">=</span><span class="n">Tmd</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">DP</span><span class="p">=</span><span class="n">Tmd</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
 </pre></div>
 
 
 <h1 id="final-2016"><a name="user-content-final-2016" href="#final-2016" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Final 2016</h1>
 <p>Asservissement de température d&rsquo;un four</p>
-<h2 id="exercice-no1-1er-ordre"><a name="user-content-exercice-no1-1er-ordre" href="#exercice-no1-1er-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Exercice No.1: 1er ordre</h2>
+<h2 id="1er-ordre"><a name="user-content-1er-ordre" href="#1er-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1er ordre</h2>
 <h3 id="donnees"><a name="user-content-donnees" href="#donnees" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Données</h3>
 <p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_001453.png" /></p></p>
 <h3 id="1_5"><a name="user-content-1_5" href="#1_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.建立方程</h3>
@@ -4256,7 +4285,7 @@ pulsation naturelle (ou propre) $\omega_{1}$=1/$\tau_{BO}$ et de coefficient d&r
 <p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_003823.png" /></p></p>
 <h5 id="543-reponse-5"><a name="user-content-543-reponse-5" href="#543-reponse-5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.4.3 réponse 5%</h5>
 <p>Déterminer le temps de réponse à 5% pour un échelon unitaire.</p>
-<h2 id="exercice-no2-2eme-ordre"><a name="user-content-exercice-no2-2eme-ordre" href="#exercice-no2-2eme-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Exercice No.2: 2eme ordre</h2>
+<h2 id="2eme-ordre"><a name="user-content-2eme-ordre" href="#2eme-ordre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2eme ordre</h2>
 <h3 id="donnees-ajoutees"><a name="user-content-donnees-ajoutees" href="#donnees-ajoutees" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Données ajoutées</h3>
 <p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_004651.png" /></p></p>
 <h3 id="1_6"><a name="user-content-1_6" href="#1_6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.微分方程及采样</h3>
