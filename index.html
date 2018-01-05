@@ -2491,13 +2491,8 @@ For Level Colors
           </a>
          </li>
          <li>
-          <a href="#1_5">
-           1.建立方程
-          </a>
-         </li>
-         <li>
-          <a href="#2gain">
-           2.求时间常数和增益gain
+          <a href="#1-gain">
+           1.建立方程 求时间常数和增益gain
           </a>
          </li>
          <li>
@@ -2527,7 +2522,7 @@ For Level Colors
            </li>
            <li>
             <a href="#44-erreur-de-position">
-             4.4 erreur de position
+             4.4 erreur de position????
             </a>
            </li>
           </ul>
@@ -2539,17 +2534,12 @@ For Level Colors
           <ul>
            <li>
             <a href="#51">
-             5.1 采样周期的选择
+             5.1 采样周期的选择????
             </a>
            </li>
            <li>
             <a href="#52">
-             5.2 建立微分方程
-            </a>
-           </li>
-           <li>
-            <a href="#53">
-             5.3 数字化采样
+             5.2 建立微分方程 数字化采样???
             </a>
            </li>
            <li>
@@ -2563,13 +2553,8 @@ For Level Colors
               </a>
              </li>
              <li>
-              <a href="#542">
-               5.4.2 确定系数
-              </a>
-             </li>
-             <li>
-              <a href="#543-reponse-5">
-               5.4.3 réponse 5%
+              <a href="#542-reponse-5">
+               5.4.2 确定系数 &amp; réponse 5%
               </a>
              </li>
             </ul>
@@ -2589,18 +2574,13 @@ For Level Colors
           </a>
          </li>
          <li>
-          <a href="#1_6">
+          <a href="#1_5">
            1.微分方程及采样
           </a>
           <ul>
            <li>
-            <a href="#11_1">
-             1.1 微分方程
-            </a>
-           </li>
-           <li>
-            <a href="#12-wm">
-             1.2 计算w和m
+            <a href="#11-wm">
+             1.1 微分方程 计算w和m
             </a>
            </li>
            <li>
@@ -2616,13 +2596,8 @@ For Level Colors
           </a>
           <ul>
            <li>
-            <a href="#21_2">
-             2.1 验证采样周期
-            </a>
-           </li>
-           <li>
-            <a href="#22-p">
-             2.2 计算P系数
+            <a href="#21-p">
+             2.1 验证采样周期 计算P系数
             </a>
            </li>
            <li>
@@ -2656,7 +2631,7 @@ For Level Colors
           <ul>
            <li>
             <a href="#31_1">
-             3.1 确定系数
+             3.1 确定系数???
             </a>
            </li>
            <li>
@@ -2673,7 +2648,7 @@ For Level Colors
           <ul>
            <li>
             <a href="#41_1">
-             4.1 确定系数
+             4.1 确定系数???
             </a>
            </li>
            <li>
@@ -2709,7 +2684,7 @@ For Level Colors
        </li>
        <li>
         <a href="#iv_1">
-         IV 待解决疑问
+         IV 待解决疑问????
         </a>
        </li>
       </ul>
@@ -9190,28 +9165,32 @@ For Level Colors
      <img class="lazyload" alt="" data-src="images\cap_20171228_001453.png"/>
     </p>
    </p>
-   <h3 id="1_5">
-    <a aria-hidden="true" class="headeranchor-link" href="#1_5" name="user-content-1_5">
+   <h3 id="1-gain">
+    <a aria-hidden="true" class="headeranchor-link" href="#1-gain" name="user-content-1-gain">
      <span class="headeranchor">
      </span>
     </a>
-    1.建立方程
+    1.建立方程 求时间常数和增益gain
    </h3>
    <p>
     <p align="center">
      <img class="lazyload" alt="" data-src="images\cap_20171228_001714.png"/>
     </p>
    </p>
-   <h3 id="2gain">
-    <a aria-hidden="true" class="headeranchor-link" href="#2gain" name="user-content-2gain">
-     <span class="headeranchor">
-     </span>
-    </a>
-    2.求时间常数和增益gain
-   </h3>
    <p>
     Exprimer et calculer les grandeurs $T_{0}$ et $\tau$
+    <br/>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20180105_142114.png"/>
+    </p>
    </p>
+   <div class="codehilite">
+    <pre><span class="hll"><span class="c">%建立方程</span>
+</span><span class="n">k0</span><span class="p">=</span><span class="mf">0.01</span><span class="p">;</span>
+<span class="n">tau0</span><span class="p">=</span><span class="mi">60</span>
+<span class="n">tf0</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">k0</span><span class="p">,[</span><span class="n">tau0</span> <span class="mi">1</span><span class="p">]);</span>
+</pre>
+   </div>
    <h3 id="3_3">
     <a aria-hidden="true" class="headeranchor-link" href="#3_3" name="user-content-3_3">
      <span class="headeranchor">
@@ -9224,6 +9203,14 @@ For Level Colors
      <img class="lazyload" alt="" data-src="images\cap_20171228_002400.png"/>
     </p>
    </p>
+   <div class="codehilite">
+    <pre><span class="hll"><span class="c">%数字采样</span>
+</span><span class="n">te</span><span class="p">=</span><span class="mi">15</span><span class="p">;</span>
+<span class="n">tfd</span><span class="p">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">tf0</span><span class="p">,</span><span class="n">te</span><span class="p">,</span><span class="s">'ZOH'</span><span class="p">);</span>
+<span class="n">b1</span><span class="p">=</span><span class="n">tfd</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">a1</span><span class="p">=</span><span class="n">tfd</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
+</pre>
+   </div>
    <h3 id="4correcteur-proportionnel-kp">
     <a aria-hidden="true" class="headeranchor-link" href="#4correcteur-proportionnel-kp" name="user-content-4correcteur-proportionnel-kp">
      <span class="headeranchor">
@@ -9254,6 +9241,13 @@ For Level Colors
     <p align="center">
      <img class="lazyload" alt="" data-src="images\cap_20171228_002745.png"/>
     </p>
+    <br/>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images\cap_20180105_142909.png"/>
+    </p>
+   </p>
+   <p>
+    $$0&lt;k&lt;804$$
    </p>
    <h4 id="43-lieux-devans">
     <a aria-hidden="true" class="headeranchor-link" href="#43-lieux-devans" name="user-content-43-lieux-devans">
@@ -9267,18 +9261,42 @@ For Level Colors
      <img class="lazyload" alt="" data-src="images\cap_20171228_002910.png"/>
     </p>
    </p>
+   <div class="admonition hint">
+    <p class="admonition-title">
+     commenter
+    </p>
+    <p>
+     Faut que le point reste dans la circle de rayon de 1
+    </p>
+   </div>
    <h4 id="44-erreur-de-position">
     <a aria-hidden="true" class="headeranchor-link" href="#44-erreur-de-position" name="user-content-44-erreur-de-position">
      <span class="headeranchor">
      </span>
     </a>
-    4.4 erreur de position
+    4.4 erreur de position????
    </h4>
    <p>
     <p align="center">
      <img class="lazyload" alt="" data-src="images\cap_20171228_002952.png"/>
     </p>
    </p>
+   <ul>
+    <li>
+     疑问：
+     <ul>
+      <li>
+       erreur de position = erreur statique?
+      </li>
+      <li>
+       erreur de vitesse = erreur trainage?
+      </li>
+      <li>
+       求解erreur de position的时候直接取 z=1 ?
+      </li>
+     </ul>
+    </li>
+   </ul>
    <h3 id="5cdcs">
     <a aria-hidden="true" class="headeranchor-link" href="#5cdcs" name="user-content-5cdcs">
      <span class="headeranchor">
@@ -9291,37 +9309,89 @@ For Level Colors
      <span class="headeranchor">
      </span>
     </a>
-    5.1 采样周期的选择
+    5.1 采样周期的选择????
    </h4>
    <p>
     <p align="center">
      <img class="lazyload" alt="" data-src="images\cap_20171228_003202.png"/>
     </p>
+    <br/>
+    <p align="center">
+     <img class="lazyload" alt="" data-src="images/cap_20171221_175007.png"/>
+    </p>
    </p>
+   <div class="codehilite">
+    <pre><span class="hll"><span class="c">%频率加速 一阶系统</span>
+</span><span class="n">w0</span><span class="p">=</span><span class="mi">1</span><span class="o">/</span><span class="n">tau0</span><span class="p">;</span>                    <span class="c">% pulsation naturelle, boucle ouvert</span>
+<span class="n">te</span><span class="p">=</span><span class="mi">15</span>
+<span class="n">Tmin</span><span class="p">=</span><span class="mf">0.25</span><span class="o">*</span><span class="n">tau0</span><span class="p">;</span>
+<span class="n">Tminr</span><span class="p">=</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">25</span><span class="o">*</span><span class="n">tau0</span>
+<span class="n">Tmax</span><span class="p">=</span><span class="mf">1.25</span><span class="o">*</span><span class="n">tau0</span><span class="p">;</span>
+<span class="n">Tmaxr</span><span class="p">=</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">5</span><span class="o">*</span><span class="n">tau0</span>
+<span class="n">TShannon</span><span class="p">=</span><span class="nb">pi</span><span class="o">*</span><span class="n">tau0</span>
+
+<span class="k">if</span> <span class="n">Tmin</span><span class="o">&lt;</span><span class="p">=</span><span class="n">te</span><span class="o">&amp;&amp;</span><span class="n">te</span><span class="o">&lt;</span><span class="p">=</span><span class="n">Tmax</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="s">'%f(Tmin) &lt;= te &lt;= %f(Tmax)\n'</span><span class="p">,</span><span class="n">Tmin</span><span class="p">,</span><span class="n">Tmax</span><span class="p">)</span>
+<span class="k">elseif</span> <span class="n">te</span><span class="o">&lt;</span><span class="n">TShannon</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="s">'Que au Shannon: te&lt;%f(Shannon)\n'</span><span class="p">,</span><span class="n">TShannon</span><span class="p">)</span>
+<span class="k">else</span>
+    <span class="n">fprintf</span><span class="p">(</span>"<span class="n">la</span> <span class="n">periode</span> <span class="n">d</span><span class="o">'</span><span class="n">echantillonnage</span> <span class="n">mal</span> <span class="n">choisie</span><span class="o">\</span><span class="n">n</span>"<span class="p">)</span>
+<span class="k">end</span>
+</pre>
+   </div>
+   <ul>
+    <li>
+     疑问：
+     <ul>
+      <li>
+       erreur de position =0 意味着什么?
+      </li>
+     </ul>
+    </li>
+   </ul>
    <h4 id="52">
     <a aria-hidden="true" class="headeranchor-link" href="#52" name="user-content-52">
      <span class="headeranchor">
      </span>
     </a>
-    5.2 建立微分方程
+    5.2 建立微分方程 数字化采样???
    </h4>
    <p>
     <p align="center">
      <img class="lazyload" alt="" data-src="images\cap_20171228_003309.png"/>
     </p>
-   </p>
-   <h4 id="53">
-    <a aria-hidden="true" class="headeranchor-link" href="#53" name="user-content-53">
-     <span class="headeranchor">
-     </span>
-    </a>
-    5.3 数字化采样
-   </h4>
-   <p>
+    <br/>
     <p align="center">
      <img class="lazyload" alt="" data-src="images\cap_20171228_003543.png"/>
     </p>
    </p>
+   <div class="codehilite">
+    <pre><span class="hll"><span class="c">%建立方程</span>
+</span><span class="n">t1</span><span class="p">=</span><span class="mi">1</span>
+<span class="n">tbf</span><span class="p">=</span><span class="n">tau1</span>
+
+<span class="n">tf1</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">t1</span><span class="p">,[</span><span class="n">tau1</span> <span class="mi">1</span><span class="p">]);</span>
+
+<span class="c">%数字采样</span>
+<span class="n">te</span><span class="p">=</span><span class="mi">15</span><span class="p">;</span>
+<span class="n">tfd1</span><span class="p">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">tf1</span><span class="p">,</span><span class="n">te</span><span class="p">,</span><span class="s">'ZOH'</span><span class="p">);</span>
+<span class="n">b1a</span><span class="p">=</span><span class="n">tfd1</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">a1a</span><span class="p">=</span><span class="n">tfd1</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
+</pre>
+   </div>
+   <ul>
+    <li>
+     疑问：
+     <ul>
+      <li>
+       why t1=1??
+      </li>
+      <li>
+       erreur de position =0 est ou??
+      </li>
+     </ul>
+    </li>
+   </ul>
    <h4 id="54-pi">
     <a aria-hidden="true" class="headeranchor-link" href="#54-pi" name="user-content-54-pi">
      <span class="headeranchor">
@@ -9341,28 +9411,47 @@ For Level Colors
      <img class="lazyload" alt="" data-src="images\cap_20171228_003624.png"/>
     </p>
    </p>
-   <h5 id="542">
-    <a aria-hidden="true" class="headeranchor-link" href="#542" name="user-content-542">
+   <p>
+    Améliorer la précision des systèmes effet d’une intégration
+   </p>
+   <p>
+    <a href="https://www.zhihu.com/question/37875391">
+     数学证明PID中的比例积分作用可以使得误差趋于零
+    </a>
+   </p>
+   <h5 id="542-reponse-5">
+    <a aria-hidden="true" class="headeranchor-link" href="#542-reponse-5" name="user-content-542-reponse-5">
      <span class="headeranchor">
      </span>
     </a>
-    5.4.2 确定系数
+    5.4.2 确定系数 &amp; réponse 5%
    </h5>
    <p>
     <p align="center">
      <img class="lazyload" alt="" data-src="images\cap_20171228_003823.png"/>
     </p>
    </p>
-   <h5 id="543-reponse-5">
-    <a aria-hidden="true" class="headeranchor-link" href="#543-reponse-5" name="user-content-543-reponse-5">
-     <span class="headeranchor">
-     </span>
-    </a>
-    5.4.3 réponse 5%
-   </h5>
    <p>
     Déterminer le temps de réponse à 5% pour un échelon unitaire.
    </p>
+   <div class="codehilite">
+    <pre><span class="hll"><span class="n">r0pi</span><span class="p">=</span><span class="n">B1a</span><span class="o">/</span><span class="n">b1a</span>
+</span><span class="n">r1pi</span><span class="p">=</span><span class="n">r0pi</span><span class="o">*</span><span class="n">a1a</span>
+
+<span class="n">numPI</span><span class="p">=[</span><span class="n">r0pi</span> <span class="n">r1pi</span><span class="p">];</span>
+<span class="n">denPI</span><span class="p">=[</span><span class="mi">1</span> <span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+
+<span class="c">%直接转换为Z变换函数</span>
+<span class="n">Kpi</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">numPI</span><span class="p">,</span><span class="n">denPI</span><span class="p">,</span><span class="n">te</span><span class="p">,</span><span class="s">'variable'</span><span class="p">,</span><span class="s">'z'</span><span class="p">);</span>  <span class="c">%Fonction de transfert du correcteur PI</span>
+
+<span class="c">%确定闭环转换函数</span>
+<span class="n">tfd2pi_o</span><span class="p">=</span><span class="n">series</span><span class="p">(</span><span class="n">Kpi</span><span class="p">,</span><span class="n">tfd0</span><span class="p">);</span>  
+<span class="n">tfd2pi_f</span><span class="p">=</span><span class="n">feedback</span><span class="p">(</span><span class="n">tfd2pi_o</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="n">step</span><span class="p">(</span><span class="n">tf1</span><span class="p">,</span><span class="n">tfd1</span><span class="p">,</span><span class="n">tfd2pi_f</span><span class="p">);</span>
+<span class="n">Steady_timePI</span><span class="p">=</span><span class="n">stepinfo</span><span class="p">(</span><span class="n">tfd2pi_f</span><span class="p">,</span><span class="s">'SettlingTimeThreshold'</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
+</pre>
+   </div>
    <h2 id="2eme-ordre">
     <a aria-hidden="true" class="headeranchor-link" href="#2eme-ordre" name="user-content-2eme-ordre">
      <span class="headeranchor">
@@ -9382,37 +9471,37 @@ For Level Colors
      <img class="lazyload" alt="" data-src="images\cap_20171228_004651.png"/>
     </p>
    </p>
-   <h3 id="1_6">
-    <a aria-hidden="true" class="headeranchor-link" href="#1_6" name="user-content-1_6">
+   <h3 id="1_5">
+    <a aria-hidden="true" class="headeranchor-link" href="#1_5" name="user-content-1_5">
      <span class="headeranchor">
      </span>
     </a>
     1.微分方程及采样
    </h3>
-   <h4 id="11_1">
-    <a aria-hidden="true" class="headeranchor-link" href="#11_1" name="user-content-11_1">
+   <h4 id="11-wm">
+    <a aria-hidden="true" class="headeranchor-link" href="#11-wm" name="user-content-11-wm">
      <span class="headeranchor">
      </span>
     </a>
-    1.1 微分方程
+    1.1 微分方程 计算w和m
    </h4>
    <p>
     <p align="center">
      <img class="lazyload" alt="" data-src="images\cap_20171228_004726.png"/>
     </p>
-   </p>
-   <h4 id="12-wm">
-    <a aria-hidden="true" class="headeranchor-link" href="#12-wm" name="user-content-12-wm">
-     <span class="headeranchor">
-     </span>
-    </a>
-    1.2 计算w和m
-   </h4>
-   <p>
+    <br/>
     <p align="center">
      <img class="lazyload" alt="" data-src="images\cap_20171228_004820.png"/>
     </p>
    </p>
+   <div class="codehilite">
+    <pre><span class="hll"><span class="n">k1</span><span class="p">=</span><span class="mi">25</span><span class="p">;</span>
+</span><span class="n">tau2</span><span class="p">=</span><span class="mi">450</span><span class="p">;</span>
+<span class="n">tau3</span><span class="p">=</span><span class="mi">150</span><span class="p">;</span>
+<span class="n">w3</span><span class="p">=</span><span class="mi">1</span><span class="o">/</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">tau3</span><span class="o">*</span><span class="n">tau2</span><span class="p">)</span>
+<span class="n">m</span><span class="p">=(</span><span class="n">tau2</span><span class="o">+</span><span class="n">tau3</span><span class="p">)</span><span class="o">*</span><span class="n">w3</span><span class="o">/</span><span class="mi">2</span>
+</pre>
+   </div>
    <h4 id="13">
     <a aria-hidden="true" class="headeranchor-link" href="#13" name="user-content-13">
      <span class="headeranchor">
@@ -9425,6 +9514,19 @@ For Level Colors
      <img class="lazyload" alt="" data-src="images\cap_20171228_005021.png"/>
     </p>
    </p>
+   <div class="codehilite">
+    <pre><span class="hll"><span class="n">den</span><span class="p">=</span><span class="n">conv</span><span class="p">([</span><span class="n">tau2</span> <span class="mi">1</span><span class="p">],[</span><span class="n">tau3</span> <span class="mi">1</span><span class="p">]);</span>
+</span><span class="n">tf3</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">den</span><span class="p">);</span>
+
+<span class="n">te2</span><span class="p">=</span><span class="mi">60</span><span class="p">;</span>
+<span class="n">tfd3</span><span class="p">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">tf3</span><span class="p">,</span><span class="n">te2</span><span class="p">,</span><span class="s">'ZOH'</span><span class="p">)</span>
+
+<span class="n">b1b</span><span class="p">=</span><span class="n">tfd3</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">b2b</span><span class="p">=</span><span class="n">tfd3</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">a1b</span><span class="p">=</span><span class="n">tfd3</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">a2b</span><span class="p">=</span><span class="n">tfd3</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">3</span><span class="p">)</span>
+</pre>
+   </div>
    <h3 id="2cdcs">
     <a aria-hidden="true" class="headeranchor-link" href="#2cdcs" name="user-content-2cdcs">
      <span class="headeranchor">
@@ -9432,30 +9534,44 @@ For Level Colors
     </a>
     2.CdCs更改
    </h3>
-   <h4 id="21_2">
-    <a aria-hidden="true" class="headeranchor-link" href="#21_2" name="user-content-21_2">
+   <h4 id="21-p">
+    <a aria-hidden="true" class="headeranchor-link" href="#21-p" name="user-content-21-p">
      <span class="headeranchor">
      </span>
     </a>
-    2.1 验证采样周期
+    2.1 验证采样周期 计算P系数
    </h4>
    <p>
     <p align="center">
      <img class="lazyload" alt="" data-src="images\cap_20171228_005130.png"/>
     </p>
-   </p>
-   <h4 id="22-p">
-    <a aria-hidden="true" class="headeranchor-link" href="#22-p" name="user-content-22-p">
-     <span class="headeranchor">
-     </span>
-    </a>
-    2.2 计算P系数
-   </h4>
-   <p>
+    <br/>
     <p align="center">
      <img class="lazyload" alt="" data-src="images\cap_20171228_005220.png"/>
     </p>
    </p>
+   <div class="codehilite">
+    <pre><span class="hll"><span class="c">%频率加速 二阶系统</span>
+</span>
+<span class="n">te2c</span><span class="p">=</span><span class="mi">60</span><span class="o">*</span><span class="n">w3</span><span class="o">*</span><span class="mi">4</span>
+<span class="n">m</span><span class="p">=</span><span class="mf">0.707</span>
+<span class="n">wc</span><span class="p">=</span><span class="nb">sqrt</span><span class="p">(</span><span class="nb">sqrt</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span>^<span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>^<span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span>^<span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="n">Tmin</span><span class="p">=</span><span class="mf">0.25</span><span class="p">;</span>
+<span class="n">Tminr</span><span class="p">=</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">25</span>
+<span class="n">Tmax</span><span class="p">=</span><span class="mf">1.25</span><span class="p">;</span>
+<span class="n">Tmaxr</span><span class="p">=</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">5</span>
+<span class="n">TShannon</span><span class="p">=</span><span class="nb">pi</span>
+
+<span class="k">if</span> <span class="n">Tmin</span><span class="o">&lt;</span><span class="n">te2c</span><span class="o">&amp;&amp;</span><span class="n">te2c</span><span class="o">&lt;</span><span class="n">Tmax</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="s">'%f(Tmin) &lt; te &lt; %f(Tmax)\n'</span><span class="p">,</span><span class="n">Tmin</span><span class="p">,</span><span class="n">Tmax</span><span class="p">)</span>
+<span class="k">elseif</span> <span class="n">te2c</span><span class="o">&lt;</span><span class="n">TShannon</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="s">'Que au Shannon: te&lt;%f(Shannon)\n'</span><span class="p">,</span><span class="n">TShannon</span><span class="p">)</span>
+<span class="k">else</span>
+    <span class="n">fprintf</span><span class="p">(</span>"<span class="n">la</span> <span class="n">periode</span> <span class="n">d</span><span class="o">'</span><span class="n">echantillonnage</span> <span class="n">est</span> <span class="n">mal</span> <span class="n">choisie</span><span class="o">\</span><span class="n">n</span>"<span class="p">)</span>
+<span class="k">end</span>
+</pre>
+   </div>
    <h4 id="23-z">
     <a aria-hidden="true" class="headeranchor-link" href="#23-z" name="user-content-23-z">
      <span class="headeranchor">
@@ -9468,6 +9584,19 @@ For Level Colors
      <img class="lazyload" alt="" data-src="images\cap_20171228_005444.png"/>
     </p>
    </p>
+   <div class="codehilite">
+    <pre><span class="hll"><span class="c">%采样</span>
+</span><span class="n">num1</span><span class="p">=[</span><span class="mi">1</span><span class="p">];</span>
+<span class="n">den1</span><span class="p">=[(</span><span class="mi">1</span><span class="o">/</span><span class="n">w4</span><span class="p">)</span>^<span class="mi">2</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m1</span><span class="p">)</span><span class="o">/</span><span class="n">w4</span> <span class="mi">1</span><span class="p">];</span>
+<span class="n">tf4</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span><span class="n">den1</span><span class="p">,</span><span class="s">'variable'</span><span class="p">,</span><span class="s">'p'</span><span class="p">);</span>
+<span class="n">tfd4</span><span class="p">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">tf4</span><span class="p">,</span><span class="n">te2</span><span class="p">);</span>     <span class="c">%Determination T1d(z)</span>
+
+<span class="n">B1</span><span class="p">=</span><span class="n">tfd4</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">B2</span><span class="p">=</span><span class="n">tfd4</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">A1</span><span class="p">=</span><span class="n">tfd4</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">A2</span><span class="p">=</span><span class="n">tfd4</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">3</span><span class="p">)</span>
+</pre>
+   </div>
    <h4 id="24-pid">
     <a aria-hidden="true" class="headeranchor-link" href="#24-pid" name="user-content-24-pid">
      <span class="headeranchor">
@@ -9487,6 +9616,27 @@ For Level Colors
      <img class="lazyload" alt="" data-src="images\cap_20171228_005539.png"/>
     </p>
    </p>
+   <div class="codehilite">
+    <pre><span class="hll"><span class="c">% Fonction de transfert en BF discrétisée Ordre 3</span>
+</span><span class="n">Td</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,[</span><span class="mi">1</span> <span class="o">-</span><span class="mf">0.001</span><span class="p">],</span><span class="n">te2</span><span class="p">)</span>
+<span class="n">tfd5</span><span class="p">=</span><span class="n">tfd4</span><span class="o">*</span><span class="n">Td</span>  <span class="c">% Fonction de transfert d'ordre 3</span>
+
+<span class="p">[</span><span class="n">P2d</span><span class="p">]=</span><span class="n">tfd5</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span> <span class="c">% Tableau contenant les coefficients du dénominateur</span>
+<span class="n">p1</span><span class="p">=</span><span class="n">P2d</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">p2</span><span class="p">=</span><span class="n">P2d</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">p3</span><span class="p">=</span><span class="n">P2d</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c">%Calcul des coefficients du correcteur PID  </span>
+<span class="n">r0pid</span><span class="p">=(</span><span class="mi">1</span><span class="o">-</span><span class="n">a1b</span><span class="o">+</span><span class="n">p1</span><span class="p">)</span><span class="o">/</span><span class="n">b1b</span>
+<span class="n">r1pid</span><span class="p">=(</span><span class="n">p2</span><span class="o">+</span><span class="n">a1b</span><span class="p">)</span><span class="o">/</span><span class="n">b1b</span>
+<span class="n">r2pid</span><span class="p">=</span><span class="n">p3</span><span class="o">/</span><span class="n">b1b</span>
+
+<span class="c">%Fonction transfert du correcteur PID</span>
+<span class="n">numPID</span><span class="p">=[</span><span class="n">r0pid</span> <span class="n">r1pid</span> <span class="n">r2pid</span><span class="p">];</span>
+<span class="n">denPID</span><span class="p">=[</span><span class="mi">1</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">0</span><span class="p">];</span>
+<span class="n">Kpid</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">numPID</span><span class="p">,</span><span class="n">denPID</span><span class="p">,</span><span class="n">te2</span><span class="p">,</span><span class="s">'variable'</span><span class="p">,</span><span class="s">'z'</span><span class="p">)</span>
+</pre>
+   </div>
    <h5 id="242-reponse-a-5">
     <a aria-hidden="true" class="headeranchor-link" href="#242-reponse-a-5" name="user-content-242-reponse-a-5">
      <span class="headeranchor">
@@ -9497,6 +9647,14 @@ For Level Colors
    <p>
     Déterminer le temps de réponse à 5% pour un échelon unitaire.
    </p>
+   <div class="codehilite">
+    <pre><span class="hll"><span class="c">%La reponse a 5%</span>
+</span><span class="n">tfd5_o</span><span class="p">=</span><span class="n">series</span><span class="p">(</span><span class="n">Kdpid</span><span class="p">,</span><span class="n">tfd4</span><span class="p">)</span>
+<span class="n">tfd5_f</span><span class="p">=</span><span class="n">feedback</span><span class="p">(</span><span class="n">tfd5_o</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Steady_timePID</span><span class="p">=</span><span class="n">stepinfo</span><span class="p">(</span><span class="n">tfd5_f</span><span class="p">,</span><span class="s">'SettlingTimeThreshold'</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">step</span><span class="p">(</span><span class="n">tf4</span><span class="p">,</span><span class="n">tfd4</span><span class="p">,</span><span class="n">tfd5_f</span><span class="p">)</span>
+</pre>
+   </div>
    <h3 id="3-erreur-de-position">
     <a aria-hidden="true" class="headeranchor-link" href="#3-erreur-de-position" name="user-content-3-erreur-de-position">
      <span class="headeranchor">
@@ -9509,7 +9667,7 @@ For Level Colors
      <span class="headeranchor">
      </span>
     </a>
-    3.1 确定系数
+    3.1 确定系数???
    </h4>
    <p>
     <p align="center">
@@ -9526,6 +9684,26 @@ For Level Colors
    <p>
     Vérifier (sous Matlab faire valider par l’enseignant) la réponse à un échelon afin de voir si le cahier des charges est respecté.
    </p>
+   <div class="codehilite">
+    <pre><span class="hll"><span class="p">[</span><span class="n">Z0</span><span class="p">,</span><span class="n">k0</span><span class="p">]=</span><span class="n">zero</span><span class="p">(</span><span class="n">tfd4</span><span class="p">)</span>
+</span><span class="n">Nstable</span><span class="p">=</span><span class="n">tf</span><span class="p">([</span><span class="n">tfd4</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span> <span class="n">tfd4</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">3</span><span class="p">)],</span><span class="mi">1</span><span class="p">,</span><span class="n">te2</span><span class="p">)</span>
+<span class="n">Dstable</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">tfd4</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span><span class="mi">1</span><span class="p">,</span><span class="n">te2</span><span class="p">)</span>
+<span class="n">Sm</span><span class="p">=</span><span class="mi">1</span>
+
+<span class="n">pi0_ep</span><span class="p">=</span><span class="mi">1</span>
+<span class="n">theta0_ep</span><span class="p">=</span><span class="n">p1</span><span class="o">+</span><span class="n">pi0_ep</span>
+<span class="n">theta1_ep</span><span class="p">=</span><span class="n">p2</span>
+
+<span class="n">Sr_ep</span><span class="p">=[</span><span class="mi">1</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">0</span><span class="p">]</span> <span class="c">% =(1-z^-1)</span>
+<span class="n">TSr_ep</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Sr_ep</span><span class="p">,</span><span class="n">te2</span><span class="p">)</span>  <span class="c">%=(1-z^-1)*z^-2</span>
+<span class="n">Ttheta_ep</span><span class="p">=</span><span class="n">tf</span><span class="p">([</span><span class="n">theta0_ep</span> <span class="n">theta1_ep</span><span class="p">],</span><span class="mi">1</span><span class="p">,</span><span class="n">te2</span><span class="p">)</span>
+<span class="n">Kp_ep</span><span class="p">=</span><span class="n">Dstable</span><span class="o">*</span><span class="n">Sm</span><span class="o">*</span><span class="n">Ttheta_ep</span><span class="o">*</span><span class="n">TSr_ep</span><span class="o">*</span><span class="mi">1</span><span class="o">*</span><span class="n">Nstable</span>
+
+<span class="c">% Extraction Simulink</span>
+<span class="n">NKp_ep</span><span class="p">=</span><span class="n">Kp_ep</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">DKp_ep</span><span class="p">=</span><span class="n">Kp_ep</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+</pre>
+   </div>
    <h3 id="4erreur-de-vitesse">
     <a aria-hidden="true" class="headeranchor-link" href="#4erreur-de-vitesse" name="user-content-4erreur-de-vitesse">
      <span class="headeranchor">
@@ -9538,7 +9716,7 @@ For Level Colors
      <span class="headeranchor">
      </span>
     </a>
-    4.1 确定系数
+    4.1 确定系数???
    </h4>
    <p>
     <p align="center">
@@ -9557,6 +9735,26 @@ For Level Colors
      <img class="lazyload" alt="" data-src="images\cap_20171228_010301.png"/>
     </p>
    </p>
+   <div class="codehilite">
+    <pre><span class="hll"><span class="n">pi0_ev</span><span class="p">=</span><span class="mi">1</span>
+</span><span class="n">theta0_ev</span><span class="p">=</span><span class="n">p1</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">pi0_ev</span>
+<span class="n">theta1_ev</span><span class="p">=</span><span class="n">p2</span><span class="o">-</span><span class="n">pi0_ev</span>
+
+<span class="c">% Réalisation du correceur Kp1(z) </span>
+<span class="n">Ttheta_ev</span><span class="p">=</span><span class="n">tf</span><span class="p">([</span><span class="n">theta0_ev</span> <span class="n">theta1_ev</span><span class="p">],</span><span class="mi">1</span><span class="p">,</span><span class="n">te2</span><span class="p">)</span>
+<span class="n">Sr_ev</span><span class="p">=[</span><span class="mi">1</span> <span class="o">-</span><span class="mi">2</span> <span class="mi">1</span><span class="p">]</span>   
+<span class="c">% Annule l'erreur de vitesse - deux intégrateurs = conv([1 -1],[1 -1])</span>
+<span class="n">TSr_ev</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Sr_ev</span><span class="p">,</span><span class="n">te2</span><span class="p">)</span>   <span class="c">% fonction de transfert de Sr_ev</span>
+<span class="n">Kp_ev</span><span class="p">=</span><span class="n">Dstable</span><span class="o">*</span><span class="n">Sm</span><span class="o">*</span><span class="n">Ttheta_ev</span><span class="o">*</span><span class="n">TSr_ev</span><span class="o">*</span><span class="mi">1</span><span class="o">*</span><span class="n">Nstable</span>
+
+<span class="c">% Extraction Simulink</span>
+<span class="n">NKp_ev</span><span class="p">=</span><span class="n">Kp_ev</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">DKp_ev</span><span class="p">=</span><span class="n">Kp_ev</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+
+<span class="n">NP</span><span class="p">=</span><span class="n">tfd4</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">DP</span><span class="p">=</span><span class="n">tfd4</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+</pre>
+   </div>
    <h1 id="_5">
     <a aria-hidden="true" class="headeranchor-link" href="#_5" name="user-content-_5">
      <span class="headeranchor">
@@ -9922,7 +10120,7 @@ For Level Colors
      <span class="headeranchor">
      </span>
     </a>
-    IV 待解决疑问
+    IV 待解决疑问????
    </h2>
    <ul>
     <li>
