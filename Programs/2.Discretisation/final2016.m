@@ -4,7 +4,8 @@ clc;
 %%%%%%%%%%%% 1er ordre
 %建立方程
 k0=0.01;
-tau0=60
+
+tau0=60;
 tf0=tf(k0,[tau0 1]);
 
 %数字采样
@@ -16,15 +17,17 @@ a1a=tfd0.den{1}(2)
 %correcteur P
 % rlocus(tfd0);grid;
 
-kp=12;
-tfd0_o=series(kp,tfd0); 
-tfd0_f=feedback(tfd0_o,1)
+Kp_mini=(-1-a1a)/b1a
+Kp_maxi=(1-a1a)/b1a
+
+% kp=12;
+% tfd0_o=series(kp,tfd0); 
+% tfd0_f=feedback(tfd0_o,1)
 
 
-%频率加速 一阶系统
+%一阶系统自动验证采样频率
 tau1=tau0/3;
 
-te=15
 Tmin=0.25*tau1;
 Tminr=2*pi/25*tau1
 Tmax=1.25*tau1;
@@ -40,7 +43,7 @@ else
 end
 
 %建立方程
-t1=1
+t1=1 %erreur de position==0 所以t1取零
 tbf=tau1
 
 tf1=tf(t1,[tau1 1]);
@@ -53,7 +56,6 @@ A1a=tfd1.den{1}(2)
 
 %5.4 PI
 % gain statique du système désiré
-
 r0pi=B1a/b1a
 r1pi=r0pi*a1a
 
@@ -67,6 +69,7 @@ Kpi=tf(numPI,denPI,te,'variable','z');  %Fonction de transfert du correcteur PI
 tfd2pi_o=series(Kpi,tfd0);  
 tfd2pi_f=feedback(tfd2pi_o,1);
 
+% step(tfd2pi_f)
 % step(tf1,tfd1,tfd2pi_f);
 Steady_timePI=stepinfo(tfd2pi_f,'SettlingTimeThreshold',0.05)
 
@@ -78,8 +81,9 @@ tau3=150;
 w3=1/sqrt(tau3*tau2)
 m=(tau2+tau3)*w3/2
 
-den=conv([tau2 1],[tau3 1]);
-tf3=tf(k1,den);
+num5=[k1];
+den5=conv([tau2 1],[tau3 1]);
+tf3=tf(num5,den5);
 
 te2=60;
 tfd3=c2d(tf3,te2,'ZOH')
@@ -90,9 +94,9 @@ a1b=tfd3.den{1}(2)
 a2b=tfd3.den{1}(3)
 
 
-%频率加速 二阶系统
+%二阶系统采样频率自动验证
 w4=w3*4;
-te2c=60*w4;
+teW4=te2*w4;
 m1=0.707;
 wc=sqrt(sqrt((2*m^2-1)^2+1)-(2*m^2-1))
 
@@ -102,13 +106,14 @@ Tmax=1.25;
 Tmaxr=2*pi/5
 TShannon=pi
 
-if Tmin<te2c&&te2c<Tmax
+if Tmin<teW4&&teW4<Tmax
 	fprintf('%f(Tmin) < te < %f(Tmax)\n',Tmin,Tmax)
-elseif te2c<TShannon
+elseif teW4<TShannon
 	fprintf('Que au Shannon: te<%f(Shannon)\n',TShannon)
 else
 	fprintf("la periode d'echantillonnage est mal choisie\n")
 end
+
 
 %采样
 num1=[1];
@@ -122,40 +127,43 @@ A1=tfd4.den{1}(2)
 A2=tfd4.den{1}(3)
 
 
-%%%PID
-
+%%%PID filtre
+%% 已经是2eme ordre 不需要添加pole
 % Fonction de transfert en BF discrétisée Ordre 3
-Td=tf(1,[1 -0.001],te2)
-tfd5=tfd4*Td  % Fonction de transfert d'ordre 3
-
-[P2d]=tfd5.den{1} % Tableau contenant les coefficients du dénominateur
+[P2d]=tfd4.den{1} % Tableau contenant les coefficients du dénominateur
 p1=P2d(2)
 p2=P2d(3)
-p3=P2d(4)
 
-%Calcul des coefficients du correcteur PID  
-r0pid=(1-a1b+p1)/b1b
-r1pid=(p2+a1b)/b1b
-r2pid=p3/b1b
+%Calcul des coefficients du correcteur PID   
+r0pid=(1+p1+p2)/(b1b+b2b)
+r1pid=a1b*r0pid
+r2pid=a2b*r0pid
+s1=r0pid*b2b-p2
 
 %Fonction transfert du correcteur PID
-numPID=[r0pid r1pid r2pid];
-denPID=[1 -1 0];
-Kdpid=tf(numPID,denPID,te2,'variable','z')
-
+numPID=[r0pid r1pid r2pid];	%阶数从左往右依次递减
+denPID=conv([1 -1],[1 s1]);
+Kdpid=tf(numPID,denPID,te2,'variable','z');
 
 %La reponse a 5%
-tfd5_o=series(Kdpid,tfd4)
-tfd5_f=feedback(tfd5_o,1)
-Steady_timePID=stepinfo(tfd5_f,'SettlingTimeThreshold',0.05)
-% step(tf4,tfd4,tfd5_f)
+tfd4_o=series(Kdpid,tfd3)
+tfd4_f=feedback(tfd4_o,1)
+Steady_timePID=stepinfo(tfd4_f,'SettlingTimeThreshold',0.05)
+% step(tf4,tfd4,tfd4_f)
+% step(tfd4_f)
 
 
 %%%%%%Erreur de position
 
-[Z0,k0]=zero(tfd4)
-Nstable=tf([tfd4.num{1}(2) tfd4.num{1}(3)],1,te2)
-Dstable=tf(tfd4.den{1},1,te2)
+% Extraction Simulink du processus
+NPro=tfd3.num{1}
+DPro=tfd3.den{1}
+
+%Erreur de position
+[Z0,k0]=zero(tfd3)
+Nstable=tf(1,k0*[1 -Z0],te2)       % N+(z)
+% Nstable=tf([tfd3.num{1}(2) tfd3.num{1}(3)],1,te2)
+Dstable=tf(tfd3.den{1},1,te2)
 Sm=1
 
 pi0_ep=1
@@ -167,26 +175,23 @@ TSr_ep=tf(1,Sr_ep,te2)	%=(1-z^-1)*z^-2
 Ttheta_ep=tf([theta0_ep theta1_ep],1,te2)
 Kp_ep=Dstable*Sm*Ttheta_ep*TSr_ep*1*Nstable
 
-% Extraction Simulink
-NKp_ep=Kp_ep.num{1}
-DKp_ep=Kp_ep.den{1}
+% Extraction Simulink du correcteur EP
+Nep=Kp_ep.num{1}
+Dep=Kp_ep.den{1}
 
 %%%%%%Erreur de vitesse
-
 pi0_ev=1
 theta0_ev=p1+2*pi0_ev
 theta1_ev=p2-pi0_ev
 
 % Réalisation du correceur Kp1(z) 
 Ttheta_ev=tf([theta0_ev theta1_ev],1,te2)
-Sr_ev=[1 -2 1]   
+Sr_ev=[1 -2 1]   %=(1-z^-1)^2
 % Annule l'erreur de vitesse - deux intégrateurs = conv([1 -1],[1 -1])
 TSr_ev=tf(1,Sr_ev,te2)   % fonction de transfert de Sr_ev
 Kp_ev=Dstable*Sm*Ttheta_ev*TSr_ev*1*Nstable
 
-% Extraction Simulink
-NKp_ev=Kp_ev.num{1}
-DKp_ev=Kp_ev.den{1}
+% Extraction Simulink du correcteur EV
+Nev=Kp_ev.num{1}
+Dev=Kp_ev.den{1}
 
-NP=tfd4.num{1}
-DP=tfd4.den{1}

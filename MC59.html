@@ -1634,12 +1634,12 @@ MathJax.Hub.Config({
 <li><a href="#41">4.1 闭环</a></li>
 <li><a href="#42-gain">4.2 Gain的取值范围</a></li>
 <li><a href="#43-lieux-devans">4.3 lieux d&rsquo;Evans</a></li>
-<li><a href="#44-erreur-de-position">4.4 erreur de position????</a></li>
+<li><a href="#44-erreur-de-position">4.4 erreur de position</a></li>
 </ul>
 </li>
 <li><a href="#5cdcs">5.更改CdCs</a><ul>
-<li><a href="#51">5.1 采样周期的选择????</a></li>
-<li><a href="#52">5.2 建立微分方程 数字化采样???</a></li>
+<li><a href="#51">5.1 采样周期的选择</a></li>
+<li><a href="#52">5.2 建立微分方程 数字化采样</a></li>
 <li><a href="#54-pi">5.4 PI</a><ul>
 <li><a href="#541">5.4.1 积分器消除误差</a></li>
 <li><a href="#542-reponse-5">5.4.2 确定系数 &amp; réponse 5%</a></li>
@@ -1657,9 +1657,9 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li><a href="#2cdcs">2.CdCs更改</a><ul>
-<li><a href="#21-p">2.1 验证采样周期 计算P系数</a></li>
+<li><a href="#21_2">2.1 二阶系统采样频率自动验证</a></li>
 <li><a href="#23-z">2.3 计算Z系数</a></li>
-<li><a href="#24-pid">2.4 PID</a><ul>
+<li><a href="#24-pid-filtre">2.4 PID filtre</a><ul>
 <li><a href="#241-pid">2.4.1 PID系数</a></li>
 <li><a href="#242-reponse-a-5">2.4.2 Réponse à 5%</a></li>
 </ul>
@@ -1667,12 +1667,12 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li><a href="#3-erreur-de-position">3 Erreur de position</a><ul>
-<li><a href="#31_1">3.1 确定系数???</a></li>
+<li><a href="#31_1">3.1 确定系数</a></li>
 <li><a href="#32-reponse-a-un-echelon">3.2 réponse à un échelon</a></li>
 </ul>
 </li>
 <li><a href="#4erreur-de-vitesse">4.Erreur de vitesse</a><ul>
-<li><a href="#41_1">4.1 确定系数???</a></li>
+<li><a href="#41_1">4.1 确定系数</a></li>
 <li><a href="#42-reponse-a-une-rampe">4.2 réponse  à  une rampe</a></li>
 </ul>
 </li>
@@ -1684,7 +1684,8 @@ MathJax.Hub.Config({
 <li><a href="#i">I 英法对照</a></li>
 <li><a href="#ii-matlab">II Matlab 公式</a></li>
 <li><a href="#iii">III 数字采样补充说明</a></li>
-<li><a href="#iv_1">IV 待解决疑问????</a></li>
+<li><a href="#table-en-z">Table en Z</a></li>
+<li><a href="#iv_1">IV 待解决疑问</a></li>
 </ul>
 </li>
 </ul>
@@ -4169,8 +4170,9 @@ pulsation naturelle (ou propre) $\omega_{1}$=1/$\tau_{BO}$ et de coefficient d&r
     - $\Pi=\Pi_{0}$<br />
 <code>pi0_ep=1</code><br />
 <code>theta0_ep=p1PID+pi0_ep</code><br />
-<code>theta1_ep=p2PID</code><br />
-3.Sr:分母里存在的积分器，Sm:分子里存在的积分器。对于position nulle，分母里要有<strong>1</strong>个积分器 $\Rightarrow$ Sr=(1-z^-1)<br />
+erreur position nulle 趋近与零:<br />
+<code>theta1_ep=p2PID</code></p>
+<p>3.Sr:分母里存在的积分器，Sm:分子里存在的积分器。对于position nulle，分母里要有<strong>1</strong>个积分器 $\Rightarrow$ Sr=(1-z^-1)<br />
 4.D和N要交换位置即：之前的分母D在上，分子N在下</p>
 <p>erreur vitesse nulle ==&gt;K(z):<br />
 1.$N^{+},D^{+},S_{m}$都不变<br />
@@ -4196,8 +4198,8 @@ pulsation naturelle (ou propre) $\omega_{1}$=1/$\tau_{BO}$ et de coefficient d&r
 
 <span class="c">% Résolution de l&#39;eq diophantienne</span>
 <span class="c">%Détermination de O(z) et PI(z) </span>
-<span class="c">%O(z)=o0+o1*^-1   et PI(z)=pi0</span>
-<span class="c">%%%% WTF？？？？？？</span>
+<span class="c">%O(z)=o0+o1*^-1   et PI(z)=pi0 car erreur de position == 0</span>
+<span class="c">%%%% DBF 选用 根据CdC的技术规格建立理论上的传递方程TFpidfiltreDesired 的分母</span>
 <span class="n">pi0_ep</span><span class="p">=</span><span class="mi">1</span>
 <span class="n">theta0_ep</span><span class="p">=</span><span class="n">p1PID</span><span class="o">+</span><span class="n">pi0_ep</span>
 <span class="n">theta1_ep</span><span class="p">=</span><span class="n">p2PID</span>
@@ -4257,78 +4259,86 @@ pulsation naturelle (ou propre) $\omega_{1}$=1/$\tau_{BO}$ et de coefficient d&r
 <p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180105_142114.png" /></p></p>
 <div class="codehilite"><pre><span class="hll"><span class="c">%建立方程</span>
 </span><span class="n">k0</span><span class="p">=</span><span class="mf">0.01</span><span class="p">;</span>
+
 <span class="n">tau0</span><span class="p">=</span><span class="mi">60</span>
 <span class="n">tf0</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">k0</span><span class="p">,[</span><span class="n">tau0</span> <span class="mi">1</span><span class="p">]);</span>
 </pre></div>
 
 
 <h3 id="3_3"><a name="user-content-3_3" href="#3_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.数字采样</h3>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_002400.png" /></p></p>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180118_202314.png" /></p></p>
 <div class="codehilite"><pre><span class="hll"><span class="c">%数字采样</span>
 </span><span class="n">te</span><span class="p">=</span><span class="mi">15</span><span class="p">;</span>
-<span class="n">tfd</span><span class="p">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">tf0</span><span class="p">,</span><span class="n">te</span><span class="p">,</span><span class="s">&#39;ZOH&#39;</span><span class="p">);</span>
-<span class="n">b1</span><span class="p">=</span><span class="n">tfd</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">a1</span><span class="p">=</span><span class="n">tfd</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">tfd0</span><span class="p">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">tf0</span><span class="p">,</span><span class="n">te</span><span class="p">,</span><span class="s">&#39;ZOH&#39;</span><span class="p">);</span>
+<span class="n">b1a</span><span class="p">=</span><span class="n">tfd0</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">a1a</span><span class="p">=</span><span class="n">tfd0</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
 
 <h3 id="4correcteur-proportionnel-kp"><a name="user-content-4correcteur-proportionnel-kp" href="#4correcteur-proportionnel-kp" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.Correcteur proportionnel Kp</h3>
 <h4 id="41"><a name="user-content-41" href="#41" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.1 闭环</h4>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_002501.png" /></p></p>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_002501.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180118_202510.png" /></p></p>
 <h4 id="42-gain"><a name="user-content-42-gain" href="#42-gain" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.2 Gain的取值范围</h4>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_002745.png" /></p><br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180105_142909.png" /></p></p>
-<p>$$0&lt;k&lt;804$$</p>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180118_202600.png" /></p></p>
+<div class="codehilite"><pre><span class="n">Kp_mini</span><span class="p">=(</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">a1a</span><span class="p">)</span><span class="o">/</span><span class="n">b1a</span>
+<span class="n">Kp_maxi</span><span class="p">=(</span><span class="mi">1</span><span class="o">-</span><span class="n">a1a</span><span class="p">)</span><span class="o">/</span><span class="n">b1a</span>
+</pre></div>
+
+
 <h4 id="43-lieux-devans"><a name="user-content-43-lieux-devans" href="#43-lieux-devans" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.3 lieux d&rsquo;Evans</h4>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_002910.png" /></p></p>
-<div class="admonition hint">
-<p class="admonition-title">commenter</p>
-<p>Faut que le point reste dans la circle de rayon de 1</p>
-</div>
-<h4 id="44-erreur-de-position"><a name="user-content-44-erreur-de-position" href="#44-erreur-de-position" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.4 erreur de position????</h4>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_002952.png" /></p></p>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180118_202904.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180105_142909.png" /></p></p>
+<div class="codehilite"><pre><span class="hll"><span class="n">rlocus</span><span class="p">(</span><span class="n">tfd0</span><span class="p">);</span><span class="n">grid</span><span class="p">;</span>
+</span></pre></div>
+
+
+<h4 id="44-erreur-de-position"><a name="user-content-44-erreur-de-position" href="#44-erreur-de-position" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.4 erreur de position</h4>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_002952.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180118_203550.png" /></p></p>
 <ul>
-<li>疑问：<ul>
-<li>erreur de position = erreur statique?</li>
-<li>erreur de vitesse = erreur trainage?</li>
-<li>求解erreur de position的时候直接取 z=1 ?</li>
+<li>疑问(已解决)：<ul>
+<li>erreur de position = erreur statique</li>
+<li>erreur de vitesse = erreur trainage</li>
+<li>求解erreur de position的时候直接取 z=1 </li>
 </ul>
 </li>
 </ul>
 <h3 id="5cdcs"><a name="user-content-5cdcs" href="#5cdcs" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.更改CdCs</h3>
-<h4 id="51"><a name="user-content-51" href="#51" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.1 采样周期的选择????</h4>
+<h4 id="51"><a name="user-content-51" href="#51" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.1 采样周期的选择</h4>
 <p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_003202.png" /></p><br />
 <p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171221_175007.png" /></p></p>
-<div class="codehilite"><pre><span class="hll"><span class="c">%频率加速 一阶系统</span>
-</span><span class="n">w0</span><span class="p">=</span><span class="mi">1</span><span class="o">/</span><span class="n">tau0</span><span class="p">;</span>                    <span class="c">% pulsation naturelle, boucle ouvert</span>
-<span class="n">te</span><span class="p">=</span><span class="mi">15</span>
-<span class="n">Tmin</span><span class="p">=</span><span class="mf">0.25</span><span class="o">*</span><span class="n">tau0</span><span class="p">;</span>
-<span class="n">Tminr</span><span class="p">=</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">25</span><span class="o">*</span><span class="n">tau0</span>
-<span class="n">Tmax</span><span class="p">=</span><span class="mf">1.25</span><span class="o">*</span><span class="n">tau0</span><span class="p">;</span>
-<span class="n">Tmaxr</span><span class="p">=</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">5</span><span class="o">*</span><span class="n">tau0</span>
-<span class="n">TShannon</span><span class="p">=</span><span class="nb">pi</span><span class="o">*</span><span class="n">tau0</span>
+<div class="codehilite"><pre><span class="hll"><span class="c">%一阶系统自动验证采样频率</span>
+</span><span class="n">tau1</span><span class="p">=</span><span class="n">tau0</span><span class="o">/</span><span class="mi">3</span><span class="p">;</span>
 
-<span class="k">if</span> <span class="n">Tmin</span><span class="o">&lt;</span><span class="p">=</span><span class="n">te</span><span class="o">&amp;&amp;</span><span class="n">te</span><span class="o">&lt;</span><span class="p">=</span><span class="n">Tmax</span>
-    <span class="n">fprintf</span><span class="p">(</span><span class="s">&#39;%f(Tmin) &lt;= te &lt;= %f(Tmax)\n&#39;</span><span class="p">,</span><span class="n">Tmin</span><span class="p">,</span><span class="n">Tmax</span><span class="p">)</span>
+<span class="n">Tmin</span><span class="p">=</span><span class="mf">0.25</span><span class="o">*</span><span class="n">tau1</span><span class="p">;</span>
+<span class="n">Tminr</span><span class="p">=</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">25</span><span class="o">*</span><span class="n">tau1</span>
+<span class="n">Tmax</span><span class="p">=</span><span class="mf">1.25</span><span class="o">*</span><span class="n">tau1</span><span class="p">;</span>
+<span class="n">Tmaxr</span><span class="p">=</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">5</span><span class="o">*</span><span class="n">tau1</span>
+<span class="n">TShannon</span><span class="p">=</span><span class="nb">pi</span><span class="o">*</span><span class="n">tau1</span>
+
+<span class="k">if</span> <span class="n">Tmin</span><span class="o">&lt;</span><span class="n">te</span><span class="o">&amp;&amp;</span><span class="n">te</span><span class="o">&lt;</span><span class="n">Tmax</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="s">&#39;%f(Tmin) &lt; te &lt; %f(Tmax)\n&#39;</span><span class="p">,</span><span class="n">Tmin</span><span class="p">,</span><span class="n">Tmax</span><span class="p">)</span>
 <span class="k">elseif</span> <span class="n">te</span><span class="o">&lt;</span><span class="n">TShannon</span>
     <span class="n">fprintf</span><span class="p">(</span><span class="s">&#39;Que au Shannon: te&lt;%f(Shannon)\n&#39;</span><span class="p">,</span><span class="n">TShannon</span><span class="p">)</span>
 <span class="k">else</span>
-    <span class="n">fprintf</span><span class="p">(</span>&quot;<span class="n">la</span> <span class="n">periode</span> <span class="n">d</span><span class="o">&#39;</span><span class="n">echantillonnage</span> <span class="n">mal</span> <span class="n">choisie</span><span class="o">\</span><span class="n">n</span>&quot;<span class="p">)</span>
+    <span class="n">fprintf</span><span class="p">(</span>&quot;<span class="n">la</span> <span class="n">periode</span> <span class="n">d</span><span class="o">&#39;</span><span class="n">echantillonnage</span> <span class="n">est</span> <span class="n">mal</span> <span class="n">choisie</span><span class="o">\</span><span class="n">n</span>&quot;<span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
 
 
 <ul>
-<li>疑问：<ul>
-<li>erreur de position =0 意味着什么?</li>
+<li>疑问(已解决)：<ul>
+<li>erreur de position =0 意味着没有稳态误差</li>
 </ul>
 </li>
 </ul>
-<h4 id="52"><a name="user-content-52" href="#52" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.2 建立微分方程 数字化采样???</h4>
+<h4 id="52"><a name="user-content-52" href="#52" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.2 建立微分方程 数字化采样</h4>
 <p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_003309.png" /></p><br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_003543.png" /></p></p>
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180118_204014.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180118_204056.png" /></p></p>
 <div class="codehilite"><pre><span class="hll"><span class="c">%建立方程</span>
-</span><span class="n">t1</span><span class="p">=</span><span class="mi">1</span>
+</span><span class="n">t1</span><span class="p">=</span><span class="mi">1</span> <span class="c">%erreur de position==0 所以t1取零</span>
 <span class="n">tbf</span><span class="p">=</span><span class="n">tau1</span>
 
 <span class="n">tf1</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">t1</span><span class="p">,[</span><span class="n">tau1</span> <span class="mi">1</span><span class="p">]);</span>
@@ -4336,28 +4346,39 @@ pulsation naturelle (ou propre) $\omega_{1}$=1/$\tau_{BO}$ et de coefficient d&r
 <span class="c">%数字采样</span>
 <span class="n">te</span><span class="p">=</span><span class="mi">15</span><span class="p">;</span>
 <span class="n">tfd1</span><span class="p">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">tf1</span><span class="p">,</span><span class="n">te</span><span class="p">,</span><span class="s">&#39;ZOH&#39;</span><span class="p">);</span>
-<span class="n">b1a</span><span class="p">=</span><span class="n">tfd1</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">a1a</span><span class="p">=</span><span class="n">tfd1</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">B1a</span><span class="p">=</span><span class="n">tfd1</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">A1a</span><span class="p">=</span><span class="n">tfd1</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
 
 <ul>
-<li>疑问：<ul>
-<li>why t1=1??</li>
-<li>erreur de position =0 est ou??</li>
+<li>疑问(已解决)：<ul>
+<li>t1=1 因为稳态误差为0，所以不能改变gain的值</li>
 </ul>
 </li>
 </ul>
 <h4 id="54-pi"><a name="user-content-54-pi" href="#54-pi" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.4 PI</h4>
 <h5 id="541"><a name="user-content-541" href="#541" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.4.1 积分器消除误差</h5>
 <p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_003624.png" /></p></p>
-<p>Améliorer la précision des systèmes effet d’une intégration</p>
-<p><a href="https://www.zhihu.com/question/37875391">数学证明PID中的比例积分作用可以使得误差趋于零</a></p>
+<ul>
+<li>Améliorer la précision des systèmes effet d’une intégration<ul>
+<li>deplacer la valeur finale</li>
+<li>limiter le depassement</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://www.zhihu.com/question/37875391">知乎:数学证明PID中的比例积分作用可以使得误差趋于零</a></p>
+<p>积分（I）控制  <br />
+         在积分控制中，控制器的输出与输入误差信号的积分成正比关系。对一个自动控制系统，如果在进入稳态后存在稳态误差，则称这个控制系统是有稳态误差的或简称有差系统（System with Steady-state Error）。为了消除稳态误差，在控制器中必须引入“积分项”。积分项对误差取决于时间的积分，随着时间的增加，积分项会增大。这样，即便误差很小，积分项也会随着时间的增加而加大，它推动控制器的输出增大使稳态误差进一步减小，直到等于零。因此，比例+积分(PI)控制器，可以使系统在进入稳态后无稳态误差。</p>
+<p>微分（D）控制  <br />
+         在微分控制中，控制器的输出与输入误差信号的微分（即误差的变化率）成正比关系。 自动控制系统在克服误差的调节过程中可能会出现振荡甚至失稳。其原因是由于存在有较大惯性组件（环节）或有滞后(delay)组件，具有抑制误差的作用，其变化总是落后于误差的变化。解决的办法是使抑制误差的作用的变化“超前”，即在误差接近零时，抑制误差的作用就应该是零。这就是说，在控制器中仅引入“比例”项往往是不够的，比例项的作用仅是放大误差的幅值，而目前需要增加的是“微分项”，它能预测误差变化的趋势，这样，具有比例+微分的控制器，就能够提前使抑制误差的控制作用等于零，甚至为负值，从而避免了被控量的严重超调。所以对有较大惯性或滞后的被控对象，比例+微分(PD)控制器能改善系统在调节过程中的动态特性。</p>
 <h5 id="542-reponse-5"><a name="user-content-542-reponse-5" href="#542-reponse-5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.4.2 确定系数 &amp; réponse 5%</h5>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_003823.png" /></p></p>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180118_204337.png" /></p></p>
 <p>Déterminer le temps de réponse à 5% pour un échelon unitaire.</p>
-<div class="codehilite"><pre><span class="hll"><span class="n">r0pi</span><span class="p">=</span><span class="n">B1a</span><span class="o">/</span><span class="n">b1a</span>
-</span><span class="n">r1pi</span><span class="p">=</span><span class="n">r0pi</span><span class="o">*</span><span class="n">a1a</span>
+<p>SettlingTimeThreshold=60</p>
+<div class="codehilite"><pre><span class="hll"><span class="c">% gain statique du système désiré</span>
+</span><span class="n">r0pi</span><span class="p">=</span><span class="n">B1a</span><span class="o">/</span><span class="n">b1a</span>
+<span class="n">r1pi</span><span class="p">=</span><span class="n">r0pi</span><span class="o">*</span><span class="n">a1a</span>
 
 <span class="n">numPI</span><span class="p">=[</span><span class="n">r0pi</span> <span class="n">r1pi</span><span class="p">];</span>
 <span class="n">denPI</span><span class="p">=[</span><span class="mi">1</span> <span class="o">-</span><span class="mi">1</span><span class="p">];</span>
@@ -4369,6 +4390,7 @@ pulsation naturelle (ou propre) $\omega_{1}$=1/$\tau_{BO}$ et de coefficient d&r
 <span class="n">tfd2pi_o</span><span class="p">=</span><span class="n">series</span><span class="p">(</span><span class="n">Kpi</span><span class="p">,</span><span class="n">tfd0</span><span class="p">);</span>  
 <span class="n">tfd2pi_f</span><span class="p">=</span><span class="n">feedback</span><span class="p">(</span><span class="n">tfd2pi_o</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
 
+<span class="n">step</span><span class="p">(</span><span class="n">tfd2pi_f</span><span class="p">)</span>
 <span class="n">step</span><span class="p">(</span><span class="n">tf1</span><span class="p">,</span><span class="n">tfd1</span><span class="p">,</span><span class="n">tfd2pi_f</span><span class="p">);</span>
 <span class="n">Steady_timePI</span><span class="p">=</span><span class="n">stepinfo</span><span class="p">(</span><span class="n">tfd2pi_f</span><span class="p">,</span><span class="s">&#39;SettlingTimeThreshold&#39;</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
 </pre></div>
@@ -4380,7 +4402,10 @@ pulsation naturelle (ou propre) $\omega_{1}$=1/$\tau_{BO}$ et de coefficient d&r
 <h3 id="1_5"><a name="user-content-1_5" href="#1_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.微分方程及采样</h3>
 <h4 id="11-wm"><a name="user-content-11-wm" href="#11-wm" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.1 微分方程 计算w和m</h4>
 <p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_004726.png" /></p><br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_004820.png" /></p></p>
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180118_204610.png" /></p><br />
+1.2 <br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_004820.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180118_204711.png" /></p></p>
 <div class="codehilite"><pre><span class="hll"><span class="n">k1</span><span class="p">=</span><span class="mi">25</span><span class="p">;</span>
 </span><span class="n">tau2</span><span class="p">=</span><span class="mi">450</span><span class="p">;</span>
 <span class="n">tau3</span><span class="p">=</span><span class="mi">150</span><span class="p">;</span>
@@ -4390,9 +4415,10 @@ pulsation naturelle (ou propre) $\omega_{1}$=1/$\tau_{BO}$ et de coefficient d&r
 
 
 <h4 id="13"><a name="user-content-13" href="#13" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.3 数字化</h4>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_005021.png" /></p></p>
-<div class="codehilite"><pre><span class="hll"><span class="n">den</span><span class="p">=</span><span class="n">conv</span><span class="p">([</span><span class="n">tau2</span> <span class="mi">1</span><span class="p">],[</span><span class="n">tau3</span> <span class="mi">1</span><span class="p">]);</span>
-</span><span class="n">tf3</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">den</span><span class="p">);</span>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180118_204832.png" /></p></p>
+<div class="codehilite"><pre><span class="hll"><span class="n">num5</span><span class="p">=[</span><span class="n">k1</span><span class="p">];</span>
+</span><span class="n">den5</span><span class="p">=</span><span class="n">conv</span><span class="p">([</span><span class="n">tau2</span> <span class="mi">1</span><span class="p">],[</span><span class="n">tau3</span> <span class="mi">1</span><span class="p">]);</span>
+<span class="n">tf3</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">num5</span><span class="p">,</span><span class="n">den5</span><span class="p">);</span>
 
 <span class="n">te2</span><span class="p">=</span><span class="mi">60</span><span class="p">;</span>
 <span class="n">tfd3</span><span class="p">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">tf3</span><span class="p">,</span><span class="n">te2</span><span class="p">,</span><span class="s">&#39;ZOH&#39;</span><span class="p">)</span>
@@ -4405,13 +4431,13 @@ pulsation naturelle (ou propre) $\omega_{1}$=1/$\tau_{BO}$ et de coefficient d&r
 
 
 <h3 id="2cdcs"><a name="user-content-2cdcs" href="#2cdcs" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.CdCs更改</h3>
-<h4 id="21-p"><a name="user-content-21-p" href="#21-p" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1 验证采样周期 计算P系数</h4>
+<h4 id="21_2"><a name="user-content-21_2" href="#21_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.1 二阶系统采样频率自动验证</h4>
 <p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_005130.png" /></p><br />
-<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_005220.png" /></p></p>
-<div class="codehilite"><pre><span class="hll"><span class="c">%频率加速 二阶系统</span>
-</span>
-<span class="n">te2c</span><span class="p">=</span><span class="mi">60</span><span class="o">*</span><span class="n">w3</span><span class="o">*</span><span class="mi">4</span>
-<span class="n">m</span><span class="p">=</span><span class="mf">0.707</span>
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171221_180329.png" /></p></p>
+<div class="codehilite"><pre><span class="hll"><span class="c">%二阶系统采样频率自动验证</span>
+</span><span class="n">w4</span><span class="p">=</span><span class="n">w3</span><span class="o">*</span><span class="mi">4</span>
+<span class="n">teW4</span><span class="p">=</span><span class="n">te2</span><span class="o">*</span><span class="n">w4</span><span class="p">;</span>
+<span class="n">m1</span><span class="p">=</span><span class="mf">0.707</span>
 <span class="n">wc</span><span class="p">=</span><span class="nb">sqrt</span><span class="p">(</span><span class="nb">sqrt</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span>^<span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>^<span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span>^<span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
 
 <span class="n">Tmin</span><span class="p">=</span><span class="mf">0.25</span><span class="p">;</span>
@@ -4420,9 +4446,9 @@ pulsation naturelle (ou propre) $\omega_{1}$=1/$\tau_{BO}$ et de coefficient d&r
 <span class="n">Tmaxr</span><span class="p">=</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">5</span>
 <span class="n">TShannon</span><span class="p">=</span><span class="nb">pi</span>
 
-<span class="k">if</span> <span class="n">Tmin</span><span class="o">&lt;</span><span class="n">te2c</span><span class="o">&amp;&amp;</span><span class="n">te2c</span><span class="o">&lt;</span><span class="n">Tmax</span>
+<span class="k">if</span> <span class="n">Tmin</span><span class="o">&lt;</span><span class="n">teW4</span><span class="o">&amp;&amp;</span><span class="n">teW4</span><span class="o">&lt;</span><span class="n">Tmax</span>
     <span class="n">fprintf</span><span class="p">(</span><span class="s">&#39;%f(Tmin) &lt; te &lt; %f(Tmax)\n&#39;</span><span class="p">,</span><span class="n">Tmin</span><span class="p">,</span><span class="n">Tmax</span><span class="p">)</span>
-<span class="k">elseif</span> <span class="n">te2c</span><span class="o">&lt;</span><span class="n">TShannon</span>
+<span class="k">elseif</span> <span class="n">teW4</span><span class="o">&lt;</span><span class="n">TShannon</span>
     <span class="n">fprintf</span><span class="p">(</span><span class="s">&#39;Que au Shannon: te&lt;%f(Shannon)\n&#39;</span><span class="p">,</span><span class="n">TShannon</span><span class="p">)</span>
 <span class="k">else</span>
     <span class="n">fprintf</span><span class="p">(</span>&quot;<span class="n">la</span> <span class="n">periode</span> <span class="n">d</span><span class="o">&#39;</span><span class="n">echantillonnage</span> <span class="n">est</span> <span class="n">mal</span> <span class="n">choisie</span><span class="o">\</span><span class="n">n</span>&quot;<span class="p">)</span>
@@ -4430,8 +4456,11 @@ pulsation naturelle (ou propre) $\omega_{1}$=1/$\tau_{BO}$ et de coefficient d&r
 </pre></div>
 
 
+<p>计算P系数<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_005220.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180118_205309.png" /></p></p>
 <h4 id="23-z"><a name="user-content-23-z" href="#23-z" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.3 计算Z系数</h4>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_005444.png" /></p></p>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180118_205453.png" /></p></p>
 <div class="codehilite"><pre><span class="hll"><span class="c">%采样</span>
 </span><span class="n">num1</span><span class="p">=[</span><span class="mi">1</span><span class="p">];</span>
 <span class="n">den1</span><span class="p">=[(</span><span class="mi">1</span><span class="o">/</span><span class="n">w4</span><span class="p">)</span>^<span class="mi">2</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m1</span><span class="p">)</span><span class="o">/</span><span class="n">w4</span> <span class="mi">1</span><span class="p">];</span>
@@ -4445,48 +4474,57 @@ pulsation naturelle (ou propre) $\omega_{1}$=1/$\tau_{BO}$ et de coefficient d&r
 </pre></div>
 
 
-<h4 id="24-pid"><a name="user-content-24-pid" href="#24-pid" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.4 PID</h4>
+<h4 id="24-pid-filtre"><a name="user-content-24-pid-filtre" href="#24-pid-filtre" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.4 PID filtre</h4>
 <h5 id="241-pid"><a name="user-content-241-pid" href="#241-pid" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.4.1 PID系数</h5>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_005539.png" /></p></p>
-<div class="codehilite"><pre><span class="hll"><span class="c">% Fonction de transfert en BF discrétisée Ordre 3</span>
-</span><span class="n">Td</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,[</span><span class="mi">1</span> <span class="o">-</span><span class="mf">0.001</span><span class="p">],</span><span class="n">te2</span><span class="p">)</span>
-<span class="n">tfd5</span><span class="p">=</span><span class="n">tfd4</span><span class="o">*</span><span class="n">Td</span>  <span class="c">% Fonction de transfert d&#39;ordre 3</span>
-
-<span class="p">[</span><span class="n">P2d</span><span class="p">]=</span><span class="n">tfd5</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span> <span class="c">% Tableau contenant les coefficients du dénominateur</span>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_005539.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180118_205607.png" /></p></p>
+<div class="codehilite"><pre><span class="hll"><span class="c">%% 已经是2eme ordre 不需要添加pole</span>
+</span><span class="c">% Fonction de transfert en BF discrétisée Ordre 3</span>
+<span class="p">[</span><span class="n">P2d</span><span class="p">]=</span><span class="n">tfd4</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span> <span class="c">% Tableau contenant les coefficients du dénominateur</span>
 <span class="n">p1</span><span class="p">=</span><span class="n">P2d</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">p2</span><span class="p">=</span><span class="n">P2d</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">p3</span><span class="p">=</span><span class="n">P2d</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 
-<span class="c">%Calcul des coefficients du correcteur PID  </span>
-<span class="n">r0pid</span><span class="p">=(</span><span class="mi">1</span><span class="o">-</span><span class="n">a1b</span><span class="o">+</span><span class="n">p1</span><span class="p">)</span><span class="o">/</span><span class="n">b1b</span>
-<span class="n">r1pid</span><span class="p">=(</span><span class="n">p2</span><span class="o">+</span><span class="n">a1b</span><span class="p">)</span><span class="o">/</span><span class="n">b1b</span>
-<span class="n">r2pid</span><span class="p">=</span><span class="n">p3</span><span class="o">/</span><span class="n">b1b</span>
+<span class="c">%Calcul des coefficients du correcteur PID   </span>
+<span class="n">r0pid</span><span class="p">=(</span><span class="mi">1</span><span class="o">+</span><span class="n">p1</span><span class="o">+</span><span class="n">p2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">b1b</span><span class="o">+</span><span class="n">b2b</span><span class="p">)</span>
+<span class="n">r1pid</span><span class="p">=</span><span class="n">a1b</span><span class="o">*</span><span class="n">r0pid</span>
+<span class="n">r2pid</span><span class="p">=</span><span class="n">a2b</span><span class="o">*</span><span class="n">r0pid</span>
+<span class="n">s1</span><span class="p">=</span><span class="n">r0pid</span><span class="o">*</span><span class="n">b2b</span><span class="o">-</span><span class="n">p2</span>
 
 <span class="c">%Fonction transfert du correcteur PID</span>
-<span class="n">numPID</span><span class="p">=[</span><span class="n">r0pid</span> <span class="n">r1pid</span> <span class="n">r2pid</span><span class="p">];</span>
-<span class="n">denPID</span><span class="p">=[</span><span class="mi">1</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">0</span><span class="p">];</span>
-<span class="n">Kpid</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">numPID</span><span class="p">,</span><span class="n">denPID</span><span class="p">,</span><span class="n">te2</span><span class="p">,</span><span class="s">&#39;variable&#39;</span><span class="p">,</span><span class="s">&#39;z&#39;</span><span class="p">)</span>
+<span class="n">numPID</span><span class="p">=[</span><span class="n">r0pid</span> <span class="n">r1pid</span> <span class="n">r2pid</span><span class="p">];</span> <span class="c">%阶数从左往右依次递减</span>
+<span class="n">denPID</span><span class="p">=</span><span class="n">conv</span><span class="p">([</span><span class="mi">1</span> <span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span> <span class="n">s1</span><span class="p">]);</span>
+<span class="n">Kdpid</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">numPID</span><span class="p">,</span><span class="n">denPID</span><span class="p">,</span><span class="n">te2</span><span class="p">,</span><span class="s">&#39;variable&#39;</span><span class="p">,</span><span class="s">&#39;z&#39;</span><span class="p">);</span>
 </pre></div>
 
 
 <h5 id="242-reponse-a-5"><a name="user-content-242-reponse-a-5" href="#242-reponse-a-5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.4.2 Réponse à 5%</h5>
 <p>Déterminer le temps de réponse à 5% pour un échelon unitaire.</p>
+<p>程序计算所得值为<code>201</code>，但是此处该值无意义，所以取最近的值<code>240</code></p>
 <div class="codehilite"><pre><span class="hll"><span class="c">%La reponse a 5%</span>
-</span><span class="n">tfd5_o</span><span class="p">=</span><span class="n">series</span><span class="p">(</span><span class="n">Kdpid</span><span class="p">,</span><span class="n">tfd4</span><span class="p">)</span>
-<span class="n">tfd5_f</span><span class="p">=</span><span class="n">feedback</span><span class="p">(</span><span class="n">tfd5_o</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">Steady_timePID</span><span class="p">=</span><span class="n">stepinfo</span><span class="p">(</span><span class="n">tfd5_f</span><span class="p">,</span><span class="s">&#39;SettlingTimeThreshold&#39;</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
-<span class="n">step</span><span class="p">(</span><span class="n">tf4</span><span class="p">,</span><span class="n">tfd4</span><span class="p">,</span><span class="n">tfd5_f</span><span class="p">)</span>
+</span><span class="n">tfd4_o</span><span class="p">=</span><span class="n">series</span><span class="p">(</span><span class="n">Kdpid</span><span class="p">,</span><span class="n">tfd3</span><span class="p">)</span>
+<span class="n">tfd4_f</span><span class="p">=</span><span class="n">feedback</span><span class="p">(</span><span class="n">tfd4_o</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Steady_timePID</span><span class="p">=</span><span class="n">stepinfo</span><span class="p">(</span><span class="n">tfd4_f</span><span class="p">,</span><span class="s">&#39;SettlingTimeThreshold&#39;</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">step</span><span class="p">(</span><span class="n">tf4</span><span class="p">,</span><span class="n">tfd4</span><span class="p">,</span><span class="n">tfd4_f</span><span class="p">)</span>
+<span class="n">step</span><span class="p">(</span><span class="n">tfd4_f</span><span class="p">)</span>
 </pre></div>
 
 
 <h3 id="3-erreur-de-position"><a name="user-content-3-erreur-de-position" href="#3-erreur-de-position" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3 Erreur de position</h3>
-<h4 id="31_1"><a name="user-content-31_1" href="#31_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.1 确定系数???</h4>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_005758.png" /></p></p>
-<h4 id="32-reponse-a-un-echelon"><a name="user-content-32-reponse-a-un-echelon" href="#32-reponse-a-un-echelon" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.2 réponse à un échelon</h4>
-<p>Vérifier (sous Matlab faire valider par l&rsquo;enseignant) la réponse à un échelon afin de voir si le cahier des charges est respecté.</p>
-<div class="codehilite"><pre><span class="hll"><span class="p">[</span><span class="n">Z0</span><span class="p">,</span><span class="n">k0</span><span class="p">]=</span><span class="n">zero</span><span class="p">(</span><span class="n">tfd4</span><span class="p">)</span>
-</span><span class="n">Nstable</span><span class="p">=</span><span class="n">tf</span><span class="p">([</span><span class="n">tfd4</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span> <span class="n">tfd4</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">3</span><span class="p">)],</span><span class="mi">1</span><span class="p">,</span><span class="n">te2</span><span class="p">)</span>
-<span class="n">Dstable</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">tfd4</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span><span class="mi">1</span><span class="p">,</span><span class="n">te2</span><span class="p">)</span>
+<p>Remarque:<br />
+需要改变solver参数<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180118_211033.png" /></p></p>
+<h4 id="31_1"><a name="user-content-31_1" href="#31_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.1 确定系数</h4>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_005758.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180118_210318.png" /></p></p>
+<div class="codehilite"><pre><span class="hll"><span class="c">% Extraction Simulink du processus</span>
+</span><span class="n">NPro</span><span class="p">=</span><span class="n">tfd3</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">DPro</span><span class="p">=</span><span class="n">tfd3</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+
+<span class="c">%Erreur de position</span>
+<span class="p">[</span><span class="n">Z0</span><span class="p">,</span><span class="n">k0</span><span class="p">]=</span><span class="n">zero</span><span class="p">(</span><span class="n">tfd3</span><span class="p">)</span>
+<span class="n">Nstable</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">k0</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span> <span class="o">-</span><span class="n">Z0</span><span class="p">],</span><span class="n">te2</span><span class="p">)</span>       <span class="c">% N+(z)</span>
+<span class="c">% Nstable=tf([tfd3.num{1}(2) tfd3.num{1}(3)],1,te2)</span>
+<span class="n">Dstable</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">tfd3</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span><span class="mi">1</span><span class="p">,</span><span class="n">te2</span><span class="p">)</span>
 <span class="n">Sm</span><span class="p">=</span><span class="mi">1</span>
 
 <span class="n">pi0_ep</span><span class="p">=</span><span class="mi">1</span>
@@ -4498,37 +4536,40 @@ pulsation naturelle (ou propre) $\omega_{1}$=1/$\tau_{BO}$ et de coefficient d&r
 <span class="n">Ttheta_ep</span><span class="p">=</span><span class="n">tf</span><span class="p">([</span><span class="n">theta0_ep</span> <span class="n">theta1_ep</span><span class="p">],</span><span class="mi">1</span><span class="p">,</span><span class="n">te2</span><span class="p">)</span>
 <span class="n">Kp_ep</span><span class="p">=</span><span class="n">Dstable</span><span class="o">*</span><span class="n">Sm</span><span class="o">*</span><span class="n">Ttheta_ep</span><span class="o">*</span><span class="n">TSr_ep</span><span class="o">*</span><span class="mi">1</span><span class="o">*</span><span class="n">Nstable</span>
 
-<span class="c">% Extraction Simulink</span>
-<span class="n">NKp_ep</span><span class="p">=</span><span class="n">Kp_ep</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
-<span class="n">DKp_ep</span><span class="p">=</span><span class="n">Kp_ep</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+<span class="c">% Extraction Simulink du correcteur EP</span>
+<span class="n">Nep</span><span class="p">=</span><span class="n">Kp_ep</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">Dep</span><span class="p">=</span><span class="n">Kp_ep</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
 </pre></div>
 
 
+<h4 id="32-reponse-a-un-echelon"><a name="user-content-32-reponse-a-un-echelon" href="#32-reponse-a-un-echelon" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.2 réponse à un échelon</h4>
+<p>Vérifier (sous Matlab faire valider par l&rsquo;enseignant) la réponse à un échelon afin de voir si le cahier des charges est respecté.<br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180118_211342.png" /></p></p>
 <h3 id="4erreur-de-vitesse"><a name="user-content-4erreur-de-vitesse" href="#4erreur-de-vitesse" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.Erreur de vitesse</h3>
-<h4 id="41_1"><a name="user-content-41_1" href="#41_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.1 确定系数???</h4>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_010143.png" /></p></p>
-<h4 id="42-reponse-a-une-rampe"><a name="user-content-42-reponse-a-une-rampe" href="#42-reponse-a-une-rampe" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.2 réponse  à  une rampe</h4>
-<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_010301.png" /></p></p>
-<div class="codehilite"><pre><span class="hll"><span class="n">pi0_ev</span><span class="p">=</span><span class="mi">1</span>
-</span><span class="n">theta0_ev</span><span class="p">=</span><span class="n">p1</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">pi0_ev</span>
+<h4 id="41_1"><a name="user-content-41_1" href="#41_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.1 确定系数</h4>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_010143.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180118_210741.png" /></p></p>
+<div class="codehilite"><pre><span class="hll"><span class="c">%%%%%%Erreur de vitesse</span>
+</span><span class="n">pi0_ev</span><span class="p">=</span><span class="mi">1</span>
+<span class="n">theta0_ev</span><span class="p">=</span><span class="n">p1</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">pi0_ev</span>
 <span class="n">theta1_ev</span><span class="p">=</span><span class="n">p2</span><span class="o">-</span><span class="n">pi0_ev</span>
 
 <span class="c">% Réalisation du correceur Kp1(z) </span>
 <span class="n">Ttheta_ev</span><span class="p">=</span><span class="n">tf</span><span class="p">([</span><span class="n">theta0_ev</span> <span class="n">theta1_ev</span><span class="p">],</span><span class="mi">1</span><span class="p">,</span><span class="n">te2</span><span class="p">)</span>
-<span class="n">Sr_ev</span><span class="p">=[</span><span class="mi">1</span> <span class="o">-</span><span class="mi">2</span> <span class="mi">1</span><span class="p">]</span>   
+<span class="n">Sr_ev</span><span class="p">=[</span><span class="mi">1</span> <span class="o">-</span><span class="mi">2</span> <span class="mi">1</span><span class="p">]</span>   <span class="c">%=(1-z^-1)^2</span>
 <span class="c">% Annule l&#39;erreur de vitesse - deux intégrateurs = conv([1 -1],[1 -1])</span>
 <span class="n">TSr_ev</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Sr_ev</span><span class="p">,</span><span class="n">te2</span><span class="p">)</span>   <span class="c">% fonction de transfert de Sr_ev</span>
 <span class="n">Kp_ev</span><span class="p">=</span><span class="n">Dstable</span><span class="o">*</span><span class="n">Sm</span><span class="o">*</span><span class="n">Ttheta_ev</span><span class="o">*</span><span class="n">TSr_ev</span><span class="o">*</span><span class="mi">1</span><span class="o">*</span><span class="n">Nstable</span>
 
-<span class="c">% Extraction Simulink</span>
-<span class="n">NKp_ev</span><span class="p">=</span><span class="n">Kp_ev</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
-<span class="n">DKp_ev</span><span class="p">=</span><span class="n">Kp_ev</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
-
-<span class="n">NP</span><span class="p">=</span><span class="n">tfd4</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
-<span class="n">DP</span><span class="p">=</span><span class="n">tfd4</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+<span class="c">% Extraction Simulink du correcteur EV</span>
+<span class="n">Nev</span><span class="p">=</span><span class="n">Kp_ev</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">Dev</span><span class="p">=</span><span class="n">Kp_ev</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
 </pre></div>
 
 
+<h4 id="42-reponse-a-une-rampe"><a name="user-content-42-reponse-a-une-rampe" href="#42-reponse-a-une-rampe" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.2 réponse  à  une rampe</h4>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_010301.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180118_212030.png" /></p></p>
 <h1 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>附录</h1>
 <h2 id="i"><a name="user-content-i" href="#i" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>I 英法对照</h2>
 <div class="admonition hint">
@@ -4680,18 +4721,27 @@ printsys(num,den,’s’) %以传递函数形式显示出来</p>
 <p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171220_162818.png" /></p><br />
 <p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171220_163303.png" /></p><br />
 <p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171220_164242.png" /></p></p>
-<h2 id="iv_1"><a name="user-content-iv_1" href="#iv_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>IV 待解决疑问????</h2>
+<h2 id="table-en-z"><a name="user-content-table-en-z" href="#table-en-z" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Table en Z</h2>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\tab_01.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\tab_02.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\tab_03.png" /></p></p>
+<h2 id="iv_1"><a name="user-content-iv_1" href="#iv_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>IV 待解决疑问</h2>
 <ul>
-<li>疑问<ul>
+<li>疑问(部分解决)<ul>
 <li>margin state</li>
 <li>波特图</li>
 <li>确定系数：r0 r1</li>
-<li>为什么要变3阶</li>
-<li>p1 p2 p3怎么确定</li>
+<li>为什么要变3阶<ul>
+<li>对一阶系统确定PID需要引入一个pole</li>
+</ul>
+</li>
 <li>lerreur de position, vitesse</li>
-<li>P的取值什么时候为 dans un rapport 10 avec les valeurs reel pole dominant ？？？</li>
-<li>已经知道u.maxi,如何计算rho  ????</li>
-<li>Pole de FTBF怎么算  ????</li>
+<li>P的取值什么时候为 dans un rapport 10 avec les valeurs reel pole dominant ???</li>
+<li>已经知道u.maxi,如何计算rho<ul>
+<li>根据cdc的要求凑</li>
+</ul>
+</li>
+<li>Pole de FTBF</li>
 <li>计算L时，pôle的值什么时候取 dans un rapport 5 pour pole d&rsquo;observateur</li>
 </ul>
 </li>
