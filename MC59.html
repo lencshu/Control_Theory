@@ -1438,6 +1438,7 @@ MathJax.Hub.Config({
 <li><a href="#6lqrftbfpole">6.LQR、FTBF的pôle</a></li>
 <li><a href="#7">7. 观测器</a></li>
 <li><a href="#8">8.初始条件的影响</a></li>
+<li><a href="#correction-du-prof">Correction du Prof</a></li>
 </ul>
 </li>
 <li><a href="#part-b">Part B 离散信号处理</a><ul>
@@ -1680,6 +1681,7 @@ MathJax.Hub.Config({
 </li>
 </ul>
 </li>
+<li><a href="#final-2017">Final 2017</a></li>
 <li><a href="#_5">附录</a><ul>
 <li><a href="#i">I 英法对照</a></li>
 <li><a href="#ii-matlab">II Matlab 公式</a></li>
@@ -1691,7 +1693,7 @@ MathJax.Hub.Config({
 </ul>
 </div>
 <hr />
-<p>title: Control Theory<br />
+<p>title: Control Theory By Guoliang LI<br />
 permalink: <br />
 categories: Techno<br />
 lang: Fr-Ch<br />
@@ -1703,12 +1705,21 @@ description: </p>
 <div class="admonition hint">
 <p class="admonition-title">总述<p>En automatique, un asservissement est un système dont l&rsquo;objet principal est d&rsquo;atteindre le plus rapidement possible sa valeur de consigne et de la maintenir, quelles que soient les perturbations externes.<br />
 <strong><code>自动控制系统中，伺服系统的目的是，无论有何种外部干扰，都要尽可能快的达到并保持需求信号</code></strong><br />
-Le principe général est de comparer la consigne et l&rsquo;état du système de manière à le corriger       efficacement. On parle également de système commandé par rétroaction négative ou en boucle fermée.<br />
+Le principe général est de comparer la consigne et l&rsquo;état du système de manière à le corriger efficacement. On parle également de système commandé par rétroaction négative ou en boucle fermée.<br />
 <strong><code>通常的原则是比较输入信号和系统状态来进行高效的纠正。通常又被称为负反馈或者闭环系统。</code></strong></p>
 </p>
 </div>
 <!-- more -->
 
+<p><strong>Avant Tous</strong></p>
+<ul>
+<li>Remarque technique:<ul>
+<li>Le page est écrit sous <code>Markdown</code></li>
+<li>la mise à jour se fait par un script de python <a href="https://github.com/lencshu/con.t/tree/master/_Automatisation">le lien du GITHUB</a></li>
+<li>Tous les matières (comme les programmes) se trouvent sur <a href="https://github.com/lencshu/con.t">le lien du GITHUB</a></li>
+</ul>
+</li>
+</ul>
 <h1 id="part-a"><a name="user-content-part-a" href="#part-a" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Part A 连续信号处理</h1>
 <h2 id="i-placement-des-poles-1948"><a name="user-content-i-placement-des-poles-1948" href="#i-placement-des-poles-1948" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>I) Placement des pôles 1948</h2>
 <p><strong>Conception des systèmes asservis linéaires par placement des pôles </strong><br />
@@ -3129,6 +3140,8 @@ pour valoriser le parametre prépondérant X1, on prends $\rho$=0.6:</p>
 <p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171128_211004.png" /></p></p>
 <h2 id="6lqrftbfpole"><a name="user-content-6lqrftbfpole" href="#6lqrftbfpole" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>6.LQR、FTBF的pôle</h2>
 <p><p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171122_132856.png" /></p></p>
+<p><strong>Remarque importante:</strong><br />
+A patir de cette question, car la valeur de $\rho$ est mal calculé, toutes les réponses restes sont malheureusement erroné. Pour la correction, voir la titre <code>Correction du Prof</code></p>
 <p><div class="codehilite"><pre><span class="o">%</span><span class="n">LQ</span>
 <span class="n">trsi</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span>  <span class="o">%</span><span class="n">desired</span> <span class="n">settle</span> <span class="n">time</span> <span class="p">(</span><span class="n">tr5</span><span class="o">%</span><span class="p">)</span> <span class="n">maxi</span>
 <span class="n">x1m</span><span class="o">=</span><span class="mf">1.05</span><span class="p">;</span>
@@ -3164,6 +3177,11 @@ pour valoriser le parametre prépondérant X1, on prends $\rho$=0.6:</p>
 <p><p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171122_133056.png" /></p><br />
 <p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171122_162136.png" /></p><br />
 <p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171128_211305.png" /></p></p>
+<h2 id="correction-du-prof"><a name="user-content-correction-du-prof" href="#correction-du-prof" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Correction du Prof</h2>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\median2017_1.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\median2017_2.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\median2017_3.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\median2017_4.png" /></p></p>
 <h1 id="part-b"><a name="user-content-part-b" href="#part-b" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Part B 离散信号处理</h1>
 <h2 id="i-z"><a name="user-content-i-z" href="#i-z" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>I) Z 变换</h2>
 <p>Transformée en Z</p>
@@ -3749,8 +3767,14 @@ Cette structure n&rsquo;est pas la meilleure à cause de la dérivée qui amplif
 
 <h2 id="td_1"><a name="user-content-td_1" href="#td_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD习题</h2>
 <h3 id="td03"><a name="user-content-td03" href="#td03" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD03</h3>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\TD03_1.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\TD03_2.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\TD03_3.png" /></p></p>
 <h3 id="td04_1"><a name="user-content-td04_1" href="#td04_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD04</h3>
-<p><p align="center"><img alt="" src="///C://Users/lencs/Desktop/MC59/git.control_theory/images/cap_20171130_121908.png" /></p></p>
+<p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\TD04_32.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\TD04_30.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\TD04_29.png" /></p><br />
+<p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\TD04_28.png" /></p></p>
 <h3 id="td05"><a name="user-content-td05" href="#td05" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TD05</h3>
 <ul>
 <li>Objectifs   :<ul>
@@ -4570,6 +4594,168 @@ erreur position nulle 趋近与零:<br />
 <h4 id="42-reponse-a-une-rampe"><a name="user-content-42-reponse-a-une-rampe" href="#42-reponse-a-une-rampe" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.2 réponse  à  une rampe</h4>
 <p><p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20171228_010301.png" /></p><br />
 <p align="center"><img alt="" src="C:\Users\lencs\Desktop\MC59\git.control_theory\images\cap_20180118_212030.png" /></p></p>
+<h1 id="final-2017"><a name="user-content-final-2017" href="#final-2017" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Final 2017</h1>
+<div class="codehilite"><pre><span class="hll"><span class="n">clear</span> <span class="n">all</span><span class="p">;</span>
+</span><span class="n">clc</span><span class="p">;</span>
+
+<span class="c">%%%%%%%%%%%% 1er ordre</span>
+<span class="c">%建立方程</span>
+<span class="n">k0</span><span class="p">=</span><span class="mf">0.1</span><span class="p">;</span>
+
+<span class="n">tau0</span><span class="p">=</span><span class="mf">0.02</span><span class="p">;</span>
+<span class="n">tf0</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">k0</span><span class="p">,[</span><span class="n">tau0</span> <span class="mi">1</span><span class="p">]);</span>
+
+<span class="c">%数字采样</span>
+<span class="n">te</span><span class="p">=</span><span class="mf">0.015</span><span class="p">;</span>
+<span class="c">% te=0.0025;</span>
+<span class="n">tfd0</span><span class="p">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">tf0</span><span class="p">,</span><span class="n">te</span><span class="p">,</span><span class="s">&#39;ZOH&#39;</span><span class="p">);</span>
+<span class="n">b1a</span><span class="p">=</span><span class="n">tfd0</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">a1a</span><span class="p">=</span><span class="n">tfd0</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
+
+
+
+<span class="c">%correcteur P</span>
+<span class="c">% rlocus(tfd0);grid;</span>
+
+<span class="n">Kp_mini</span><span class="p">=(</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">a1a</span><span class="p">)</span><span class="o">/</span><span class="n">b1a</span>
+<span class="n">Kp_maxi</span><span class="p">=(</span><span class="mi">1</span><span class="o">-</span><span class="n">a1a</span><span class="p">)</span><span class="o">/</span><span class="n">b1a</span>
+
+<span class="c">% kp=12;</span>
+<span class="c">% tfd0_o=series(kp,tfd0); </span>
+<span class="c">% tfd0_f=feedback(tfd0_o,1)</span>
+
+
+<span class="c">%一阶系统自动验证采样频率</span>
+<span class="n">tau1</span><span class="p">=</span><span class="n">tau0</span><span class="o">/</span><span class="mi">4</span><span class="p">;</span>
+
+<span class="n">te</span><span class="p">=</span><span class="mf">0.0025</span><span class="p">;</span>
+<span class="n">Tmin</span><span class="p">=</span><span class="mf">0.25</span><span class="o">*</span><span class="n">tau1</span><span class="p">;</span>
+<span class="n">Tminreel</span><span class="p">=</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">25</span><span class="o">*</span><span class="n">tau1</span>
+<span class="n">Tmax</span><span class="p">=</span><span class="mf">1.25</span><span class="o">*</span><span class="n">tau1</span><span class="p">;</span>
+<span class="n">Tmaxreel</span><span class="p">=</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">5</span><span class="o">*</span><span class="n">tau1</span>
+<span class="n">TShannon</span><span class="p">=</span><span class="nb">pi</span><span class="o">*</span><span class="n">tau1</span>
+
+<span class="k">if</span> <span class="n">Tmin</span><span class="o">&lt;</span><span class="n">te</span><span class="o">&amp;&amp;</span><span class="n">te</span><span class="o">&lt;</span><span class="n">Tmax</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="s">&#39;%f(Tmin) &lt; te &lt; %f(Tmax)\n&#39;</span><span class="p">,</span><span class="n">Tmin</span><span class="p">,</span><span class="n">Tmax</span><span class="p">)</span>
+<span class="k">elseif</span> <span class="n">te</span><span class="o">&lt;</span><span class="n">TShannon</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="s">&#39;Que au Shannon: te&lt;%f(Shannon)\n&#39;</span><span class="p">,</span><span class="n">TShannon</span><span class="p">)</span>
+<span class="k">else</span>
+    <span class="n">fprintf</span><span class="p">(</span>&quot;<span class="n">la</span> <span class="n">periode</span> <span class="n">d</span><span class="o">&#39;</span><span class="n">echantillonnage</span> <span class="n">est</span> <span class="n">mal</span> <span class="n">choisie</span><span class="o">\</span><span class="n">n</span>&quot;<span class="p">)</span>
+<span class="k">end</span>
+
+
+<span class="c">%建立方程</span>
+<span class="n">t1</span><span class="p">=</span><span class="mi">1</span> <span class="c">%erreur de position==0 所以t1取零</span>
+<span class="n">tbf</span><span class="p">=</span><span class="n">tau1</span>
+
+<span class="n">tf1</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">t1</span><span class="p">,[</span><span class="n">tau1</span> <span class="mi">1</span><span class="p">]);</span>
+
+<span class="c">%数字采样</span>
+<span class="n">tfd1</span><span class="p">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">tf1</span><span class="p">,</span><span class="n">te</span><span class="p">,</span><span class="s">&#39;ZOH&#39;</span><span class="p">);</span>
+<span class="n">B1a</span><span class="p">=</span><span class="n">tfd1</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">A1a</span><span class="p">=</span><span class="n">tfd1</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c">%5.4 PI</span>
+<span class="c">% gain statique du système désiré</span>
+<span class="n">r0pi</span><span class="p">=</span><span class="n">B1a</span><span class="o">/</span><span class="n">b1a</span>
+<span class="n">r1pi</span><span class="p">=</span><span class="n">r0pi</span><span class="o">*</span><span class="n">a1a</span>
+
+<span class="n">numPI</span><span class="p">=[</span><span class="n">r0pi</span> <span class="n">r1pi</span><span class="p">];</span>
+<span class="n">denPI</span><span class="p">=[</span><span class="mi">1</span> <span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+
+<span class="c">%直接转换为Z变换函数</span>
+<span class="n">Kpi</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">numPI</span><span class="p">,</span><span class="n">denPI</span><span class="p">,</span><span class="n">te</span><span class="p">,</span><span class="s">&#39;variable&#39;</span><span class="p">,</span><span class="s">&#39;z&#39;</span><span class="p">);</span>  <span class="c">%Fonction de transfert du correcteur PI</span>
+
+<span class="c">%确定闭环转换函数</span>
+<span class="n">tfd0</span><span class="p">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">tf0</span><span class="p">,</span><span class="n">te</span><span class="p">,</span><span class="s">&#39;ZOH&#39;</span><span class="p">);</span>
+<span class="n">tfd2pi_o</span><span class="p">=</span><span class="n">series</span><span class="p">(</span><span class="n">Kpi</span><span class="p">,</span><span class="n">tfd0</span><span class="p">);</span>  
+<span class="n">tfd2pi_f</span><span class="p">=</span><span class="n">feedback</span><span class="p">(</span><span class="n">tfd2pi_o</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="c">% step(tfd2pi_f)</span>
+<span class="c">% step(tf1,tfd1,tfd2pi_f);</span>
+<span class="n">Steady_timePI</span><span class="p">=</span><span class="n">stepinfo</span><span class="p">(</span><span class="n">tfd2pi_f</span><span class="p">,</span><span class="s">&#39;SettlingTimeThreshold&#39;</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
+
+<span class="c">%%%%%%%%% 2eme ordre</span>
+<span class="n">k1</span><span class="p">=</span><span class="mi">10</span><span class="p">;</span>
+<span class="c">% tau2=450;</span>
+<span class="c">% tau3=150;</span>
+<span class="c">% w3=1/sqrt(tau3*tau2)</span>
+<span class="n">w3</span><span class="p">=</span><span class="mf">0.1</span><span class="p">;</span>
+<span class="c">% m=(tau2+tau3)*w3/2</span>
+<span class="n">m</span><span class="p">=</span><span class="mf">0.1</span><span class="p">;</span>
+
+<span class="n">num5</span><span class="p">=[</span><span class="n">k1</span><span class="p">];</span>
+<span class="n">den5</span><span class="p">=[(</span><span class="mi">1</span><span class="o">/</span><span class="n">w3</span><span class="p">)</span>^<span class="mi">2</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="n">w3</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">tf3</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">num5</span><span class="p">,</span><span class="n">den5</span><span class="p">);</span>
+
+<span class="n">te2</span><span class="p">=</span><span class="mf">2.5</span><span class="p">;</span>
+<span class="n">tfd3</span><span class="p">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">tf3</span><span class="p">,</span><span class="n">te2</span><span class="p">,</span><span class="s">&#39;ZOH&#39;</span><span class="p">)</span>
+
+<span class="n">b1b</span><span class="p">=</span><span class="n">tfd3</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">b2b</span><span class="p">=</span><span class="n">tfd3</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">a1b</span><span class="p">=</span><span class="n">tfd3</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">a2b</span><span class="p">=</span><span class="n">tfd3</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">3</span><span class="p">)</span>
+
+
+
+<span class="c">%二阶系统采样频率自动验证</span>
+<span class="n">w4</span><span class="p">=</span><span class="n">w3</span><span class="o">*</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">teW4</span><span class="p">=</span><span class="n">te2</span><span class="o">*</span><span class="n">w4</span><span class="p">;</span>
+<span class="n">m1</span><span class="p">=</span><span class="mf">0.707</span><span class="p">;</span>
+<span class="c">% wc=sqrt(sqrt((2*m^2-1)^2+1)-(2*m^2-1))</span>
+
+<span class="n">Tmin</span><span class="p">=</span><span class="mf">0.25</span><span class="p">;</span>
+<span class="n">Tminreel</span><span class="p">=</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">25</span>
+<span class="n">Tmax</span><span class="p">=</span><span class="mf">1.25</span><span class="p">;</span>
+<span class="n">Tmaxreel</span><span class="p">=</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">5</span>
+<span class="n">TShannon</span><span class="p">=</span><span class="nb">pi</span>
+
+<span class="k">if</span> <span class="n">Tmin</span><span class="o">&lt;</span><span class="n">teW4</span><span class="o">&amp;&amp;</span><span class="n">teW4</span><span class="o">&lt;</span><span class="n">Tmax</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="s">&#39;%f(Tmin) &lt; te &lt; %f(Tmax)\n&#39;</span><span class="p">,</span><span class="n">Tmin</span><span class="p">,</span><span class="n">Tmax</span><span class="p">)</span>
+<span class="k">elseif</span> <span class="n">teW4</span><span class="o">&lt;</span><span class="n">TShannon</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="s">&#39;Que au Shannon: te&lt;%f(Shannon)\n&#39;</span><span class="p">,</span><span class="n">TShannon</span><span class="p">)</span>
+<span class="k">else</span>
+    <span class="n">fprintf</span><span class="p">(</span>&quot;<span class="n">la</span> <span class="n">periode</span> <span class="n">d</span><span class="o">&#39;</span><span class="n">echantillonnage</span> <span class="n">est</span> <span class="n">mal</span> <span class="n">choisie</span><span class="o">\</span><span class="n">n</span>&quot;<span class="p">)</span>
+<span class="k">end</span>
+
+
+<span class="c">%采样</span>
+<span class="n">num1</span><span class="p">=[</span><span class="mi">1</span><span class="p">];</span>
+<span class="n">den1</span><span class="p">=[(</span><span class="mi">1</span><span class="o">/</span><span class="n">w4</span><span class="p">)</span>^<span class="mi">2</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m1</span><span class="p">)</span><span class="o">/</span><span class="n">w4</span> <span class="mi">1</span><span class="p">];</span>
+<span class="n">tf4</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span><span class="n">den1</span><span class="p">,</span><span class="s">&#39;variable&#39;</span><span class="p">,</span><span class="s">&#39;p&#39;</span><span class="p">);</span>
+<span class="n">tfd4</span><span class="p">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">tf4</span><span class="p">,</span><span class="n">te2</span><span class="p">);</span>     <span class="c">%Determination T1d(z)</span>
+
+<span class="n">B1</span><span class="p">=</span><span class="n">tfd4</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">B2</span><span class="p">=</span><span class="n">tfd4</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">A1</span><span class="p">=</span><span class="n">tfd4</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">A2</span><span class="p">=</span><span class="n">tfd4</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">3</span><span class="p">)</span>
+
+
+<span class="c">%%%PID filtre</span>
+<span class="c">%% 已经是2eme ordre 不需要添加pole</span>
+<span class="c">% Fonction de transfert en BF discrétisée Ordre 3</span>
+<span class="p">[</span><span class="n">P2d</span><span class="p">]=</span><span class="n">tfd4</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span> <span class="c">% Tableau contenant les coefficients du dénominateur</span>
+<span class="n">p1</span><span class="p">=</span><span class="n">P2d</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">p2</span><span class="p">=</span><span class="n">P2d</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c">%Calcul des coefficients du correcteur PID   </span>
+<span class="n">r0pid</span><span class="p">=(</span><span class="mi">1</span><span class="o">+</span><span class="n">p1</span><span class="o">+</span><span class="n">p2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">b1b</span><span class="o">+</span><span class="n">b2b</span><span class="p">)</span>
+<span class="n">r1pid</span><span class="p">=</span><span class="n">a1b</span><span class="o">*</span><span class="n">r0pid</span>
+<span class="n">r2pid</span><span class="p">=</span><span class="n">a2b</span><span class="o">*</span><span class="n">r0pid</span>
+<span class="n">s1</span><span class="p">=</span><span class="n">r0pid</span><span class="o">*</span><span class="n">b2b</span><span class="o">-</span><span class="n">p2</span>
+
+<span class="c">%Fonction transfert du correcteur PID</span>
+<span class="n">numPID</span><span class="p">=[</span><span class="n">r0pid</span> <span class="n">r1pid</span> <span class="n">r2pid</span><span class="p">];</span> <span class="c">%阶数从左往右依次递减</span>
+<span class="n">denPID</span><span class="p">=</span><span class="n">conv</span><span class="p">([</span><span class="mi">1</span> <span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span> <span class="n">s1</span><span class="p">]);</span>
+<span class="n">Kdpid</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">numPID</span><span class="p">,</span><span class="n">denPID</span><span class="p">,</span><span class="n">te2</span><span class="p">,</span><span class="s">&#39;variable&#39;</span><span class="p">,</span><span class="s">&#39;z&#39;</span><span class="p">);</span>
+
+<span class="c">%La reponse a 5%</span>
+<span class="n">tfd4_o</span><span class="p">=</span><span class="n">series</span><span class="p">(</span><span class="n">Kdpid</span><span class="p">,</span><span class="n">tfd3</span><span class="p">)</span>
+<span class="n">tfd4_f</span><span class="p">=</span><span class="n">feedback</span><span class="p">(</span><span class="n">tfd4_o</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Steady_timePID</span><span class="p">=</span><span class="n">stepinfo</span><span class="p">(</span><span class="n">tfd4_f</span><span class="p">,</span><span class="s">&#39;SettlingTimeThreshold&#39;</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
+</pre></div>
+
+
 <h1 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>附录</h1>
 <h2 id="i"><a name="user-content-i" href="#i" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>I 英法对照</h2>
 <div class="admonition hint">

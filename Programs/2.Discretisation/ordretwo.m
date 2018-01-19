@@ -2,17 +2,19 @@ clear all;
 clc;
 
 %%%%%%%%% 2eme ordre
-k1=25;
-tau2=450;
-tau3=150;
-w3=1/sqrt(tau3*tau2)
-m=(tau2+tau3)*w3/2
+k1=10;
+% tau2=450;
+% tau3=150;
+% w3=1/sqrt(tau3*tau2)
+w3=0.1;
+% m=(tau2+tau3)*w3/2
+m=0.1;
 
 num5=[k1];
-den5=conv([tau2 1],[tau3 1]);
+den5=[(1/w3)^2 (2*m)/w3 1]
 tf3=tf(num5,den5);
 
-te2=60;
+te2=2.5;
 tfd3=c2d(tf3,te2,'ZOH')
 
 b1b=tfd3.num{1}(2)
@@ -21,16 +23,17 @@ a1b=tfd3.den{1}(2)
 a2b=tfd3.den{1}(3)
 
 
+
 %二阶系统采样频率自动验证
-w4=w3*4;
+w4=w3*2;
 teW4=te2*w4;
 m1=0.707;
-wc=sqrt(sqrt((2*m^2-1)^2+1)-(2*m^2-1))
+% wc=sqrt(sqrt((2*m^2-1)^2+1)-(2*m^2-1))
 
 Tmin=0.25;
-Tminr=2*pi/25
+Tminreel=2*pi/25
 Tmax=1.25;
-Tmaxr=2*pi/5
+Tmaxreel=2*pi/5
 TShannon=pi
 
 if Tmin<teW4&&teW4<Tmax
@@ -79,7 +82,7 @@ Steady_timePID=stepinfo(tfd4_f,'SettlingTimeThreshold',0.05)
 % step(tf4,tfd4,tfd4_f)
 % step(tfd4_f)
 
-
+%{
 %%%%%%Erreur de position
 
 % Extraction Simulink du processus
@@ -121,3 +124,6 @@ Kp_ev=Dstable*Sm*Ttheta_ev*TSr_ev*1*Nstable
 % Extraction Simulink du correcteur EV
 Nev=Kp_ev.num{1}
 Dev=Kp_ev.den{1}
+
+
+%}
