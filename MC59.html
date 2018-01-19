@@ -4606,8 +4606,9 @@ erreur position nulle 趋近与零:<br />
 <span class="n">tf0</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">k0</span><span class="p">,[</span><span class="n">tau0</span> <span class="mi">1</span><span class="p">]);</span>
 
 <span class="c">%数字采样</span>
-<span class="n">te</span><span class="p">=</span><span class="mf">0.015</span><span class="p">;</span>
-<span class="c">% te=0.0025;</span>
+<span class="c">%te=0.015; %15ms</span>
+<span class="n">te</span><span class="p">=</span><span class="mf">0.0025</span><span class="p">;</span> <span class="c">%2.5ms</span>
+
 <span class="n">tfd0</span><span class="p">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">tf0</span><span class="p">,</span><span class="n">te</span><span class="p">,</span><span class="s">&#39;ZOH&#39;</span><span class="p">);</span>
 <span class="n">b1a</span><span class="p">=</span><span class="n">tfd0</span><span class="p">.</span><span class="n">num</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">a1a</span><span class="p">=</span><span class="n">tfd0</span><span class="p">.</span><span class="n">den</span><span class="p">{</span><span class="mi">1</span><span class="p">}(</span><span class="mi">2</span><span class="p">)</span>
@@ -4628,7 +4629,6 @@ erreur position nulle 趋近与零:<br />
 <span class="c">%一阶系统自动验证采样频率</span>
 <span class="n">tau1</span><span class="p">=</span><span class="n">tau0</span><span class="o">/</span><span class="mi">4</span><span class="p">;</span>
 
-<span class="n">te</span><span class="p">=</span><span class="mf">0.0025</span><span class="p">;</span>
 <span class="n">Tmin</span><span class="p">=</span><span class="mf">0.25</span><span class="o">*</span><span class="n">tau1</span><span class="p">;</span>
 <span class="n">Tminreel</span><span class="p">=</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">25</span><span class="o">*</span><span class="n">tau1</span>
 <span class="n">Tmax</span><span class="p">=</span><span class="mf">1.25</span><span class="o">*</span><span class="n">tau1</span><span class="p">;</span>
@@ -4667,13 +4667,13 @@ erreur position nulle 趋近与零:<br />
 <span class="n">Kpi</span><span class="p">=</span><span class="n">tf</span><span class="p">(</span><span class="n">numPI</span><span class="p">,</span><span class="n">denPI</span><span class="p">,</span><span class="n">te</span><span class="p">,</span><span class="s">&#39;variable&#39;</span><span class="p">,</span><span class="s">&#39;z&#39;</span><span class="p">);</span>  <span class="c">%Fonction de transfert du correcteur PI</span>
 
 <span class="c">%确定闭环转换函数</span>
-<span class="n">tfd0</span><span class="p">=</span><span class="n">c2d</span><span class="p">(</span><span class="n">tf0</span><span class="p">,</span><span class="n">te</span><span class="p">,</span><span class="s">&#39;ZOH&#39;</span><span class="p">);</span>
 <span class="n">tfd2pi_o</span><span class="p">=</span><span class="n">series</span><span class="p">(</span><span class="n">Kpi</span><span class="p">,</span><span class="n">tfd0</span><span class="p">);</span>  
 <span class="n">tfd2pi_f</span><span class="p">=</span><span class="n">feedback</span><span class="p">(</span><span class="n">tfd2pi_o</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
 
 <span class="c">% step(tfd2pi_f)</span>
 <span class="c">% step(tf1,tfd1,tfd2pi_f);</span>
 <span class="n">Steady_timePI</span><span class="p">=</span><span class="n">stepinfo</span><span class="p">(</span><span class="n">tfd2pi_f</span><span class="p">,</span><span class="s">&#39;SettlingTimeThreshold&#39;</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
+
 
 <span class="c">%%%%%%%%% 2eme ordre</span>
 <span class="n">k1</span><span class="p">=</span><span class="mi">10</span><span class="p">;</span>

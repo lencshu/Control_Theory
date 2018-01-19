@@ -9,8 +9,9 @@ tau0=0.02;
 tf0=tf(k0,[tau0 1]);
 
 %数字采样
-te=0.015;
-% te=0.0025;
+%te=0.015;
+te=0.0025;
+
 tfd0=c2d(tf0,te,'ZOH');
 b1a=tfd0.num{1}(2)
 a1a=tfd0.den{1}(2)
@@ -31,7 +32,6 @@ Kp_maxi=(1-a1a)/b1a
 %一阶系统自动验证采样频率
 tau1=tau0/4;
 
-te=0.0025;
 Tmin=0.25*tau1;
 Tminreel=2*pi/25*tau1
 Tmax=1.25*tau1;
@@ -70,7 +70,6 @@ denPI=[1 -1];
 Kpi=tf(numPI,denPI,te,'variable','z');  %Fonction de transfert du correcteur PI
 
 %确定闭环转换函数
-tfd0=c2d(tf0,te,'ZOH');
 tfd2pi_o=series(Kpi,tfd0);  
 tfd2pi_f=feedback(tfd2pi_o,1);
 
